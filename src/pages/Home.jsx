@@ -1,7 +1,7 @@
-import {useReducer, useEffect} from 'react';
+import { useReducer, useEffect } from 'react';
 import Layout from '../components/Layout'
 import QuickLink from '../components/QuickLink'
-import scrollbarReducer, {initialState} from '../components/scrollbarReducer'
+import scrollbarReducer, { initialState } from '../components/scrollbarReducer'
 import About from '../components/About'
 import Resume from '../components/Resume'
 import Tabs from '../components/Tabs'
@@ -10,25 +10,23 @@ import ContactBanner from '../components/Contact/ContactBanner'
 
 export default function App() {
     const links = [
-        {id: "#about", title: "About"},
-        {id: "#resume", title: "My Resume"},
-        {id: "#portfolio", title: "Portfolio"},
-        {id: "#contact", title: "Contact Me"}
+        { id: "#about", title: "About" },
+        { id: "#resume", title: "My Resume" },
+        { id: "#portfolio", title: "Portfolio" },
+        { id: "#contact", title: "Contact Me" }
     ]
     const [scrollbar, dispatch] = useReducer(scrollbarReducer, initialState)
 
     useEffect(() => {
-        dispatch({type: 'INIT', container: document.querySelector('#main-content'), scrollbar: 'scrollbar'})
-    }, [])
-    useEffect(() => {
-        dispatch({type: 'INIT', container: document.querySelector('#contact-fixed'), scrollbar: 'contactFixed'})
+        dispatch({ type: 'INIT', container: document.querySelector('#main-content'), scrollbar: 'scrollbar' });
+        dispatch({ type: 'INIT', container: document.querySelector('#contact-fixed'), scrollbar: 'contactFixed' });
     }, [])
 
     return (
         <Layout title="Home" scrollbar={scrollbar}>
-            <Slider scrollbar={scrollbar}/>
-            <About/>
-            <Resume/>
+            <Slider scrollbar={scrollbar} />
+            <About />
+            <Resume />
             <section id="portfolio" className="bg-[#040404]">
                 <div className="container py-[120px]">
                     <div
@@ -37,18 +35,18 @@ export default function App() {
                     </div>
                     <div className="mb-[60px]">
                         <h3 className="pb-6 font-bold text-[2.5rem] leading-[3.5rem] tracking-[2px] my-3">
-                            Take a look at my<br/> latest projects
+                            Take a look at my<br /> latest projects
                         </h3>
                         <div
-                            className="relative block w-full h-[2px] bg-[#ffffff14] after:w-[200px] after:h-[2px] after:bg-[white] after:left-0 after:top-0 after:absolute "/>
+                            className="relative block w-full h-[2px] bg-[#ffffff14] after:w-[200px] after:h-[2px] after:bg-[white] after:left-0 after:top-0 after:absolute " />
                     </div>
-                    <Tabs scrollbar={scrollbar}/>
+                    <Tabs scrollbar={scrollbar} />
                 </div>
             </section>
             <section id="contact">
-                <ContactBanner scrollbar={scrollbar}/>
+                <ContactBanner scrollbar={scrollbar} />
             </section>
-            <QuickLink links={links} scrollbar={scrollbar}/>
+            <QuickLink links={links} scrollbar={scrollbar} />
         </Layout>
     )
 }

@@ -1,11 +1,13 @@
 import {
     ChitchatSlide,
-    CommoditiesSlide, DepotSlide,
+    CommoditiesSlide,
+    DepotSlide,
     ElectronicSlide,
     NoonpostSlide,
     ShopioSlide,
     SnakeSlide,
-    SpotifySlide, SpotifySlideV2,
+    SpotifySlide,
+    SpotifySlideV2,
     TodoSlide
 } from "./components/Slider/Slides";
 
@@ -93,10 +95,10 @@ export const projects = [
         slide_number: '05',
         slide_component: ShopioSlide,
         slide_image: 'https://cdn.dribbble.com/users/2198224/screenshots/14443181/media/c61c0b293ccf395c7160f8495067fd20.jpg?compress=1&resize=800x600',
-        slide_thumbnail: 'https://th.bing.com/th/id/R.2199eb5638c66a62639296e4ea55fe95?rik=2ReUM5Fg5p8lug&riu=http%3a%2f%2fventuresafrica.com%2fwp-content%2fuploads%2f2019%2f05%2f86162003_thumbnail-1-e1459369686121-2-1536x911.jpg&ehk=i14CyMIXyF4By8lPVMAsAZzAd%2b9PTUQlOqyhyhScRdw%3d&risl=&pid=ImgRaw&r=0',
+        slide_thumbnail: 'https://cdn.dribbble.com/users/2198224/screenshots/14443181/media/c61c0b293ccf395c7160f8495067fd20.jpg?compress=1&resize=800x600',
         card_title: "Shopio. - React App <br/> eCommerce",
         card_desc: "eCommerce - ReactJS - NodeJS",
-        card_image: "https://th.bing.com/th/id/R.2199eb5638c66a62639296e4ea55fe95?rik=2ReUM5Fg5p8lug&riu=http%3a%2f%2fventuresafrica.com%2fwp-content%2fuploads%2f2019%2f05%2f86162003_thumbnail-1-e1459369686121-2-1536x911.jpg&ehk=i14CyMIXyF4By8lPVMAsAZzAd%2b9PTUQlOqyhyhScRdw%3d&risl=&pid=ImgRaw&r=0",
+        card_image: "https://cdn.dribbble.com/users/2198224/screenshots/14443181/media/c61c0b293ccf395c7160f8495067fd20.jpg?compress=1&resize=800x600",
         images: [
             'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-2.png?alt=media&token=d5b778ad-1ce6-435f-b8ba-e1a5ebb885f9',
             'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-1.png?alt=media&token=a6649940-6d0a-4283-bce9-778d3f04ca74',

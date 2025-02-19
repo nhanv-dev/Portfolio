@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { IoClose } from "react-icons/io5";
-import ProgressiveImage from "react-progressive-graceful-image";
 import { projects } from "../../data";
 import Card from "./Card";
 
@@ -51,13 +50,14 @@ export default function Tabs({ scrollbar }) {
         </div>
     );
 }
+
 const Slide = ({ active, projects, hidden }) => {
     const [project, setProject] = useState(null);
     const [image, setImage] = useState(null);
     const [index, setIndex] = useState(-1);
     const [loaded, setLoaded] = useState(false);
 
-     useEffect(() => {
+    useEffect(() => {
         const keyboardFunction = (event) => {
             if (event.key === "Escape") {
                 hidden();
@@ -129,7 +129,10 @@ const Slide = ({ active, projects, hidden }) => {
                     className={"absolute top-[50%] left-[-50px] translate-y-[-50%] z-50 font-semibold text-4xl text-black outline-none flex items-center justify-center w-[32px] h-[32px] bg-[rgba(255,255,255,.7)] hover:bg-white rounded-full"}>
                     <BsArrowLeftShort />
                 </button>
-                <ProgressiveImage src={image} placeholder={'loading'}>
+                <div className="rounded-md border border-white min-h-[300px] min-w-[800px] relative">
+                    <img src={image} alt="Image Tab" className={`h-full rounded-md`} />
+                </div>
+                {/* <ProgressiveImage src={image} placeholder={'loading'}>
                     {(src, loading) => (
                         <div className="rounded-md border border-white min-h-[300px] min-w-[800px] relative">
                             {loading ?
@@ -144,7 +147,7 @@ const Slide = ({ active, projects, hidden }) => {
                             }
                         </div>
                     )}
-                </ProgressiveImage>
+                </ProgressiveImage> */}
                 <button tabIndex={-1} onClick={handleNextImage}
                     className={"absolute top-[50%] right-[-50px] translate-y-[-50%] z-50 font-semibold text-4xl text-black outline-none flex items-center justify-center w-[32px] h-[32px] bg-[rgba(255,255,255,.7)] hover:bg-white rounded-full"}>
                     <BsArrowRightShort />

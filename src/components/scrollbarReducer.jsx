@@ -1,7 +1,7 @@
 import Scrollbar, {ScrollbarPlugin} from 'smooth-scrollbar';
 
 const options = {
-    damping: 0.05,
+    damping: 0.1,
     thumbMinSize: 20,
     renderByPixels: true,
     continuousScrolling: true,
@@ -11,7 +11,6 @@ const options = {
             direction: 'x',
         },
     }
-
 }
 
 class ModalPlugin extends ScrollbarPlugin {
