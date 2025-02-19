@@ -8,7 +8,6 @@ const Card = ({ item, index, show }) => {
     if (index % 2 === 1) className += "md:mt-[30px] "
     if (index % 2 === 0) className += "md:mt-[0px] "
 
-
     return (
         <div className={`${className} block`}>
             <a href={item.website} target="_blank" rel="noreferrer" tabIndex={-1}

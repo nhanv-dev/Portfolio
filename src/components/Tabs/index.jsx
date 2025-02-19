@@ -34,18 +34,18 @@ export default function Tabs({ scrollbar }) {
         <div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {projects.map((project, index) => (
-                    <div key={project.slug}>
-                        <Card item={project} index={index} show={show} />
-                    </div>
+                    <Card key={project.slug}
+                        item={project} index={index} // show={show}
+                    />
                 ))}
-                <div ref={containerRef}
+                {/* <div ref={containerRef}
                     className={`${active !== -1 ? 'visible opacity-100' : 'invisible opacity-0'} transition-opacity duration-500 backdrop-blur w-[100vw] h-[100vh] left-0 top-0 fixed z-[1000] flex items-center bg-[rgba(0,0,0,0.7)]`}>
                     <Slide active={active} projects={projects} hidden={hidden} />
                     <button tabIndex={-1} onClick={hidden}
                         className="z-[100] cursor-pointer absolute right-[22px] top-[22px] w-[32px] h-[32px] rounded-full bg-[rgba(255,255,255,.7)] hover:bg-white text-black flex items-center justify-center ">
                         <IoClose className="text-2xl" />
                     </button>
-                </div>
+                </div> */}
             </div>
         </div>
     );

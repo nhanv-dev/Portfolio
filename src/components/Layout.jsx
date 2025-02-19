@@ -9,7 +9,7 @@ import Preloader from './Preloader'
 const Layout = ({ title, children, scrollbar }) => {
 
     useEffect(() => {
-        document.title = title ? ` ${title} | Portfolio` : 'Portfolio';
+        document.title = title ? ` ${title} - Portfolio` : 'Portfolio';
     }, [title])
 
 
