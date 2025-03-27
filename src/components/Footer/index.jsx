@@ -33,22 +33,22 @@ export default function Footer() {
                             Projects
                         </h3>
                         <ul>
-                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.75rem] uppercase tracking-[2px]">
+                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.8rem] uppercase tracking-[2px]">
                                 <a href="https://chitchat-e6ec4.web.app/" target="_blank" rel="noreferrer">Chitchat</a>
                             </li>
-                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.75rem] uppercase tracking-[2px]">
+                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.8rem] uppercase tracking-[2px]">
                                 <a href="https://personal-blog-node.herokuapp.com/" target="_blank"
                                    rel="noreferrer">Noonpost</a>
                             </li>
-                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.75rem] uppercase tracking-[2px]">
+                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.8rem] uppercase tracking-[2px]">
                                 <a href="https://spotify-client-react.web.app/" target="_blank"
                                    rel="noreferrer">Spotify</a>
                             </li>
-                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.75rem] uppercase tracking-[2px]">
+                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.8rem] uppercase tracking-[2px]">
                                 <a href="https://todos-list-f2750.web.app/" target="_blank"
                                    rel="noreferrer">TodosList</a>
                             </li>
-                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.75rem] uppercase tracking-[2px]">
+                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.8rem] uppercase tracking-[2px]">
                                 <a href="https://snake-game-5bff8.web.app/" target="_blank" rel="noreferrer">Snake
                                     Game</a>
                             </li>
@@ -59,20 +59,14 @@ export default function Footer() {
                             Contact
                         </h3>
                         <ul>
-                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.75rem] tracking-[2px]">
-                                Phone: (+84) 946286951
+                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.8rem]  tracking-[2px]">
+                                Email: tthanhnhan1512@gmail.com
                             </li>
-                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.75rem] tracking-[2px]">
-                                Email 1: 19130159@st.hcmuaf.edu.vn
-                            </li>
-                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.75rem]  tracking-[2px]">
-                                Email 2: tthanhnhan1512@gmail.com
-                            </li>
-                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.75rem] tracking-[2px]">
+                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.8rem] tracking-[2px]">
                                 <a href="https://www.facebook.com/nhan.kden/" target="_blank" rel="noreferrer">Facebook:
                                     nhan.kden</a>
                             </li>
-                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.75rem] tracking-[2px]">
+                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.8rem] tracking-[2px]">
                                 <a href="https://github.com/nhanv-dev" target="_blank" rel="noreferrer">Github:
                                     nhanv-dev</a>
                             </li>
@@ -83,14 +77,14 @@ export default function Footer() {
                             Address
                         </h3>
                         <ul>
-                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.75rem] uppercase  tracking-[2px]">
-                                80/4/3A Tan Hoa Dong Street, Disctrict 6, Ho Chi Minh City.
+                            <li className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.8rem] uppercase  tracking-[2px]">
+                               Ho Chi Minh City.
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div className="text-center pt-10 border-t-[.5px] mt-10 border-[rgba(255,255,255,0.1)]">
-                    <p className="mb-3 text-[rgba(255,255,255,0.6)] font-bold text-[.8rem] uppercase tracking-[2px]">@2022
+                    <p className="mb-3 text-[rgba(255,255,255,0.6)] font-bold text-[.8rem] uppercase tracking-[2px]">@2025
                         Personal portfolio</p>
                     <p className="mb-3 text-[rgba(255,255,255,0.6)] font-semibold text-[.9rem] tracking-[2px]">
                         Designed by

@@ -1,30 +1,40 @@
 import { useEffect } from 'react';
-import Header from './Header'
-import Footer from './Footer'
-import CustomCursor from './CustomCursor'
-import ScrollTop from './ScrollTop'
-import Preloader from './Preloader'
+import { useLocation } from "react-router-dom";
+import CustomCursor from './CustomCursor';
+import Footer from './Footer';
+import Header from './Header';
+import { LenisProvider } from './LenisProvider';
+import Preloader from './Preloader';
+import ScrollTop from './ScrollTop';
 
-const Layout = ({ title, children, scrollbar }) => {
+const Layout = ({ children }) => {
+    const location = useLocation();
 
     useEffect(() => {
-        document.title = title ? ` ${title} - Portfolio` : 'Portfolio';
-    }, [title])
+        const titles = {
+            "/": "Home - Portfolio",
+            "/home": "Home - Portfolio",
+            "/about": "About - Portfolio",
+            "/contact": "Contact - Portfolio",
+            "/projects": "Projects - Portfolio",
+        };
 
+        document.title = titles[location.pathname] || "Portfolio";
+    }, [location.pathname]);
 
     return (
-        <div>
+        <LenisProvider>
             <Preloader />
             <div id="main-content">
                 <div className="h-full w-full relative text-white">
-                    <Header scrollbar={scrollbar} />
+                    <Header />
                     {children}
                     <Footer />
-                    <ScrollTop scrollbar={scrollbar} />
                 </div>
             </div>
+            <ScrollTop />
             <CustomCursor />
-        </div>
+        </LenisProvider>
     )
 }
 

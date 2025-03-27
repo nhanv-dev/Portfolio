@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { projects } from "../../data";
 import Card from "./Card";
 
-export default function Tabs({ scrollbar }) {
+export default function Tabs() {
     // const [active, setActive] = useState(-1);
     // const [top, setTop] = useState(0);
-    const containerRef = useRef(null)
+    // const containerRef = useRef(null)
 
     // function show(index) {
     //     setActive(index)
@@ -18,22 +18,22 @@ export default function Tabs({ scrollbar }) {
     //     scrollbar.scrollbar?.updatePluginOptions('modal', { open: false });
     // }
 
-    function handleScrollingTabs(e) {
-        if (containerRef?.current?.style) containerRef.current.style.transform = `translate3d(0,${e.offset.y}px,0)`
-        // setTop(e.offset.y);
-    }
+    // function handleScrollingTabs(e) {
+    //     if (containerRef?.current?.style) containerRef.current.style.transform = `translate3d(0,${e.offset.y}px,0)`
+    //     // setTop(e.offset.y);
+    // }
 
-    useEffect(() => {
-        scrollbar.scrollbar?.addListener(handleScrollingTabs)
-        return () => scrollbar.scrollbar?.removeListener(handleScrollingTabs)
-    }, [scrollbar.scrollbar])
+    // useEffect(() => {
+    //     scrollbar.scrollbar?.addListener(handleScrollingTabs)
+    //     return () => scrollbar.scrollbar?.removeListener(handleScrollingTabs)
+    // }, [scrollbar.scrollbar])
 
     return (
         <div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {/* // show={show} */}
                 {projects.map((project, index) => (
-                    <Card key={project.slug} item={project} index={index}/>
+                    <Card key={project.slug} item={project} index={index} />
                 ))}
                 {/* <div ref={containerRef}
                     className={`${active !== -1 ? 'visible opacity-100' : 'invisible opacity-0'} transition-opacity duration-500 backdrop-blur w-[100vw] h-[100vh] left-0 top-0 fixed z-[1000] flex items-center bg-[rgba(0,0,0,0.7)]`}>
