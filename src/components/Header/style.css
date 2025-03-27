@@ -26,7 +26,6 @@
     opacity: 0;
     visibility: hidden;
     transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out, opacity 0.5s ease-in-out !important;
-
 }
 
 .menu-icon-times svg {
@@ -130,7 +129,8 @@
 
 /* ================================================================================================ */
 
-.menu-text-open, .menu-text-close {
+.menu-text-open,
+.menu-text-close {
     will-change: transform;
     width: max-content;
     position: absolute;

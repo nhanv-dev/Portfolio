@@ -8,7 +8,7 @@ import Tabs from '../components/Tabs'
 import Slider from '../components/Slider'
 import ContactBanner from '../components/Contact/ContactBanner'
 
-export default function App() {
+export default function HomePage() {
     const links = [
         { id: "#about", title: "About" },
         { id: "#resume", title: "My Resume" },
