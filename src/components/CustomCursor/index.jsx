@@ -30,11 +30,6 @@ function Cursor() {
         return () => {
             document.querySelector('#main-content').removeEventListener('mousemove', setPositionCursor)
         }
-        // document.querySelector('.loader').addEventListener('mousemove', setPositionCursor)
-        // document.querySelector('.loader').addEventListener('mousemove', (e) => {
-        //     cursorOuterRef.current.style.visibility = 'hidden'
-        //     cursorInnerRef.current.style.visibility = 'hidden'
-        // })
     }, [])
 
     return (
