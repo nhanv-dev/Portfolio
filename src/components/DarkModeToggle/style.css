@@ -1,0 +1,276 @@
+.menu {
+    display: flex;
+    align-items: center;
+    transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out !important;
+}
+
+.menu:focus {
+    outline: none;
+    border: none;
+}
+
+.menu-icon {
+    font-size: 20px;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.menu-icon-times {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out, opacity 0.5s ease-in-out !important;
+}
+
+.menu-icon-times svg {
+    width: 22px;
+    height: 22px;
+}
+
+.menu.active .menu-icon-line {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu.active .menu-icon-times {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-icon-line {
+    height: 2.5px;
+    width: 22px;
+    display: block;
+    background-color: #ffffff;
+    transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out, opacity 0.5s ease-in-out !important;
+    position: relative;
+    border-radius: 50px;
+}
+
+.menu-icon-line::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 0;
+    height: 2.5px;
+    width: 11px;
+    display: block;
+    background-color: #ffffff;
+    transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out !important;
+    border-radius: 50px;
+}
+
+.menu-icon-line::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    right: 1.5px;
+    width: 12px;
+    height: 2.5px;
+    display: block;
+    background-color: #ffffff;
+    transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out !important;
+    border-radius: 50px;
+}
+
+.menu:hover {
+    transform: translateX(6px);
+}
+
+.menu:hover .menu-icon-line::before {
+    transform: translateY(6px);
+}
+
+.menu:hover .menu-icon-line::after {
+    transform: translate3d(2px, -6px, 0);
+}
+
+.menu-text {
+    position: relative;
+    width: max-content;
+    text-align: right;
+    transition: all 0.5s ease-in-out;
+}
+
+.menu-text span {
+    position: relative;
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    padding-left: 2px;
+}
+
+.menu-text-button {
+    overflow: hidden;
+    will-change: transform;
+}
+
+.menu-text-button span {
+    will-change: transform;
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    display: inline-block;
+}
+
+.menu:hover .menu-text-button span {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50%) rotate(15deg) scale(0.8);
+    transform-origin: top left;
+}
+
+
+/* ================================================================================================ */
+
+.menu-text-open,
+.menu-text-close {
+    will-change: transform;
+    width: max-content;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all .5s ease-in-out;
+}
+
+.menu-text-open span,
+.menu-text-close span {
+    will-change: transform;
+    opacity: 0;
+    visibility: hidden;
+    display: inline-block;
+    transform: translateY(50%) rotate(15deg) scale(0.8);
+    transform-origin: top left;
+}
+
+.menu .menu-text-open,
+.menu.active .menu-text-close {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.menu.active .menu-text-open,
+.menu .menu-text-close {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu:hover .menu-text-open span,
+.menu:hover .menu-text-close span {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    will-change: transform;
+}
+
+
+/* ================================================================================================ */
+
+.menu .menu-text-button span:nth-child(1),
+.menu .menu-text-open span:nth-child(1),
+.menu .menu-text-close span:nth-child(1) {
+    transition: transform 0.5s ease-in-out 45ms, opacity 0.3s ease-in-out 245ms, visibility 0.3s 45ms, -webkit-transform 0.5s ease-in-out 45ms;
+}
+
+.menu .menu-text-button span:nth-child(2),
+.menu .menu-text-open span:nth-child(2),
+.menu .menu-text-close span:nth-child(2) {
+    transition: transform 0.5s ease-in-out 90ms, opacity 0.3s ease-in-out 290ms, visibility 0.3s 90ms, -webkit-transform 0.5s ease-in-out 90ms;
+}
+
+.menu .menu-text-button span:nth-child(3),
+.menu .menu-text-open span:nth-child(3),
+.menu .menu-text-close span:nth-child(3) {
+    transition: transform 0.5s ease-in-out 135ms, opacity 0.3s ease-in-out 335ms, visibility 0.3s 135ms, -webkit-transform 0.5s ease-in-out 135ms;
+}
+
+.menu .menu-text-button span:nth-child(4),
+.menu .menu-text-open span:nth-child(4),
+.menu .menu-text-close span:nth-child(4) {
+    transition: transform 0.5s ease-in-out 190ms, opacity 0.3s ease-in-out 390ms, visibility 0.3s 190ms, -webkit-transform 0.5s ease-in-out 390ms;
+}
+
+.menu .menu-text-button span:nth-child(5),
+.menu .menu-text-open span:nth-child(5),
+.menu .menu-text-close span:nth-child(5) {
+    transition: transform 0.5s ease-in-out 235ms, opacity 0.3s ease-in-out 435ms, visibility 0.3s 235ms, -webkit-transform 0.5s ease-in-out 435ms;
+}
+
+/* ================================================================================================ */
+.header {
+
+    transition: padding 0.5s ease-in-out, background-color 0.3s ease-in-out, all .2s ease;
+
+}
+
+.header-brand {
+    text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1), 10px 20px 5px rgba(0, 0, 0, 0.05), -10px 20px 5px rgba(0, 0, 0, 0.05);
+}
+
+.sticky-header {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* ================================================================================================ */
+
+.navbar-link {
+    opacity: 0;
+    visibility: hidden;
+    letter-spacing: 1px;
+    width: 200px;
+}
+
+.navbar-link a {
+    position: relative;
+}
+
+.active .navbar-link {
+    animation-name: floatLeft;
+    animation-duration: 1s;
+    animation-delay: 200ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes floatLeft {
+    from {
+        transform: translateX(-30%);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    to {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0%);
+    }
+}
+
+.bg-blur {
+    backdrop-filter: blur(5px)
+}
+
+.bg-animation {
+    animation: MoveUpDown 10s linear infinite;
+    animation-direction: alternate;
+    transition: transform 0.5s ease-in-out;
+}
+
+
+@keyframes MoveUpDown {
+    from {
+        transform: translate3d(0%, 0%, 0) scale(1);
+    }
+
+    to {
+        transform: translate3d(-5%, -5%, 0) scale(1.1);
+    }
+}

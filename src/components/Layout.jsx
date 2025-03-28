@@ -1,11 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import CustomCursor from './CustomCursor';
-import Footer from './Footer';
-import Header from './Header';
-import { LenisProvider } from './LenisProvider';
-import Preloader from './Preloader';
-import ScrollTop from './ScrollTop';
+import CustomCursor from "./CustomCursor";
+import Footer from "./Footer";
+import Header from "./Header";
+import { LenisProvider } from "./LenisProvider";
+import ScrollTop from "./ScrollTop";
 
 const Layout = ({ children }) => {
     const location = useLocation();
@@ -19,12 +18,11 @@ const Layout = ({ children }) => {
             "/projects": "Projects - Portfolio",
         };
 
-        document.title = titles[location.pathname] || "Portfolio";
+        document.title = titles[location.pathname] || "Home - Portfolio";
     }, [location.pathname]);
 
     return (
         <LenisProvider>
-            <Preloader />
             <div id="main-content">
                 <div className="h-full w-full relative text-white">
                     <Header />
@@ -35,7 +33,7 @@ const Layout = ({ children }) => {
             <ScrollTop />
             <CustomCursor />
         </LenisProvider>
-    )
-}
+    );
+};
 
 export default Layout;

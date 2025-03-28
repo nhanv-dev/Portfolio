@@ -1,5 +1,3 @@
-@import 'atropos/atropos.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,5 +16,14 @@ body {
     transition: width 0.5s ease-in-out;
     width: 100%;
     min-height: 100vh;
-    @apply transition-colors duration-300;
+    @apply transition-colors duration-300 bg-white text-black dark:bg-[#040404] dark:text-white;
+
+}
+
+.transition-theme {
+    transition: color .3s ease background-color .3s ease;
+}
+
+.transition-theme-text {
+    transition: color .3s ease;
 }

@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import ContactPage from "./pages/Contact";
 import ProjectsPage from "./pages/Projects";
 import Layout from "./components/Layout";
+import AboutPage from "./pages/About";
 
 export default function App() {
 
@@ -13,7 +14,7 @@ export default function App() {
                     <Route exact={true} path={"/home"} element={<Home />} />
                     <Route exact={true} path={"/projects"} element={<ProjectsPage />} />
                     <Route exact={true} path={"/contact"} element={<ContactPage />} />
-                    <Route exact={true} path={"/about"} element={<ContactPage />} />
+                    <Route exact={true} path={"/about"} element={<AboutPage />} />
                     <Route exact={true} path={"/"} element={<Home />} />
                     <Route path={"/*"} element={<Home />} />
                 </Routes>

@@ -10,18 +10,35 @@ function Resume() {
                     <h3 className="pb-6 font-bold text-[2.5rem] leading-[3.5rem] tracking-[2px] my-3">Education &
                         Experience</h3>
                     <div
-                        className="relative block w-full h-[2px] bg-[#ffffff14] after:w-[200px] after:h-[2px] after:bg-[white] after:left-0 after:top-0 after:absolute "/>
+                        className="relative block w-full h-[2px] bg-[#ffffff14] after:w-[200px] after:h-[2px] after:bg-[white] after:left-0 after:top-0 after:absolute " />
                 </div>
                 <div className="flex flex-wrap">
                     <div className="lg:w-[50%] w-full px-[15px]">
                         <h4 className="mb-5 font-bold text-[1.5rem] tracking-[1px]">Education</h4>
                         <h5 className="pl-5 relative text-[1.2rem] font-bold tracking-[1px]">
                             Nong Lam University
-                            <div
-                                className="absolute left-0 top-[50%] translate-x-[-50%] translate-y-[-50%] bg-[#14bfb5] w-[8px] h-[8px] rounded-full"></div>
+                            <div className="absolute left-0 top-[50%] translate-x-[-50%] translate-y-[-50%] bg-[#14bfb5] w-[8px] h-[8px] rounded-full"></div>
                         </h5>
                         <div className="pl-5 pt-3 pb-10 relative text-[#bbb] text-[16px] leading-[1.6] font-[500]">
-                            <p className="mb-3 tracking-[2px]">2019-Current</p>
+                            <p className="mb-3 tracking-[2px]">2019 - 2023</p>
+                            <p>
+                                Currently, I'm a fourth-year students
+                                at Nong Lam University. Here, I learned about programming skills and knowledge related
+                                to computer networks and operating systems. After all, the field I've always aimed at is
+                                web development.
+                            </p>
+                            <div
+                                className="absolute left-0 bottom-[0] top-0 translate-x-[-50%] bg-[#3a3a3a] w-[1px] h-full"></div>
+                        </div>
+                    </div>
+                    <div className="lg:w-[50%] w-full px-[15px]">
+                        <h4 className="mb-5 font-bold text-[1.5rem] tracking-[1px]">Experience</h4>
+                        <h5 className="pl-5 relative text-[1.2rem] font-bold tracking-[1px]">
+                            GSoft Company
+                            <div className="absolute left-0 top-[50%] translate-x-[-50%] translate-y-[-50%] bg-[#14bfb5] w-[8px] h-[8px] rounded-full"></div>
+                        </h5>
+                        <div className="pl-5 pt-3 pb-10 relative text-[#bbb] text-[16px] leading-[1.6] font-[500]">
+                            <p className="mb-3 tracking-[2px]">10/2023 - 1/2025</p>
                             <p>
                                 Currently, I'm a fourth-year students
                                 at Nong Lam University. Here, I learned about programming skills and knowledge related
@@ -32,17 +49,19 @@ function Resume() {
                                 className="absolute left-0 bottom-[0] top-0 translate-x-[-50%] bg-[#3a3a3a] w-[1px] h-full"></div>
                         </div>
                         <h5 className="pl-5 relative text-[1.2rem] font-bold tracking-[1px]">
-                            Nguyen Tat Thanh High School
-                            <div
-                                className="absolute left-0 top-[50%] translate-x-[-50%] translate-y-[-50%] bg-[#14bfb5] w-[8px] h-[8px] rounded-full"></div>
+                            GlobalChain Company
+                            <div className="absolute left-0 top-[50%] translate-x-[-50%] translate-y-[-50%] bg-[#14bfb5] w-[8px] h-[8px] rounded-full"></div>
                         </h5>
                         <div className="pl-5 pt-3 pb-10 relative text-[#bbb] text-[16px] leading-[1.6] font-[500]">
-                            <p className="mb-3 tracking-[2px]">2016-2019</p>
+                            <p className="mb-3 tracking-[2px]">8/2023 - 10/2023</p>
                             <p>
-                                This is a high school near where I live. I graduated with good honors after 3 years
-                                studying at the school. In addition, I was also honored to represent the school to
-                                participate in the competition for good students in geography.
+                                Currently, I'm a fourth-year students
+                                at Nong Lam University. Here, I learned about programming skills and knowledge related
+                                to computer networks and operating systems. After all, the field I've always aimed at is
+                                web development.
                             </p>
+                            <div
+                                className="absolute left-0 bottom-[0] top-0 translate-x-[-50%] bg-[#3a3a3a] w-[1px] h-full"></div>
                         </div>
                     </div>
                 </div>

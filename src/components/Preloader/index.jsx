@@ -1,22 +1,50 @@
-import {useEffect} from 'react';
-import './style.css'
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
-function Preloader() {
+const Preloader = ({ texts, onLoaded }) => {
+    const [textIndex, setTextIndex] = useState(0);
+    const [isVisible, setIsVisible] = useState(true);
+
     useEffect(() => {
-        const runLoader = setTimeout(() => {
-            // console.log(document.querySelector('#loader'))
-            document.querySelector('#loader').style.display = 'none';
-        }, 600)
-        return () => {
-            clearTimeout(runLoader)
+        if (!texts || texts.length === 0) {
+            onLoaded();
+            return;
         }
-    }, [])
+
+        let interval = setInterval(() => {
+            setTextIndex((prev) => prev + 1);
+        }, 1500);
+
+        const timeout = setTimeout(() => {
+            clearInterval(interval);
+            setIsVisible(false);
+            onLoaded();
+        }, texts.length * 1500);
+
+        return () => {
+            clearInterval(interval);
+            clearTimeout(timeout);
+        };
+    }, [texts, onLoaded]);
+
+    if (!isVisible) return null;
 
     return (
-        <div id={"loader"} className={"loader"}>
-            <div className="clock-loader"></div>
+        <div className="fixed inset-0 flex flex-col items-center justify-center z-50 transition-all duration-500 bg-white text-black dark:bg-black dark:text-white">
+            {textIndex < texts.length && (
+                <motion.h1
+                    key={textIndex}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    className="text-5xl font-bold"
+                >
+                    {texts[textIndex]}
+                </motion.h1>
+            )}
         </div>
     );
-}
+};
 
 export default Preloader;

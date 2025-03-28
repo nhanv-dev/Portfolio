@@ -1,92 +1,76 @@
-import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useLenis } from '../LenisProvider';
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import DarkModeToggle from "../DarkModeToggle";
+import { useLenis } from "../LenisProvider";
 import './style.css';
 
+const listRouting = ["/home", "/about", "/projects", "/contact"];
+
 export default function Header() {
-    const headerRef = useRef(null);
     const lenis = useLenis();
+    const [scrolled, setScrolled] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         if (!lenis) return;
 
         const handleScroll = ({ scroll }) => {
-            if (scroll > 0) {
-                headerRef.current.classList.add("sticky-header");
-            } else {
-                headerRef.current.classList.remove("sticky-header");
-            }
-        }
+            setScrolled(scroll > 50);
+        };
 
         lenis.on("scroll", handleScroll);
-
         return () => {
             lenis.off("scroll", handleScroll);
         };
-
-    }, [lenis])
-
-    return (
-        <header ref={headerRef} id="header" className="container header justify-between flex fixed top-[0] left-[50%] translate-x-[-50%] righ-[0] z-[50] bg-transparent py-5 text-white transition-all bg-black">
-            <div className="flex justify-between items-center w-[200px]">
-                <Link to={"/home"} className="font-[800] text-[1.5rem] tracking-[3px]">
-                    <span>Port</span>
-                    <span className="text-[#14bfb5] ml-[2px]">folio.</span>
-                </Link>
-            </div>
-            <div className='flex-1'>
-                <ul className='w-full flex justify-center items-center gap-5 font-semibold text-[1rem]'>
-                    <li className=''>
-                        <Link to={"/home"}>
-                            Home
-                        </Link>
-                    </li>
-                    <li className=''>
-                        <Link to={"/about"}>
-                            About
-                        </Link>
-                    </li>
-                    <li className=''>
-                        <Link to={"/projects"}>
-                            Projects
-                        </Link>
-                    </li>
-                    <li className=''>
-                        <Link to={"/contact"}>
-                            Contact
-                        </Link>
-                    </li>
-                </ul>
-            </div>
-            <div className='w-[200px]'>
-                <DarkModeToggle />
-            </div>
-        </header>
-    )
-}
-
-
-function DarkModeToggle() {
-    const storedTheme = localStorage.getItem("theme");
-
-    const [darkMode, setDarkMode] = useState(storedTheme ? storedTheme === "dark" : true);
-
-    useEffect(() => {
-        if (darkMode) {
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-        }
-    }, [darkMode]);
+    }, [lenis]);
 
     return (
-        <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 transition"
-        >
-            {darkMode ? "🌙" : "☀️"}
-        </button>
+        <>
+            <div className="h-[68px] flex items-center justify-center border-b border-gray-700">
+                <header
+                    className={`fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 
+                                flex justify-between items-center rounded-full text-sm
+                                ${scrolled
+                            ? "top-5 w-[85%] max-w-[850px] bg-lightBg dark:bg-darkBg/50 backdrop-blur-lg py-2 shadow-md border border-white/20 animate-border-glow px-6"
+                            : "top-0 w-full container bg-transparent py-4 border-none"
+                        }`}
+                >
+                    {/* Logo */}
+                    <div className="flex items-center w-[150px] justify-start">
+                        <Link to="/home" className="font-extrabold text-lg tracking-wide text-textLight dark:text-textDark">
+                            <span>Port</span>
+                            <span className="text-[#14bfb5] ml-1">folio.</span>
+                        </Link>
+                    </div>
+
+                    {/* Navigation */}
+                    <nav>
+                        <ul className="transition-theme-text flex gap-6 font-bold text-textLight dark:text-textDark">
+                            {listRouting.map((path) => {
+                                const currentPath = listRouting.includes(location.pathname) ? location.pathname : "/home";
+
+                                return (
+                                    <li key={path} className="relative">
+                                        <Link
+                                            to={path}
+                                            className={`relative text-[0.925rem] ${currentPath === path
+                                                ? "text-[#14bfb5] after:content-[''] after:absolute after:left-0 after:bottom-[-5px] after:w-4 after:h-[2px] after:bg-[#14bfb5]"
+                                                : ""}`}
+                                        >
+                                            {path.replace("/", "").charAt(0).toUpperCase() + path.slice(2)}
+                                        </Link>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </nav>
+
+                    {/* Dark Mode Toggle */}
+                    <div className="w-[150px] flex justify-end">
+                        <DarkModeToggle />
+                    </div>
+                </header>
+            </div>
+        </>
     );
 }

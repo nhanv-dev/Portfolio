@@ -17,9 +17,10 @@ export default function QuickLink({ links }) {
         function handleScroll({ scroll }) {
             const buttons = containerRef.current.querySelectorAll('button')
             const container = [...links.map(link => document.querySelector(link.id))]
-
+ 
             container.forEach((item, index) => {
                 if (item) {
+ 
                     let isActive = scroll >= item.offsetTop && (container[index + 1] ? scroll < container[index + 1].offsetTop - 300 : true)
                     if (isActive) {
                         buttons[index].classList.add('border-[2px]')
@@ -57,7 +58,7 @@ export default function QuickLink({ links }) {
 
 const Button = ({ scrollIntoView, name }) => {
     return (
-        <button onClick={scrollIntoView} className="group relative z-[100] h-[24px] w-[24px] cursor-pointer rounded-full transition-all duration-[50ms] ease">
+        <button onClick={scrollIntoView} className="group relative z-[100] border-0 h-[24px] w-[24px] cursor-pointer rounded-full transition-all duration-[50ms] ease">
             <GoDotFill className="text-[22px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]" />
             <span onClick={scrollIntoView}
                 className="group-hover:opacity-100 group-hover:translate-y-[-50%]
