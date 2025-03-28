@@ -4,7 +4,7 @@ export function WelcomeSlide({ isActive }) {
     const activeClass = isActive ? "active z-1" : "z-[-1]"
 
     return (
-        <div className={activeClass + " slide-text p-10 opacity-0 absolute left-0 top-0 transition-all delay-100 duration-[300ms] ease-in-out w-full"}>
+        <div className={activeClass + " slide-text py-10 opacity-0 absolute left-0 top-0 transition-all delay-100 duration-[300ms] ease-in-out w-full"}>
             <div className="w-full h-full flex items-center mb-5">
                 <span className="inline-block mt-1 mr-5 w-[40px] h-[2px] bg-[rgba(255,255,255,.1)]"></span>
                 <span

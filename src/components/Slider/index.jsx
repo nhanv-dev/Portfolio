@@ -3,12 +3,15 @@ import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
 import { useLenis } from '../LenisProvider';
 import { WelcomeSlide } from './Slides';
 import './style.css';
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 
 export default function Slider() {
     const totalSlide = 3;
     const [activeSlide, setActiveSlide] = useState(0);
     const lenis = useLenis();
     const buttonRef = useRef(null);
+    const { scrollY } = useScroll();
+    const scale = useTransform(scrollY, [0, 500], [1, 1.2]);
 
     useEffect(() => {
         if (activeSlide < 0) setActiveSlide(0)
@@ -21,28 +24,28 @@ export default function Slider() {
         return () => clearTimeout(timeout)
     }, [activeSlide])
 
-    useEffect(() => {
-        if (!lenis) return;
+    // useEffect(() => {
+    //     if (!lenis) return;
 
-        const handleScroll = ({ scroll }) => {
-            const slide = document.querySelector('#slideImage')
-            if (scroll <= 50) slide.style.transform = `scale(1)`
-            else slide.style.transform = `scale(${1 + scroll * 0.0005})`
-        }
+    //     const handleScroll = ({ scroll }) => {
+    //         const slide = document.querySelector('#slideImage')
+    //         if (scroll <= 50) slide.style.transform = `scale(1)`
+    //         else slide.style.transform = `scale(${1 + scroll * 0.0005})`
+    //     }
 
-        lenis.on("scroll", handleScroll);
+    //     lenis.on("scroll", handleScroll);
 
-        return () => {
-            lenis.off("scroll", handleScroll);
-        };
+    //     return () => {
+    //         lenis.off("scroll", handleScroll);
+    //     };
 
-    }, [lenis])
+    // }, [lenis])
 
     return (
-        <section className="h-[80vh] w-full">
+        <section className="h-[660px] w-full">
             <div id="slider" className="h-full w-full flex relative overflow-hidden">
                 <div className="flex-1 relative hidden lg:block">
-                    <div className="absolute max-h-[255px] py-[10px] overflow-hidden left-0 top-[50%] translate-y-[-50%]">
+                    <div className="z-[4] absolute max-h-[255px] py-[10px] overflow-hidden left-0 top-[50%] translate-y-[-50%]">
                         <div ref={buttonRef}
                             className="flex flex-col gap-[10px] transition-all duration-1000 ease-in-out">
                             <Button number="01" active={activeSlide === 0 && "active"}
@@ -57,75 +60,78 @@ export default function Slider() {
                         </div>
                     </div>
                 </div>
-                <div id="slideImage" className="w-full lg:w-[75%] h-full relative overflow-hidden scale-[1]">
+                <motion.div
+                    id="slideImage"
+                    className="w-full lg:w-[70%] h-full relative overflow-hidden z-[1]"
+                    style={{ scale }}
+                >
                     <SlideImage
-                        number="01"
+                        index={0}
                         active={activeSlide}
                         image={'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/web%2Fastronaut.jpg?alt=media&token=d3ad0965-b991-499a-ab95-257a8550619d'}
                     />
                     <SlideImage
-                        number="02"
+                        index={1}
                         active={activeSlide}
                         image={'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/web%2Fastronaut.jpg?alt=media&token=d3ad0965-b991-499a-ab95-257a8550619d'}
                     />
                     <SlideImage
-                        number="03"
+                        index={2}
                         active={activeSlide}
                         image={'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/web%2Fastronaut.jpg?alt=media&token=d3ad0965-b991-499a-ab95-257a8550619d'}
                     />
-                    <div
-                        className="absolute bottom-[50px] right-[50px] flex gap-5 transition-all linear duration-[800ms]">
+                    <div className="absolute bottom-[50px] right-[70px] flex gap-5 transition-all linear duration-[800ms]">
                         <button onClick={() => {
                             setActiveSlide(activeSlide - 1 < 0 ? 0 : activeSlide - 1)
                         }}
-                            className="w-[40px] h-[40px] z-[10] border-[3px] flex items-center justify-center rounded-full hover:scale-[1.2] transition-all duration-300 ease-in-out">
+                            className="w-[40px] h-[40px] z-[10] border-[2px] flex items-center justify-center rounded-full hover:scale-[1.2] transition-all duration-300 ease-in-out">
                             <BiChevronLeft className="text-[24px] leading-[40px] font-extrabold" />
                         </button>
                         <button
                             onClick={() => setActiveSlide(activeSlide + 1 >= totalSlide ? 0 : activeSlide + 1)}
-                            className="w-[40px] h-[40px] z-[10] border-[3px] flex items-center justify-center rounded-full hover:scale-[1.2] transition-all duration-300 ease-in-out">
+                            className="w-[40px] h-[40px] z-[10] border-[2px] flex items-center justify-center rounded-full hover:scale-[1.2] transition-all duration-300 ease-in-out">
                             <BiChevronRight className="text-[24px] leading-[40px] font-extrabold" />
                         </button>
                     </div>
-                </div>
-                <div className="absolute top-[50%] translate-y-[-55%] bottom-0 lg:left-[15%] xl:w-[1200px] lg:w-[600px] md:w-[600px] sm:w-[500px] w-[100%]">
-                    <div className="relative w-[100%]">
-                        <WelcomeSlide isActive={activeSlide === 0} />
-                        <WelcomeSlide isActive={activeSlide === 1} />
-                        <WelcomeSlide isActive={activeSlide === 2} />
+                </motion.div>
+                <div className='z-[3] container absolute top-[50%] translate-y-[-55%] bottom-0 left-0 right-0'>
+                    <div className='relative w-full h-full'>
+                        <div className="absolute top-0 left-0 lg:w-[600px] md:w-[600px] sm:w-[500px] w-[100%]">
+                            <WelcomeSlide isActive={activeSlide === 0} />
+                            <WelcomeSlide isActive={activeSlide === 1} />
+                            <WelcomeSlide isActive={activeSlide === 2} />
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     )
 }
-const SlideImage = ({ image, number, active }) => {
 
-    function setActive() {
-        const index = number - 1
-        if (index === active) {
-            return "active"
-        } else if (index === active - 1) {
-            return "previous-slide"
-        } else if (index === active + 1) {
-            return "next-slide"
-        }
-    }
+const SlideImage = ({ image, active, index }) => {
+    const isActive = index === active;
 
     return (
-        <div
-            className={setActive() + " slide-image translate-x-[100%] absolute top-0 left-0 right-0 bottom-0 transition-all ease-in-out duration-[1200ms]"}>
-            <div
-                className="slide-image-show w-[100%] h-[100%] absolute bg-no-repeat bg-center bg-cover after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:bg-[rgba(0,0,0,.3)]"
-                style={{ backgroundImage: `url(${image})` }} />
-            <div
-                style={{ WebkitTextStroke: '3px rgba(255, 255, 255, 0.5)' }}
-                className="absolute right-[30px] bottom-[90px] text-[12vw] text-[rgba(255,255,255,0.05)] ">
-                {number}
+        <motion.div
+            className="absolute w-full h-full bg-cover bg-center transition-transform"
+            style={{ backgroundImage: `url(${image})` }}
+            animate={{
+                scale: isActive ? 1 : 0.88,  // Giảm mức độ scale khi không active
+                opacity: isActive ? 1 : 0.6,  // Làm rõ hơn khi active
+                filter: isActive ? "blur(0px)" : "blur(8px)",
+                zIndex: isActive ? 10 : 0,
+            }}
+            transition={{
+                duration: 1.8, // Giảm thời gian tổng thể để nhanh hơn
+                ease: [0.16, 1, 0.3, 1], // easeOutExpo - chậm dần về cuối
+            }}
+        >
+            <div className="absolute right-[60px] bottom-[90px] text-[10vw] text-white opacity-20">
+                {String(index + 1).padStart(2, "0")}
             </div>
-        </div>
-    )
-}
+        </motion.div>
+    );
+};
 
 const Button = ({ number, image, handleClick, active }) => {
     return (

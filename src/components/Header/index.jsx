@@ -27,7 +27,7 @@ export default function Header() {
     }, [lenis])
 
     return (
-        <header ref={headerRef} id="header" className="header justify-between flex fixed top-[0] left-[0] righ-[0] z-[50] w-full px-[1.5rem] bg-transparent py-5 text-white transition-all bg-black">
+        <header ref={headerRef} id="header" className="container header justify-between flex fixed top-[0] left-[50%] translate-x-[-50%] righ-[0] z-[50] bg-transparent py-5 text-white transition-all bg-black">
             <div className="flex justify-between items-center w-[200px]">
                 <Link to={"/home"} className="font-[800] text-[1.5rem] tracking-[3px]">
                     <span>Port</span>

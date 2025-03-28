@@ -205,13 +205,18 @@
 
 /* ================================================================================================ */
 .header {
-    transition: padding 0.5s ease-in-out, background-color 0.3s ease-in-out;
+
+    transition: padding 0.5s ease-in-out, background-color 0.3s ease-in-out, all .2s ease;
+
 }
 
 .header-brand {
-    text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1),
-        10px 20px 5px rgba(0, 0, 0, 0.05),
-        -10px 20px 5px rgba(0, 0, 0, 0.05);
+    text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1), 10px 20px 5px rgba(0, 0, 0, 0.05), -10px 20px 5px rgba(0, 0, 0, 0.05);
+}
+
+.sticky-header {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* ================================================================================================ */

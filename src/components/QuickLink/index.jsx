@@ -1,41 +1,43 @@
 import { useEffect, useRef, } from 'react'
 import { GoDotFill } from "react-icons/go";
+import { useLenis } from '../LenisProvider';
 
 export default function QuickLink({ links }) {
     const containerRef = useRef(null)
+    const lenis = useLenis();
 
-    // function handleScrollQuickLink(e) {
-    //     containerRef.current.style.top = `${window.innerHeight / 2 + e.offset.y}px`
-    // }
 
     function scrollIntoView(view) {
         // scrollbar.scrollbar.scrollIntoView(document.querySelector(view))
     }
 
-    // useEffect(() => {
-    //     function activeQuickLink({ offset }) {
-    //         const buttons = containerRef.current.querySelectorAll('button')
-    //         let container = [...links.map(link => link.id)]
-    //         container = container.map((item) => document.querySelector(item))
-    //         container.forEach((item, index) => {
-    //             if (item) {
-    //                 let isActive = offset.y >= item.offsetTop - 300 && (container[index + 1] ? offset.y < container[index + 1].offsetTop - 300 : true)
-    //                 if (isActive) {
-    //                     buttons[index].classList.add('border-[2px]')
-    //                 } else {
-    //                     buttons[index].classList.remove('border-[2px]')
-    //                 }
-    //             }
+    useEffect(() => {
+        if (!lenis || !links) return;
 
-    //         })
-    //     }
-    //     scrollbar.scrollbar?.addListener(handleScrollQuickLink)
-    //     scrollbar.scrollbar?.addListener(activeQuickLink)
-    //     return () => {
-    //         scrollbar.scrollbar?.removeListener(handleScrollQuickLink)
-    //         scrollbar.scrollbar?.removeListener(activeQuickLink)
-    //     }
-    // }, [links, scrollbar.scrollbar])
+        function handleScroll({ scroll }) {
+            const buttons = containerRef.current.querySelectorAll('button')
+            const container = [...links.map(link => document.querySelector(link.id))]
+
+            container.forEach((item, index) => {
+                if (item) {
+                    let isActive = scroll >= item.offsetTop && (container[index + 1] ? scroll < container[index + 1].offsetTop - 300 : true)
+                    if (isActive) {
+                        buttons[index].classList.add('border-[2px]')
+                    } else {
+                        buttons[index].classList.remove('border-[2px]')
+                    }
+                }
+
+            })
+        }
+
+        lenis.on("scroll", handleScroll);
+
+        return () => {
+            lenis.off("scroll", handleScroll);
+        };
+
+    }, [links, lenis])
 
     useEffect(() => {
         const position = window.innerHeight / 2
