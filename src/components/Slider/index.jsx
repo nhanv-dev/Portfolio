@@ -1,14 +1,12 @@
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from 'react';
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
-import { useLenis } from '../LenisProvider';
 import { WelcomeSlide } from './Slides';
 import './style.css';
-import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 
 export default function Slider() {
     const totalSlide = 3;
     const [activeSlide, setActiveSlide] = useState(0);
-    const lenis = useLenis();
     const buttonRef = useRef(null);
     const { scrollY } = useScroll();
     const scale = useTransform(scrollY, [0, 500], [1, 1.2]);
@@ -24,22 +22,6 @@ export default function Slider() {
         return () => clearTimeout(timeout)
     }, [activeSlide])
 
-    // useEffect(() => {
-    //     if (!lenis) return;
-
-    //     const handleScroll = ({ scroll }) => {
-    //         const slide = document.querySelector('#slideImage')
-    //         if (scroll <= 50) slide.style.transform = `scale(1)`
-    //         else slide.style.transform = `scale(${1 + scroll * 0.0005})`
-    //     }
-
-    //     lenis.on("scroll", handleScroll);
-
-    //     return () => {
-    //         lenis.off("scroll", handleScroll);
-    //     };
-
-    // }, [lenis])
 
     return (
         <section className="h-[660px] w-full">
