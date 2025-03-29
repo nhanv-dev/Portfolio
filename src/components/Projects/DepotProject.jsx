@@ -6,8 +6,8 @@ const DepotProject = ({ item }) => {
 
 	return (
 		<ProjectLayout
-			title={"Depot"}
-			website={""}
+			title={item.card_title}
+			website={item.website}
 			tag={"2024"}
 			image={"https://devrajchatribin.com/_next/image?url=https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fct2epucbo91koigl3xmr.png&w=828&q=75"}
 		>
@@ -18,7 +18,7 @@ const DepotProject = ({ item }) => {
 						With sleek editing tools, it empowers you to write with clarity and creativity.
 					</p>
 					<div className="flex flex-wrap gap-2 mt-4">
-						{['Node.js', 'Express.js', 'Handlebars', 'MongoDB', 'Server Side Rendering'].map(tag => (
+						{['React', 'Redux', 'Ckeditor', 'Material UI', 'Spring Boot', 'MySQL', 'Hibernate', 'Spring Security'].map(tag => (
 							<span key={tag} className="dark:bg-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-semibold">{tag}</span>
 						))}
 					</div>
@@ -32,9 +32,6 @@ const DepotProject = ({ item }) => {
 						<p className="mb-2">
 							<span className="font-bold text-gray-400 inline-block w-[65px]">Client:</span>
 							<span className="font-semibold">Personal Project</span>
-						</p>
-						<p className="mb-2">
-							<span className="font-semibold">View Github</span>
 						</p>
 					</div>
 				</div>
@@ -52,17 +49,17 @@ const DepotProject = ({ item }) => {
 			</div>
 			<div className="mt-6">
 				<h2 className="text-xl font-bold">Features</h2>
-				<div className="mt-4 text-[1rem] text-gray-400 font-medium">
+				<div className="mt-4 text-[1rem] dark:text-gray-400 font-medium">
 					<ul className="flex flex-col gap-4">
-						<li>✅ <strong>Seamless Writing Experience</strong> – A distraction-free editor with real-time previews, so you can focus on your words.</li>
-						<li>⚡ <strong>Blazing-Fast Performance</strong> – Built with <strong>Node.js & Express.js</strong>, ensuring smooth navigation and quick load times.</li>
-						<li>📑 <strong>SEO-Optimized with SSR</strong> – Server-side rendering with <strong>Handlebars</strong> boosts search engine visibility and improves content reach.</li>
-						<li>🌍 <strong>Scalable & Flexible</strong> – Powered by <strong>MongoDB</strong>, allowing efficient content management and scalability for high-traffic blogs.</li>
-						<li>🎨 <strong>Customizable Themes</strong> – Personalize your blog with beautifully designed themes and layouts that fit your style.</li>
-						<li>📝 <strong>Effortless Draft & Publishing</strong> – Save drafts, schedule posts, and publish with a single click.</li>
-						<li>💬 <strong>Interactive Comments</strong> – Engage with your audience through a dynamic commenting system.</li>
-						<li>🔗 <strong>Social Sharing Made Easy</strong> – Share your posts effortlessly across multiple platforms with built-in social media integration.</li>
-						<li>🚀 <strong>Ready to start your blogging journey?</strong> Experience <strong>Noonpost</strong> today and bring your ideas to life!</li>
+						<li>✅ <strong className="dark:text-white">Seamless Writing Experience</strong> – A distraction-free editor with real-time previews, so you can focus on your words.</li>
+						<li>⚡ <strong className="dark:text-white">Blazing-Fast Performance</strong> – Built with <strong className="dark:text-white">Node.js & Express.js</strong>, ensuring smooth navigation and quick load times.</li>
+						<li>📑 <strong className="dark:text-white">SEO-Optimized with SSR</strong> – Server-side rendering with <strong className="dark:text-white">Handlebars</strong> boosts search engine visibility and improves content reach.</li>
+						<li>🌍 <strong className="dark:text-white">Scalable & Flexible</strong> – Powered by <strong className="dark:text-white">MongoDB</strong>, allowing efficient content management and scalability for high-traffic blogs.</li>
+						<li>🎨 <strong className="dark:text-white">Customizable Themes</strong> – Personalize your blog with beautifully designed themes and layouts that fit your style.</li>
+						<li>📝 <strong className="dark:text-white">Effortless Draft & Publishing</strong> – Save drafts, schedule posts, and publish with a single click.</li>
+						<li>💬 <strong className="dark:text-white">Interactive Comments</strong> – Engage with your audience through a dynamic commenting system.</li>
+						<li>🔗 <strong className="dark:text-white">Social Sharing Made Easy</strong> – Share your posts effortlessly across multiple platforms with built-in social media integration.</li>
+						<li>🚀 <strong className="dark:text-white">Ready to start your blogging journey?</strong> Experience <strong className="dark:text-white">Noonpost</strong> today and bring your ideas to life!</li>
 					</ul>
 				</div>
 			</div>

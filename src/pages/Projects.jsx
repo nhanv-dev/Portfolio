@@ -1,14 +1,14 @@
-import { useState } from "react";
 import FadeContent from "../components/FadeContent";
+import { useLoading } from "../components/Layout";
 import Preloader from "../components/Preloader";
 import ProjectCard from "../components/ProjectCard";
 
 export default function ProjectsPage() {
-    const [isLoaded, setIsLoaded] = useState(true);
+    const { isLoaded, setIsLoaded } = useLoading();
 
     return (
         <>
-            {!isLoaded && <Preloader texts={["Welcome", "Let's Explore"]} onLoaded={() => setIsLoaded(true)} />}
+            {!isLoaded && <Preloader texts={["Ignite Creativity", "Turn Ideas into Reality", "Discover New Horizons"]} onLoaded={() => setIsLoaded(true)} />}
             {isLoaded && (
                 <>
                     <section className="dark:bg-darkBg dark:text-white py-10">

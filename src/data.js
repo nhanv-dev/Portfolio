@@ -13,7 +13,7 @@ export const projects = [
     {
         slug: '/projects/depot',
         website: "https://depot-store-3aa17.web.app/",
-        card_title: "Depot. -  eCommerce",
+        card_title: "Depot - eCommerce",
         card_desc: "eCommerce - ReactJS - Spring Boot",
         card_image: "https://mona.media/wp-content/uploads/2021/07/ecommerce.png",
         component: DepotProject,
@@ -29,7 +29,7 @@ export const projects = [
     {
         slug: '/projects/noonpost',
         website: "https://personal-blog-node.vercel.app/",
-        card_title: "Noonpost. - Personal Blog",
+        card_title: "Noonpost - Personal Blog",
         card_desc: "Brand - Blog - Webapp",
         card_image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-card.jpg?alt=media&token=72c7a1c4-2218-4448-a04d-156186ae3106",
         component: NoonpostProject,
@@ -64,25 +64,58 @@ export const projects = [
     {
         slug: '/projects/shopio',
         website: "https://ecommerce-d49f8.web.app/",
-        card_title: "Shopio. - eCommerce",
+        card_title: "Shopio - eCommerce",
         card_desc: "eCommerce - ReactJS - NodeJS",
         card_image: "https://cdn.dribbble.com/users/2198224/screenshots/14443181/media/c61c0b293ccf395c7160f8495067fd20.jpg?compress=1&resize=800x600",
         component: ShopioProject,
         images: [
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-2.png?alt=media&token=d5b778ad-1ce6-435f-b8ba-e1a5ebb885f9',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-1.png?alt=media&token=a6649940-6d0a-4283-bce9-778d3f04ca74',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-3.png?alt=media&token=48548d4b-829f-4081-b782-28e9bc7da1f7',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-4.png?alt=media&token=00a7c5a8-cf8d-4b63-b5a3-a6ad2a13b247',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-5.png?alt=media&token=4f65fc0c-9692-4e03-879e-669119097b9d',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-6.png?alt=media&token=e55ea527-a5b9-4c16-b4bc-69b097c50353',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-7.png?alt=media&token=e529e57b-8463-4e95-ad0b-e86c96a64a80',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-8.png?alt=media&token=922f8645-379b-423e-b226-a635ee314de7',
-        ],
+            {
+                "id": 1,
+                "image": "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-2.png?alt=media&token=d5b778ad-1ce6-435f-b8ba-e1a5ebb885f9",
+                "height": 750
+            },
+            {
+                "id": 2,
+                "image": "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-1.png?alt=media&token=a6649940-6d0a-4283-bce9-778d3f04ca74",
+                "height": 650
+            },
+            {
+                "id": 3,
+                "image": "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-3.png?alt=media&token=48548d4b-829f-4081-b782-28e9bc7da1f7",
+                "height": 750
+            },
+            {
+                "id": 4,
+                "image": "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-4.png?alt=media&token=00a7c5a8-cf8d-4b63-b5a3-a6ad2a13b247",
+                "height": 400
+            },
+            {
+                "id": 5,
+                "image": "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-5.png?alt=media&token=4f65fc0c-9692-4e03-879e-669119097b9d",
+                "height": 750
+            },
+            {
+                "id": 6,
+                "image": "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-6.png?alt=media&token=e55ea527-a5b9-4c16-b4bc-69b097c50353",
+                "height": 500
+            },
+            {
+                "id": 7,
+                "image": "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-7.png?alt=media&token=e529e57b-8463-4e95-ad0b-e86c96a64a80",
+                "height": 650
+            },
+            {
+                "id": 8,
+                "image": "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-8.png?alt=media&token=922f8645-379b-423e-b226-a635ee314de7",
+                "height": 500
+            }
+        ]
+
     },
     {
         slug: '/projects/chitchat',
         website: "https://chitchat-e6ec4.web.app/",
-        card_title: "Chitchat - App Chat <br/> Angular Webapp",
+        card_title: "Chitchat - App Chat",
         card_desc: "Websocket - CSR - Angular",
         card_image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/chitchat%2Fchitchat.jpg?alt=media&token=51908088-ad87-430c-90c1-77b09d2eb5e4",
         images: [
@@ -94,7 +127,7 @@ export const projects = [
     {
         slug: '/projects/spotify-v2',
         website: "https://spotify-storage-2bef1.web.app/",
-        card_title: "Spotify - Music<br/> Complete Version",
+        card_title: "Spotify - Music",
         card_desc: "React - Node - MongoDB",
         card_image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify-v2%2Fspotify-v2-card.jpg?alt=media&token=89fb8541-40b5-45c7-aea6-6bf4ff69042f',
         images: [
@@ -111,7 +144,7 @@ export const projects = [
     {
         slug: '/projects/todo-list',
         website: "https://todos-list-f2750.web.app/",
-        card_title: "Todo List <br/>React Webapp",
+        card_title: "Todo List",
         card_desc: "Blog - Webapp",
         card_image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/todo%2Ftodo-card.webp?alt=media&token=708a2847-58ab-43d4-9697-7dc22ab692fe",
         images: [
@@ -122,7 +155,7 @@ export const projects = [
     {
         slug: '/projects/snake-game',
         website: "https://snake-game-5bff8.web.app/",
-        card_title: "Snake Game. <br/> Entertainment",
+        card_title: "Snake Game - Gameplay",
         card_desc: "Entertainment - Jquery - Javascript",
         card_image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/snake%2Fsnake-card.jpg?alt=media&token=761c905d-23b6-44f4-ba7e-956afd01b77b",
         images: [
@@ -137,7 +170,7 @@ export const projects = [
     {
         slug: '/projects/electric-store',
         website: "",
-        card_title: "Electronic Store. <br/> eCommerce",
+        card_title: "Electronic Store - eCommerce",
         card_desc: "eCommerce - SSR - JavaWeb",
         card_image: "https://cdn.dribbble.com/users/3713179/screenshots/9536384/media/ed9f05d7ed5b92878712ced805e97a54.png?compress=1&resize=400x300",
         images: [],
@@ -145,7 +178,7 @@ export const projects = [
     {
         slug: '/projects/data-warehouse',
         website: "https://ecommerce-d49f8.web.app/",
-        card_title: "Commodities Mart.<br/> Data Warehouse",
+        card_title: "Commodities Mart - Data Warehouse",
         card_desc: "ETL - Java - Jsoup - JSP - Servlet",
         card_image: "https://mona.media/wp-content/uploads/2021/07/ecommerce.png",
         images: [],
@@ -153,7 +186,7 @@ export const projects = [
     {
         slug: '/projects/amigo-tasks',
         website: "https://amigo-tasks.vercel.app/",
-        card_title: "Amigo Tasks.<br/> Tasks Management",
+        card_title: "Amigo Tasks",
         card_desc: "NextJS - NestJS - MongoDB - ChatGPT",
         card_image: "https://images.unsplash.com/photo-1493839523149-2864fca44919?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80",
         images: [],

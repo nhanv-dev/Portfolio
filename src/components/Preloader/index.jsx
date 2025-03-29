@@ -13,13 +13,13 @@ const Preloader = ({ texts, onLoaded }) => {
 
         let interval = setInterval(() => {
             setTextIndex((prev) => prev + 1);
-        }, 1500);
+        }, 1800);
 
         const timeout = setTimeout(() => {
             clearInterval(interval);
             setIsVisible(false);
             onLoaded();
-        }, texts.length * 1500);
+        }, texts.length * 1800);
 
         return () => {
             clearInterval(interval);

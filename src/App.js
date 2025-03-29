@@ -12,7 +12,7 @@ export default function App() {
         <Router>
             <Layout>
                 <Routes>
-                    <Route exact={true} path={"/projects/:slug"} element={<ProjectDetailPage />} />
+                    <Route  path={"/projects/:slug"} element={<ProjectDetailPage />} />
                     <Route exact={true} path={"/home"} element={<Home />} />
                     <Route exact={true} path={"/projects"} element={<ProjectsPage />} />
                     <Route exact={true} path={"/contact"} element={<ContactPage />} />

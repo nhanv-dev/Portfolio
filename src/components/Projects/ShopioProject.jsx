@@ -6,9 +6,9 @@ const ShopioProject = ({ item }) => {
 
 	return (
 		<ProjectLayout
-			title={"Noonpost"}
-			website={""}
-			tag={"2022"}
+			title={item.card_title}
+			website={item.website}
+			tag={"2023"}
 			image={"https://devrajchatribin.com/_next/image?url=https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fct2epucbo91koigl3xmr.png&w=828&q=75"}
 		>
 			<div className="mt-6 flex gap-10">

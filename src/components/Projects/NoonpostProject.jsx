@@ -6,8 +6,8 @@ const NoonpostProject = ({ item }) => {
 
 	return (
 		<ProjectLayout
-			title={"Noonpost"}
-			website={""}
+			title={item.card_title}
+			website={item.website}
 			tag={"2022"}
 			image={"https://devrajchatribin.com/_next/image?url=https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fct2epucbo91koigl3xmr.png&w=828&q=75"}
 		>
@@ -23,22 +23,18 @@ const NoonpostProject = ({ item }) => {
 						))}
 					</div>
 				</div>
-				<div className="min-w-[250px]">
-					<div className="text-gray-300 text-sm">
-						<p className="mb-2">
-							<span className="font-bold text-gray-400 inline-block w-[65px]">Roles:</span>
-							<span className="font-semibold">Web Developer</span>
-						</p>
-						<p className="mb-2">
-							<span className="font-bold text-gray-400 inline-block w-[65px]">Client:</span>
-							<span className="font-semibold">Personal Project</span>
-						</p>
-						<p className="mb-2">
-							<span className="font-semibold">View Github</span>
-						</p>
-					</div>
+				<div className="min-w-[250px] text-gray-300 text-sm">
+					<p className="mb-2">
+						<span className="font-bold text-gray-400 inline-block w-[65px]">Roles:</span>
+						<span className="font-semibold">Web Developer</span>
+					</p>
+					<p className="mb-2">
+						<span className="font-bold text-gray-400 inline-block w-[65px]">Client:</span>
+						<span className="font-semibold">Personal Project</span>
+					</p>
 				</div>
 			</div>
+
 
 			<div className="mt-6">
 				<h2 className="text-xl font-bold">Overview</h2>

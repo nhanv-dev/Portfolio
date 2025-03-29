@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import DarkModeToggle from "../DarkModeToggle";
 import { useLenis } from "../LenisProvider";
 import './style.css';
+import { useLoading } from "../Layout";
 
 const listRouting = ["/home", "/about", "/projects", "/contact"];
 
@@ -10,6 +11,7 @@ export default function Header() {
     const lenis = useLenis();
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
+    const { setIsLoaded } = useLoading();
 
     useEffect(() => {
         if (!lenis) return;
@@ -45,7 +47,7 @@ export default function Header() {
 
                     {/* Navigation */}
                     <nav>
-                        <ul className="transition-theme-text flex gap-6 font-bold text-lightText dark:text-darkText">
+                        <ul className="transition-theme-text flex gap-6 font-bold text-lightText dark:text-gray-400">
                             {listRouting.map((path) => {
                                 const isActive = location.pathname.startsWith(path);
 
@@ -53,6 +55,7 @@ export default function Header() {
                                     <li key={path} className="relative">
                                         <Link
                                             to={path}
+                                            onClick={() => setIsLoaded(false)}
                                             className={`relative text-[0.925rem] ${isActive
                                                 ? "text-primary after:content-[''] after:absolute after:left-0 after:bottom-[-5px] after:w-4 after:h-[2px] after:bg-primary"
                                                 : ""}`}

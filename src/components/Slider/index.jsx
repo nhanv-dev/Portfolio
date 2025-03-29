@@ -58,14 +58,17 @@ export default function Slider() {
                     <div className="bg-primary h-full" style={{ width: `${progress}%`, transition: 'width 0.1s', }}></div>
                 </div>
                 <div id="slider" className="h-full w-full flex relative overflow-hidden">
-                    <div className="z-[30] absolute right-[700px] bottom-[97px] translate-y-[50%] bg-black rounded-full">
+                    <Link to={'/contact'} tabIndex={-1} className="z-[30] absolute right-[600px] bottom-[100px] translate-y-[50%] bg-black rounded-full">
                         <CircularText
                             text="LETS TALK . LETS TALK . LETS TALK . "
                             onHover="speedUp"
                             spinDuration={20}
-                            className="w-[150px] h-[150px]"
+                            className="w-[140px] h-[140px]"
                             innerClassName="text-white"
                         />
+                    </Link>
+                    <div className="z-[30] absolute left-10 bottom-[50px] translate-y-[50%] bg-black px-6 py-2 font-bold uppercase rounded">
+                        Scroll down
                     </div>
                     <motion.div
                         id="slideImage"
@@ -77,7 +80,7 @@ export default function Slider() {
                         ))}
                     </motion.div>
 
-                    <div className="h-[3px] absolute left-0 right-[500px] bottom-[97px] z-20 bg-white"></div>
+                    <div className="h-[3px] absolute left-0 right-[500px] bottom-[100px] translate-y-[50%] z-20 bg-white"></div>
 
                     <Slide isActive={activeSlide === 0} subtitle={"Welcome to My Developer Journey"} title={"Code Voyager Here"}>
                         <Link to={"/about"}

@@ -32,7 +32,7 @@ export const LenisProvider = ({ children }) => {
 
         lenis.scrollTo(0, { immediate: true }); // Cuộn lên đầu mỗi khi route thay đổi
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location.pathname]); // Lắng nghe thay đổi route
 
     return <LenisContext.Provider value={lenis}>{children}</LenisContext.Provider>;
