@@ -16,23 +16,24 @@ const Layout = ({ children }) => {
             "/about": "About - Portfolio",
             "/contact": "Contact - Portfolio",
             "/projects": "Projects - Portfolio",
+            "/projects/noonpost": "Noonpost - Portfolio",
         };
 
         document.title = titles[location.pathname] || "Home - Portfolio";
     }, [location.pathname]);
 
     return (
-        <LenisProvider>
-            <div id="main-content">
+        <div id="main-content">
+            <LenisProvider>
                 <div className="h-full w-full relative text-white">
                     <Header />
                     {children}
                     <Footer />
                 </div>
-            </div>
-            <ScrollTop />
-            <CustomCursor />
-        </LenisProvider>
+                <ScrollTop />
+                <CustomCursor />
+            </LenisProvider>
+        </div>
     );
 };
 

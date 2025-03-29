@@ -26,7 +26,7 @@ export default function DarkModeToggle() {
     return (
         <button
             onClick={toggleDarkMode}
-            className="transition-theme-text dark:text-textDark text-textLight bg-transparent flex items-center justify-center relative overflow-hidden border-none outline-none"
+            className="transition-theme-text dark:text-darkText text-lightText bg-transparent flex items-center justify-center relative overflow-hidden border-none outline-none"
         >
             <span className="transform scale-125 z-10">
                 {darkMode ? <MdOutlineDarkMode size={20} /> : <MdOutlineLightMode size={20} />}

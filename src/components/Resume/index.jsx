@@ -17,7 +17,7 @@ function Resume() {
                         <h4 className="mb-5 font-bold text-[1.5rem] tracking-[1px]">Education</h4>
                         <h5 className="pl-5 relative text-[1.2rem] font-bold tracking-[1px]">
                             Nong Lam University
-                            <div className="absolute left-0 top-[50%] translate-x-[-50%] translate-y-[-50%] bg-[#14bfb5] w-[8px] h-[8px] rounded-full"></div>
+                            <div className="absolute left-0 top-[50%] translate-x-[-50%] translate-y-[-50%] bg-primary w-[8px] h-[8px] rounded-full"></div>
                         </h5>
                         <div className="pl-5 pt-3 pb-10 relative text-[#bbb] text-[16px] leading-[1.6] font-[500]">
                             <p className="mb-3 tracking-[2px]">2019 - 2023</p>
@@ -35,7 +35,7 @@ function Resume() {
                         <h4 className="mb-5 font-bold text-[1.5rem] tracking-[1px]">Experience</h4>
                         <h5 className="pl-5 relative text-[1.2rem] font-bold tracking-[1px]">
                             GSoft Company
-                            <div className="absolute left-0 top-[50%] translate-x-[-50%] translate-y-[-50%] bg-[#14bfb5] w-[8px] h-[8px] rounded-full"></div>
+                            <div className="absolute left-0 top-[50%] translate-x-[-50%] translate-y-[-50%] bg-primary w-[8px] h-[8px] rounded-full"></div>
                         </h5>
                         <div className="pl-5 pt-3 pb-10 relative text-[#bbb] text-[16px] leading-[1.6] font-[500]">
                             <p className="mb-3 tracking-[2px]">10/2023 - 1/2025</p>
@@ -50,7 +50,7 @@ function Resume() {
                         </div>
                         <h5 className="pl-5 relative text-[1.2rem] font-bold tracking-[1px]">
                             GlobalChain Company
-                            <div className="absolute left-0 top-[50%] translate-x-[-50%] translate-y-[-50%] bg-[#14bfb5] w-[8px] h-[8px] rounded-full"></div>
+                            <div className="absolute left-0 top-[50%] translate-x-[-50%] translate-y-[-50%] bg-primary w-[8px] h-[8px] rounded-full"></div>
                         </h5>
                         <div className="pl-5 pt-3 pb-10 relative text-[#bbb] text-[16px] leading-[1.6] font-[500]">
                             <p className="mb-3 tracking-[2px]">8/2023 - 10/2023</p>

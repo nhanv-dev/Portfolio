@@ -17,30 +17,30 @@ module.exports = {
             padding: {
                 DEFAULT: '1rem',
                 sm: '2rem',
-                lg: '4rem',
-                xl: '5rem',
-                '2xl': '6rem',
+                lg: '2rem',
+                xl: '2rem',
+                '2xl': '2rem',
             },
             screens: {
                 sm: "100%",
                 md: "100%",
-                lg: "1140px",
-                xl: "1140px",
-                '2xl': '1140px',
+                lg: "1024px",
+                xl: "1024px",
+                '2xl': '1024px',
             }
         },
         extend: {
             colors: {
-                lightBg: '#ffffff', // Nền sáng
-                lightBg2: '#ffffff', // Nền sáng
-                darkBg: '#000', // Nền tối
-                darkBg2: '#121212', // Nền tối
-                primary: '#14bfb5', // Màu chủ đạo
-                secondary: '#bbb', // Màu phụ
-                borderLight: '#ffffff14', // Đường viền sáng
-                borderDark: '#ffffff14', // Đường viền tối
-                textLight: '#000', // Chữ sáng
-                textDark: '#fff', // Chữ tối
+                lightBg: '#ffffff',
+                lightBg2: '#e9e9e9',
+                darkBg: '#0b0b0d',
+                darkBg2: '#171717',
+                primary: '#14bfb5',
+                secondary: '#bbb',
+                borderLight: '#ffffff14',
+                borderDark: '#ffffff14',
+                lightText: '#000',
+                darkText: '#fff',
             },
         },
         colors: ({ colors }) => ({

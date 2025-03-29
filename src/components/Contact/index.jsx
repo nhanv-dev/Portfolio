@@ -45,12 +45,12 @@ export default function Contact() {
                                 Contact Info
                             </h3>
                             <div className="max-w-[300px] w-[max-content]">
-                                <h5 className="font-[700] text-[20px] text-[#14bfb5] mt-[20px] mb-[10px]">Address</h5>
+                                <h5 className="font-[700] text-[20px] text-primary mt-[20px] mb-[10px]">Address</h5>
                                 <p className="font-[500] text-sm text-gray-300 leading-6">80/4/3A Tan Hoa Dong Street, Disctrict 6, Ho Chi Minh City</p>
-                                <h5 className="font-[700] text-[20px] text-[#14bfb5] mt-[20px] mb-[10px]">Email</h5>
+                                <h5 className="font-[700] text-[20px] text-primary mt-[20px] mb-[10px]">Email</h5>
                                 <p className="font-[500] text-sm text-gray-300 leading-6">School Email: 19130159@st.hcmuaf.edu.vn</p>
                                 <p className="font-[500] text-sm text-gray-300 leading-6">Personal Email: tthanhnhan1512@gmail.com</p>
-                                <h5 className="font-[700] text-[20px] text-[#14bfb5] mt-[20px] mb-[10px]">Phone</h5>
+                                <h5 className="font-[700] text-[20px] text-primary mt-[20px] mb-[10px]">Phone</h5>
                                 <p className="font-[500] text-sm text-gray-300 leading-6">(+84) 946 286 951</p>
                             </div>
                         </div>

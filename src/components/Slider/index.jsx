@@ -1,188 +1,199 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from 'react';
-import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
-import './style.css';
-import Slide from "./Slide";
+import { BiChevronRight } from 'react-icons/bi';
 import { Link } from "react-router-dom";
+import { slides } from "../../data";
+import CircularText from "../CircularText";
+import TechInfiniteScroll from "../InfiniteScroll/TechInfiniteScroll";
+import Slide, { SlideImage } from "./Slide";
+import './style.css';
 
-const images = [
-    'https://images.unsplash.com/photo-1636730740168-c94f3ab802e6?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1692023496239-0554df299b0d?q=80&w=2664&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1604599340212-3d27b5c6afe1?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-]
+
 
 export default function Slider() {
-    const totalSlide = 3;
+    const totalSlide = slides.length;
     const [activeSlide, setActiveSlide] = useState(0);
-    const buttonRef = useRef(null);
     const { scrollY } = useScroll();
     const scale = useTransform(scrollY, [0, 500], [1, 1.2]);
+    const [progress, setProgress] = useState(0);  // Track progress
+    const [timeoutStarted, setTimeoutStarted] = useState(false);
+
+    const intervalRef = useRef(null);  // Ref để lưu interval
 
     useEffect(() => {
-        if (activeSlide < 0) setActiveSlide(0)
-        if (activeSlide === 0) buttonRef.current.style.transform = `translateY(110px)`
-        else buttonRef.current.style.transform = `translateY(-${110 * activeSlide - 110}px)`
-    }, [activeSlide])
+        const timeout = setTimeout(() => {
+            setActiveSlide((prev) => (prev + 1 >= totalSlide ? 0 : prev + 1));  // Switch to next slide
+            setProgress(0);  // Reset progress
+            setTimeoutStarted(false);  // Reset timeoutStarted
+
+        }, 10 * 1000); // Timeout after 10 seconds
+
+        setTimeoutStarted(true);  // Mark timeout as started
+
+        return () => {
+            clearTimeout(timeout);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [activeSlide]);
+
 
     useEffect(() => {
-        const timeout = setTimeout(() => setActiveSlide(activeSlide + 1 >= totalSlide ? 0 : activeSlide + 1), 10 * 1000)
-        return () => clearTimeout(timeout)
-    }, [activeSlide])
+        if (timeoutStarted) {
+            intervalRef.current = setInterval(() => {
+                setProgress(prev => {
+                    if (prev < 100) return prev + (100 / (10 * 1000 / 100));  // Progress based on 10 seconds
+                    clearInterval(intervalRef.current);  // Clear interval once we reach 100%
+                    return 100;
+                });
+            }, 100);
 
+            return () => clearInterval(intervalRef.current);
+        }
+    }, [timeoutStarted])
 
     return (
-        <section className="h-[660px] w-full">
-            <div id="slider" className="h-full w-full flex relative overflow-hidden">
-                <div className="flex-1 relative hidden lg:block">
-                    <div className="z-[4] absolute max-h-[330px] py-[10px] overflow-hidden left-0 top-[50%] translate-y-[-50%]">
-                        <div ref={buttonRef} className="flex flex-col gap-[10px] transition-all duration-1000 ease-in-out">
-                            {images.map((image, index) => (
-                                <Button
-                                    key={index}
-                                    number={String(index + 1).padStart(2, '0')}
-                                    active={activeSlide === index && "active"}
-                                    handleClick={() => setActiveSlide(index)}
-                                    image={image}
-                                />
-                            ))}
-                        </div>
+        <>
+            <section className="h-[calc(100vh-68px)] w-full relative">
+                <div style={{ width: '100%', backgroundColor: '#ccc', height: '5px', borderRadius: '2px' }} className="absolute left-0 right-0 top-0 z-[3]">
+                    <div className="bg-primary h-full" style={{ width: `${progress}%`, transition: 'width 0.1s', }}></div>
+                </div>
+                <div id="slider" className="h-full w-full flex relative overflow-hidden">
+                    <div className="z-[30] absolute right-[700px] bottom-[97px] translate-y-[50%] bg-black rounded-full">
+                        <CircularText
+                            text="LETS TALK . LETS TALK . LETS TALK . "
+                            onHover="speedUp"
+                            spinDuration={20}
+                            className="w-[150px] h-[150px]"
+                            innerClassName="text-white"
+                        />
                     </div>
-                </div>
-                <motion.div
-                    id="slideImage"
-                    className="w-full lg:w-[70%] h-full relative overflow-hidden z-[1]"
-                    style={{ scale }}
-                >
-                    {images.map((image, index) => (
-                        <SlideImage key={index} index={index} active={activeSlide} image={image} />
-                    ))}
-                </motion.div>
-                <div className="absolute bottom-[50px] right-[70px] flex gap-5 transition-all linear duration-[800ms]">
-                    <button onClick={() => {
-                        setActiveSlide(activeSlide - 1 < 0 ? 0 : activeSlide - 1)
-                    }}
-                        className="w-[40px] h-[40px] z-[10] border-[2px] flex items-center justify-center rounded-full hover:scale-[1.2] transition-all duration-300 ease-in-out">
-                        <BiChevronLeft className="text-[24px] leading-[40px] font-extrabold" />
-                    </button>
-                    <button
-                        onClick={() => setActiveSlide(activeSlide + 1 >= totalSlide ? 0 : activeSlide + 1)}
-                        className="w-[40px] h-[40px] z-[10] border-[2px] flex items-center justify-center rounded-full hover:scale-[1.2] transition-all duration-300 ease-in-out">
-                        <BiChevronRight className="text-[24px] leading-[40px] font-extrabold" />
-                    </button>
-                </div>
-                <div className='z-[3] container absolute top-[50%] translate-y-[-55%] bottom-0 left-0 right-0'>
-                    <div className='relative w-full h-full'>
-                        <div className="absolute top-0 left-0 lg:w-[800px] md:w-[600px] sm:w-[500px] w-[100%]">
-                            <Slide isActive={activeSlide === 0} subtitle={"Welcome to My Developer Journey"} title={"Code Voyager Here"}>
-                                <div className="w-full mb-10">
-                                    <p className="font-semibold tracking-[.8px] text-[.8rem] md:text-[.9rem] leading-7">
-                                        I’m a Front-end Developer and a student at Nong Lam University, majoring in Information Technology.
-                                        <br />
-                                        Want to know more about my skills and experience? Check out my resume!
-                                    </p>
-                                </div>
-                                <Link to={"/about"}
-                                    className="hover:scale-[1.05] transition-all duration-300 ease-in-out inline-flex items-center justify-center gap-3 rounded-full px-3 py-2 border-[2px] border-[rgba(255,255,255,0.2)] focus:outline-none">
-                                    <span
-                                        className="w-[30px] h-[30px] border-2 bg-white text-black rounded-full flex items-center justify-center">
-                                        <BiChevronRight className="text-[22px] relative top-[1px] font-extrabold" />
-                                    </span>
-                                    <span className="text-[12px] tracking-[2px] uppercase font-[700]">Discover My Resume</span>
-                                </Link>
-                            </Slide>
-                            <Slide isActive={activeSlide === 1} subtitle={"Where Ideas Come to Life"} title={"Code Creations"}>
-                                <div className="w-full mb-10">
-                                    <p className="font-semibold tracking-[.8px] text-[.8rem] md:text-[.9rem] leading-7">
-                                        My name is Thanh Nhan. Currently, I am studying at the NongLam University.
-                                        <br />
-                                        My major is information technology. I am a front-end developer.
-                                    </p>
-                                </div>
-                                <Link to={"/about"}
-                                    className="hover:scale-[1.05] transition-all duration-300 ease-in-out inline-flex items-center justify-center gap-3 rounded-full px-3 py-2 border-[2px] border-[rgba(255,255,255,0.2)] focus:outline-none">
-                                    <span
-                                        className="w-[30px] h-[30px] border-2 bg-white text-black rounded-full flex items-center justify-center">
-                                        <BiChevronRight className="text-[22px] relative top-[1px] font-extrabold" />
-                                    </span>
-                                    <span className="text-[12px] tracking-[2px] uppercase font-[700]">Explore My Work</span>
-                                </Link>
-                            </Slide>
-                            <Slide isActive={activeSlide === 2} subtitle={"Ready to Collaborate?"} title={"Let’s Connect!"}>
-                                <div className="w-full mb-10">
-                                    <p className="font-semibold tracking-[.8px] text-[.8rem] md:text-[.9rem] leading-7">
-                                        My name is Thanh Nhan. Currently, I am studying at the NongLam University.
-                                        <br />
-                                        My major is information technology. I am a front-end developer.
-                                    </p>
-                                </div>
-                                <Link to={"/about"}
-                                    className="hover:scale-[1.05] transition-all duration-300 ease-in-out inline-flex items-center justify-center gap-3 rounded-full px-3 py-2 border-[2px] border-[rgba(255,255,255,0.2)] focus:outline-none">
-                                    <span
-                                        className="w-[30px] h-[30px] border-2 bg-white text-black rounded-full flex items-center justify-center">
-                                        <BiChevronRight className="text-[22px] relative top-[1px] font-extrabold" />
-                                    </span>
-                                    <span className="text-[12px] tracking-[2px] uppercase font-[700]">Get in Touch</span>
-                                </Link>
-                            </Slide>
+                    <motion.div
+                        id="slideImage"
+                        className="w-full h-full relative overflow-hidden z-[1]"
+                        style={{ scale }}
+                    >
+                        {slides.map((slide, index) => (
+                            <SlideImage key={index} index={index} active={activeSlide} image={slide.src} />
+                        ))}
+                    </motion.div>
+
+                    <div className="h-[3px] absolute left-0 right-[500px] bottom-[97px] z-20 bg-white"></div>
+
+                    <Slide isActive={activeSlide === 0} subtitle={"Welcome to My Developer Journey"} title={"Code Voyager Here"}>
+                        <Link to={"/about"}
+                            className="hover:scale-[1.05] transition-all duration-300 ease-in-out inline-flex items-center justify-center gap-3 rounded-full px-3 py-2 border-[2px] border-[rgba(255,255,255,0.2)] focus:outline-none">
+                            <span
+                                className="w-[30px] h-[30px] border-2 bg-white text-black rounded-full flex items-center justify-center">
+                                <BiChevronRight className="text-[22px] relative top-[1px] font-extrabold" />
+                            </span>
+                            <span className="text-[12px] tracking-[2px] uppercase font-[700]">Discover My Resume</span>
+                        </Link>
+                    </Slide>
+                    <Slide isActive={activeSlide === 1} subtitle={"Where Ideas Come to Life"} title={"Code Creations"}>
+                        <div className="w-full mb-10">
+                            <p className="font-semibold tracking-[.8px] text-[.8rem] md:text-[.9rem] leading-7">
+                                My name is Thanh Nhan. Currently, I am studying at the NongLam University.
+                                <br />
+                                My major is information technology. I am a front-end developer.
+                            </p>
                         </div>
-                    </div>
+                        <Link to={"/about"}
+                            className="hover:scale-[1.05] transition-all duration-300 ease-in-out inline-flex items-center justify-center gap-3 rounded-full px-3 py-2 border-[2px] border-[rgba(255,255,255,0.2)] focus:outline-none">
+                            <span
+                                className="w-[30px] h-[30px] border-2 bg-white text-black rounded-full flex items-center justify-center">
+                                <BiChevronRight className="text-[22px] relative top-[1px] font-extrabold" />
+                            </span>
+                            <span className="text-[12px] tracking-[2px] uppercase font-[700]">Explore My Work</span>
+                        </Link>
+                    </Slide>
+                    <Slide isActive={activeSlide === 2} subtitle={"Ready to Collaborate?"} title={"Let’s Connect!"}>
+                        <div className="w-full mb-10">
+                            <p className="font-semibold tracking-[.8px] text-[.8rem] md:text-[.9rem] leading-7">
+                                My name is Thanh Nhan. Currently, I am studying at the NongLam University.
+                                <br />
+                                My major is information technology. I am a front-end developer.
+                            </p>
+                        </div>
+                        <Link to={"/about"}
+                            className="hover:scale-[1.05] transition-all duration-300 ease-in-out inline-flex items-center justify-center gap-3 rounded-full px-3 py-2 border-[2px] border-[rgba(255,255,255,0.2)] focus:outline-none">
+                            <span
+                                className="w-[30px] h-[30px] border-2 bg-white text-black rounded-full flex items-center justify-center">
+                                <BiChevronRight className="text-[22px] relative top-[1px] font-extrabold" />
+                            </span>
+                            <span className="text-[12px] tracking-[2px] uppercase font-[700]">Get in Touch</span>
+                        </Link>
+                    </Slide>
+
+                    <ImageNavigation activeSlide={activeSlide} setActiveSlide={setActiveSlide} />
                 </div>
-            </div>
-        </section>
+            </section>
+            <TechInfiniteScroll />
+        </>
     )
 }
 
-const SlideImage = ({ image, active, index }) => {
-    const isActive = index === active;
 
-    const textStyle = {
-        WebkitTextStroke: '3px rgba(255, 255, 255, 0.5)',
+function ImageNavigation({ activeSlide = 0, setActiveSlide }) {
+    const [active, setActive] = useState("next");
+
+    const nextIndex = (activeSlide + 1) % slides.length;
+    const prevIndex = (activeSlide - 1 + slides.length) % slides.length;
+
+    const handleNext = () => {
+        setActiveSlide(nextIndex);
+    };
+
+    const handlePrev = () => {
+        setActiveSlide(prevIndex);
     };
 
     return (
-        <motion.div
-            className="absolute w-full h-full bg-cover bg-center transition-transform"
-            style={{ backgroundImage: `url(${image})` }}
-            animate={{
-                scale: isActive ? 1 : 0.88,
-                opacity: isActive ? 1 : 0.6,
-                filter: isActive ? "blur(0px)" : "blur(8px)",
-                zIndex: isActive ? 10 : 0,
-            }}
-            transition={{
-                duration: 1.8,
-                ease: [0.16, 1, 0.3, 1],
-            }}
-        >
-            {/* Lớp overlay màu đen nhẹ */}
-            <div className="z-[1] absolute inset-0 bg-black bg-opacity-30"></div>
-
-            <div className="z-[2] absolute right-[60px] bottom-[90px] text-[8vw] text-[rgba(255,255,255,0.05)]"
-                style={textStyle}
+        <div className="flex w-[500px] h-[200px] absolute right-0 bottom-0 z-20">
+            {/* Prev Button */}
+            <div
+                className={`relative h-full transition-all duration-500 cursor-pointer bg-white ${active === "prev" ? "w-[300px]" : "w-[200px]"}`}
+                onClick={handlePrev}
+                onMouseEnter={() => setActive("prev")}
+                style={{
+                    backgroundImage: active === "prev" ? `url(${slides[prevIndex].src})` : "none",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                }}
             >
-                {String(index + 1).padStart(2, "0")}
-            </div>
-
-
-        </motion.div>
-    );
-};
-
-
-const Button = ({ number, image, handleClick, active }) => {
-    return (
-        <button onClick={handleClick} className={active + " w-[50px] z-[10] relative hover:w-[190px] transition-all duration-1000 ease-in-out"}>
-            <div className="overflow-hidden w-full h-[100px] rounded-r-lg">
-                <span
-                    style={{ WebkitTextStroke: '.75px rgba(255,255,255, 1)' }}
-                    className="z-10 transition-all duration-[300ms] ease-in-out absolute right-0 top-[-30px] tracking-widest font-extrabold text-[2.25rem] leading-[1.6] opacity-[0] text-[rgba(255,255,255,.05)]">
-                    {number}
-                </span>
-                <div
-                    className="w-full h-full origin-center bg-center bg-fixed bg-clip-content bg-cover relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-black after:opacity-20 after:rounded-r-lg"
-                    style={{ backgroundImage: `url(${image})` }}>
+                <div className={`absolute inset-0 flex flex-col items-center justify-center ${active === "prev" ? "bg-black/20 text-white" : "bg-transparent text-black"}`}>
+                    <p className={`absolute top-[75px] left-[50%] translate-x-[-50%] font-extrabold uppercase transition-all duration-[800ms] ${active === 'prev'
+                        ? "text-[6rem]"
+                        : "text-[1.2rem]"
+                        }`}>prev</p>
+                    <p className={`absolute top-[100px] text-[1.25rem] font-bold transition-all duration-[800ms] ${active === 'prev'
+                        ? "translate-y-[-15px]"
+                        : ""
+                        }`}>{slides[prevIndex].title}</p>
                 </div>
             </div>
-        </button>
-    )
+
+            {/* Next Button */}
+            <div
+                className={`relative h-full transition-all duration-500 cursor-pointer bg-white ${active === "next" ? "w-[300px]" : "w-[200px]"}`}
+                onClick={handleNext}
+                onMouseEnter={() => setActive("next")}
+                style={{
+                    backgroundImage: active === "next" ? `url(${slides[nextIndex].src})` : "none",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                }}
+            >
+                <div className={`absolute inset-0 flex flex-col items-center justify-center ${active === "next" ? "bg-black/20 text-white" : "bg-transparent text-black"}`}>
+                    <p className={`absolute top-[75px] left-[50%] translate-x-[-50%] font-extrabold uppercase transition-all duration-[800ms] ${active === 'next'
+                        ? "text-[6rem]"
+                        : "text-[1.2rem]"
+                        }`}>next</p>
+                    <p className={`absolute top-[100px] text-[1.25rem] font-bold transition-all duration-[800ms] ${active === 'next'
+                        ? "translate-y-[-15px]"
+                        : ""
+                        }`}>{slides[nextIndex].title}</p>
+                </div>
+            </div>
+        </div>
+    );
 }

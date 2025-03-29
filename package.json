@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/core": "7.18.6",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
+    "@react-spring/web": "^9.7.5",
     "@studio-freight/lenis": "^1.0.42",
     "@svgr/webpack": "^7.0.0",
     "@testing-library/jest-dom": "^5.16.3",

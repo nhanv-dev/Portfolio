@@ -26,7 +26,7 @@ export default function Header() {
 
     return (
         <>
-            <div className="h-[68px] flex items-center justify-center border-b border-gray-700">
+            <div className="h-[68px] flex items-center justify-center dark:bg-darkBg">
                 <header
                     className={`fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 
                                 flex justify-between items-center rounded-full text-sm
@@ -37,24 +37,24 @@ export default function Header() {
                 >
                     {/* Logo */}
                     <div className="flex items-center w-[150px] justify-start">
-                        <Link to="/home" className="font-extrabold text-lg tracking-wide text-textLight dark:text-textDark">
+                        <Link to="/home" className="font-extrabold text-lg tracking-wide text-lightText dark:text-darkText">
                             <span>Port</span>
-                            <span className="text-[#14bfb5] ml-1">folio.</span>
+                            <span className="text-primary ml-1">folio.</span>
                         </Link>
                     </div>
 
                     {/* Navigation */}
                     <nav>
-                        <ul className="transition-theme-text flex gap-6 font-bold text-textLight dark:text-textDark">
+                        <ul className="transition-theme-text flex gap-6 font-bold text-lightText dark:text-darkText">
                             {listRouting.map((path) => {
-                                const currentPath = listRouting.includes(location.pathname) ? location.pathname : "/home";
+                                const isActive = location.pathname.startsWith(path);
 
                                 return (
                                     <li key={path} className="relative">
                                         <Link
                                             to={path}
-                                            className={`relative text-[0.925rem] ${currentPath === path
-                                                ? "text-[#14bfb5] after:content-[''] after:absolute after:left-0 after:bottom-[-5px] after:w-4 after:h-[2px] after:bg-[#14bfb5]"
+                                            className={`relative text-[0.925rem] ${isActive
+                                                ? "text-primary after:content-[''] after:absolute after:left-0 after:bottom-[-5px] after:w-4 after:h-[2px] after:bg-primary"
                                                 : ""}`}
                                         >
                                             {path.replace("/", "").charAt(0).toUpperCase() + path.slice(2)}

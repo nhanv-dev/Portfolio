@@ -7,7 +7,7 @@ export default function Footer() {
                 <div className="flex flex-wrap items-start mx-[-30px]">
                     <div className="lg:w-[20%] md:w-[50%] w-full px-[30px] mb-[30px]">
                         <h2 className="mb-8 leading-[28px] text-[1.4rem] tracking-wider uppercase font-extrabold">
-                            Port<span className="text-[#14bfb5]">folio.</span>
+                            Port<span className="text-primary">folio.</span>
                         </h2>
                         <div className="flex gap-3">
                             <a href="https://www.facebook.com/nhan.kden/" target="_blank" rel="noreferrer"

@@ -1,76 +1,73 @@
+import DepotProject from "./components/Projects/DepotProject";
+import NoonpostProject from "./components/Projects/NoonpostProject";
+import ShopioProject from "./components/Projects/ShopioProject";
+import SpotifyProject from "./components/Projects/SpotifyProject";
+
+export const slides = [
+    { title: "Welcome Aboard", src: "https://colabrio.ams3.cdn.digitaloceanspaces.com/ohio-demo-2/oh__img59.1.jpg" },
+    { title: "Discover Me", src: "https://images.unsplash.com/photo-1630986954063-01a39c755b5c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+    { title: "Get in Touch", src: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=2676&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+]
 
 export const projects = [
     {
-        slug: '/project/spotify',
-        website: "https://spotify-client-react.web.app/",
-        slide_image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify%2Fspotify.png?alt=media&token=8a94b581-aa41-4499-8ace-4144a9daf362",
-        slide_thumbnail: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify%2Fspotify-thumbnail.jpg?alt=media&token=df478fcf-986d-4195-b4cd-eeacf2952e22",
-        card_title: "Spotify <br/> Music Webapp",
-        card_desc: "Brand - Product - Webapp",
-        card_image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify%2Fspotify-card.webp?alt=media&token=5af72c1b-760c-4890-9995-752bfc88ab26',
-        images: [
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify%2Fspotify-1.png?alt=media&token=740bf7d9-f015-4aa9-b8ed-ac997793b4e4',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify%2Fspotify-2.png?alt=media&token=dc20627d-ff84-461b-8405-2ce8665446e3',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify%2Fspotify-3.png?alt=media&token=188df283-d3f4-4c15-8817-18d70c0272fb',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify%2Fspotify-4.png?alt=media&token=195f77ab-4d18-4d05-a588-114037d7fce6',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify%2Fspotify-5.png?alt=media&token=7beb0ae0-a6a6-4d7e-a942-72a5545dab28',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify%2Fspotify-6.png?alt=media&token=27236329-9395-4945-9729-a155e58c378f',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify%2Fspotify-7.png?alt=media&token=b8a12394-326e-4049-ab2b-021cc9a50f49',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify%2Fspotify-8.png?alt=media&token=4bd7e282-74ea-4095-a4bb-4faea76e4207',
-        ],
-    },
-    {
-        slug: '/project/depot',
+        slug: '/projects/depot',
         website: "https://depot-store-3aa17.web.app/",
-        slide_image: 'https://www.tigren.com/blog/wp-content/uploads/2021/11/ecommerce-design-strategies.png',
-        slide_thumbnail: 'https://mona.media/wp-content/uploads/2021/07/ecommerce.png',
-        card_title: "Depot. -  eCommerce<br/> React App - Spring boot",
+        card_title: "Depot. -  eCommerce",
         card_desc: "eCommerce - ReactJS - Spring Boot",
         card_image: "https://mona.media/wp-content/uploads/2021/07/ecommerce.png",
-        images: [
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/depot%2Fdepot-(15).png?alt=media&token=d4b62a54-fc2b-4e92-8133-967e165fba83',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/depot%2Fdepot-(29).png?alt=media&token=998e1b0c-b0ac-4a08-8291-ac011f58d9ce',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/depot%2Fdepot-(28).png?alt=media&token=da615a26-913d-497b-ad0a-eebac7617867',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/depot%2Fdepot-(1).png?alt=media&token=9f875691-8706-4b94-a9e6-d7de2e829318',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/depot%2Fdepot-(25).png?alt=media&token=6ec584a8-780c-413f-9da8-49532d2756e0',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/depot%2Fdepot-(26).png?alt=media&token=be57f71b-a5a4-46fe-b1e2-70319b363824',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/depot%2Fdepot-(16).png?alt=media&token=998c8216-6af5-416a-a76e-f6c966efd685',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/depot%2Fdepot-(17).png?alt=media&token=049fe4c5-68e0-4b86-a90b-38827720d281',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/depot%2Fdepot-(18).png?alt=media&token=9ca9e5d0-cdec-4448-b828-ab130b29f984',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/depot%2Fdepot-(19).png?alt=media&token=4746cbc2-049f-45a6-824c-59460b516f75',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/depot%2Fdepot-(2).png?alt=media&token=94ea4c77-84b4-4ff6-90a3-0e8ff404c69b',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/depot%2Fdepot-(20).png?alt=media&token=9a8ecac6-43e9-4473-9b3a-bd6fea3e4e4e',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/depot%2Fdepot-(21).png?alt=media&token=4cedadd1-e11f-4cbb-8a24-fd0550f8bedb',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/depot%2Fdepot-(22).png?alt=media&token=b0a27869-7aec-47c4-b9c0-2b7a5273332f',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/depot%2Fdepot-(23).png?alt=media&token=50b6b77a-3bc9-42df-90b9-2f0168ad06b4',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/depot%2Fdepot-(24).png?alt=media&token=36d095dd-7721-4b71-a5e8-d2fc214ace0d',
-            'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/depot%2Fdepot-(27).png?alt=media&token=06ae892c-b519-4404-bd5b-1644baadf3bf',
-        ],
+        component: DepotProject,
     },
     {
-        slug: '/project/noon-post',
+        slug: '/projects/spotify',
+        website: "https://spotify-client-react.web.app/",
+        card_title: "Spotify - Music Webapp",
+        card_desc: "Brand - Product - Webapp",
+        card_image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify%2Fspotify-card.webp?alt=media&token=5af72c1b-760c-4890-9995-752bfc88ab26',
+        component: SpotifyProject,
+    },
+    {
+        slug: '/projects/noonpost',
         website: "https://personal-blog-node.vercel.app/",
-        slide_image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost.png?alt=media&token=53921dff-6872-4325-9ee9-3ed1254859b3",
-        slide_thumbnail: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-thumbnail.webp?alt=media&token=6b664c96-bc1d-4d7c-83e9-e3917df4c730",
-        card_title: "Noonpost. <br/> Personal Blog",
+        card_title: "Noonpost. - Personal Blog",
         card_desc: "Brand - Blog - Webapp",
         card_image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-card.jpg?alt=media&token=72c7a1c4-2218-4448-a04d-156186ae3106",
+        component: NoonpostProject,
         images: [
-            "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-1.png?alt=media&token=fab3ad5f-de15-4856-bbee-a16dcf27d065",
-            "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-2.png?alt=media&token=bf5db890-0a09-4036-911b-559d56559338",
-            "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-3.png?alt=media&token=87060777-9296-4f03-9e33-65551d9384ff",
-            "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-4.png?alt=media&token=6fd7736d-aa8b-41db-a6ac-bd7d5b6e72a9",
-            "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-5.png?alt=media&token=26a5cbd8-a23f-4bc0-b0ea-36aef396c5f6"
+            {
+                id: 1,
+                image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-1.png?alt=media&token=fab3ad5f-de15-4856-bbee-a16dcf27d065",
+                height: 800
+            },
+            {
+                id: 2,
+                image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-2.png?alt=media&token=bf5db890-0a09-4036-911b-559d56559338",
+                height: 700
+            },
+            {
+                id: 3,
+                image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-3.png?alt=media&token=87060777-9296-4f03-9e33-65551d9384ff",
+                height: 400
+            },
+            {
+                id: 4,
+                image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-4.png?alt=media&token=6fd7736d-aa8b-41db-a6ac-bd7d5b6e72a9",
+                height: 800
+            },
+            {
+                id: 5,
+                image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-5.png?alt=media&token=26a5cbd8-a23f-4bc0-b0ea-36aef396c5f6",
+                height: 500
+            }
         ],
     },
     {
-        slug: '/project/shopio',
+        slug: '/projects/shopio',
         website: "https://ecommerce-d49f8.web.app/",
-        slide_image: 'https://cdn.dribbble.com/users/2198224/screenshots/14443181/media/c61c0b293ccf395c7160f8495067fd20.jpg?compress=1&resize=800x600',
-        slide_thumbnail: 'https://cdn.dribbble.com/users/2198224/screenshots/14443181/media/c61c0b293ccf395c7160f8495067fd20.jpg?compress=1&resize=800x600',
-        card_title: "Shopio. - React App <br/> eCommerce",
+        card_title: "Shopio. - eCommerce",
         card_desc: "eCommerce - ReactJS - NodeJS",
         card_image: "https://cdn.dribbble.com/users/2198224/screenshots/14443181/media/c61c0b293ccf395c7160f8495067fd20.jpg?compress=1&resize=800x600",
+        component: ShopioProject,
         images: [
             'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-2.png?alt=media&token=d5b778ad-1ce6-435f-b8ba-e1a5ebb885f9',
             'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-1.png?alt=media&token=a6649940-6d0a-4283-bce9-778d3f04ca74',
@@ -83,10 +80,8 @@ export const projects = [
         ],
     },
     {
-        slug: '/project/chitchat',
+        slug: '/projects/chitchat',
         website: "https://chitchat-e6ec4.web.app/",
-        slide_image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/chitchat%2Fchitchat.jpg?alt=media&token=51908088-ad87-430c-90c1-77b09d2eb5e4',
-        slide_thumbnail: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/chitchat%2Fchitchat-thumbnail.jpg?alt=media&token=5020126d-8d02-4b00-882b-f1d8160856c7',
         card_title: "Chitchat - App Chat <br/> Angular Webapp",
         card_desc: "Websocket - CSR - Angular",
         card_image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/chitchat%2Fchitchat.jpg?alt=media&token=51908088-ad87-430c-90c1-77b09d2eb5e4",
@@ -97,10 +92,8 @@ export const projects = [
         ],
     },
     {
-        slug: '/project/spotify-v2',
+        slug: '/projects/spotify-v2',
         website: "https://spotify-storage-2bef1.web.app/",
-        slide_image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify-v2%2Fspotify-v2-image.png?alt=media&token=a5545e1c-96bc-4bfb-9d07-d8ba556811fc",
-        slide_thumbnail: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify-v2%2Fspotify-v2-thumbnail.jpg?alt=media&token=fef4490b-f3fc-462c-8478-20eaae5d1be9",
         card_title: "Spotify - Music<br/> Complete Version",
         card_desc: "React - Node - MongoDB",
         card_image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify-v2%2Fspotify-v2-card.jpg?alt=media&token=89fb8541-40b5-45c7-aea6-6bf4ff69042f',
@@ -116,10 +109,8 @@ export const projects = [
         ],
     },
     {
-        slug: '/project/todo-list',
+        slug: '/projects/todo-list',
         website: "https://todos-list-f2750.web.app/",
-        slide_image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/todo%2Ftodo.webp?alt=media&token=b43dffc8-89c4-48e9-ad15-acbddc2e471c',
-        slide_thumbnail: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/todo%2Ftodo-thumbnail.webp?alt=media&token=b2052092-7219-4f58-8531-ad51934b5bf9',
         card_title: "Todo List <br/>React Webapp",
         card_desc: "Blog - Webapp",
         card_image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/todo%2Ftodo-card.webp?alt=media&token=708a2847-58ab-43d4-9697-7dc22ab692fe",
@@ -129,10 +120,8 @@ export const projects = [
         ],
     },
     {
-        slug: '/project/snake-game',
+        slug: '/projects/snake-game',
         website: "https://snake-game-5bff8.web.app/",
-        slide_image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/snake%2Fsnake.jpg?alt=media&token=6fc1fbbc-b3df-4494-abe7-6273a61eb122',
-        slide_thumbnail: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/snake%2Fsnake-thumbnail.jpg?alt=media&token=67430ce4-a522-4fb1-b69d-84c296202f98',
         card_title: "Snake Game. <br/> Entertainment",
         card_desc: "Entertainment - Jquery - Javascript",
         card_image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/snake%2Fsnake-card.jpg?alt=media&token=761c905d-23b6-44f4-ba7e-956afd01b77b",
@@ -146,30 +135,24 @@ export const projects = [
         ],
     },
     {
-        slug: '/project/electric-store',
+        slug: '/projects/electric-store',
         website: "",
-        slide_image: 'https://cdn.dribbble.com/users/1387336/screenshots/8217071/black-friday-product-1600x1200px-dribbble_2x_4x.png',
-        slide_thumbnail: 'https://cdn.dribbble.com/users/1615584/screenshots/16818067/media/6558716480c2b89a679bc6dcea0b52b1.jpg?compress=1&resize=1200x900&vertical=top',
         card_title: "Electronic Store. <br/> eCommerce",
         card_desc: "eCommerce - SSR - JavaWeb",
         card_image: "https://cdn.dribbble.com/users/3713179/screenshots/9536384/media/ed9f05d7ed5b92878712ced805e97a54.png?compress=1&resize=400x300",
         images: [],
     },
     {
-        slug: '/project/data-warehouse',
+        slug: '/projects/data-warehouse',
         website: "https://ecommerce-d49f8.web.app/",
-        slide_image: 'https://www.tigren.com/blog/wp-content/uploads/2021/11/ecommerce-design-strategies.png',
-        slide_thumbnail: 'https://mona.media/wp-content/uploads/2021/07/ecommerce.png',
         card_title: "Commodities Mart.<br/> Data Warehouse",
         card_desc: "ETL - Java - Jsoup - JSP - Servlet",
         card_image: "https://mona.media/wp-content/uploads/2021/07/ecommerce.png",
         images: [],
     },
     {
-        slug: '/project/amigo-tasks',
+        slug: '/projects/amigo-tasks',
         website: "https://amigo-tasks.vercel.app/",
-        slide_image: 'https://images.unsplash.com/photo-1493839523149-2864fca44919?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80',
-        slide_thumbnail: 'https://images.unsplash.com/photo-1493839523149-2864fca44919?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80',
         card_title: "Amigo Tasks.<br/> Tasks Management",
         card_desc: "NextJS - NestJS - MongoDB - ChatGPT",
         card_image: "https://images.unsplash.com/photo-1493839523149-2864fca44919?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80",

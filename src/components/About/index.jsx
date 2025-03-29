@@ -5,11 +5,11 @@ function About() {
         <section id="about" className="transition-theme bg-lightBg dark:bg-darkBg">
             <div className="container py-[120px]">
                 {/* Tiêu đề */}
-                <div className="px-4 py-2 bg-darkBg w-[max-content] font-semibold text-[14px] tracking-[3px] text-secondary dark:text-textDark">
+                <div className="px-4 py-2 bg-darkBg w-[max-content] font-semibold text-[14px] tracking-[3px] text-secondary dark:text-darkText">
                     Hello
                 </div>
                 <div className="mb-[60px]">
-                    <h3 className="pb-6 font-bold text-[2.5rem] leading-[3.5rem] tracking-[2px] my-3 text-textLight dark:text-textDark">
+                    <h3 className="pb-6 font-bold text-[2.5rem] leading-[3.5rem] tracking-[2px] my-3 text-lightText dark:text-darkText">
                         About Me
                     </h3>
                     <div className="relative block w-full h-[2px] bg-borderLight after:w-[200px] after:h-[2px] after:bg-primary after:left-0 after:top-0 after:absolute" />
@@ -19,7 +19,7 @@ function About() {
                 <div className="flex flex-row flex-wrap">
                     <div className="basis-full md:basis-1/2 md:pr-10 mb-10">
                         <h5 className="text-primary font-bold text-[1.3rem]">A little bit about myself</h5>
-                        <div className="py-5 my-5 border-b-2 border-t-2 border-borderLight font-semibold text-[14px] tracking-[.8px] leading-[24px] text-textLight dark:text-textDark">
+                        <div className="py-5 my-5 border-b-2 border-t-2 border-borderLight font-semibold text-[14px] tracking-[.8px] leading-[24px] text-lightText dark:text-darkText">
                             <p className="mb-3">
                                 I’m Trần Thanh Nhân, a front-end developer and a java developer. Now, I am studying at the NongLam University and my major is information technology.
                             </p>
@@ -34,7 +34,7 @@ function About() {
                             <button
                                 type="submit"
                                 tabIndex={-1}
-                                className="flex items-center gap-4 group-hover:translate-x-[8px] group-hover:translate-y-[8px] transition-transform ease duration-[300ms] z-[2] opacity-100 relative tracking-[2px] font-bold text-[14px] text-textLight dark:text-textDark px-4 py-2 bg-lightBg2 dark:bg-darkBg2"
+                                className="flex items-center gap-4 group-hover:translate-x-[8px] group-hover:translate-y-[8px] transition-transform ease duration-[300ms] z-[2] opacity-100 relative tracking-[2px] font-bold text-[14px] text-lightText dark:text-darkText px-4 py-2 bg-lightBg2 dark:bg-darkBg2"
                             >
                                 <FiDownload className="text-[1.2rem] text-primary" /> Download CV
                             </button>
@@ -44,16 +44,16 @@ function About() {
                     {/* Kỹ năng */}
                     <div className="basis-full md:basis-1/2 md:pl-10">
                         {[
-                            { skill: 'Java', level: 70, color: 'from-[#14bfb5] to-[#14bfb5]' },
-                            { skill: 'Spring Boot', level: 60, color: 'from-[#14bfb5] to-[#14bfb5]' },
-                            { skill: 'HTML/CSS', level: 70, color: 'from-[#14bfb5] to-[#14bfb5]' },
-                            { skill: 'JavaScript', level: 80, color: 'from-[#14bfb5] to-[#14bfb5]' },
-                            { skill: 'React JS', level: 60, color: 'from-[#14bfb5] to-[#14bfb5]' },
-                            { skill: 'Angular', level: 25, color: 'from-[#14bfb5] to-[#14bfb5]' },
-                            { skill: 'Node JS', level: 55, color: 'from-[#14bfb5] to-[#14bfb5]' },
+                            { skill: 'Java', level: 70, color: 'from-primary to-primary' },
+                            { skill: 'Spring Boot', level: 60, color: 'from-primary to-primary' },
+                            { skill: 'HTML/CSS', level: 70, color: 'from-primary to-primary' },
+                            { skill: 'JavaScript', level: 80, color: 'from-primary to-primary' },
+                            { skill: 'React JS', level: 60, color: 'from-primary to-primary' },
+                            { skill: 'Angular', level: 25, color: 'from-primary to-primary' },
+                            { skill: 'Node JS', level: 55, color: 'from-primary to-primary' },
                         ].map(({ skill, level, color }) => (
                             <div key={skill} className="mb-7">
-                                <h5 className="font-bold text-[0.9rem] tracking-[.5px] mb-3 text-textLight dark:text-textDark">
+                                <h5 className="font-bold text-[0.9rem] tracking-[.5px] mb-3 text-lightText dark:text-darkText">
                                     {skill}
                                 </h5>
                                 <div className="relative h-[4px] w-full flex items-center">
@@ -68,7 +68,7 @@ function About() {
 
                                     {/* Percentage label */}
                                     <p
-                                        className="absolute bottom-[100%] translate-x-[-50%] mb-2 font-bold text-[.8rem] text-textLight dark:text-textDark"
+                                        className="absolute bottom-[100%] translate-x-[-50%] mb-2 font-bold text-[.8rem] text-lightText dark:text-darkText"
                                         style={{ left: `${level}%` }}
                                     >
                                         {level}%
