@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
         <div id="main-content">
             <LenisProvider>
                 <LoadingProvider>
-                    <div className="h-full w-full relative text-white">
+                    <div className="h-full w-full relative dark:text-darkText text-lightText">
                         <Header />
                         {children}
                         <Footer />

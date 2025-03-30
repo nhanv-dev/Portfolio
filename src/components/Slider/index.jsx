@@ -1,10 +1,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BiChevronRight } from 'react-icons/bi';
 import { Link } from "react-router-dom";
 import { slides } from "../../data";
 import CircularText from "../CircularText";
-import TechInfiniteScroll from "../InfiniteScroll/TechInfiniteScroll";
 import Slide, { SlideImage } from "./Slide";
 import './style.css';
 
@@ -15,20 +14,19 @@ export default function Slider() {
     const [activeSlide, setActiveSlide] = useState(0);
     const { scrollY } = useScroll();
     const scale = useTransform(scrollY, [0, 500], [1, 1.2]);
-    const [progress, setProgress] = useState(0);  // Track progress
-    const [timeoutStarted, setTimeoutStarted] = useState(false);
-
-    const intervalRef = useRef(null);  // Ref để lưu interval
+    // const [progress, setProgress] = useState(0);  // Track progress
+    // const [timeoutStarted, setTimeoutStarted] = useState(false);
+    // const intervalRef = useRef(null);  // Ref để lưu interval
 
     useEffect(() => {
         const timeout = setTimeout(() => {
             setActiveSlide((prev) => (prev + 1 >= totalSlide ? 0 : prev + 1));  // Switch to next slide
-            setProgress(0);  // Reset progress
-            setTimeoutStarted(false);  // Reset timeoutStarted
+            // setProgress(0);  // Reset progress
+            // setTimeoutStarted(false);  // Reset timeoutStarted
 
         }, 10 * 1000); // Timeout after 10 seconds
 
-        setTimeoutStarted(true);  // Mark timeout as started
+        // setTimeoutStarted(true);  // Mark timeout as started
 
         return () => {
             clearTimeout(timeout);
@@ -37,28 +35,29 @@ export default function Slider() {
     }, [activeSlide]);
 
 
-    useEffect(() => {
-        if (timeoutStarted) {
-            intervalRef.current = setInterval(() => {
-                setProgress(prev => {
-                    if (prev < 100) return prev + (100 / (10 * 1000 / 100));  // Progress based on 10 seconds
-                    clearInterval(intervalRef.current);  // Clear interval once we reach 100%
-                    return 100;
-                });
-            }, 100);
+    // useEffect(() => {
+    //     if (timeoutStarted) {
+    //         intervalRef.current = setInterval(() => {
+    //             setProgress(prev => {
+    //                 if (prev < 100) return prev + (100 / (10 * 1000 / 100));  // Progress based on 10 seconds
+    //                 clearInterval(intervalRef.current);  // Clear interval once we reach 100%
+    //                 return 100;
+    //             });
+    //         }, 100);
 
-            return () => clearInterval(intervalRef.current);
-        }
-    }, [timeoutStarted])
+    //         return () => clearInterval(intervalRef.current);
+    //     }
+    // }, [timeoutStarted])
 
     return (
         <>
-            <section className="h-[calc(100vh-68px)] w-full relative">
-                <div style={{ width: '100%', backgroundColor: '#ccc', height: '5px', borderRadius: '2px' }} className="absolute left-0 right-0 top-0 z-[3]">
+            <section className="h-screen w-full relative">
+                {/* <div style={{ width: '100%', backgroundColor: '#ccc', height: '5px', borderRadius: '2px' }} className="absolute left-0 right-0 top-0 z-[3]">
                     <div className="bg-primary h-full" style={{ width: `${progress}%`, transition: 'width 0.1s', }}></div>
-                </div>
+                </div> */}
+
                 <div id="slider" className="h-full w-full flex relative overflow-hidden">
-                    <Link to={'/contact'} tabIndex={-1} className="z-[30] absolute right-[600px] bottom-[100px] translate-y-[50%] bg-black rounded-full">
+                    <Link to={'/contact'} tabIndex={-1} className="z-[30] absolute right-[600px] bottom-[100px] translate-y-[50%] p-1 bg-black rounded-full">
                         <CircularText
                             text="LETS TALK . LETS TALK . LETS TALK . "
                             onHover="speedUp"
@@ -67,8 +66,8 @@ export default function Slider() {
                             innerClassName="text-white"
                         />
                     </Link>
-                    <div className="z-[30] absolute left-10 bottom-[50px] translate-y-[50%] bg-black px-6 py-2 font-bold uppercase rounded">
-                        Scroll down
+                    <div className="z-[30] absolute left-10 bottom-[50px] translate-y-[50%] bg-black px-6 py-2 text-[0.95rem] h-[40px] flex items-center justify-center font-bold capitalize rounded-full">
+                        <span>Scroll down</span>
                     </div>
                     <motion.div
                         id="slideImage"
@@ -130,7 +129,6 @@ export default function Slider() {
                     <ImageNavigation activeSlide={activeSlide} setActiveSlide={setActiveSlide} />
                 </div>
             </section>
-            <TechInfiniteScroll />
         </>
     )
 }
@@ -154,7 +152,7 @@ function ImageNavigation({ activeSlide = 0, setActiveSlide }) {
         <div className="flex w-[500px] h-[200px] absolute right-0 bottom-0 z-20">
             {/* Prev Button */}
             <div
-                className={`relative h-full transition-all duration-500 cursor-pointer bg-white ${active === "prev" ? "w-[300px]" : "w-[200px]"}`}
+                className={`relative h-full transition-all duration-[800ms] cursor-pointer bg-white ${active === "prev" ? "w-[300px]" : "w-[200px]"}`}
                 onClick={handlePrev}
                 onMouseEnter={() => setActive("prev")}
                 style={{
@@ -163,9 +161,9 @@ function ImageNavigation({ activeSlide = 0, setActiveSlide }) {
                     backgroundPosition: "center",
                 }}
             >
-                <div className={`absolute inset-0 flex flex-col items-center justify-center ${active === "prev" ? "bg-black/20 text-white" : "bg-transparent text-black"}`}>
-                    <p className={`absolute top-[75px] left-[50%] translate-x-[-50%] font-extrabold uppercase transition-all duration-[800ms] ${active === 'prev'
-                        ? "text-[6rem]"
+                <div className={`absolute inset-0 flex flex-col items-center justify-center ${active === "prev" ? "bg-black/20 text-white" : "bg-transparent text-black/80"}`}>
+                    <p className={`absolute top-[80px] left-[50%] translate-x-[-50%] font-extrabold uppercase transition-all duration-[500ms] ease-out ${active === 'prev'
+                        ? "text-[6.25rem]"
                         : "text-[1.2rem]"
                         }`}>prev</p>
                     <p className={`absolute top-[100px] text-[1.25rem] font-bold transition-all duration-[800ms] ${active === 'prev'
@@ -177,7 +175,7 @@ function ImageNavigation({ activeSlide = 0, setActiveSlide }) {
 
             {/* Next Button */}
             <div
-                className={`relative h-full transition-all duration-500 cursor-pointer bg-white ${active === "next" ? "w-[300px]" : "w-[200px]"}`}
+                className={`relative h-full transition-all duration-[800ms] cursor-pointer bg-white ${active === "next" ? "w-[300px]" : "w-[200px]"}`}
                 onClick={handleNext}
                 onMouseEnter={() => setActive("next")}
                 style={{
@@ -186,9 +184,9 @@ function ImageNavigation({ activeSlide = 0, setActiveSlide }) {
                     backgroundPosition: "center",
                 }}
             >
-                <div className={`absolute inset-0 flex flex-col items-center justify-center ${active === "next" ? "bg-black/20 text-white" : "bg-transparent text-black"}`}>
-                    <p className={`absolute top-[75px] left-[50%] translate-x-[-50%] font-extrabold uppercase transition-all duration-[800ms] ${active === 'next'
-                        ? "text-[6rem]"
+                <div className={`absolute inset-0 flex flex-col items-center justify-center ${active === "next" ? "bg-black/20 text-white" : "bg-transparent text-black/80"}`}>
+                    <p className={`absolute top-[80px] left-[50%] translate-x-[-50%] font-extrabold uppercase transition-all duration-[500ms] ease-out ${active === 'next'
+                        ? "text-[6.25rem]"
                         : "text-[1.2rem]"
                         }`}>next</p>
                     <p className={`absolute top-[100px] text-[1.25rem] font-bold transition-all duration-[800ms] ${active === 'next'

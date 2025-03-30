@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import BlurTextEffect from "../TypeEffect/BlurTextEffect";
 
 
 function Slide({ isActive, title, subtitle, children }) {
@@ -8,21 +9,25 @@ function Slide({ isActive, title, subtitle, children }) {
                 ${isActive ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-[-1] pointer-events-none"}`}
         >
             <div className="w-full h-full flex items-center mb-5">
-                <span className="inline-block mt-1 mr-5 w-[40px] h-[2px] bg-[rgba(255,255,255,.5)]"></span>
-                <span className="font-[600] text-[.8rem] md:text-[1rem] tracking-[2px] capitalize color-white opacity-80">
+                <motion.span
+                    initial={{ opacity: 0, y: 0, x: -100 }} // Bắt đầu mờ và dịch xuống
+                    animate={isActive ? { opacity: 1, y: 0, x: 0 } : { opacity: 0, y: 0, x: -100 }} // Khi active thì hiện lên
+                    transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }} // Hiệu ứng mềm mại, chậm về cuối
+                    className="font-[600] text-[.8rem] md:text-[1rem] tracking-[2px] capitalize text-white flex items-center"
+                >
+                    <span className="inline-block mt-1 mr-5 w-[40px] h-[2px] bg-[rgba(255,255,255,1)]"></span>
                     {subtitle}
-                </span>
+                </motion.span>
             </div>
-
-            {/* Hiệu ứng h1 */}
-            <motion.h1
-                initial={{ opacity: 0, y: 50 }} // Bắt đầu mờ và dịch xuống
-                animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} // Khi active thì hiện lên
-                transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }} // Hiệu ứng mềm mại, chậm về cuối
-                className="text-white text-[100px] font-extrabold uppercase"
-            >
-                {title}
-            </motion.h1>
+            {isActive &&
+                <BlurTextEffect
+                    text={title}
+                    delay={500}
+                    animateBy="words"
+                    direction="top"
+                    className="text-white text-[100px] font-extrabold uppercase"
+                />
+            }
         </div>
     );
 }
@@ -63,22 +68,3 @@ export const SlideImage = ({ image, active, index }) => {
         </motion.div>
     );
 };
-
-
-export const SlideButton = ({ number, image, handleClick, active }) => {
-    return (
-        <button onClick={handleClick} className={active + " w-[50px] z-[10] relative hover:w-[190px] transition-all duration-1000 ease-in-out"}>
-            <div className="overflow-hidden w-full h-[100px] rounded-r-lg">
-                <span
-                    style={{ WebkitTextStroke: '.75px rgba(255,255,255, 1)' }}
-                    className="z-10 transition-all duration-[300ms] ease-in-out absolute right-0 top-[-30px] tracking-widest font-extrabold text-[2.25rem] leading-[1.6] opacity-[0] text-[rgba(255,255,255,.05)]">
-                    {number}
-                </span>
-                <div
-                    className="w-full h-full origin-center bg-center bg-fixed bg-clip-content bg-cover relative after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-black after:opacity-20 after:rounded-r-lg"
-                    style={{ backgroundImage: `url(${image})` }}>
-                </div>
-            </div>
-        </button>
-    )
-}

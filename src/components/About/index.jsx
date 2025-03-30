@@ -34,7 +34,7 @@ function About() {
                             <button
                                 type="submit"
                                 tabIndex={-1}
-                                className="flex items-center gap-4 group-hover:translate-x-[8px] group-hover:translate-y-[8px] transition-transform ease duration-[300ms] z-[2] opacity-100 relative tracking-[2px] font-bold text-[14px] text-lightText dark:text-darkText px-4 py-2 bg-lightBg2 dark:bg-darkBg2"
+                                className="flex items-center gap-4 group-hover:translate-x-[8px] group-hover:translate-y-[8px] transition-transform ease duration-[300ms] z-[2] opacity-100 relative tracking-[2px] font-bold text-[14px] text-lightText dark:text-lightText px-4 py-2 bg-lightBg2 dark:bg-lightBg"
                             >
                                 <FiDownload className="text-[1.2rem] text-primary" /> Download CV
                             </button>

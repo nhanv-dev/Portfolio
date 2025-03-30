@@ -14,7 +14,6 @@ export default function HomePage() {
                     <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
                         <Slider />
                     </FadeContent>
-
                 </div>
             )}
         </>
