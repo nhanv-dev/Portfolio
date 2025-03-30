@@ -2,14 +2,12 @@ import React from "react";
 import Masonry from "../Mansory";
 import ProjectLayout from "./ProjectLayout";
 
-const ShopioProject = ({ item }) => {
+const ShopioProject = ({ item, index }) => {
 
 	return (
 		<ProjectLayout
-			title={item.card_title}
-			website={item.website}
+			index={index}
 			tag={"2023"}
-			image={"https://devrajchatribin.com/_next/image?url=https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fct2epucbo91koigl3xmr.png&w=828&q=75"}
 		>
 			<div className="mt-6 flex gap-10">
 				<div className="flex-1">
@@ -32,9 +30,6 @@ const ShopioProject = ({ item }) => {
 						<p className="mb-2">
 							<span className="font-bold text-gray-400 inline-block w-[65px]">Client:</span>
 							<span className="font-semibold">Personal Project</span>
-						</p>
-						<p className="mb-2">
-							<span className="font-semibold">View Github</span>
 						</p>
 					</div>
 				</div>

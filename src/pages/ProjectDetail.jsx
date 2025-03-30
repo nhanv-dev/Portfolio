@@ -8,7 +8,8 @@ import { useLoading } from "../components/Layout";
 export default function ProjectDetailPage() {
     const { setIsLoaded } = useLoading();
     const { slug } = useParams(); // Lấy slug từ URL
-    const project = projects.find(p => p.slug === `/projects/${slug}`); // Tìm project phù hợp
+    const index = projects.findIndex(p => p.slug === `/projects/${slug}`); // Tìm project phù hợp
+    const project = projects[index];
     const navigate = useNavigate();
 
     // Xử lý trường hợp slug không hợp lệ
@@ -34,7 +35,7 @@ export default function ProjectDetailPage() {
     return (
         <div>
             <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
-                <project.component item={project} />
+                <project.component item={project} index={index} />
             </FadeContent>
         </div>
     )

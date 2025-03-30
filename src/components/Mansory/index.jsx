@@ -5,6 +5,7 @@ import './style.css';
 
 function Masonry({ data }) {
     const [columns, setColumns] = useState(2);
+    console.log(data);
 
     useEffect(() => {
         const updateColumns = () => {
@@ -74,10 +75,11 @@ function Masonry({ data }) {
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                         }}
-                    />
+                    /> 
                 </a.div>
-            ))}
-        </div>
+            ))
+            }
+        </div >
     );
 }
 

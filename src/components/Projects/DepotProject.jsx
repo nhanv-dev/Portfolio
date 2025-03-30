@@ -2,14 +2,12 @@ import React from "react";
 import Masonry from "../Mansory";
 import ProjectLayout from "./ProjectLayout";
 
-const DepotProject = ({ item }) => {
+const DepotProject = ({ item, index }) => {
 
 	return (
 		<ProjectLayout
-			title={item.card_title}
-			website={item.website}
+			index={index}
 			tag={"2024"}
-			image={"https://devrajchatribin.com/_next/image?url=https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fct2epucbo91koigl3xmr.png&w=828&q=75"}
 		>
 			<div className="mt-6 flex gap-10">
 				<div className="flex-1">

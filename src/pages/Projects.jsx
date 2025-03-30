@@ -8,7 +8,7 @@ export default function ProjectsPage() {
 
     return (
         <>
-            {!isLoaded && <Preloader texts={["Ignite Creativity", "Turn Ideas into Reality", "Discover New Horizons"]} onLoaded={() => setIsLoaded(true)} />}
+            {!isLoaded && <Preloader texts={["Ignite Creativity", "Turn Ideas into Reality"]} onLoaded={() => setIsLoaded(true)} />}
             {isLoaded && (
                 <>
                     <section className="dark:bg-darkBg dark:text-white py-10">
