@@ -16,12 +16,6 @@ export default function Slider() {
     const { scrollY } = useScroll();
     const scale = useTransform(scrollY, [0, 500], [1, 1.2]);
     const circularTextRef = useRef();
-
-    const handleClick = () => {
-        if (circularTextRef.current) {
-            circularTextRef.current.speedUp(); // Gọi hàm con từ cha
-        }
-    };
     // const [progress, setProgress] = useState(0);  // Track progress
     // const [timeoutStarted, setTimeoutStarted] = useState(false);
     // const intervalRef = useRef(null);  // Ref để lưu interval

@@ -1,4 +1,3 @@
-import { useScroll, useTransform } from "framer-motion";
 import { useState } from "react";
 import { FaAsterisk, FaFacebook, FaGithub, FaInstagram } from "react-icons/fa";
 import About from "../components/About";
@@ -11,15 +10,6 @@ const tags = ['Web Development', 'UI/UX', 'Responsive Design', 'Database Design'
 
 export default function AboutPage() {
     const [isLoaded, setIsLoaded] = useState(false);
-
-    // Theo dõi vị trí cuộn
-    const { scrollYProgress } = useScroll();
-
-    // Scale ảnh từ nhỏ (0.7) → lớn dần (1) và giữ nguyên
-    const scale = useTransform(scrollYProgress, [0, 0.2, 1], [0.25, 1, 1]);
-
-    // Dịch ảnh từ trên xuống, tránh bị trôi khỏi viewport
-    const translateY = useTransform(scrollYProgress, [0, 0.2, 1], [-528, 0, 0]);
 
     return (
         <>
