@@ -21,6 +21,7 @@ export default function ProjectDetailPage() {
                 </GlitchText>
                 <div className="mt-20 flex items-center justify-center">
                     <button
+                        type="button"
                         className="dark:bg-white py-2 px-6 rounded-full dark:text-black text-[0.95rem] font-bold flex items-center gap-2"
                         onClick={() => { setIsLoaded(true); navigate(-1) }}
                     >
@@ -33,7 +34,7 @@ export default function ProjectDetailPage() {
     }
 
     return (
-        <div>
+        <div className="pt-20">
             <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
                 <project.component item={project} index={index} />
             </FadeContent>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import "./style.css";
 
@@ -20,16 +20,22 @@ const getTransition = (duration, from) => ({
   },
 });
 
-const CircularText = ({
-  text,
-  spinDuration = 20,
-  onHover = "speedUp",
-  className = "",
-  innerClassName = "",
-}) => {
+const CircularText = React.forwardRef((props, ref) => {
+  const {
+    text,
+    spinDuration = 20,
+    onHover = "speedUp",
+    className = "",
+    innerClassName = "",
+  } = props;
   const letters = Array.from(text);
   const controls = useAnimation();
   const [currentRotation, setCurrentRotation] = useState(0);
+
+  React.useImperativeHandle(ref, () => ({
+    handleHoverStart,
+    handleHoverEnd
+  }));
 
   useEffect(() => {
     controls.start({
@@ -111,6 +117,6 @@ const CircularText = ({
       })}
     </motion.div>
   );
-};
+})
 
 export default CircularText;

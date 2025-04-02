@@ -38,7 +38,7 @@ function Resume() {
                             <div className="absolute left-0 top-[50%] translate-x-[-50%] translate-y-[-50%] bg-primary w-[8px] h-[8px] rounded-full"></div>
                         </h5>
                         <div className="pl-5 pt-3 pb-10 relative text-[#bbb] text-[16px] leading-[1.6] font-[500]">
-                            <p className="mb-3 tracking-[2px]">10/2023 - 1/2025</p>
+                            <p className="mb-3 tracking-[2px]">September 2023 - January 2025</p>
                             <p>
                                 Currently, I'm a fourth-year students
                                 at Nong Lam University. Here, I learned about programming skills and knowledge related
@@ -53,7 +53,7 @@ function Resume() {
                             <div className="absolute left-0 top-[50%] translate-x-[-50%] translate-y-[-50%] bg-primary w-[8px] h-[8px] rounded-full"></div>
                         </h5>
                         <div className="pl-5 pt-3 pb-10 relative text-[#bbb] text-[16px] leading-[1.6] font-[500]">
-                            <p className="mb-3 tracking-[2px]">8/2023 - 10/2023</p>
+                            <p className="mb-3 tracking-[2px]">July 2023 - September 2023</p>
                             <p>
                                 Currently, I'm a fourth-year students
                                 at Nong Lam University. Here, I learned about programming skills and knowledge related

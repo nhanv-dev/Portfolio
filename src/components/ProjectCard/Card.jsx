@@ -8,6 +8,7 @@ const Card = ({ item, index, color }) => {
 
     return (
         <Link to={item.slug} className={`group block ${className}`}>
+            <div>{index + 1}</div>
             <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}

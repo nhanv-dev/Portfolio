@@ -1,12 +1,13 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BiChevronRight } from 'react-icons/bi';
+import { FaLocationDot } from "react-icons/fa6";
+import { RiArrowRightUpLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { slides } from "../../data";
 import CircularText from "../CircularText";
-import Slide, { SlideImage } from "./Slide";
+import Slide, { ImageNavigation, SlideImage } from "./Slide";
 import './style.css';
-
 
 
 export default function Slider() {
@@ -14,6 +15,13 @@ export default function Slider() {
     const [activeSlide, setActiveSlide] = useState(0);
     const { scrollY } = useScroll();
     const scale = useTransform(scrollY, [0, 500], [1, 1.2]);
+    const circularTextRef = useRef();
+
+    const handleClick = () => {
+        if (circularTextRef.current) {
+            circularTextRef.current.speedUp(); // Gọi hàm con từ cha
+        }
+    };
     // const [progress, setProgress] = useState(0);  // Track progress
     // const [timeoutStarted, setTimeoutStarted] = useState(false);
     // const intervalRef = useRef(null);  // Ref để lưu interval
@@ -59,15 +67,29 @@ export default function Slider() {
                 <div id="slider" className="h-full w-full flex relative overflow-hidden">
                     <Link to={'/contact'} tabIndex={-1} className="z-[30] absolute right-[600px] bottom-[100px] translate-y-[50%] p-1 bg-black rounded-full">
                         <CircularText
+                            ref={circularTextRef}
                             text="LETS TALK . LETS TALK . LETS TALK . "
                             onHover="speedUp"
                             spinDuration={20}
                             className="w-[140px] h-[140px]"
                             innerClassName="text-white"
-                        />
+                        >
+                        </CircularText>
+                        <div
+                            onMouseEnter={() => circularTextRef.current?.handleHoverStart()}
+                            onMouseLeave={() => circularTextRef.current?.handleHoverEnd()}
+                            className="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[72px] h-[72px] bg-[#1A1A1A] border-2 border-[#2b2a2a] rounded-full flex items-center justify-center">
+                            <RiArrowRightUpLine className="text-gray-300" size={30} />
+                        </div>
                     </Link>
-                    <div className="z-[30] absolute left-10 bottom-[50px] translate-y-[50%] bg-black px-6 py-2 text-[0.95rem] h-[40px] flex items-center justify-center font-bold capitalize rounded-full">
-                        <span>Scroll down</span>
+                    <div className="z-[30] absolute left-10 bottom-[50px] translate-y-[50%] gap-5 hidden md:flex items-center justify-start">
+                        <div className="h-[35px] flex items-center justify-center ">
+                            <p className="h-[35px] flex items-center justify-center w-[35px] border-2 border-white/90 border-r-white/40">
+                                <FaLocationDot />
+                            </p>
+                            <p className="h-[35px] text-[0.95rem] flex items-center justify-center font-bold px-2 relative border-2 border-l-0 border-white/90">Ho Chi Minh City, Vietnam</p>
+                        </div>
+                        <Clock />
                     </div>
                     <motion.div
                         id="slideImage"
@@ -134,67 +156,26 @@ export default function Slider() {
 }
 
 
-function ImageNavigation({ activeSlide = 0, setActiveSlide }) {
-    const [active, setActive] = useState("next");
+const Clock = () => {
+    const [time, setTime] = useState(new Date());
 
-    const nextIndex = (activeSlide + 1) % slides.length;
-    const prevIndex = (activeSlide - 1 + slides.length) % slides.length;
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTime(new Date());
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
 
-    const handleNext = () => {
-        setActiveSlide(nextIndex);
-    };
-
-    const handlePrev = () => {
-        setActiveSlide(prevIndex);
-    };
+    const vietnamTime = new Intl.DateTimeFormat("en-US", {
+        timeZone: "Asia/Ho_Chi_Minh",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+    }).format(time);
 
     return (
-        <div className="flex w-[500px] h-[200px] absolute right-0 bottom-0 z-20">
-            {/* Prev Button */}
-            <div
-                className={`relative h-full transition-all duration-[800ms] cursor-pointer bg-white ${active === "prev" ? "w-[300px]" : "w-[200px]"}`}
-                onClick={handlePrev}
-                onMouseEnter={() => setActive("prev")}
-                style={{
-                    backgroundImage: active === "prev" ? `url(${slides[prevIndex].src})` : "none",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}
-            >
-                <div className={`absolute inset-0 flex flex-col items-center justify-center ${active === "prev" ? "bg-black/20 text-white" : "bg-transparent text-black/80"}`}>
-                    <p className={`absolute top-[80px] left-[50%] translate-x-[-50%] font-extrabold uppercase transition-all duration-[500ms] ease-out ${active === 'prev'
-                        ? "text-[6.25rem]"
-                        : "text-[1.2rem]"
-                        }`}>prev</p>
-                    <p className={`absolute top-[100px] text-[1.25rem] font-bold transition-all duration-[800ms] ${active === 'prev'
-                        ? "translate-y-[-15px]"
-                        : ""
-                        }`}>{slides[prevIndex].title}</p>
-                </div>
-            </div>
-
-            {/* Next Button */}
-            <div
-                className={`relative h-full transition-all duration-[800ms] cursor-pointer bg-white ${active === "next" ? "w-[300px]" : "w-[200px]"}`}
-                onClick={handleNext}
-                onMouseEnter={() => setActive("next")}
-                style={{
-                    backgroundImage: active === "next" ? `url(${slides[nextIndex].src})` : "none",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}
-            >
-                <div className={`absolute inset-0 flex flex-col items-center justify-center ${active === "next" ? "bg-black/20 text-white" : "bg-transparent text-black/80"}`}>
-                    <p className={`absolute top-[80px] left-[50%] translate-x-[-50%] font-extrabold uppercase transition-all duration-[500ms] ease-out ${active === 'next'
-                        ? "text-[6.25rem]"
-                        : "text-[1.2rem]"
-                        }`}>next</p>
-                    <p className={`absolute top-[100px] text-[1.25rem] font-bold transition-all duration-[800ms] ${active === 'next'
-                        ? "translate-y-[-15px]"
-                        : ""
-                        }`}>{slides[nextIndex].title}</p>
-                </div>
-            </div>
+        <div className="h-[35px] flex items-center justify-center font-bold text-[0.95rem]">
+            Local / {`${vietnamTime} (GMT+7)`}
         </div>
     );
-}
+};

@@ -25,6 +25,8 @@ export default function DarkModeToggle() {
 
     return (
         <button
+            type="button"
+            disabled
             onClick={toggleDarkMode}
             className="transition-theme-text dark:text-darkText text-lightText bg-transparent flex items-center justify-center relative overflow-hidden border-none outline-none"
         >

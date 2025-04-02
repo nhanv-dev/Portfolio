@@ -113,7 +113,8 @@ export default function Aurora(props) {
 	const {
 		colorStops = ["#00d8ff", "#7cff67", "#00d8ff"],
 		amplitude = 1.0,
-		blend = 0.5
+		blend = 0.5,
+		className = "w-full h-full"
 	} = props;
 	const propsRef = useRef(props);
 	propsRef.current = props;
@@ -202,5 +203,5 @@ export default function Aurora(props) {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [amplitude]);
 
-	return <div ref={ctnDom} className="w-full h-full" />;
+	return <div ref={ctnDom} className={className} />;
 }

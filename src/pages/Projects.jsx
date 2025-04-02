@@ -10,7 +10,7 @@ export default function ProjectsPage() {
         <>
             {!isLoaded && <Preloader texts={["Ignite Creativity", "Turn Ideas into Reality"]} onLoaded={() => setIsLoaded(true)} />}
             {isLoaded && (
-                <>
+                <div className="pt-20">
                     <section className="dark:bg-darkBg dark:text-white py-10">
                         <div className="container">
                             <h1 className="text-[4rem] font-bold">
@@ -41,7 +41,7 @@ export default function ProjectsPage() {
                             </div>
                         </section>
                     </FadeContent>
-                </>
+                </div>
             )}
         </>
     )

@@ -33,14 +33,19 @@ module.exports = {
             colors: {
                 lightBg: '#ffffff',
                 lightBg2: '#e9e9e9',
-                darkBg: '#111',
-                darkBg2: '#171717',
+                darkBg: '#000000',
+                darkBg2: '##1A1A1A',
                 primary: '#14bfb5',
                 secondary: '#bbb',
                 borderLight: '#ffffff14',
                 borderDark: '#ffffff14',
                 lightText: '#000',
                 darkText: '#fff',
+            },
+            textShadow: {
+                sm: '1px 1px 2px rgba(0, 0, 0, 0.5)',
+                md: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+                lg: '3px 3px 6px rgba(0, 0, 0, 0.5)',
             },
         },
         colors: ({ colors }) => ({
@@ -978,5 +983,5 @@ module.exports = {
         'active',
         'disabled',
     ],
-    plugins: [],
+    plugins: [require('tailwindcss-textshadow')],
 }

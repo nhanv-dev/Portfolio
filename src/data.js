@@ -4,10 +4,12 @@ import ShopioProject from './components/Projects/ShopioProject';
 import SpotifyProject from './components/Projects/SpotifyProject';
 
 export const slides = [
-    { title: 'Welcome Aboard', src: 'https://colabrio.ams3.cdn.digitaloceanspaces.com/ohio-demo-2/oh__img59.1.jpg' },
-    { title: 'Discover Me', src: 'https://images.unsplash.com/photo-1630986954063-01a39c755b5c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
-    { title: 'Get in Touch', src: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=2676&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+    { title: 'Welcome Aboard', src: '/images/slide-1.jpg' },
+    { title: 'Discover Me', src: '/images/slide-2.avif' },
+    { title: 'Get in Touch', src: '/images/slide-3.avif' },
 ]
+
+// https://colabrio.ams3.cdn.digitaloceanspaces.com/ohio-demo-2/oh__img59.1.jpg
 
 export const projects = [
     {
