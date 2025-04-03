@@ -4,7 +4,7 @@ import ShopioProject from './components/Projects/ShopioProject';
 import SpotifyProject from './components/Projects/SpotifyProject';
 
 export const slides = [
-    { title: 'Welcome Aboard', src: '/images/slide-1.jpg' },
+    { title: 'Welcome Aboard', src: '/images/slide-1.avif' },
     { title: 'Discover Me', src: '/images/slide-2.avif' },
     { title: 'Get in Touch', src: '/images/slide-3.avif' },
 ]

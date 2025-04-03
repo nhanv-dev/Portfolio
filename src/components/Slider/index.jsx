@@ -72,7 +72,7 @@ export default function Slider() {
                         <div
                             onMouseEnter={() => circularTextRef.current?.handleHoverStart()}
                             onMouseLeave={() => circularTextRef.current?.handleHoverEnd()}
-                            className="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[72px] h-[72px] bg-[#1A1A1A] border-2 border-[#2b2a2a] rounded-full flex items-center justify-center">
+                            className="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[72px] h-[72px] bg-[#111111] border-2 border-[#2b2a2a] rounded-full flex items-center justify-center">
                             <RiArrowRightUpLine className="text-gray-300" size={30} />
                         </div>
                     </Link>
@@ -149,15 +149,27 @@ export default function Slider() {
     )
 }
 
-
 const Clock = () => {
     const [time, setTime] = useState(new Date());
 
     useEffect(() => {
-        const interval = setInterval(() => {
+        let interval; // Lưu interval để có thể clear
+        const now = new Date();
+        const delay = (60 - now.getSeconds()) * 1000; // Đợi đến đầu phút tiếp theo
+
+        const timeout = setTimeout(() => {
             setTime(new Date());
-        }, 1000);
-        return () => clearInterval(interval);
+
+            // Sau đó cập nhật mỗi phút
+            interval = setInterval(() => {
+                setTime(new Date());
+            }, 60 * 1000);
+        }, delay);
+
+        return () => {
+            clearTimeout(timeout);
+            if (interval) clearInterval(interval); // Đảm bảo cleanup chính xác 
+        };
     }, []);
 
     const vietnamTime = new Intl.DateTimeFormat("en-US", {

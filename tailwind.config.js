@@ -34,7 +34,7 @@ module.exports = {
                 lightBg: '#ffffff',
                 lightBg2: '#e9e9e9',
                 darkBg: '#000000',
-                darkBg2: '##1A1A1A',
+                darkBg2: '#1A1A1A',
                 primary: '#14bfb5',
                 secondary: '#bbb',
                 borderLight: '#ffffff14',

@@ -1,6 +1,6 @@
 import { FiDownload } from 'react-icons/fi';
 
-function About() {
+function Introduce() {
     return (
         <section id="about" className="transition-theme bg-lightBg dark:bg-darkBg">
             <div className="container py-[120px]">
@@ -83,4 +83,4 @@ function About() {
     );
 }
 
-export default About;
+export default Introduce;

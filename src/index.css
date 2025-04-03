@@ -10,6 +10,12 @@
     margin: 0;
 }
 
+html,
+body {
+    background: #040404;
+    overflow-x: hidden;
+}
+
 body {
     background: #040404;
     color: #fff;
@@ -17,7 +23,30 @@ body {
     width: 100%;
     min-height: 100vh;
     @apply transition-colors duration-300 bg-lightBg text-lightText dark:bg-darkBg dark:text-darkText;
+}
 
+body::-webkit-scrollbar {
+    width: 8px;
+    /* Điều chỉnh chiều rộng thanh scrollbar */
+}
+
+/* Background của thanh scrollbar (track) */
+body::-webkit-scrollbar-track {
+    background-color: black;
+    /* Background màu đen */
+}
+
+/* Màu của thanh scrollbar (thumb) */
+body::-webkit-scrollbar-thumb {
+    background: #888;
+    /* Thanh scrollbar màu xám */
+    border-radius: 0px;
+    /* Bo tròn góc thanh scrollbar */
+}
+
+body:hover::-webkit-scrollbar-thumb {
+    background-color: #555;
+    /* Màu xám tối hơn khi hover hoặc cuộn */
 }
 
 .transition-theme {
