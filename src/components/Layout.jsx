@@ -1,9 +1,10 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import CustomCursor from "./CustomCursor";
 import Footer from "./Footer";
 import Header from "./Header";
 import { LenisProvider } from "./LenisProvider";
+import { LoadingProvider } from "./LoadingProvider";
 import ScrollTop from "./ScrollTop";
 
 const titles = {
@@ -39,20 +40,3 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
-
-const LoadingContext = createContext({
-    isLoaded: false,
-    setIsLoaded: (value) => { },
-});
-
-export const LoadingProvider = ({ children }) => {
-    const [isLoaded, setIsLoaded] = useState(false);
-
-    return (
-        <LoadingContext.Provider value={{ isLoaded, setIsLoaded }}>
-            {children}
-        </LoadingContext.Provider>
-    );
-};
-
-export const useLoading = () => useContext(LoadingContext);

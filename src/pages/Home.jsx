@@ -1,13 +1,14 @@
-import { useState } from 'react';
-import FadeContent from '../components/FadeContent';
-import Preloader from '../components/Preloader';
-import Slider from '../components/Slider';
-import { Link } from 'react-router-dom';
 import { FaLocationDot, FaPhone, FaStar } from "react-icons/fa6";
 import { IoMailSharp } from "react-icons/io5";
+import { Link } from 'react-router-dom';
+import FadeContent from '../components/FadeContent';
+import { useLoading } from '../components/LoadingProvider';
+import Preloader from '../components/Preloader';
+import Slider from '../components/Slider';
+import { projects } from "../data";
 
 export default function HomePage() {
-    const [isLoaded, setIsLoaded] = useState(false);
+    const { isLoaded, setIsLoaded } = useLoading();
 
     return (
         <>
@@ -19,6 +20,9 @@ export default function HomePage() {
                     </FadeContent>
                     <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
                         <ExploreAboutComponent />
+                    </FadeContent>
+                    <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
+                        <ExploreProjectsComponent />
                     </FadeContent>
                 </div>
             )}
@@ -70,3 +74,15 @@ const ExploreAboutComponent = () => {
         </div>
     )
 }
+
+
+const ExploreProjectsComponent = () => {
+    return (
+        <div className='w-full px-8 py-8 mx-auto border-t'>
+            <div className=''>
+                {projects[0].card.title}
+            </div>
+        </div>
+    )
+}
+

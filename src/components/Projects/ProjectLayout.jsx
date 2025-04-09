@@ -3,7 +3,7 @@ import { IoArrowBackOutline, IoChevronBack, IoChevronForward } from "react-icons
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
 import { projects } from "../../data";
-import { useLoading } from "../Layout";
+import { useLoading } from "../LoadingProvider";
 
 const ProjectLayout = ({ tag, children, index }) => {
 	const { setIsLoaded } = useLoading();
@@ -13,8 +13,8 @@ const ProjectLayout = ({ tag, children, index }) => {
 	const nextIndex = index === projects.length - 1 ? null : index + 1;
 
 	useEffect(() => {
-		document.title = project.card_title ? `${project.card_title.split(' - ')[0]} - Portfolio` : "Portfolio";
-	}, [location.pathname, project.card_title]);
+		document.title = project.card.title ? `${project.card.title.split(' - ')[0]} - Portfolio` : "Portfolio";
+	}, [location.pathname, project.card.title]);
 
 	return (
 		<div className="dark:bg-darkBg dark:text-darkText min-h-screen py-10">
@@ -31,12 +31,18 @@ const ProjectLayout = ({ tag, children, index }) => {
 					}
 				</div>
 
-				<div className="mb-6">
-					<img className="rounded-xl w-full" src={project.thumbnail} alt="Project Preview" />
+				<div className="rounded-xl mb-6 h-[300px] overflow-hidden">
+					<div
+						transition={{ duration: 0.8 }}
+						className="w-full h-full bg-center bg-cover"
+						style={{
+							backgroundImage: `url(${project.card.thumbnail})`,
+						}}
+					></div>
 				</div>
 
 				<div className="flex justify-between items-center gap-6">
-					<h1 className="text-4xl font-bold">{project.card_title}</h1>
+					<h1 className="text-4xl font-bold">{project.card.title}</h1>
 					<div className="flex items-center justify-end gap-3">
 						<a href={project.website} target="_blank" rel="noopener noreferrer" className="dark:bg-lightBg dark:text-lightText px-4 pr-3 py-1 rounded-full flex items-center justify-center gap-2 font-semibold">
 							<span className="text-sm">
@@ -61,7 +67,7 @@ const ProjectLayout = ({ tag, children, index }) => {
 									<IoChevronBack />
 									<div className="flex flex-col items-end text-sm font-medium">
 										<span className="dark:text-gray-400">Prev</span>
-										<span className="font-semibold">{projects[prevIndex].card_title}</span>
+										<span className="font-semibold">{projects[prevIndex].card.title}</span>
 									</div>
 								</Link>
 							</div>
@@ -71,7 +77,7 @@ const ProjectLayout = ({ tag, children, index }) => {
 								<Link to={projects[nextIndex].slug} className="min-w-[180px] flex items-center justify-between gap-6 border-2 rounded-lg p-3 dark:border-gray-800">
 									<div className="flex flex-col items-start text-sm font-medium">
 										<span className="dark:text-gray-400">Next</span>
-										<span className="font-semibold">{projects[nextIndex].card_title}</span>
+										<span className="font-semibold">{projects[nextIndex].card.title}</span>
 									</div>
 									<IoChevronForward />
 								</Link>

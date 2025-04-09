@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import DarkModeToggle from "../DarkModeToggle";
 import { useLenis } from "../LenisProvider";
 import './style.css';
-import { useLoading } from "../Layout";
+import { useLoading } from "../LoadingProvider";
 
 const listRouting = ["/home", "/about", "/projects", "/contact"];
 
@@ -30,7 +30,7 @@ export default function Header() {
         <header
             className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-[800ms] flex justify-between items-center backdrop-blur-lg border-white/20 ${scrolled
                 ? "animate-border-glow top-4 w-[850px] max-w-[850px] rounded-full bg-lightBg dark:bg-black/30 shadow-md border py-3 px-0 "
-                : "top-0 bg-white dark:bg-black/30 bg-none w-screen max-w-[100%] px-0 py-4 border-none"}`}
+                : "top-0 bg-white dark:bg-black bg-none w-screen max-w-[100%] px-0 py-4 border-none"}`}
         >
             <div className={`container flex items-center justify-between transition-all duration-[800ms] ${scrolled ? 'px-6' : ''}`}>
                 {/* Logo */}

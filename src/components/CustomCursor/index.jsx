@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import './style.css';
 
-function Cursor() {
+function CustomCursor() {
     const cursorOuterRef = useRef(null);
     const cursorInnerRef = useRef(null);
 
@@ -41,4 +41,4 @@ function Cursor() {
 
 }
 
-export default Cursor;
+export default CustomCursor;

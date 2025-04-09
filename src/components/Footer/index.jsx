@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function Footer() {
     return (
         <footer>
-            <div className='py-10 bg-lightBg dark:bg-darkBg border-t dark:border-gray-800 border-gray-400'>
+            <div className='py-10 bg-lightBg dark:bg-darkBg border-t dark:border-white/10 border-gray-400'>
                 <div className="container">
                     <div className="flex flex-wrap items-start">
                         <div className="flex-1">
@@ -66,14 +66,14 @@ export default function Footer() {
 
                 </div>
             </div>
-            <div className='bg-[#000] py-8 border-t dark:border-gray-800 border-gray-400'>
+            <div className='bg-[#000] py-8 border-t dark:border-white/10 border-gray-400'>
                 <div className='container'>
                     <div className="text-center flex items-center justify-between gap-10">
                         <p className="text-lightText dark:text-darkText font-bold text-[0.75rem] uppercase tracking-[2px]">
-                            @2025 Personal portfolio
+                            @2025. Personal portfolio
                         </p>
                         <p className="text-lightText dark:text-darkText font-bold text-[0.75rem] uppercase tracking-[2px]">
-                            Designed by
+                            Developed by:
                             <a href="https://www.facebook.com/nhan.kden/" target="_blank" rel="noreferrer" className="text-primary dark:text-primary"> Tran Thanh Nhan</a>
                         </p>
                     </div>

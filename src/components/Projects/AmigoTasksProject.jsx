@@ -2,7 +2,7 @@ import React from "react";
 import Masonry from "../Mansory";
 import ProjectLayout from "./ProjectLayout";
 
-const NoonpostProject = ({ item, index }) => {
+const AmigoTasksProject = ({ item, index }) => {
 
 	return (
 		<ProjectLayout
@@ -72,5 +72,5 @@ const NoonpostProject = ({ item, index }) => {
 	);
 };
 
-export default NoonpostProject;
+export default AmigoTasksProject;
 

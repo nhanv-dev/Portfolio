@@ -3,7 +3,7 @@ import FadeContent from "../components/FadeContent";
 import { projects } from "../data";
 import GlitchText from "../components/GlitchText";
 import { IoArrowBackOutline } from "react-icons/io5";
-import { useLoading } from "../components/Layout";
+import { useLoading } from "../components/LoadingProvider";
 
 export default function ProjectDetailPage() {
     const { setIsLoaded } = useLoading();
