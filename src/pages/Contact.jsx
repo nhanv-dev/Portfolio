@@ -1,6 +1,9 @@
+import PageWithPreload from "../components/PageWithPreload";
 
 export default function ContactPage() {
     return (
-        <div></div>
+        <PageWithPreload texts={["Welcome", "Let's Explore"]}>
+            
+        </PageWithPreload>
     )
 }

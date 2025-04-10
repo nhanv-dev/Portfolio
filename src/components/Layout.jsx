@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import CustomCursor from "./CustomCursor";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -29,6 +29,7 @@ const Layout = ({ children }) => {
                     <div className="h-full w-full relative dark:text-darkText text-lightText">
                         <Header />
                         {children}
+                        <Outlet />
                         <Footer />
                     </div>
                     <ScrollTop />

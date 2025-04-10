@@ -1,85 +1,98 @@
-import { FaLocationDot, FaPhone, FaStar } from "react-icons/fa6";
-import { IoMailSharp } from "react-icons/io5";
 import { Link } from 'react-router-dom';
+import ContactBanner from "../components/ContactBanner";
 import FadeContent from '../components/FadeContent';
-import { useLoading } from '../components/LoadingProvider';
-import Preloader from '../components/Preloader';
+import PageWithPreload from "../components/PageWithPreload";
 import Slider from '../components/Slider';
 import { projects } from "../data";
 
 export default function HomePage() {
-    const { isLoaded, setIsLoaded } = useLoading();
 
     return (
-        <>
-            {!isLoaded && <Preloader texts={["Welcome", "Let's Explore"]} onLoaded={() => setIsLoaded(true)} />}
-            {isLoaded && (
-                <div>
-                    <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
-                        <Slider />
-                    </FadeContent>
-                    <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
-                        <ExploreAboutComponent />
-                    </FadeContent>
-                    <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
-                        <ExploreProjectsComponent />
-                    </FadeContent>
-                </div>
-            )}
-        </>
+        <PageWithPreload texts={["Welcome", "Let's Explore"]}>
+            <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
+                <Slider />
+            </FadeContent>
+            <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
+                <ExploreAboutComponent />
+            </FadeContent>
+            <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
+                <ExploreProjectsComponent />
+            </FadeContent>
+            <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
+                <ContactBanner />
+            </FadeContent>
+        </PageWithPreload>
     )
 }
 
-
-
-
 const ExploreAboutComponent = () => {
     return (
-        <div className='mt-[10rem] mb-20'>
-            <div className='container relative dark:bg-[#0b0d11] p-20 flex gap-20'>
-                <div className="z-[1] absolute left-20 -top-20 bottom-20 w-[500px] bg-center bg-cover" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1654253629804-9214420ad8ef?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)' }}></div>
-                <div className='ml-[500px] pl-20 flex-1 relative'>
-                    <p className='mb-3 font-semibold capitalize text-[1rem]'>Who I Am</p>
-                    <h4 className='text-[3rem] mb-5 font-bold uppercase'>Tran Thanh Nhan</h4>
-                    <p className='mb-6 leading-7 text-[0.975rem] font-medium'>
-                        My name is Tran Thanh Nhan. I'm a Fullstack Developer. I have 2 years work experience.
-                    </p>
-                    <div className='grid grid-cols-2 text-[0.925rem] font-medium'>
-                        <div className='mb-3 flex items-center justify-start gap-3'>
-                            <FaLocationDot />
-                            Ho Chi Minh City, Vietnam
-                        </div>
-                        <div className='mb-3 flex items-center justify-start gap-3'>
-                            <IoMailSharp />
-                            tthanhnhan1512@gmail.com
-                        </div>
-                        <div className='mb-3 flex items-center justify-start gap-3'>
-                            <FaPhone />
-                            (+84) 946 286 951
-                        </div>
-                        <div className='mb-3 flex items-center justify-start gap-3'>
-                            <FaStar />
-                            Web Development
-                        </div>
+        <section className="">
+            <div className='container py-[120px]'>
+                <div className="flex gap-6 relative">
+                    <div className="w-[30%] h-full">
+                        <div
+                            className="rounded-lg absolute left-0 w-[30%] h-full bg-cover bg-center"
+                            style={{ backgroundImage: `url(https://images.unsplash.com/photo-1624704848173-6e3d09e13cf6?q=80&w=2628&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                        ></div>
                     </div>
-                    <div className='mt-10 mb-20'>
-                        <Link to={"/about"} className='py-2 px-6 border-2 border-whtie rounded-full font-semibold text-[0.95rem]'>Get Started</Link>
+                    <div className="flex-1">
+                        <div className="mb-10">
+                            <p className="font-bold mb-2 uppercase text-primary flex items-center gap-3">
+                                <span className="w-[25px] h-[3px] bg-primary block"></span>
+                                Building Web Experiences That Matter
+                            </p>
+                            <h2 className="text-[3rem] leading-tight font-bold mb-5">
+                                Fullstack Developer Turning<br /><span className="text-primary">Ideas</span> into <span className="text-primary">Impact</span>
+                            </h2>
+                            <p className="text-[1rem] leading-relaxed font-medium mb-8">
+                                With a focus on clean architecture and seamless user experience, I build fullstack web applications that are both scalable and maintainable.
+                                Each line of code reflects a blend of logic and design, crafted to solve real-world problems.
+                                Want to know how ideas become polished digital products?
+                                Step into my world and see how it all comes together.
+                            </p>
+                            <Link to={'/about'} className="bg-white text-black font-bold rounded-full px-7 py-2 capitalize">
+                                About me
+                            </Link>
+                        </div>
+                        <div className="flex gap-4">
+                            <div className="flex-1 rounded-lg overflow-hidden h-[290px]">
+                                <div
+                                    className="bg-cover bg-center w-full h-full"
+                                    style={{ backgroundImage: `url(https://images.unsplash.com/photo-1699631109477-4b3e120051f7?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                                ></div>
+                            </div>
+                            <div className="flex-1 rounded-lg overflow-hidden h-[290px]">
+                                <div
+                                    className="bg-cover bg-center w-full h-full"
+                                    style={{ backgroundImage: `url(https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=1365&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                                ></div>
+                            </div>
+                            <div className="flex-1 rounded-lg overflow-hidden h-[290px]">
+                                <div
+                                    className="bg-cover bg-center w-full h-full"
+                                    style={{ backgroundImage: `url(https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=1365&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                                ></div>
+                            </div>
+                            <div className="flex-1 rounded-lg overflow-hidden h-[290px]">
+                                <div
+                                    className="bg-cover bg-center w-full h-full"
+                                    style={{ backgroundImage: `url(https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=1365&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)` }}
+                                ></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className='bg-white/5 w-[2px] absolute right-10 top-10 bottom-10'></div>
-                <div className='bg-white/5 w-[2px] absolute left-10 top-10 bottom-10'></div>
-                <div className='bg-white/5 h-[2px] absolute right-10 left-10 top-10'></div>
-                <div className='bg-white/5 h-[2px] absolute right-10 left-10 bottom-10'></div>
             </div>
-        </div>
+        </section>
     )
 }
 
 
 const ExploreProjectsComponent = () => {
     return (
-        <div className='w-full px-8 py-8 mx-auto border-t'>
-            <div className=''>
+        <div className='w-full mx-auto border-t border-gray-900'>
+            <div className='px-10'>
                 {projects[0].card.title}
             </div>
         </div>
