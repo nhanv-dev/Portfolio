@@ -10,7 +10,6 @@ module.exports = {
             md: '768px',
             lg: '1024px',
             xl: '1280px',
-            '2xl': '1280px',
         },
         container: {
             center: true,
@@ -19,14 +18,12 @@ module.exports = {
                 sm: '2rem',
                 lg: '2rem',
                 xl: '2rem',
-                '2xl': '2rem',
             },
             screens: {
                 sm: "100%",
                 md: "100%",
                 lg: "1280px",
-                xl: "1024px",
-                '2xl': '1024px',
+                xl: "1280px",
             }
         },
         extend: {

@@ -13,6 +13,10 @@ const router = createBrowserRouter(
     [
         {
             path: "/",
+            element: <Navigate to="/home" replace />,
+        },
+        {
+            path: "/",
             element: <Layout />,
             children: [
                 { path: "home", element: <Home /> },
@@ -20,9 +24,11 @@ const router = createBrowserRouter(
                 { path: "projects/:slug", element: <ProjectDetailPage /> },
                 { path: "contact", element: <ContactPage /> },
                 { path: "about", element: <AboutPage /> },
-                { path: "", element: <Navigate to="/home" replace /> },
-                { path: "*", element: <Navigate to="/home" replace /> }
             ]
+        },
+        {
+            path: "*",
+            element: <Navigate to="/home" replace />
         }
     ],
     {

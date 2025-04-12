@@ -15,7 +15,7 @@ const titles = {
     "/projects": "Projects - Portfolio",
 };
 
-const Layout = ({ children }) => {
+const Layout = () => {
     const location = useLocation();
 
     useEffect(() => {
@@ -28,7 +28,6 @@ const Layout = ({ children }) => {
                 <LoadingProvider>
                     <div className="h-full w-full relative dark:text-darkText text-lightText">
                         <Header />
-                        {children}
                         <Outlet />
                         <Footer />
                     </div>
