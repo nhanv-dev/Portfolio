@@ -86,3 +86,12 @@ body:hover::-webkit-scrollbar-thumb {
     -webkit-text-stroke: 6px rgba(255, 255, 255, 0.25);
     color: transparent;
 }
+
+@layer utilities {
+    .text-stroke {
+        background-image: linear-gradient(to right, #DDDDDD, #DDDDDD);
+        background-clip: text;
+        -webkit-text-stroke-color: transparent;
+        padding: 0 0px;
+    }
+}

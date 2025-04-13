@@ -15,10 +15,12 @@ export default function ProjectDetailPage() {
     // Xử lý trường hợp slug không hợp lệ
     if (!project?.component) {
         return (
-            <div className="container py-20 min-h-[60vh]">
-                <GlitchText speed={1} enableShadows={true}>
-                    Project not found
-                </GlitchText>
+            <div className="container py-[140px] min-h-[60vh]">
+                <div className="flex items-center justify-center relative">
+                    <GlitchText speed={1} enableShadows={true}>
+                        Project not found
+                    </GlitchText>
+                </div>
                 <div className="mt-20 flex items-center justify-center">
                     <button
                         type="button"

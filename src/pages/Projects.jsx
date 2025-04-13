@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import FadeContent from "../components/FadeContent";
 import PageWithPreload from "../components/PageWithPreload";
 import { projects } from "../data";
+import TitleSection from "../components/TitleSection";
 
 export default function ProjectsPage() {
 
@@ -250,10 +251,13 @@ function AboutProjects() {
 function Projects() {
     return (
         <section className="py-20 mx-auto container">
-            <h1 className="text-left uppercase text-[3rem] font-bold mb-20">
-                Portfolio
-                <br/> Gallery
-            </h1>
+            <TitleSection
+                className={'mb-14'}
+                title={'PORTFOLIO'}
+                title2={'GALLERY'}
+                subTitle={'creative'}
+                subTitle2={'work'}
+            ></TitleSection>
             <div className="grid grid-cols-3 gap-3">
                 {projects.slice(0, 9).map((project, index) => (
                     <Link to={project.slug} key={index} className="group relative">
@@ -278,7 +282,7 @@ function Projects() {
                         <div className="z-20 absolute bottom-5 right-5">
                             <h6 className="font-semibold text-[1.1rem] text-shadow-lg text-right">
                                 {project.card.productType}
-                            </h6> 
+                            </h6>
                         </div>
                         {/* </div>
                         <div className="z-20 absolute bottom-6 left-3.5">
