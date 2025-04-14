@@ -1,9 +1,8 @@
-import { useNavigate, useParams } from "react-router-dom";
-import FadeContent from "../components/FadeContent";
-import { projects } from "../data";
-import GlitchText from "../components/GlitchText";
 import { IoArrowBackOutline } from "react-icons/io5";
+import { useNavigate, useParams } from "react-router-dom";
+import GlitchText from "../components/GlitchText";
 import { useLoading } from "../components/LoadingProvider";
+import { projects } from "../data";
 
 export default function ProjectDetailPage() {
     const { setIsLoaded } = useLoading();
@@ -37,9 +36,7 @@ export default function ProjectDetailPage() {
 
     return (
         <div className="pt-20">
-            <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
-                <project.component item={project} index={index} />
-            </FadeContent>
+            <project.component item={project} index={index} />
         </div>
     )
 }

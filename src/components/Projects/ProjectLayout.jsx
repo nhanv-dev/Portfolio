@@ -42,7 +42,7 @@ const ProjectLayout = ({ tag, children, index }) => {
 				</div>
 
 				<div className="flex justify-between items-center gap-6">
-					<h1 className="text-4xl font-bold">{project.card.title}</h1>
+					<h1 className="text-4xl font-bold">{project.card.title} - {project.card.subTitle}</h1>
 					<div className="flex items-center justify-end gap-3">
 						<a href={project.website} target="_blank" rel="noopener noreferrer" className="dark:bg-lightBg dark:text-lightText px-4 pr-3 py-1 rounded-full flex items-center justify-center gap-2 font-semibold">
 							<span className="text-sm">

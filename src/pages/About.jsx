@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useRef } from "react";
 import { FaAsterisk, FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
@@ -5,11 +6,9 @@ import { FiDownload } from "react-icons/fi";
 import { RiArrowRightUpLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import CircularText from "../components/CircularText";
-import FadeContent from "../components/FadeContent";
-import DevInfiniteScroll from "../components/InfiniteScroll/DevInfiniteScroll";
+import ContactBanner from "../components/ContactBanner";
 import TechInfiniteScroll from "../components/InfiniteScroll/TechInfiniteScroll";
 import PageWithPreload from "../components/PageWithPreload";
-import Resume from "../components/Resume";
 
 const tags = ['Web Development', 'UI/UX', 'Responsive Design', 'Database Design', 'Problem Solving'];
 
@@ -17,23 +16,17 @@ export default function AboutPage() {
 
     return (
         <PageWithPreload texts={["Welcome", "Let's Explore"]}>
-            <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
-                <HeroComponent />
-            </FadeContent>
 
-            <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
-                <AboutComponent />
-            </FadeContent>
+            <HeroComponent />
 
-            <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
-                <IntroduceComponent />
-            </FadeContent>
+            <IntroduceComponent />
 
             <TechInfiniteScroll />
 
-            <Resume />
+            <ResumeComponent />
 
-            <DevInfiniteScroll />
+            <ContactBanner />
+
         </PageWithPreload>
     );
 }
@@ -43,18 +36,15 @@ const HeroComponent = () => {
 
     return (
         <div className="relative h-screen w-full bg-black">
-            {/* <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-center w-full h-full bg-contain bg-no-repeat z-0 bg-fixed"
-                    style={{ backgroundImage: 'url(https://dsngrid.com/exfolio/wp-content/uploads/sites/14/2025/01/circle-dots-1.png)' }}
-                ></div> */}
             <div className="absolute left-0 top-0 w-full pt-20 h-full">
                 <div className="container h-full relative">
                     <div className="grid grid-cols-3 gap-4 h-full relative">
                         <div
-                            className="w-full h-[50%] bg-center bg-no-repeat bg-cover"
+                            className="w-full h-[40%] bg-center bg-no-repeat bg-cover"
                             style={{ backgroundImage: "url(https://images.unsplash.com/photo-1651760937033-8ccab2727cef?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)" }}
                         ></div>
                         <div
-                            className="w-full h-[65%] bg-center bg-no-repeat bg-cover"
+                            className="w-full h-[55%] bg-center bg-no-repeat bg-cover"
                             style={{ backgroundImage: "url(https://images.unsplash.com/photo-1696960741206-63a41bb798ad?q=80&w=2433&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)" }}
                         ></div>
                         <div
@@ -63,7 +53,7 @@ const HeroComponent = () => {
                         ></div>
                     </div>
 
-                    <div className="absolute left-0 lg:top-[60%] w-full">
+                    <div className="absolute left-0 lg:top-[54%] w-full">
                         <div className="container">
                             <p className="relative -top-5 flex items-center jus font-bold text-[1.4rem] gap-3">
                                 <span className="w-[20px] h-[3px] bg-white block"></span>
@@ -75,7 +65,7 @@ const HeroComponent = () => {
                                 </span>
 
                                 <h1 className="relative z-[1]">
-                                    <span className="relative z-[2]">Fullstack Developer</span>
+                                    <span className="relative z-[2] font-unbounded">Fullstack Developer</span>
                                     <span className="z-[1] absolute top-[75px] left-[4px] w-full opacity-40 text-gray-500 translate-y-2 scale-y-[-1] italic">
                                         Fullstack Developer
                                     </span>
@@ -90,7 +80,7 @@ const HeroComponent = () => {
                                     ))}
 
 
-                                    <Link to={'/contact'} tabIndex={-1} className="z-[30] absolute right-[0] bottom-8 p-1 bg-black rounded-full">
+                                    <Link to={'/contact'} tabIndex={-1} className="z-[30] absolute right-[0] bottom-0 p-1 bg-black rounded-full">
                                         <CircularText
                                             ref={circularTextRef}
                                             text="LETS TALK . LETS TALK . LETS TALK . "
@@ -114,9 +104,9 @@ const HeroComponent = () => {
                 </div>
             </div>
             <div className="absolute left-1/2 bottom-6 -translate-x-1/2 z-10 container">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-center">
                     <button type="button" className="flex items-center justify-center gap-2 py-2 px-5 uppercase bg-gray-900 rounded-full text-[.775rem] font-bold tracking-widest">
-                        <span className="">Explore my journey below</span>
+                        <span className="">Scroll down</span>
                     </button>
                     <div className="flex gap-6 items-center justify-end">
                         <a
@@ -150,35 +140,33 @@ const HeroComponent = () => {
     )
 }
 
-const AboutComponent = () => {
-    return (
-        <div className="h-[500px] w-full relative mt-10">
-            <div
-                className="w-full h-full bg-center bg-cover bg-fixed"
-                style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1741808045701-16fbab329169?q=80&w=2231&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)' }}></div>
-            <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/30"></div>
-            <div className="absolute left-1/2 top-1/2 bg-black/50 backdrop-blur-sm p-20 -translate-x-1/2 -translate-y-1/2 rounded-xl">
-                <h2>Let's Connect Me</h2>
-                <p>I am always do the best thing</p>
-            </div>
-        </div>
-    )
-}
-
 const IntroduceComponent = () => {
     return (
-        <section id="about" className="transition-theme bg-lightBg dark:bg-darkBg">
+        <section id="about" className="transition-theme bg-lightBg dark:bg-darkBg border-t border-gray-900">
             <div className="container py-[120px]">
-                {/* Tiêu đề */}
-                <div className="px-4 py-2 bg-darkBg w-[max-content] font-semibold text-[14px] tracking-[3px] text-secondary dark:text-darkText">
+                {/* Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: 'easeOut' }}
+                    viewport={{ once: true }}
+                    className="px-4 py-2 bg-lightBg2 dark:bg-darkBg2 w-[max-content] font-bold text-[14px] tracking-[2px] text-[#bbb]"
+                >
                     Hello
-                </div>
-                <div className="mb-[60px]">
-                    <h3 className="pb-6 font-bold text-[2.5rem] leading-[3.5rem] tracking-[2px] my-3 text-lightText dark:text-darkText">
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className="mb-[60px]"
+                >
+                    <h3 className="pb-6 font-bold text-[2.5rem] leading-[3.5rem] tracking-[2px] my-3">
                         About Me
                     </h3>
-                    <div className="relative block w-full h-[2px] bg-borderLight after:w-[200px] after:h-[2px] after:bg-primary after:left-0 after:top-0 after:absolute" />
-                </div>
+                    <div className="relative block w-full h-[2px] bg-gray-900 after:w-[200px] after:h-[4px] after:bg-primary after:left-0 after:top-1/2 after:-translate-y-1/2 after:rounded-full rounded-full after:absolute" />
+                </motion.div>
 
                 {/* Nội dung */}
                 <div className="flex flex-row flex-wrap">
@@ -247,3 +235,126 @@ const IntroduceComponent = () => {
         </section>
     );
 }
+
+const ResumeComponent = () => {
+    return (
+        <section id="resume" className="bg-lightBg dark:bg-darkBg">
+            <div className="container py-[120px]">
+                {/* Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: 'easeOut' }}
+                    viewport={{ once: true }}
+                    className="px-4 py-2 bg-lightBg2 dark:bg-darkBg2 w-[max-content] font-bold text-[14px] tracking-[2px] text-[#bbb]"
+                >
+                    My Resume
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className="mb-[60px]"
+                >
+                    <h3 className="pb-6 font-bold text-[2.5rem] leading-[3.5rem] tracking-[2px] my-3">
+                        Education & Experience
+                    </h3>
+                    <div className="relative block w-full h-[2px] bg-gray-900 after:w-[200px] after:h-[4px] after:bg-primary after:left-0 after:top-1/2 after:-translate-y-1/2 after:rounded-full rounded-full after:absolute" />
+                </motion.div>
+
+                {/* Education & Experience */}
+                <div className="flex flex-wrap">
+                    {/* Education */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, ease: 'easeOut' }}
+                        viewport={{ once: true }}
+                        className="lg:w-[50%] w-full px-[15px]"
+                    >
+                        <h4 className="mb-5 font-bold text-[1.5rem] tracking-[1px]">Education</h4>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.6 }}
+                            viewport={{ once: true }}
+                        >
+                            <h5 className="pl-5 relative text-[1.2rem] font-bold tracking-[1px]">
+                                Nong Lam University
+                                <div className="absolute left-0 top-[50%] translate-x-[-50%] translate-y-[-50%] bg-primary w-[8px] h-[8px] rounded-full"></div>
+                            </h5>
+                            <div className="pl-5 pt-3 pb-10 relative text-[#bbb] text-[16px] leading-[1.6] font-[500]">
+                                <p className="mb-3 tracking-[1px]">2019 - 2023</p>
+                                <p>
+                                    Graduated in Information Technology, specializing in web application development.
+                                    Gained expertise in software development, database management, and system maintenance. Passionate about full-stack web development.
+                                </p>
+                                <div className="absolute left-0 bottom-[0] top-0 translate-x-[-50%] bg-gray-800 w-[1px] h-full"></div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+
+                    {/* Experience */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, ease: 'easeOut' }}
+                        viewport={{ once: true }}
+                        className="lg:w-[50%] w-full px-[15px]"
+                    >
+                        <h4 className="mb-5 font-bold text-[1.5rem] tracking-[1px]">Experience</h4>
+
+                        {/* GSoft */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.6 }}
+                            viewport={{ once: true }}
+                        >
+                            <h5 className="pl-5 relative text-[1.2rem] font-bold tracking-[1px]">
+                                GSoft
+                                <div className="absolute left-0 top-[50%] translate-x-[-50%] translate-y-[-50%] bg-primary w-[8px] h-[8px] rounded-full"></div>
+                            </h5>
+                            <div className="pl-5 pt-3 pb-10 relative text-[#bbb] text-[16px] leading-[1.6] font-[500]">
+                                <p className="mb-3 tracking-[1px]">September 2023 - January 2025</p>
+                                <p className="mb-3 font-bold text-white">Role: Fullstack Developer</p>
+                                <p className="mb-3">
+                                    I contributed to the development and optimization of banking applications, focusing on security, API development, and real-time technologies like Socket and FCM, using Angular, .NET, and SQL Server.
+                                </p>
+                                <p>
+                                    In CRM and omnichannel projects, I integrated platforms such as Facebook, Google Analytics, Zalo OAuth, and AWS CloudWatch/SES to enhance customer management and streamline communication across multiple channels.
+                                </p>
+                                <div className="absolute left-0 bottom-[0] top-0 translate-x-[-50%] bg-gray-800 w-[1px] h-full"></div>
+                            </div>
+                        </motion.div>
+
+                        {/* GlobalChain */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.8 }}
+                            viewport={{ once: true }}
+                        >
+                            <h5 className="pl-5 relative text-[1.2rem] font-bold tracking-[1px]">
+                                GlobalChain
+                                <div className="absolute left-0 top-[50%] translate-x-[-50%] translate-y-[-50%] bg-primary w-[8px] h-[8px] rounded-full"></div>
+                            </h5>
+                            <div className="pl-5 pt-3 pb-10 relative text-[#bbb] text-[16px] leading-[1.6] font-[500]">
+                                <p className="mb-3 tracking-[1px]">July 2023 - September 2023</p>
+                                <p className="mb-3 font-bold text-white">Role: Intern Web Developer</p>
+                                <p>
+                                    During my internship as a Web Developer, I contributed to building dynamic web applications, fine-tuning performance, and integrating new features, all while working with Next.js, NestJS, MongoDB, and exploring blockchain possibilities with Hyperledger Fabric.
+                                </p>
+                                <div className="absolute left-0 bottom-[0] top-0 translate-x-[-50%] bg-gray-800 w-[1px] h-full"></div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                </div>
+            </div>
+        </section>
+    );
+};
+

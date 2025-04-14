@@ -1,20 +1,3 @@
-.preload-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #1a1a1a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.preload-text {
-    font-size: 5rem;
-    font-weight: bold;
-    color: white;
-    display: flex;
-    gap: 8px;
-}
+/* * {
+    overflow: hidden !important;
+} */

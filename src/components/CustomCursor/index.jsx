@@ -25,10 +25,10 @@ function CustomCursor() {
             cursorOuterRef.current.style.visibility = 'visible'
             cursorInnerRef.current.style.visibility = 'visible'
         }
-        document.querySelector('#main-content').addEventListener('mousemove', setPositionCursor)
+        document.querySelector('body').addEventListener('mousemove', setPositionCursor)
 
         return () => {
-            document.querySelector('#main-content').removeEventListener('mousemove', setPositionCursor)
+            document.querySelector('body').removeEventListener('mousemove', setPositionCursor)
         }
     }, [])
 

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import './style.css';
 
 const Preloader = ({ texts, onLoaded }) => {
     const [textIndex, setTextIndex] = useState(0);
@@ -11,7 +12,8 @@ const Preloader = ({ texts, onLoaded }) => {
             onLoaded();
             return;
         }
-        const totalDuration = texts.length * 1800; // Total time for loading (texts.length * 1800)
+
+        const totalDuration = texts.length * 1200; // Total time for loading (texts.length * 1800)
         const targetDuration = totalDuration * 0.85;
         let startTime = Date.now();
 
@@ -32,10 +34,10 @@ const Preloader = ({ texts, onLoaded }) => {
                 return Math.min(newProgress, 100); // Keep the value within bounds
             });
         }, 100);
-        
+
         let interval = setInterval(() => {
             setTextIndex((prev) => prev + 1);
-        }, 1800);
+        }, 1200);
 
         let timeout = setTimeout(() => {
             clearInterval(interval);
@@ -54,7 +56,7 @@ const Preloader = ({ texts, onLoaded }) => {
     if (!isVisible) return null;
 
     return (
-        <div className="fixed inset-0 flex flex-col items-center justify-center z-50 transition-all duration-500 bg-white text-black dark:bg-black dark:text-white">
+        <div className="fixed inset-0 flex flex-col items-center justify-center z-[999] transition-all duration-500 bg-white text-black dark:bg-black dark:text-white">
             {textIndex < texts.length && (
                 <motion.h1
                     key={textIndex}

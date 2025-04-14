@@ -11,11 +11,13 @@ export const LenisProvider = ({ children }) => {
     useEffect(() => {
         if (!!lenis) return;
 
-        const instance = new Lenis({});
-        // lerp: 0.05,        // Độ mượt của cuộn, giá trị thấp làm cuộn chậm
-        // duration: 1.5,     // Thời gian cuộn dài hơn để tạo hiệu ứng chậm
-        // smoothWheel: true, // Kích hoạt cuộn mượt mà
-        // direction: 'vertical',  // Cuộn theo chiều dọc
+        const instance = new Lenis({
+            // lerp: 0.05,        // Độ mượt của cuộn, giá trị thấp làm cuộn chậm
+            // duration: 1,     // Thời gian cuộn dài hơn để tạo hiệu ứng chậm
+            // smoothWheel: true, // Kích hoạt cuộn mượt mà
+            // direction: 'vertical',  // Cuộn theo chiều dọc
+        });
+
 
         setLenis(instance)
 

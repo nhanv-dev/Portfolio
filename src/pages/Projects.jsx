@@ -3,26 +3,20 @@ import { useState } from "react";
 import { ImLocation2 } from "react-icons/im";
 import { MdOutlineNavigateBefore, MdOutlineNavigateNext } from "react-icons/md";
 import { Link } from "react-router-dom";
-import FadeContent from "../components/FadeContent";
+import ContactBanner from "../components/ContactBanner";
 import PageWithPreload from "../components/PageWithPreload";
-import { projects } from "../data";
 import TitleSection from "../components/TitleSection";
+import { projects } from "../data";
 
 export default function ProjectsPage() {
 
     return (
         <PageWithPreload texts={["Ignite Creativity", "Turn Ideas into Reality"]}>
-            <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
-                <HeroSlider />
-            </FadeContent>
+            <HeroSlider />
 
-            <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
-                <AboutProjects />
-            </FadeContent>
+            <Projects />
 
-            <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
-                <Projects />
-            </FadeContent>
+            <ContactBanner />
         </PageWithPreload>
     );
 }
@@ -196,61 +190,9 @@ function HeroSlider() {
     );
 }
 
-function AboutProjects() {
-    return (
-        <section className="relative bg-[#121212]">
-            {/* <div className="absolute inset-0 z-0 pointer-events-none">
-                {[20, 40, 60, 80].map((pos, i) => (
-                    <div
-                        key={i}
-                        className="absolute top-0 h-full w-px bg-gradient-to-b from-white/30 via-white/10 to-white/30 opacity-40"
-                        style={{ left: `${pos}%` }}
-                    />
-                ))}
-            </div> */}
-            <div className="py-16 container mx-auto z-10 text-white">
-                <h1 className="text-center text-4xl font-bold mb-12">
-                    What I’ve Been Working On
-                </h1>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
-                    {/* Cột 1: Mô tả giới thiệu */}
-                    <div>
-                        <h3 className="text-xl font-semibold mb-3 text-gray-300">
-                            From Concept to Code
-                        </h3>
-                        <p className="text-gray-400 leading-relaxed">
-                            Here’s a glimpse into the solutions I’ve built — spanning end-to-end development,
-                            system integration, and performance-optimized frontends. Each project is crafted
-                            with attention to detail and long-term maintainability.
-                        </p>
-                    </div>
-
-                    {/* Cột 2: Các vai trò */}
-                    <div className="text-gray-300 space-y-4">
-                        <div className="text-lg font-medium">👨‍💻 Developer</div>
-                        <div className="text-lg font-medium">🎨 UI/UX Designer</div>
-                        <div className="text-lg font-medium">🧠 System Architect</div>
-                        <div className="text-lg font-medium">🚀 Performance Tuner</div>
-                    </div>
-
-                    {/* Cột 3: Hình ảnh minh họa */}
-                    <div className="flex justify-center">
-                        <img
-                            src="https://plus.unsplash.com/premium_photo-1731948133366-0d1dbb7db851?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="Project Preview"
-                            className="rounded-xl shadow-xl max-w-[250px]"
-                        />
-                    </div>
-                </div>
-            </div>
-        </section>
-    )
-}
-
 function Projects() {
     return (
-        <section className="py-20 mx-auto container">
+        <section className="py-20 mx-auto container border-t border-gray-900">
             <TitleSection
                 className={'mb-14'}
                 title={'PORTFOLIO'}
@@ -284,12 +226,6 @@ function Projects() {
                                 {project.card.productType}
                             </h6>
                         </div>
-                        {/* </div>
-                        <div className="z-20 absolute bottom-6 left-3.5">
-                            <h6 className="font-semibold h-[0px] text-[1.1rem] origin-top-left -rotate-90">
-                                {project.card.useCase}
-                            </h6>
-                        </div> */}
                     </Link>
                 ))}
             </div>

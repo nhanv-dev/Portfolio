@@ -40,7 +40,7 @@ const skills = [
 
 const TechInfiniteScroll = () => {
   return (
-    <div className="relative w-full overflow-hidden bg-lightBg dark:bg-darkBg py-[2rem] border-t border-b dark:border-gray-700 max-h-[104px]">
+    <div className="relative w-full overflow-hidden bg-lightBg dark:bg-darkBg py-[2rem] border-t border-b dark:border-gray-900 max-h-[104px]">
       {/* Gradient che phủ hai bên */}
       <div className="absolute inset-y-0 left-0 w-[24rem] bg-gradient-to-r dark:from-black to-transparent z-10"></div>
       <div className="absolute inset-y-0 right-0 w-[24rem] bg-gradient-to-l dark:from-black to-transparent z-10"></div>

@@ -23,19 +23,17 @@ const Layout = () => {
     }, [location.pathname]);
 
     return (
-        <div id="main-content">
-            <LenisProvider>
-                <LoadingProvider>
-                    <div className="h-full w-full relative dark:text-darkText text-lightText">
-                        <Header />
-                        <Outlet />
-                        <Footer />
-                    </div>
-                    <ScrollTop />
-                    <CustomCursor />
-                </LoadingProvider>
-            </LenisProvider>
-        </div>
+        <LenisProvider>
+            <LoadingProvider>
+                <div className="h-full w-full relative dark:text-darkText text-lightText overflow-hidden">
+                    <Header />
+                    <Outlet />
+                    <Footer />
+                </div>
+                <ScrollTop />
+                <CustomCursor />
+            </LoadingProvider>
+        </LenisProvider>
     );
 };
 

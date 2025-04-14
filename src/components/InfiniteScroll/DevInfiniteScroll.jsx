@@ -1,24 +1,7 @@
 import { motion } from "framer-motion";
+import { GoDotFill } from "react-icons/go";
 
-const skills = [
-  { name: "Fullstack Developer" },
-  { name: "Web Development" },
-  { name: "Git Management" },
-  { name: "Source Code Management" },
-  { name: "Code Maintenance" },
-  { name: "Bug Fixing" },
-  { name: "Version Control (Git)" },
-  { name: "Backend Development" },
-  { name: "Frontend Development" },
-  { name: "RESTful APIs" },
-  { name: "Database Management" },
-  { name: "Agile Development" },
-  { name: "Unit Testing" },
-  { name: "Debugging" },
-  { name: "Performance Optimization" }
-];
-
-const DevInfiniteScroll = () => {
+const DevInfiniteScroll = ({ list }) => {
   return (
     <div className="relative w-full overflow-hidden max-h-[400px]">
       {/* Gradient che phủ hai bên */}
@@ -27,7 +10,7 @@ const DevInfiniteScroll = () => {
 
       {/* Thanh scroll animation */}
       <motion.div
-        className="flex gap-10 w-max"
+        className="flex gap-5 w-max items-center"
         animate={{ x: ["0%", "-50%"] }}
         transition={{
           repeat: Infinity,
@@ -35,9 +18,14 @@ const DevInfiniteScroll = () => {
           duration: 80,
         }}
       >
-        {[...skills, ...skills].map((skill, index) => (
-          <div key={index} className="inline-flex w-fit min-w-fit">
-            <span className="text-[6rem] font-extrabold uppercase">{skill.name}</span>
+        {[...list, ...list].map((skill, index) => (
+          <div key={index} className="flex gap-5 items-center">
+            <div className="inline-flex w-fit min-w-fit">
+              <span className="text-[4rem] font-extrabold font-unbounded">{skill.name}</span>
+            </div>
+            <span className="inline-flex text-[2.5rem]">
+              <GoDotFill />
+            </span>
           </div>
         ))}
       </motion.div>
