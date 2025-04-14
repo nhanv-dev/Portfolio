@@ -27,10 +27,9 @@ export default function HomePage() {
     return (
         <PageWithPreload texts={["Welcome", "Let's Explore"]}>
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1.2, ease: 'easeOut' }}
-                style={{ willChange: 'opacity' }}
+                initial={{ opacity: 0, filter: 'blur(20px)' }}
+                animate={{ opacity: 1, filter: 'blur(0px)' }}
+                transition={{ duration: 1.5, ease: 'easeOut', delay: '0.3' }}
             >
                 <HomeSlider />
             </motion.div>
@@ -42,7 +41,7 @@ export default function HomePage() {
             </div>
 
             <ExploreProjectsComponent />
- 
+
             <ContactBanner />
 
         </PageWithPreload>

@@ -12,10 +12,10 @@ export const LenisProvider = ({ children }) => {
         if (!!lenis) return;
 
         const instance = new Lenis({
-            // lerp: 0.05,        // Độ mượt của cuộn, giá trị thấp làm cuộn chậm
-            // duration: 1,     // Thời gian cuộn dài hơn để tạo hiệu ứng chậm
-            // smoothWheel: true, // Kích hoạt cuộn mượt mà
-            // direction: 'vertical',  // Cuộn theo chiều dọc
+            lerp: 0.05,        // Độ mượt của cuộn, giá trị thấp làm cuộn chậm
+            duration: 1,     // Thời gian cuộn dài hơn để tạo hiệu ứng chậm
+            smoothWheel: true, // Kích hoạt cuộn mượt mà
+            direction: 'vertical',  // Cuộn theo chiều dọc
         });
 
 

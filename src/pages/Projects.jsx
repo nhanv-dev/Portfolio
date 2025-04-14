@@ -12,7 +12,13 @@ export default function ProjectsPage() {
 
     return (
         <PageWithPreload texts={["Ignite Creativity", "Turn Ideas into Reality"]}>
-            <HeroSlider />
+            <motion.div
+                initial={{ opacity: 0, filter: 'blur(20px)' }}
+                animate={{ opacity: 1, filter: 'blur(0px)' }}
+                transition={{ duration: 1.5, ease: 'easeOut', delay: '0.3' }}
+            >
+                <HeroSlider />
+            </motion.div>
 
             <Projects />
 

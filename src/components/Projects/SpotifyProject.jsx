@@ -12,8 +12,7 @@ const SpotifyProject = ({ item, index }) => {
 			<div className="mt-6 flex gap-10">
 				<div className="flex-1">
 					<p className="text-[1rem] text-gray-400 font-medium leading-7">
-						Noonpost is an intuitive blogging platform that makes sharing your thoughts and stories effortless.
-						With sleek editing tools, it empowers you to write with clarity and creativity.
+						{item.card.description}
 					</p>
 					<div className="flex flex-wrap gap-2 mt-4">
 						{['Node.js', 'Express.js', 'Handlebars', 'MongoDB', 'Server Side Rendering'].map(tag => (

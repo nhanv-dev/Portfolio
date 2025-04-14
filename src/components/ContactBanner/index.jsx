@@ -65,16 +65,16 @@ function ContactBanner() {
                             initial={{ opacity: 0, y: 100 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.5 }}
-                            transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
+                            transition={{ duration: 1.2, ease: 'easeOut', delay: 0 }}
                         >
                             <Link
                                 to={'/contact'} onClick={() => setIsLoaded(false)}
-                                className='relative p-2.5 hover:bg-white hover:text-black transition-all duration-700 font-unbounded w-[124px] h-[124px] border-[3px] border-white flex items-end justify-center'>
-                                <span className="text-[14px] font-bold">
+                                className='relative p-2 hover:bg-white hover:text-black transition-all duration-700 font-unbounded w-[120px] h-[120px] bg-white text-black flex items-end justify-center'>
+                                <span className="text-[15px] font-bold">
                                     Read more
                                 </span>
                                 <span className="absolute right-0 top-0">
-                                    <RiArrowRightUpLine className="text-[46px]" />
+                                    <RiArrowRightUpLine className="text-[56px]" />
                                 </span>
                             </Link>
                         </motion.div>

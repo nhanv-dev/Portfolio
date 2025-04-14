@@ -13,7 +13,7 @@ const Preloader = ({ texts, onLoaded }) => {
             return;
         }
 
-        const totalDuration = texts.length * 1200; // Total time for loading (texts.length * 1800)
+        const totalDuration = texts.length * 1500; // Total time for loading (texts.length * 1800)
         const targetDuration = totalDuration * 0.85;
         let startTime = Date.now();
 
@@ -37,7 +37,7 @@ const Preloader = ({ texts, onLoaded }) => {
 
         let interval = setInterval(() => {
             setTextIndex((prev) => prev + 1);
-        }, 1200);
+        }, 1500);
 
         let timeout = setTimeout(() => {
             clearInterval(interval);
@@ -60,10 +60,10 @@ const Preloader = ({ texts, onLoaded }) => {
             {textIndex < texts.length && (
                 <motion.h1
                     key={textIndex}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 1, ease: "easeOut" }}
+                    exit={{ opacity: 0, y: -50 }}
+                    transition={{ duration: 1.2, ease: "easeOut" }}
                     className="text-5xl font-bold"
                 >
                     {texts[textIndex]}

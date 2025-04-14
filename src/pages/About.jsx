@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
-import { FaAsterisk, FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { FiDownload } from "react-icons/fi";
 import { RiArrowRightUpLine } from "react-icons/ri";
@@ -15,9 +15,14 @@ const tags = ['Web Development', 'UI/UX', 'Responsive Design', 'Database Design'
 export default function AboutPage() {
 
     return (
-        <PageWithPreload texts={["Welcome", "Let's Explore"]}>
-
-            <HeroComponent />
+        <PageWithPreload texts={["Hi, I'm Tran Thanh Nhan", "Exploring Tech & Creativity"]}>
+            <motion.div
+                initial={{ opacity: 0, filter: 'blur(20px)' }}
+                animate={{ opacity: 1, filter: 'blur(0px)' }}
+                transition={{ duration: 1.5, ease: 'easeOut', delay: '0.3' }}
+            >
+                <HeroComponent />
+            </motion.div>
 
             <IntroduceComponent />
 
@@ -35,75 +40,62 @@ const HeroComponent = () => {
     const circularTextRef = useRef();
 
     return (
-        <div className="relative h-screen w-full bg-black">
-            <div className="absolute left-0 top-0 w-full pt-20 h-full">
+        <div className="relative h-screen w-full bg-black bg-center bg-cover bg-fixed bg-no-repeat" style={{ backgroundImage: `url(./images/background-about.webp)` }}>
+            <div className="absolute left-0 top-0 w-full h-full bg-black/40 z-0"></div>
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 pt-20 w-full">
                 <div className="container h-full relative">
-                    <div className="grid grid-cols-3 gap-4 h-full relative">
-                        <div
-                            className="w-full h-[40%] bg-center bg-no-repeat bg-cover"
-                            style={{ backgroundImage: "url(https://images.unsplash.com/photo-1651760937033-8ccab2727cef?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)" }}
-                        ></div>
-                        <div
-                            className="w-full h-[55%] bg-center bg-no-repeat bg-cover"
-                            style={{ backgroundImage: "url(https://images.unsplash.com/photo-1696960741206-63a41bb798ad?q=80&w=2433&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)" }}
-                        ></div>
-                        <div
-                            className="w-full h-[75%] bg-center bg-no-repeat bg-cover"
-                            style={{ backgroundImage: "url(https://images.unsplash.com/photo-1639749601642-8d30474f249f?q=80&w=2536&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)" }}
-                        ></div>
-                    </div>
-
-                    <div className="absolute left-0 lg:top-[54%] w-full">
-                        <div className="container">
-                            <p className="relative -top-5 flex items-center jus font-bold text-[1.4rem] gap-3">
-                                <span className="w-[20px] h-[3px] bg-white block"></span>
-                                Hi, I'm Tran Thanh Nhan
-                            </p>
-                            <div className="font-extrabold lg:text-[5rem] flex items-center">
-                                <span className="mr-8 relative top-[6px]">
-                                    <FaAsterisk className="animate-[spin_20s_linear_infinite] text-[4.25rem]" />
-                                </span>
-
-                                <h1 className="relative z-[1]">
-                                    <span className="relative z-[2] font-unbounded">Fullstack Developer</span>
-                                    <span className="z-[1] absolute top-[75px] left-[4px] w-full opacity-40 text-gray-500 translate-y-2 scale-y-[-1] italic">
-                                        Fullstack Developer
-                                    </span>
-                                </h1>
-                            </div>
-                            <div className="relative z-[2] mt-[40px]">
-                                <div className="flex items-center justify-start gap-3 flex-wrap">
-                                    {tags.map((value, index) => (
-                                        <p key={index} className="py-1 px-2.5 text-white text-[0.95rem] font-bold border-2 border-white">
-                                            {value}
-                                        </p>
-                                    ))}
-
-
-                                    <Link to={'/contact'} tabIndex={-1} className="z-[30] absolute right-[0] bottom-0 p-1 bg-black rounded-full">
-                                        <CircularText
-                                            ref={circularTextRef}
-                                            text="LETS TALK . LETS TALK . LETS TALK . "
-                                            onHover="speedUp"
-                                            spinDuration={20}
-                                            className="w-[140px] h-[140px]"
-                                            innerClassName="text-white"
-                                        >
-                                        </CircularText>
-                                        <div
-                                            onMouseEnter={() => circularTextRef.current?.handleHoverStart()}
-                                            onMouseLeave={() => circularTextRef.current?.handleHoverEnd()}
-                                            className="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[72px] h-[72px] bg-[#111111] border-2 border-[#2b2a2a] rounded-full flex items-center justify-center">
-                                            <RiArrowRightUpLine className="text-gray-300" size={30} />
-                                        </div>
-                                    </Link>
+                    <div className="w-full">
+                        <div className="max-w-6xl w-full mx-auto">
+                            {/* <span className="mr-8 relative top-[6px]">
+                                <FaAsterisk className="animate-[spin_20s_linear_infinite] text-[4.25rem]" />
+                            </span> */}
+                            <motion.div
+                                className="xl:text-[7rem] leading-none font-extrabold relative z-[2] font-unbounded max-w-5xl w-full min-w-full mb-8">Creative</motion.div>
+                            <motion.div
+                                className="xl:text-[7rem] leading-none font-extrabold relative z-[2] font-unbounded max-w-5xl w-full min-w-full text-center mb-8">Fullstack</motion.div>
+                            <motion.div
+                                className="xl:text-[7rem] leading-none font-extrabold relative z-[2] font-unbounded max-w-5xl w-full min-w-full flex items-end justify-end gap-10">
+                                <div className="text-[1rem] leading-relaxed font-medium mb-2">
+                                    Premium Web Design, Development, and SEO services to help your business stand out.
                                 </div>
+                                <p>
+                                    Developer
+                                </p>
+                            </motion.div>
+
+                        </div>
+                        <div className="hidden relative z-[2] mt-[40px]">
+                            <div className="flex items-center justify-start gap-3 flex-wrap">
+                                {tags.map((value, index) => (
+                                    <p key={index} className="py-1 px-2.5 text-white text-[0.95rem] font-bold border-2 border-white">
+                                        {value}
+                                    </p>
+                                ))}
+
+
+                                <Link to={'/contact'} tabIndex={-1} className="z-[30] absolute right-[0] bottom-0 p-1 bg-black rounded-full">
+                                    <CircularText
+                                        ref={circularTextRef}
+                                        text="LETS TALK . LETS TALK . LETS TALK . "
+                                        onHover="speedUp"
+                                        spinDuration={20}
+                                        className="w-[140px] h-[140px]"
+                                        innerClassName="text-white"
+                                    >
+                                    </CircularText>
+                                    <div
+                                        onMouseEnter={() => circularTextRef.current?.handleHoverStart()}
+                                        onMouseLeave={() => circularTextRef.current?.handleHoverEnd()}
+                                        className="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[72px] h-[72px] bg-[#111111] border-2 border-[#2b2a2a] rounded-full flex items-center justify-center">
+                                        <RiArrowRightUpLine className="text-gray-300" size={30} />
+                                    </div>
+                                </Link>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="absolute left-1/2 bottom-6 -translate-x-1/2 z-10 container">
+            <div className="hidden absolute left-1/2 bottom-6 -translate-x-1/2 z-10 container">
                 <div className="flex items-center justify-center">
                     <button type="button" className="flex items-center justify-center gap-2 py-2 px-5 uppercase bg-gray-900 rounded-full text-[.775rem] font-bold tracking-widest">
                         <span className="">Scroll down</span>

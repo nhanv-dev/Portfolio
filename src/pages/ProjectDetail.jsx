@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
 import GlitchText from "../components/GlitchText";
@@ -36,7 +37,13 @@ export default function ProjectDetailPage() {
 
     return (
         <div className="pt-20">
-            <project.component item={project} index={index} />
+            <motion.div
+                initial={{ opacity: 0, filter: 'blur(20px)' }}
+                animate={{ opacity: 1, filter: 'blur(0px)' }}
+                transition={{ duration: 1.5, ease: 'easeOut', delay: '0.3' }}
+            >
+                <project.component item={project} index={index} />
+            </motion.div>
         </div>
     )
 }
