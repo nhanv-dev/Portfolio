@@ -15,7 +15,7 @@ const ShopioProject = ({ item, index }) => {
 						{item.card.description}
 					</p>
 					<div className="flex flex-wrap gap-2 mt-4">
-						{['Node.js', 'Express.js', 'Handlebars', 'MongoDB', 'Server Side Rendering'].map(tag => (
+						{['React', 'TailwindCSS', 'Node.js', 'Express.js', 'MongoDB'].map(tag => (
 							<span key={tag} className="dark:bg-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-semibold">{tag}</span>
 						))}
 					</div>
@@ -38,28 +38,47 @@ const ShopioProject = ({ item, index }) => {
 				<h2 className="text-xl font-bold">Overview</h2>
 				<div className="mt-4">
 					<p className="text-[1rem] text-gray-400 font-medium leading-7">
-						🚀 Built with Node.js, Express.js, and MongoDB, Noonpost is a fast and scalable blogging platform designed for seamless content creation.
-						Utilizing SSR with Handlebars, it ensures optimal performance, SEO-friendly rendering, and a smooth user experience.
-						Whether you're publishing articles or managing content, Noonpost delivers efficiency and flexibility in a modern web environment.
+						🛒 <strong className="text-white">Shopio</strong> is a modern e-commerce marketplace built to empower both sellers and buyers with a seamless digital shopping experience.
+						Developed using <strong>React</strong>, <strong>Node.js</strong>, <strong>Express.js</strong>, and <strong>MongoDB</strong>, it delivers high performance, dynamic scalability, and an intuitive UI crafted with <strong>TailwindCSS</strong>.
+						Whether you're managing a store or browsing for the perfect product, Shopio makes commerce simple, elegant, and fast.
+					</p>
+					<p className="text-[1rem] text-gray-400 font-medium leading-7 mt-4">
+						The platform focuses on seller empowerment through flexible store management tools, while also offering customers a smooth end-to-end buying journey—
+						from account registration and login to cart management, checkout, and order tracking. With real-time feedback loops and a responsive design,
+						Shopio elevates the online shopping experience to the next level.
 					</p>
 				</div>
 			</div>
+
 			<div className="mt-6">
 				<h2 className="text-xl font-bold">Features</h2>
-				<div className="mt-4 text-[1rem] text-gray-400 font-medium">
+				<div className="mt-4 text-[1rem] dark:text-gray-400 font-medium">
 					<ul className="flex flex-col gap-4">
-						<li>✅ <strong>Seamless Writing Experience</strong> – A distraction-free editor with real-time previews, so you can focus on your words.</li>
-						<li>⚡ <strong>Blazing-Fast Performance</strong> – Built with <strong>Node.js & Express.js</strong>, ensuring smooth navigation and quick load times.</li>
-						<li>📑 <strong>SEO-Optimized with SSR</strong> – Server-side rendering with <strong>Handlebars</strong> boosts search engine visibility and improves content reach.</li>
-						<li>🌍 <strong>Scalable & Flexible</strong> – Powered by <strong>MongoDB</strong>, allowing efficient content management and scalability for high-traffic blogs.</li>
-						<li>🎨 <strong>Customizable Themes</strong> – Personalize your blog with beautifully designed themes and layouts that fit your style.</li>
-						<li>📝 <strong>Effortless Draft & Publishing</strong> – Save drafts, schedule posts, and publish with a single click.</li>
-						<li>💬 <strong>Interactive Comments</strong> – Engage with your audience through a dynamic commenting system.</li>
-						<li>🔗 <strong>Social Sharing Made Easy</strong> – Share your posts effortlessly across multiple platforms with built-in social media integration.</li>
-						<li>🚀 <strong>Ready to start your blogging journey?</strong> Experience <strong>Noonpost</strong> today and bring your ideas to life!</li>
+						<li>🛍️ <strong className="dark:text-white">Store Management for Sellers</strong> – Create, update, and organize product listings, manage stock, and monitor sales performance effortlessly.</li>
+						<li>🔎 <strong className="dark:text-white">Product Discovery</strong> – Advanced filtering and search help users find exactly what they need, fast.</li>
+						<li>🧾 <strong className="dark:text-white">Seamless Checkout</strong> – Cart and order handling with a focus on simplicity and reliability for all users.</li>
+						<li>👤 <strong className="dark:text-white">User Account System</strong> – Buyers can register, log in, and maintain their personal details with ease.</li>
+						<li>📦 <strong className="dark:text-white">Order Tracking</strong> – Real-time updates for users to track their purchases from checkout to delivery.</li>
+						<li>💬 <strong className="dark:text-white">User Feedback</strong> – Buyers can leave reviews, enhancing trust and quality control across the platform.</li>
+						<li>📱 <strong className="dark:text-white">Responsive Design</strong> – Fully optimized UI for mobile, tablet, and desktop devices with TailwindCSS utility styling.</li>
+						<li>🚀 <strong className="dark:text-white">Optimized Performance</strong> – Built with lightweight React components and efficient API routes to ensure minimal loading times.</li>
 					</ul>
 				</div>
 			</div>
+
+			<div className="mt-6">
+				<h2 className="text-xl font-bold">Tech Stack</h2>
+				<div className="mt-4 text-[1rem] dark:text-gray-400 font-medium">
+					<ul className="flex flex-col gap-4">
+						<li>🎨 <strong className="dark:text-white">Frontend</strong> – Developed with <span className="dark:text-white">React.js</span> and styled using <span className="dark:text-white">TailwindCSS</span> for modern and responsive UI design.</li>
+						<li>🧠 <strong className="dark:text-white">Backend</strong> – Built with <span className="dark:text-white">Node.js</span> and <span className="dark:text-white">Express.js</span>, serving a RESTful API architecture for scalable marketplace logic.</li>
+						<li>🗃️ <strong className="dark:text-white">Database</strong> – Uses <span className="dark:text-white">MongoDB</span> to manage user profiles, product inventories, store data, and transactional records.</li>
+						<li>🔐 <strong className="dark:text-white">Authentication</strong> – Implements secure login and session handling via JWT tokens.</li>
+						<li>🧰 <strong className="dark:text-white">Tooling</strong> – Development aided by <span className="dark:text-white">Mongoose</span> for schema modeling and <span className="dark:text-white">Postman</span> for API testing.</li>
+					</ul>
+				</div>
+			</div>
+
 
 			{item?.images?.length > 0 &&
 				<div className="mt-6" >

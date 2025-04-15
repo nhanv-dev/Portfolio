@@ -1,8 +1,13 @@
 import AmigoTasksProject from './components/Projects/AmigoTasksProject';
+import ChitchatProject from './components/Projects/ChitchatProject';
+import CommoditiesMartProject from './components/Projects/CommoditiesMartProject';
 import DepotProject from './components/Projects/DepotProject';
+import ElectronicProject from './components/Projects/ElectronicProject';
 import NoonpostProject from './components/Projects/NoonpostProject';
 import ShopioProject from './components/Projects/ShopioProject';
+import SnakeGameProject from './components/Projects/SnakeGameProject';
 import SpotifyProject from './components/Projects/SpotifyProject';
+import TodoProject from './components/Projects/TodoProject';
 
 export const slides = [
     { title: 'Welcome Aboard', src: '/images/slide-1.avif' },
@@ -13,6 +18,7 @@ export const slides = [
 export const projects = [
     {
         slug: '/projects/depot',
+        github: 'https://github.com/nhanv-dev/DepotStore',
         website: 'https://depot-store-3aa17.web.app/',
         card: {
             title: 'Depot Store',
@@ -33,6 +39,7 @@ export const projects = [
     },
     {
         slug: '/projects/amigo-tasks',
+        github: 'https://github.com/nhanv-dev/AmigoTasks',
         website: 'https://amigo-tasks.vercel.app/',
         card: {
             title: 'Amigo Task',
@@ -49,6 +56,7 @@ export const projects = [
     },
     {
         slug: '/projects/noonpost',
+        github: 'https://github.com/nhanv-dev/NoonpostNode',
         website: 'https://personal-blog-node.vercel.app/',
         card: {
             title: 'Noonpost',
@@ -71,6 +79,7 @@ export const projects = [
     },
     {
         slug: '/projects/spotify',
+        github: 'https://github.com/nhanv-dev/SpotifyComplete',
         website: 'https://spotify-client-react.web.app/',
         card: {
             title: 'Spotify',
@@ -89,19 +98,11 @@ export const projects = [
             { id: 3, image: '/images/spotifyv1/spotify-3.png', height: 650 },
             { id: 1, image: '/images/spotifyv1/spotify-6.png', height: 975 },
             { id: 5, image: '/images/spotifyv1/spotify-8.png', height: 650 },
-            { id: 6, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify-v2%2Fspotify-v2-(1).png?alt=media&token=c26d6e1d-3aff-43ad-af4d-1bd946d0b234', height: 650 },
-            { id: 7, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify-v2%2Fspotify-v2-(8).png?alt=media&token=8ce0ae01-f3ef-4c32-a677-74e287765288', height: 650 },
-            { id: 8, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify-v2%2Fspotify-v2-(7).png?alt=media&token=a18fba24-a00c-47bc-8c34-41b4d0935dcf', height: 650 },
-            { id: 9, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify-v2%2Fspotify-v2-(6).png?alt=media&token=d1f9b886-4a61-4c85-b1bd-7a7b1db9508e', height: 650 },
-            { id: 10, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify-v2%2Fspotify-v2-(5).png?alt=media&token=a1c8dab0-3044-4718-8624-a17890e70d29', height: 650 },
-            { id: 11, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify-v2%2Fspotify-v2-(3).png?alt=media&token=d1ddae38-814d-4013-932a-3118edc43206', height: 650 },
-            { id: 12, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify-v2%2Fspotify-v2-(4).png?alt=media&token=b5003ff2-95b3-494e-bf28-055258b475f3', height: 650 },
-            { id: 13, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify-v2%2Fspotify-v2-(2).png?alt=media&token=6b60caf5-03cb-4217-a31b-42faf3eb65b3', height: 650 },
-
         ],
     },
     {
         slug: '/projects/shopio',
+        github: 'https://github.com/nhanv-dev/Shopio',
         website: 'https://ecommerce-d49f8.web.app/',
         card: {
             title: 'Shopio',
@@ -127,6 +128,7 @@ export const projects = [
     },
     {
         slug: '/projects/chitchat',
+        github: 'https://github.com/nhanv-dev/ChitChat',
         website: 'https://chitchat-e6ec4.web.app/',
         card: {
             title: 'Chitchat',
@@ -138,6 +140,7 @@ export const projects = [
             thumbnail: 'https://images.unsplash.com/photo-1704018453307-d563498b585b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             description: 'A responsive chat application enabling real-time messaging, smart conversations, and seamless user interactions. Built to support fluid communication, modern UI, and efficient message delivery across devices.',
         },
+        component: ChitchatProject,
         images: [
             { id: 1, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/chitchat%2Fchitchat-1.png?alt=media&token=28232f6a-3a7a-4476-868a-e2bf02ed5be8', height: 750 },
             { id: 2, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/chitchat%2Fchitchat-2.png?alt=media&token=97b27d3e-4fef-46fe-bde9-f234ea7ce7a4', height: 650 },
@@ -146,6 +149,7 @@ export const projects = [
     },
     {
         slug: '/projects/todo-list',
+        github: 'https://github.com/nhanv-dev/ReactTodoList',
         website: 'https://todos-list-f2750.web.app/',
         card: {
             title: 'Todo List',
@@ -157,6 +161,7 @@ export const projects = [
             thumbnail: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/todo%2Ftodo-card.webp?alt=media&token=708a2847-58ab-43d4-9697-7dc22ab692fe',
             description: 'A minimalist productivity tool designed for planning, prioritizing, and completing daily tasks. Helps users stay focused and organized with a clean, intuitive interface and efficient workflow.',
         },
+        component: TodoProject,
         images: [
             { id: 1, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/todo%2Ftodo-1.png?alt=media&token=ccfe5a0e-b1b0-4975-84f7-0ff7b74f3626', height: 750 },
             { id: 2, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/todo%2Ftodo-2.png?alt=media&token=55402e14-f91d-4fa7-bc1b-20c3377138e5', height: 650 },
@@ -175,17 +180,16 @@ export const projects = [
             thumbnail: 'https://images.unsplash.com/photo-1555864326-5cf22ef123cf?q=80&w=1467&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             description: 'A classic arcade-inspired game delivering fast-paced, nostalgic gameplay with intuitive controls, responsive movement, and score-based progression. Designed for simplicity, fun, and endless replayability.',
         },
+        component: SnakeGameProject,
         images: [
-            { id: 1, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/snake%2Fsnake-1.png?alt=media&token=100164ea-7ec4-4a2e-825f-7224f72eba69', height: 750 },
-            { id: 2, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/snake%2Fsnake-2.png?alt=media&token=a273de38-f49c-4707-a39a-df724fed7f9e', height: 650 },
-            { id: 3, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/snake%2Fsnake-3.png?alt=media&token=32f97ed9-85b0-4078-b456-eb3130b35fdb', height: 750 },
-            { id: 4, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/snake%2Fsnake-4.png?alt=media&token=4c7e192f-97d4-4357-b098-bfcdfc55de3b', height: 750 },
-            { id: 5, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/snake%2Fsnake-5.png?alt=media&token=e3e5e6c9-61a4-4ae3-8a37-964a6d34edad', height: 750 },
-            { id: 6, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/snake%2Fsnake-6.png?alt=media&token=c81047f0-a77a-4da5-9684-f0b5cb55b99a', height: 750 },
+            { id: 1, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/snake%2Fsnake-1.png?alt=media&token=100164ea-7ec4-4a2e-825f-7224f72eba69', height: 500 },
+            { id: 3, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/snake%2Fsnake-3.png?alt=media&token=32f97ed9-85b0-4078-b456-eb3130b35fdb', height: 500 },
+            { id: 6, image: 'https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/snake%2Fsnake-6.png?alt=media&token=c81047f0-a77a-4da5-9684-f0b5cb55b99a', height: 500 },
         ],
     },
     {
         slug: '/projects/electric-store',
+        github: 'https://github.com/nhanv-dev/ElectronicStore',
         website: '',
         card: {
             title: 'Electronic Store',
@@ -197,11 +201,12 @@ export const projects = [
             thumbnail: 'https://images.unsplash.com/photo-1614860243518-c12eb2fdf66c?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             description: 'A complete e-commerce solution tailored for a single electronic retailer, featuring user authentication, product browsing, cart and checkout flows, and a seamless customer experience from login to order completion.',
         },
+        component: ElectronicProject,
         images: [],
     },
     {
-        slug: '/projects/data-warehouse',
-        website: 'https://ecommerce-d49f8.web.app/',
+        slug: '/projects/commodities-mart',
+        github: 'https://github.com/nhanv-dev/CommodityDrawler',
         card: {
             title: 'Commodities Mart',
             subTitle: 'Global Data. Simplified.',
@@ -212,6 +217,7 @@ export const projects = [
             thumbnail: 'https://images.unsplash.com/photo-1613441583079-89c728579a07?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             description: 'A lightweight data display platform that aggregates commodity prices from multiple online sources, helping users monitor global market trends in real-time. Designed for simplicity, clarity, and efficient data presentation.',
         },
+        component: CommoditiesMartProject,
         images: [],
     },
 ]

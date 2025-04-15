@@ -13,8 +13,11 @@ const ProjectLayout = ({ tag, children, index }) => {
 	const nextIndex = index === projects.length - 1 ? null : index + 1;
 
 	useEffect(() => {
-		document.title = project.card.title ? `${project.card.title.split(' - ')[0]} - Portfolio` : "Portfolio";
+		document.title = project.card.title ? `${project.card.title} - Portfolio` : "Portfolio";
 	}, [location.pathname, project.card.title]);
+
+	console.log(nextIndex);
+
 
 	return (
 		<div className="dark:bg-darkBg dark:text-darkText min-h-screen py-10">
@@ -44,22 +47,26 @@ const ProjectLayout = ({ tag, children, index }) => {
 				<div className="flex justify-between items-center gap-6">
 					<h1 className="text-4xl font-bold">{project.card.title} - {project.card.subTitle}</h1>
 					<div className="flex items-center justify-end gap-3">
-						<a href={project.website} target="_blank" rel="noopener noreferrer" className="dark:bg-lightBg dark:text-lightText px-4 pr-3 py-1 rounded-full flex items-center justify-center gap-2 font-semibold">
-							<span className="text-sm">
-								Github
-							</span>
-							<MdOutlineArrowOutward size={"1rem"} />
-						</a>
-						<a href={project.website} target="_blank" rel="noopener noreferrer" className="dark:bg-lightBg dark:text-lightText px-4 pr-3 py-1 rounded-full flex items-center justify-center gap-2 font-semibold">
-							<span className="text-sm">
-								Explore Now
-							</span>
-							<MdOutlineArrowOutward size={"1rem"} />
-						</a>
+						{project.github &&
+							<a href={project.github} target="_blank" rel="noopener noreferrer" className="dark:bg-lightBg dark:text-lightText px-4 pr-3 py-1 rounded-full flex items-center justify-center gap-2 font-semibold">
+								<span className="text-sm">
+									Github
+								</span>
+								<MdOutlineArrowOutward size={"1rem"} />
+							</a>
+						}
+						{project.website &&
+							<a href={project.website} target="_blank" rel="noopener noreferrer" className="dark:bg-lightBg dark:text-lightText px-4 pr-3 py-1 rounded-full flex items-center justify-center gap-2 font-semibold">
+								<span className="text-sm">
+									Live Site
+								</span>
+								<MdOutlineArrowOutward size={"1rem"} />
+							</a>
+						}
 					</div>
 				</div>
 				{children}
-				{(prevIndex != null && nextIndex != null) &&
+				{(prevIndex != null || nextIndex != null) &&
 					<div className="flex w-full items-center justify-between gap-6 mt-20">
 						{prevIndex != null ? (
 							<div>
@@ -82,7 +89,7 @@ const ProjectLayout = ({ tag, children, index }) => {
 									<IoChevronForward />
 								</Link>
 							</div>
-						) : <div></div>}
+						) : <div>{nextIndex}</div>}
 					</div>
 				}
 			</div>

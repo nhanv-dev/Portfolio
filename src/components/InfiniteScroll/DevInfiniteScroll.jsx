@@ -18,10 +18,10 @@ const DevInfiniteScroll = ({ list }) => {
           duration: 80,
         }}
       >
-        {[...list, ...list].map((skill, index) => (
+        {[...list, ...list].map((item, index) => (
           <div key={index} className="flex gap-5 items-center">
             <div className="inline-flex w-fit min-w-fit">
-              <span className="text-[4rem] font-extrabold font-unbounded">{skill.name}</span>
+              <span className="text-[3rem] font-extrabold font-unbounded">{item?.name || item}</span>
             </div>
             <span className="inline-flex text-[2.5rem]">
               <GoDotFill />

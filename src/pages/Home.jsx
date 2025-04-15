@@ -1,14 +1,12 @@
+import { motion } from 'framer-motion';
+import { GoDotFill } from 'react-icons/go';
 import { Link } from 'react-router-dom';
 import ContactBanner from "../components/ContactBanner";
 import HomeSlider from '../components/HomeSlider';
+import DevInfiniteScroll from '../components/InfiniteScroll/DevInfiniteScroll';
+import { useLoading } from '../components/LoadingProvider';
 import PageWithPreload from "../components/PageWithPreload";
 import TitleSection from '../components/TitleSection';
-import { useLoading } from '../components/LoadingProvider';
-import { motion } from 'framer-motion';
-import DevInfiniteScroll from '../components/InfiniteScroll/DevInfiniteScroll';
-import { useEffect, useRef, useState } from 'react';
-import useIntersectionObserver from '../hooks/useIntersectionObserver';
-import { RiArrowRightUpLine } from "react-icons/ri";
 
 const slideDownVariants = {
     hidden: { opacity: 0, y: -100 },  // Bắt đầu từ vị trí thấp và ẩn
@@ -50,87 +48,103 @@ export default function HomePage() {
 
 const ExploreAboutComponent = () => {
     const { setIsLoaded } = useLoading();
-    const imageRef1 = useRef(null);
-    const isImageVisible1 = useIntersectionObserver(imageRef1);
-    const [hasBeenVisible, setHasBeenVisible] = useState(false);
-
-    useEffect(() => {
-        if (isImageVisible1 && !hasBeenVisible) {
-            setHasBeenVisible(true);
-        }
-    }, [isImageVisible1, hasBeenVisible]);
 
     return (
         <section className="bg-darkBg">
-            <div className='container py-[120px]'>
-                <div className="flex gap-7 relative">
-                    <div className="w-[34%] h-full">
-                        <div
-                            className="rounded-lg absolute left-0 w-[34%] h-full bg-cover bg-center overflow-hidden"
-
+            <div className='container py-20'>
+                <div className="relative">
+                    <div className={`text-center md:text-left mb-10`}>
+                        <motion.h2
+                            className="text-6xl md:text-7xl font-extrabold font-unbounded text-stroke text-black uppercase"
+                            initial={{ opacity: 0, x: -100 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, amount: 0.5 }}
+                            transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
+                            style={{ WebkitTextStrokeWidth: '3px' }}
+                        >
+                            What I Do
+                        </motion.h2>
+                        <br />
+                        <div className="flex items-end ">
+                            <motion.h2
+                                initial={{ opacity: 0, x: -100 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, amount: 0.5 }}
+                                transition={{ duration: .8, ease: 'easeOut', delay: 0.2 }}
+                                className='text-6xl md:text-7xl font-extrabold font-unbounded text-[#AAAAAA] uppercase'
+                            >
+                                MY CRAFT
+                            </motion.h2>
+                            <div className="flex flex-col leading-tight md:ml-4 text-white">
+                                <motion.span
+                                    className="text-2xl font-extrabold uppercase mb-1.5"
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.5 }}
+                                    transition={{ duration: .8, ease: 'easeOut', delay: 0.5 }}
+                                >
+                                    Coding
+                                </motion.span>
+                                <motion.span
+                                    className="text-2xl font-extrabold uppercase"
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.5 }}
+                                    transition={{ duration: .8, ease: 'easeOut', delay: 0.7 }}
+                                >
+                                    Stuff
+                                </motion.span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="pr-[520px] w-full">
+                        <div className="w-full flex items-center justify-end gap-10">
+                            <Link to={'/about'} onClick={() => setIsLoaded(false)} className='flex items-center justify-start gap-4 font-bold text-[1.1rem] min-w-[160px]'>
+                                <GoDotFill />
+                                <p className='relative'>
+                                    About me
+                                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white"></span>
+                                </p>
+                            </Link>
+                            <motion.div
+                                initial={{ opacity: 0, x: 50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, amount: 0.5 }}
+                                transition={{ duration: .8, ease: 'easeOut', delay: 0.4 }}
+                                className="flex-1 bg-[#131313]">
+                                <p className="text-[1rem] leading-[1.75] font-medium text-gray-300 text-end py-6 px-10">
+                                    With a focus on clean architecture and seamless user experience, I build fullstack web applications that are both scalable and maintainable.
+                                    Each line of code reflects a blend of logic and design, crafted to solve real-world problems.
+                                </p>
+                            </motion.div>
+                        </div>
+                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                        transition={{ duration: .8, ease: 'easeOut', }}
+                        className="absolute right-0 top-0 z-10">
+                        <div className="w-[520px] h-[380px] bg-center bg-cover"
                             style={{
-                                backgroundImage: `url(https://images.unsplash.com/photo-1581355229055-93567d4d909c?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`
+                                backgroundImage: `url(https://themexriver.com/wp/agenriver-demo/freelancer/wp-content/uploads/sites/16/2025/03/pro23.webp)`
                             }}
                         ></div>
-                    </div>
-                    <div className="flex-1">
-                        <div className="mb-[34px]">
-                            <p className="font-semibold text-[0.825rem] mt-2 mb-[16px] uppercase text-gray-200 font-unbounded flex items-center gap-3">
-                                <span className="w-[25px] h-[3px] bg-gray-200 block"></span>
-                                Building Web That Resonates
-                            </p>
-                            <h2 className="text-[2.7rem] leading-snug font-semibold mb-[18px] font-unbounded">
-                                Fullstack Developer <br />Turning <span className="text-primary">Ideas</span> into <span className="text-primary">Impact</span>
-                            </h2>
-                            <p className="text-[1rem] leading-relaxed font-medium mb-[32px] text-gray-200">
-                                With a focus on clean architecture and seamless user experience, I build fullstack web applications that are both scalable and maintainable.
-                                <br />
-                                Each line of code reflects a blend of logic and design, crafted to solve real-world problems.
-                                <br />
-                                Want to know how ideas become polished digital products ?
-                                Step into my world and see how it all comes together.
-                            </p>
-                            {/* border-2 border-white */}
-                            <Link to={'/about'} onClick={() => setIsLoaded(false)} className="flex items-center">
-                                <span className='bg-gray-800 text-white text-[0.95rem] font-bold rounded-full px-7 h-[42px] flex items-center justify-center capitalize'>
-                                    Explore My World
-                                </span>
-                                <span className='w-[42px] h-[42px] flex items-center justify-center bg-gray-800 rounded-full relative -translate-x-[8px]'>
-                                    <RiArrowRightUpLine className='text-[1.3rem]' />
-                                </span>
-                            </Link>
-                        </div>
-                        <div className="flex gap-5" ref={imageRef1}>
-                            <div className="flex-1 rounded-lg overflow-hidden h-[300px]">
-                                <div className={`flex-1 rounded-lg overflow-hidden h-[300px] duration-700 ease-out ${hasBeenVisible ? 'translate-y-[0px] opacity-100' : 'translate-y-[100px] opacity-0'}`}                            >
-                                    <img
-                                        src="https://images.unsplash.com/photo-1553008803-c0282c9ef38d?q=80&w=1600&auto=format&fit=crop"
-                                        alt="Project background 1"
-                                        className="w-full h-full object-cover object-center"
-                                    />
-                                </div>
-                            </div>
-                            <div className="flex-1 rounded-lg overflow-hidden h-[300px]">
-                                <div className={`flex-1 rounded-lg overflow-hidden h-[300px] duration-700 delay-300 ease-out ${hasBeenVisible ? 'translate-y-[0px] opacity-100' : 'translate-y-[100px] opacity-0'}`}                            >
-                                    <img
-                                        src="https://images.unsplash.com/photo-1553008803-c0282c9ef38d?q=80&w=1600&auto=format&fit=crop"
-                                        alt="Project background 2"
-                                        className="w-full h-full object-cover object-center"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="flex-1 rounded-lg overflow-hidden h-[300px]">
-                                <div className={`flex-1 rounded-lg overflow-hidden h-[300px] duration-700 delay-[600ms] ease-out ${hasBeenVisible ? 'translate-y-[0px] opacity-100' : 'translate-y-[100px] opacity-0'}`}                            >
-                                    <img
-                                        src="https://images.unsplash.com/photo-1553008803-c0282c9ef38d?q=80&w=1600&auto=format&fit=crop"
-                                        alt="Project background 3"
-                                        className="w-full h-full object-cover object-center"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/40"></div>
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                        transition={{ duration: .8, ease: 'easeOut', }}
+                        className="relative w-full pr-20">
+                        <div className="w-full h-[50vh] bg-top bg-cover"
+                            style={{
+                                backgroundImage: `url(https://themexriver.com/wp/agenriver-demo/freelancer/wp-content/uploads/sites/16/2025/03/pro24.webp)`
+                            }}
+                        ></div>
+                        <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/40"></div>
+                    </motion.div>
                 </div>
             </div>
         </section>

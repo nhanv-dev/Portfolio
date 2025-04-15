@@ -18,7 +18,6 @@ export const LenisProvider = ({ children }) => {
             direction: 'vertical',  // Cuộn theo chiều dọc
         });
 
-
         setLenis(instance)
 
         function raf(time) {

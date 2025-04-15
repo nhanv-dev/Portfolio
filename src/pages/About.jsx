@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa6";
 import { FiDownload } from "react-icons/fi";
 import { RiArrowRightUpLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import CircularText from "../components/CircularText";
 import ContactBanner from "../components/ContactBanner";
+import DevInfiniteScroll from "../components/InfiniteScroll/DevInfiniteScroll";
 import TechInfiniteScroll from "../components/InfiniteScroll/TechInfiniteScroll";
 import PageWithPreload from "../components/PageWithPreload";
 
@@ -23,6 +22,10 @@ export default function AboutPage() {
             >
                 <HeroComponent />
             </motion.div>
+
+            <section className="py-10">
+                <DevInfiniteScroll list={tags} />
+            </section>
 
             <IntroduceComponent />
 
@@ -46,13 +49,27 @@ const HeroComponent = () => {
                 <div className="container h-full relative">
                     <div className="w-full">
                         <div className="max-w-6xl w-full mx-auto">
-                            {/* <span className="mr-8 relative top-[6px]">
-                                <FaAsterisk className="animate-[spin_20s_linear_infinite] text-[4.25rem]" />
-                            </span> */}
-                            <motion.div
-                                className="xl:text-[7rem] leading-none font-extrabold relative z-[2] font-unbounded max-w-5xl w-full min-w-full mb-8">Creative</motion.div>
-                            <motion.div
-                                className="xl:text-[7rem] leading-none font-extrabold relative z-[2] font-unbounded max-w-5xl w-full min-w-full text-center mb-8">Fullstack</motion.div>
+                            <motion.div className="xl:text-[7rem] leading-none font-extrabold relative z-[2] font-unbounded max-w-5xl w-full min-w-full mb-14">Creative</motion.div>
+                            <motion.div className="relative xl:text-[7rem] leading-none font-extrabold z-[2] font-unbounded max-w-5xl w-full min-w-full text-center mb-14">
+                                <Link to={'/contact'} tabIndex={-1} className="z-[30] absolute left-0 top-1/2 -translate-y-1/2 p-2 bg-black rounded-full">
+                                    <CircularText
+                                        ref={circularTextRef}
+                                        text="LETS TALK . LETS TALK . LETS TALK . "
+                                        onHover="speedUp"
+                                        spinDuration={20}
+                                        className="!w-[120px] !h-[120px]"
+                                        innerClassName="text-white !text-[14px] !font-medium"
+                                    >
+                                    </CircularText>
+                                    <div
+                                        onMouseEnter={() => circularTextRef.current?.handleHoverStart()}
+                                        onMouseLeave={() => circularTextRef.current?.handleHoverEnd()}
+                                        className="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80px] h-[80px] bg-[#111111] border-2 border-[#2b2a2a] rounded-full flex items-center justify-center">
+                                        <RiArrowRightUpLine className="text-gray-300" size={32} />
+                                    </div>
+                                </Link>
+                                Fullstack
+                            </motion.div>
                             <motion.div
                                 className="xl:text-[7rem] leading-none font-extrabold relative z-[2] font-unbounded max-w-5xl w-full min-w-full flex items-end justify-end gap-10">
                                 <div className="text-[1rem] leading-relaxed font-medium mb-2">
@@ -62,70 +79,21 @@ const HeroComponent = () => {
                                     Developer
                                 </p>
                             </motion.div>
-
                         </div>
-                        <div className="hidden relative z-[2] mt-[40px]">
-                            <div className="flex items-center justify-start gap-3 flex-wrap">
-                                {tags.map((value, index) => (
-                                    <p key={index} className="py-1 px-2.5 text-white text-[0.95rem] font-bold border-2 border-white">
-                                        {value}
-                                    </p>
-                                ))}
 
-
-                                <Link to={'/contact'} tabIndex={-1} className="z-[30] absolute right-[0] bottom-0 p-1 bg-black rounded-full">
-                                    <CircularText
-                                        ref={circularTextRef}
-                                        text="LETS TALK . LETS TALK . LETS TALK . "
-                                        onHover="speedUp"
-                                        spinDuration={20}
-                                        className="w-[140px] h-[140px]"
-                                        innerClassName="text-white"
-                                    >
-                                    </CircularText>
-                                    <div
-                                        onMouseEnter={() => circularTextRef.current?.handleHoverStart()}
-                                        onMouseLeave={() => circularTextRef.current?.handleHoverEnd()}
-                                        className="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[72px] h-[72px] bg-[#111111] border-2 border-[#2b2a2a] rounded-full flex items-center justify-center">
-                                        <RiArrowRightUpLine className="text-gray-300" size={30} />
-                                    </div>
-                                </Link>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-            <div className="hidden absolute left-1/2 bottom-6 -translate-x-1/2 z-10 container">
-                <div className="flex items-center justify-center">
-                    <button type="button" className="flex items-center justify-center gap-2 py-2 px-5 uppercase bg-gray-900 rounded-full text-[.775rem] font-bold tracking-widest">
-                        <span className="">Scroll down</span>
-                    </button>
-                    <div className="flex gap-6 items-center justify-end">
-                        <a
-                            href="https://facebook.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-white rounded-full transition-transform"
-                        >
-                            <FaFacebook size={24} />
-                        </a>
-                        <a
-                            href="https://github.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-white rounded-full transition-transform"
-                        >
-                            <FaGithub size={24} />
-                        </a>
-                        <a
-                            href="https://instagram.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-white rounded-full transition-transform"
-                        >
-                            <FaInstagram size={24} />
-                        </a>
-                    </div>
+            <div className="absolute bottom-5 left-0 z-[2]">
+                <div className="container flex items-center justify-start gap-3 flex-wrap">
+                    {/* {tags.map((value, index) => (
+                        <p key={index} className="py-1 px-2.5 text-white text-[0.95rem] font-bold border-2 border-white">
+                            {value}
+                        </p>
+                    ))} */}
+
+
+
                 </div>
             </div>
         </div>

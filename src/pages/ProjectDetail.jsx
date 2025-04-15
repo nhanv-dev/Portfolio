@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import GlitchText from "../components/GlitchText";
 import { useLoading } from "../components/LoadingProvider";
 import { projects } from "../data";
+import ContactBanner from "../components/ContactBanner";
 
 export default function ProjectDetailPage() {
     const { setIsLoaded } = useLoading();
@@ -44,6 +45,9 @@ export default function ProjectDetailPage() {
             >
                 <project.component item={project} index={index} />
             </motion.div>
+
+            <ContactBanner />
+
         </div>
     )
 }

@@ -15,7 +15,7 @@ const SpotifyProject = ({ item, index }) => {
 						{item.card.description}
 					</p>
 					<div className="flex flex-wrap gap-2 mt-4">
-						{['Node.js', 'Express.js', 'Handlebars', 'MongoDB', 'Server Side Rendering'].map(tag => (
+						{['React', 'Node.js', 'Express.js', 'MongoDB', 'Material UI', 'Audio Streaming', 'JWT Authentication'].map(tag => (
 							<span key={tag} className="dark:bg-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-semibold">{tag}</span>
 						))}
 					</div>
@@ -38,28 +38,62 @@ const SpotifyProject = ({ item, index }) => {
 				<h2 className="text-xl font-bold">Overview</h2>
 				<div className="mt-4">
 					<p className="text-[1rem] text-gray-400 font-medium leading-7">
-						🚀 Built with Node.js, Express.js, and MongoDB, Noonpost is a fast and scalable blogging platform designed for seamless content creation.
-						Utilizing SSR with Handlebars, it ensures optimal performance, SEO-friendly rendering, and a smooth user experience.
-						Whether you're publishing articles or managing content, Noonpost delivers efficiency and flexibility in a modern web environment.
+						🎧 The project began as an immersive integration with the official <strong className="dark:text-white">Spotify Web API</strong>, offering users the ability to explore their favorite tracks, artists, and playlists through a clean, responsive UI.
+						With features such as live search, dynamic playlist retrieval, and smooth metadata rendering, the application delivers a familiar listening environment while leveraging the robustness of Spotify’s infrastructure.
+						It captures the essence of the Spotify user experience, wrapped in a developer-curated design.
+					</p>
+					<p className="text-[1rem] text-gray-400 font-medium leading-7 mt-4">
+						🚀 As the foundation matured, the project evolved into a fully independent platform — a complete backend ecosystem for music lovers to upload, manage, and stream their own content.
+						This second phase reimagines the platform as a self-hosted service with capabilities far beyond simple integration: album creation, personal library management, full-text search, and a custom streaming engine all built from the ground up.
+						With a UI inspired by modern music apps and a backend tailored for performance, the new version redefines what it means to build a music platform — turning passive playback into active ownership.
 					</p>
 				</div>
 			</div>
+
 			<div className="mt-6">
 				<h2 className="text-xl font-bold">Features</h2>
-				<div className="mt-4 text-[1rem] text-gray-400 font-medium">
+				<div className="mt-4 text-[1rem] dark:text-gray-400 font-medium">
 					<ul className="flex flex-col gap-4">
-						<li>✅ <strong>Seamless Writing Experience</strong> – A distraction-free editor with real-time previews, so you can focus on your words.</li>
-						<li>⚡ <strong>Blazing-Fast Performance</strong> – Built with <strong>Node.js & Express.js</strong>, ensuring smooth navigation and quick load times.</li>
-						<li>📑 <strong>SEO-Optimized with SSR</strong> – Server-side rendering with <strong>Handlebars</strong> boosts search engine visibility and improves content reach.</li>
-						<li>🌍 <strong>Scalable & Flexible</strong> – Powered by <strong>MongoDB</strong>, allowing efficient content management and scalability for high-traffic blogs.</li>
-						<li>🎨 <strong>Customizable Themes</strong> – Personalize your blog with beautifully designed themes and layouts that fit your style.</li>
-						<li>📝 <strong>Effortless Draft & Publishing</strong> – Save drafts, schedule posts, and publish with a single click.</li>
-						<li>💬 <strong>Interactive Comments</strong> – Engage with your audience through a dynamic commenting system.</li>
-						<li>🔗 <strong>Social Sharing Made Easy</strong> – Share your posts effortlessly across multiple platforms with built-in social media integration.</li>
-						<li>🚀 <strong>Ready to start your blogging journey?</strong> Experience <strong>Noonpost</strong> today and bring your ideas to life!</li>
+						<li>🎧 <strong className="dark:text-white">Version 1 – Spotify Integration</strong></li>
+						<ul className="flex flex-col gap-4 ml-12 list-disc">
+							<li>🔍 Search for tracks, artists, and albums using Spotify’s powerful search API.</li>
+							<li>📂 Retrieve and display user playlists in a slick, responsive layout.</li>
+							<li>📈 Real-time updates with live metadata from Spotify.</li>
+						</ul>
+
+						<li className="pt-4">🎼 <strong className="dark:text-white">Version 2 – Full Custom Backend</strong></li>
+						<ul className="flex flex-col gap-4  ml-12 list-disc">
+							<li>🆕 Upload music files and store them securely via custom backend.</li>
+							<li>📀 Create, update, and manage albums and track metadata.</li>
+							<li>🔎 Search engine for music and artists, built with fast MongoDB queries.</li>
+							<li>🎵 In-browser music streaming with smooth player controls and seeking.</li>
+							<li>🖼️ Auto-generated covers and visual elements mimicking Spotify's branding.</li>
+						</ul>
+
+						<li className="pt-4">💡 <strong className="dark:text-white">UX Highlights</strong></li>
+						<ul className="flex flex-col gap-4  ml-12 list-disc">
+							<li>🌙 Full dark mode support with pixel-perfect Spotify-style theming.</li>
+							<li>📱 Responsive layout tailored for mobile-first interaction.</li>
+							<li>🎚️ Smooth transitions, waveform animations, and real-time song progress tracking.</li>
+						</ul>
 					</ul>
 				</div>
 			</div>
+
+			<div className="mt-6">
+				<h2 className="text-xl font-bold">Tech Stack</h2>
+				<div className="mt-4 text-[1rem] dark:text-gray-400 font-medium">
+					<ul className="flex flex-col gap-4">
+						<li>🎨 <strong className="dark:text-white">Frontend</strong> – Built with <span className="dark:text-white">React.js</span>, styled with <span className="dark:text-white">Material UI</span>, and structured for maximum component reusability.</li>
+						<li>🧠 <strong className="dark:text-white">Backend (Version 2)</strong> – Powered by <span className="dark:text-white">Node.js</span> and <span className="dark:text-white">Express.js</span>, featuring RESTful APIs for music management, media streaming, and album services.</li>
+						<li>🗃️ <strong className="dark:text-white">Database</strong> – <span className="dark:text-white">MongoDB</span> stores user data, playlists, track metadata, and album collections.</li>
+						<li>🎵 <strong className="dark:text-white">Streaming</strong> – Audio is served directly through Express routes with MIME type handling and chunked streaming for seamless playback.</li>
+						<li>🔐 <strong className="dark:text-white">Authentication</strong> – JWT-based session auth with user roles for basic access control.</li>
+						<li>🧰 <strong className="dark:text-white">Tooling</strong> – Uses <span className="dark:text-white">Multer</span> for file uploads, <span className="dark:text-white">Mongoose</span> for schema modeling, and <span className="dark:text-white">Postman</span> for testing APIs.</li>
+					</ul>
+				</div>
+			</div>
+
 			{item?.images?.length > 0 &&
 				<div className="mt-6" >
 					<h2 className="text-xl font-bold">Design Screens</h2>
