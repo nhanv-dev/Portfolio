@@ -16,7 +16,7 @@ const ShopioProject = ({ item, index }) => {
 					</p>
 					<div className="flex flex-wrap gap-2 mt-4">
 						{['React', 'TailwindCSS', 'Node.js', 'Express.js', 'MongoDB'].map(tag => (
-							<span key={tag} className="dark:bg-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-semibold">{tag}</span>
+							<span key={tag} className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm font-semibold">{tag}</span>
 						))}
 					</div>
 				</div>
@@ -52,29 +52,29 @@ const ShopioProject = ({ item, index }) => {
 
 			<div className="mt-6">
 				<h2 className="text-xl font-bold">Features</h2>
-				<div className="mt-4 text-[1rem] dark:text-gray-400 font-medium">
+				<div className="mt-4 text-[1rem] text-gray-400 font-medium">
 					<ul className="flex flex-col gap-4">
-						<li>🛍️ <strong className="dark:text-white">Store Management for Sellers</strong> – Create, update, and organize product listings, manage stock, and monitor sales performance effortlessly.</li>
-						<li>🔎 <strong className="dark:text-white">Product Discovery</strong> – Advanced filtering and search help users find exactly what they need, fast.</li>
-						<li>🧾 <strong className="dark:text-white">Seamless Checkout</strong> – Cart and order handling with a focus on simplicity and reliability for all users.</li>
-						<li>👤 <strong className="dark:text-white">User Account System</strong> – Buyers can register, log in, and maintain their personal details with ease.</li>
-						<li>📦 <strong className="dark:text-white">Order Tracking</strong> – Real-time updates for users to track their purchases from checkout to delivery.</li>
-						<li>💬 <strong className="dark:text-white">User Feedback</strong> – Buyers can leave reviews, enhancing trust and quality control across the platform.</li>
-						<li>📱 <strong className="dark:text-white">Responsive Design</strong> – Fully optimized UI for mobile, tablet, and desktop devices with TailwindCSS utility styling.</li>
-						<li>🚀 <strong className="dark:text-white">Optimized Performance</strong> – Built with lightweight React components and efficient API routes to ensure minimal loading times.</li>
+						<li>🛍️ <strong className="text-white">Store Management for Sellers</strong> – Create, update, and organize product listings, manage stock, and monitor sales performance effortlessly.</li>
+						<li>🔎 <strong className="text-white">Product Discovery</strong> – Advanced filtering and search help users find exactly what they need, fast.</li>
+						<li>🧾 <strong className="text-white">Seamless Checkout</strong> – Cart and order handling with a focus on simplicity and reliability for all users.</li>
+						<li>👤 <strong className="text-white">User Account System</strong> – Buyers can register, log in, and maintain their personal details with ease.</li>
+						<li>📦 <strong className="text-white">Order Tracking</strong> – Real-time updates for users to track their purchases from checkout to delivery.</li>
+						<li>💬 <strong className="text-white">User Feedback</strong> – Buyers can leave reviews, enhancing trust and quality control across the platform.</li>
+						<li>📱 <strong className="text-white">Responsive Design</strong> – Fully optimized UI for mobile, tablet, and desktop devices with TailwindCSS utility styling.</li>
+						<li>🚀 <strong className="text-white">Optimized Performance</strong> – Built with lightweight React components and efficient API routes to ensure minimal loading times.</li>
 					</ul>
 				</div>
 			</div>
 
 			<div className="mt-6">
 				<h2 className="text-xl font-bold">Tech Stack</h2>
-				<div className="mt-4 text-[1rem] dark:text-gray-400 font-medium">
+				<div className="mt-4 text-[1rem] text-gray-400 font-medium">
 					<ul className="flex flex-col gap-4">
-						<li>🎨 <strong className="dark:text-white">Frontend</strong> – Developed with <span className="dark:text-white">React.js</span> and styled using <span className="dark:text-white">TailwindCSS</span> for modern and responsive UI design.</li>
-						<li>🧠 <strong className="dark:text-white">Backend</strong> – Built with <span className="dark:text-white">Node.js</span> and <span className="dark:text-white">Express.js</span>, serving a RESTful API architecture for scalable marketplace logic.</li>
-						<li>🗃️ <strong className="dark:text-white">Database</strong> – Uses <span className="dark:text-white">MongoDB</span> to manage user profiles, product inventories, store data, and transactional records.</li>
-						<li>🔐 <strong className="dark:text-white">Authentication</strong> – Implements secure login and session handling via JWT tokens.</li>
-						<li>🧰 <strong className="dark:text-white">Tooling</strong> – Development aided by <span className="dark:text-white">Mongoose</span> for schema modeling and <span className="dark:text-white">Postman</span> for API testing.</li>
+						<li>🎨 <strong className="text-white">Frontend</strong> – Developed with <span className="text-white">React.js</span> and styled using <span className="text-white">TailwindCSS</span> for modern and responsive UI design.</li>
+						<li>🧠 <strong className="text-white">Backend</strong> – Built with <span className="text-white">Node.js</span> and <span className="text-white">Express.js</span>, serving a RESTful API architecture for scalable marketplace logic.</li>
+						<li>🗃️ <strong className="text-white">Database</strong> – Uses <span className="text-white">MongoDB</span> to manage user profiles, product inventories, store data, and transactional records.</li>
+						<li>🔐 <strong className="text-white">Authentication</strong> – Implements secure login and session handling via JWT tokens.</li>
+						<li>🧰 <strong className="text-white">Tooling</strong> – Development aided by <span className="text-white">Mongoose</span> for schema modeling and <span className="text-white">Postman</span> for API testing.</li>
 					</ul>
 				</div>
 			</div>

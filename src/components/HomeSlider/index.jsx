@@ -128,7 +128,7 @@ const Slide = ({ isActive, title, subtitle }) => {
                     initial={{ opacity: 0, y: 0, x: -100 }} // Bắt đầu mờ và dịch xuống
                     animate={isActive ? { opacity: 1, y: 0, x: 0 } : { opacity: 0, y: 0, x: -100 }} // Khi active thì hiện lên
                     transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }} // Hiệu ứng mềm mại, chậm về cuối
-                    className="font-[600] text-[.8rem] md:text-[1rem] tracking-[2px] capitalize text-white flex items-center"
+                    className="font-[600] text-[.8rem] md:text-[1rem] tracking-[2px] capitalize text-white flex items-center font-unbounded"
                 >
                     <span className="inline-block mt-1 mr-5 w-[40px] h-[2px] bg-[rgba(255,255,255,1)]"></span>
                     {subtitle}
@@ -140,7 +140,7 @@ const Slide = ({ isActive, title, subtitle }) => {
                     delay={500}
                     animateBy="words"
                     direction="top"
-                    className="text-white text-[100px] font-extrabold uppercase"
+                    className="text-white text-[80px] font-extrabold uppercase font-unbounded"
                 />
             }
         </div>
@@ -171,7 +171,7 @@ const SlideImage = ({ image, active, index }) => {
             }}
         >
             {/* Lớp overlay màu đen nhẹ */}
-            <div className="z-[1] absolute dark:bg-[rgba(0,0,0,0.1)] left-0 top-0 right-0 bottom-0"></div>
+            <div className="z-[1] absolute bg-[rgba(0,0,0,0.1)] left-0 top-0 right-0 bottom-0"></div>
 
             <div className="z-[2] absolute font-bold right-[60px] bottom-[170px] text-[10vw] text-[rgba(255,255,255,0.1)]"
                 style={textStyle}

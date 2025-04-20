@@ -12,8 +12,8 @@ function CustomCursor() {
             const mouseY = clientY - cursorOuterRef.current?.clientHeight / 2 + 20
             const cursor = window.getComputedStyle(event.target)["cursor"]
 
-            cursorOuterRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`
-            cursorInnerRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`
+            cursorOuterRef.current.style.transform = `translate(-50%, -50%) translate3d(${mouseX - 2}px, ${mouseY - 2}px, 0)`
+            cursorInnerRef.current.style.transform = `translate(-50%, -50%) translate3d(${mouseX - 2}px, ${mouseY - 2}px, 0)`
 
             if (cursor === 'pointer') {
                 cursorOuterRef.current.classList.add('cursor-hover')

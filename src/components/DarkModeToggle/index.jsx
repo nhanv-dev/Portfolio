@@ -28,18 +28,11 @@ export default function DarkModeToggle() {
             type="button"
             disabled
             onClick={toggleDarkMode}
-            className="transition-theme-text dark:text-darkText text-lightText bg-transparent flex items-center justify-center relative overflow-hidden border-none outline-none"
+            className="text-darkText bg-transparent flex items-center justify-center relative overflow-hidden border-none outline-none"
         >
             <span className="transform scale-125 z-10">
                 {darkMode ? <MdOutlineDarkMode size={20} /> : <MdOutlineLightMode size={20} />}
             </span>
-
-            {/* Hiệu ứng lan rộng */}
-            {/* <span
-                className={`absolute w-0 h-0 bg-black dark:bg-white rounded-full 
-                            transition-all duration-500 ease-out ${animating ? "w-[300px] h-[300px]" : ""}`}
-                style={{ top: "-100px", right: "-100px" }}
-            ></span> */}
         </button>
     );
 }

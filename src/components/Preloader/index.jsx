@@ -56,7 +56,7 @@ const Preloader = ({ texts, onLoaded }) => {
     if (!isVisible) return null;
 
     return (
-        <div className="fixed inset-0 flex flex-col items-center justify-center z-[999] transition-all duration-500 bg-white text-black dark:bg-black dark:text-white">
+        <div className="fixed inset-0 flex flex-col items-center justify-center z-[999] transition-all duration-500 bg-black text-white">
             {textIndex < texts.length && (
                 <motion.h1
                     key={textIndex}
@@ -71,13 +71,13 @@ const Preloader = ({ texts, onLoaded }) => {
             )}
             <div className="fixed bottom-10 left-10 right-10 flex items-end justify-between">
                 <div className="flex items-center min-w-max w-[200px] justify-start">
-                    <h5 className="font-extrabold text-lg tracking-wide text-lightText dark:text-darkText">
+                    <h5 className="font-extrabold text-lg tracking-wide text-darkText">
                         <span>Port</span>
                         <span className="text-primary ml-1">folio.</span>
                     </h5>
                 </div>
                 <div className="text-center text-lg font-bold">{Math.round(progress || 0)}%</div>
-                <div className="font-semibold text-md tracking-[0.2rem] text-lightText dark:text-darkText uppercase w-[200px] text-right">Loading... </div>
+                <div className="font-semibold text-md tracking-[0.2rem] text-darkText uppercase w-[200px] text-right">Loading... </div>
             </div>
         </div>
     );

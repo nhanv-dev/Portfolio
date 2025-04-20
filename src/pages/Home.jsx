@@ -15,8 +15,7 @@ const slideDownVariants = {
 
 const list = [
     { name: "Fullstack Developer" },
-    { name: "Fullstack Developer" },
-    { name: "Git Management" },
+    { name: "Web Developer" },
     { name: "Source Code Management" },
 ];
 
@@ -31,11 +30,15 @@ export default function HomePage() {
             >
                 <HomeSlider />
             </motion.div>
+            <div className="py-10 border-t border-b border-gray-900">
+                <DevInfiniteScroll list={list} innerClassName={'!text-[1.5rem]'} innerClassNameSplit={'!text-[1rem]'} />
+            </div>
 
             <ExploreAboutComponent />
 
-            <div className="py-10 border-t border-b border-gray-900">
-                <DevInfiniteScroll list={list} />
+
+            <div className="bg-lightBg text-darkBg py-20">
+                ádsadsa
             </div>
 
             <ExploreProjectsComponent />
@@ -53,50 +56,13 @@ const ExploreAboutComponent = () => {
         <section className="bg-darkBg">
             <div className='container py-20'>
                 <div className="relative">
-                    <div className={`text-center md:text-left mb-10`}>
-                        <motion.h2
-                            className="text-6xl md:text-7xl font-extrabold font-unbounded text-stroke text-black uppercase"
-                            initial={{ opacity: 0, x: -100 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, amount: 0.5 }}
-                            transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
-                            style={{ WebkitTextStrokeWidth: '3px' }}
-                        >
-                            What I Do
-                        </motion.h2>
-                        <br />
-                        <div className="flex items-end ">
-                            <motion.h2
-                                initial={{ opacity: 0, x: -100 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, amount: 0.5 }}
-                                transition={{ duration: .8, ease: 'easeOut', delay: 0.2 }}
-                                className='text-6xl md:text-7xl font-extrabold font-unbounded text-[#AAAAAA] uppercase'
-                            >
-                                MY CRAFT
-                            </motion.h2>
-                            <div className="flex flex-col leading-tight md:ml-4 text-white">
-                                <motion.span
-                                    className="text-2xl font-extrabold uppercase mb-1.5"
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, amount: 0.5 }}
-                                    transition={{ duration: .8, ease: 'easeOut', delay: 0.5 }}
-                                >
-                                    Coding
-                                </motion.span>
-                                <motion.span
-                                    className="text-2xl font-extrabold uppercase"
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, amount: 0.5 }}
-                                    transition={{ duration: .8, ease: 'easeOut', delay: 0.7 }}
-                                >
-                                    Stuff
-                                </motion.span>
-                            </div>
-                        </div>
-                    </div>
+                    <TitleSection
+                        className={'mb-10'}
+                        title={'What I Do'}
+                        title2={'MY CRAFT'}
+                        subTitle={'Coding'}
+                        subTitle2={'Stuff'}
+                    ></TitleSection>
                     <div className="pr-[520px] w-full">
                         <div className="w-full flex items-center justify-end gap-10">
                             <Link to={'/about'} onClick={() => setIsLoaded(false)} className='flex items-center justify-start gap-4 font-bold text-[1.1rem] min-w-[160px]'>
@@ -109,7 +75,7 @@ const ExploreAboutComponent = () => {
                             <motion.div
                                 initial={{ opacity: 0, x: 50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, amount: 0.5 }}
+                                viewport={{ once: true, amount: 0.4 }}
                                 transition={{ duration: .8, ease: 'easeOut', delay: 0.4 }}
                                 className="flex-1 bg-[#131313]">
                                 <p className="text-[1rem] leading-[1.75] font-medium text-gray-300 text-end py-6 px-10">
@@ -120,9 +86,9 @@ const ExploreAboutComponent = () => {
                         </div>
                     </div>
                     <motion.div
-                        initial={{ opacity: 0, y: 50 }}
+                        initial={{ opacity: 0, y: -50 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.5 }}
+                        viewport={{ once: true, amount: 0.4 }}
                         transition={{ duration: .8, ease: 'easeOut', }}
                         className="absolute right-0 top-0 z-10">
                         <div className="w-[520px] h-[380px] bg-center bg-cover"
@@ -130,12 +96,12 @@ const ExploreAboutComponent = () => {
                                 backgroundImage: `url(https://themexriver.com/wp/agenriver-demo/freelancer/wp-content/uploads/sites/16/2025/03/pro23.webp)`
                             }}
                         ></div>
-                        <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/40"></div>
+                        <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/0"></div>
                     </motion.div>
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true, amount: 0.5 }}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.4 }}
                         transition={{ duration: .8, ease: 'easeOut', }}
                         className="relative w-full pr-20">
                         <div className="w-full h-[50vh] bg-top bg-cover"
@@ -143,7 +109,7 @@ const ExploreAboutComponent = () => {
                                 backgroundImage: `url(https://themexriver.com/wp/agenriver-demo/freelancer/wp-content/uploads/sites/16/2025/03/pro24.webp)`
                             }}
                         ></div>
-                        <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/40"></div>
+                        <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/0"></div>
                     </motion.div>
                 </div>
             </div>
@@ -171,16 +137,16 @@ const ExploreProjectsComponent = () => {
                             variants={slideDownVariants}
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.5 }}
+                            viewport={{ once: true, amount: 0.4 }}
                             transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
                         >
                             <div className='relative w-full h-full'>
-                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] font-unbounded text-stroke text-[#1a1a1a]'
+                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] font-kanit text-stroke text-[#1a1a1a]'
                                     style={{ WebkitTextStrokeWidth: '3px' }}
                                 >
                                     01
                                 </div>
-                                <div className="absolute bottom-0 left-0 font-bold text-[24px] font-unbounded leading-tight">
+                                <div className="absolute bottom-0 left-0 font-bold text-[24px] font-kanit leading-tight">
                                     Creative   <br /> Design
                                 </div>
                             </div>
@@ -192,16 +158,16 @@ const ExploreProjectsComponent = () => {
                             variants={slideDownVariants}
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.5 }}
+                            viewport={{ once: true, amount: 0.4 }}
                             transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
                         >
                             <div className='relative w-full h-full'>
-                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] font-unbounded text-stroke text-[#1a1a1a]'
+                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] font-kanit text-stroke text-[#1a1a1a]'
                                     style={{ WebkitTextStrokeWidth: '3px' }}
                                 >
                                     02
                                 </div>
-                                <div className="absolute bottom-0 left-0 font-bold text-[24px] font-unbounded leading-tight">
+                                <div className="absolute bottom-0 left-0 font-bold text-[24px] font-kanit leading-tight">
                                     System  <br /> Scalability
                                 </div>
                             </div>
@@ -210,12 +176,12 @@ const ExploreProjectsComponent = () => {
                     <div className="flex-1 relative h-[300px]">
                         <div className='relative top-[-70%] bg-[#1a1a1a] h-[300px] p-8 rounded-xl'>
                             <div className='relative w-full h-full'>
-                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] font-unbounded text-stroke text-[#1a1a1a]'
+                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] font-kanit text-stroke text-[#1a1a1a]'
                                     style={{ WebkitTextStrokeWidth: '3px' }}
                                 >
                                     03
                                 </div>
-                                <div className="absolute bottom-0 left-0 font-bold text-[24px] font-unbounded leading-tight">
+                                <div className="absolute bottom-0 left-0 font-bold text-[24px] font-kanit leading-tight">
                                     Tech   <br /> Innovation
                                 </div>
                             </div>
@@ -228,12 +194,12 @@ const ExploreProjectsComponent = () => {
                             }}
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.5 }}
+                            viewport={{ once: true, amount: 0.4 }}
                             transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
                         >
                             <Link
                                 to={'/projects'} onClick={() => setIsLoaded(false)}
-                                className='hover:bg-white hover:text-black transition-all duration-700 font-unbounded w-[150px] h-[150px] flex items-center justify-center border-[3px] border-white rounded-full font-medium uppercase text-[17px]'>
+                                className='hover:bg-white hover:text-black transition-all duration-700 font-kanit w-[150px] h-[150px] flex items-center justify-center border-[3px] border-white rounded-full font-medium uppercase text-[17px]'>
                                 Let's <br />start
                             </Link>
                         </motion.div>
@@ -244,16 +210,16 @@ const ExploreProjectsComponent = () => {
                             variants={slideDownVariants}
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.5 }}
+                            viewport={{ once: true, amount: 0.4 }}
                             transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
                         >
                             <div className='relative w-full h-full'>
-                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] font-unbounded text-stroke text-[#1a1a1a]'
+                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] font-kanit text-stroke text-[#1a1a1a]'
                                     style={{ WebkitTextStrokeWidth: '3px' }}
                                 >
                                     04
                                 </div>
-                                <div className="absolute bottom-0 left-0 font-bold text-[24px] font-unbounded leading-tight">
+                                <div className="absolute bottom-0 left-0 font-bold text-[24px] font-kanit leading-tight">
                                     Optimal   <br /> Performance
                                 </div>
                             </div>

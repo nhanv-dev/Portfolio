@@ -25,7 +25,7 @@ const Layout = () => {
     return (
         <LenisProvider>
             <LoadingProvider>
-                <div className="h-full w-full relative dark:text-darkText text-lightText overflow-hidden">
+                <div className="h-full w-full relative text-darkText overflow-hidden">
                     <Header />
                     <Outlet />
                     <Footer />

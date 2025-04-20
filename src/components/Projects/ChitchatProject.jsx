@@ -16,7 +16,7 @@ const ChitchatProject = ({ item, index }) => {
 					</p>
 					<div className="flex flex-wrap gap-2 mt-4">
 						{['Angular', 'Socket.IO', 'MongoDB', 'Real-time Chat'].map(tag => (
-							<span key={tag} className="dark:bg-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-semibold">{tag}</span>
+							<span key={tag} className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm font-semibold">{tag}</span>
 						))}
 					</div>
 				</div>
@@ -64,14 +64,14 @@ const ChitchatProject = ({ item, index }) => {
 
 			<div className="mt-6">
 				<h2 className="text-xl font-bold">Tech Stack</h2>
-				<div className="mt-4 text-[1rem] dark:text-gray-400 font-medium">
+				<div className="mt-4 text-[1rem] text-gray-400 font-medium">
 					<ul className="flex flex-col gap-4">
-						<li>🎨 <strong className="dark:text-white">Frontend</strong> – Built with <span className="dark:text-white">Angular</span> for dynamic, single-page application development, providing smooth, fast, and responsive interactions.</li>
-						<li>🔗 <strong className="dark:text-white">Real-Time Communication</strong> – Powered by <span className="dark:text-white">WebSocket</span> for instant message delivery, allowing for real-time updates without refreshing the page.</li>
-						<li>🎨 <strong className="dark:text-white">UI Design</strong> – Styled with <span className="dark:text-white">Material UI</span>, providing a modern, sleek, and user-friendly interface.</li>
-						<li>🔒 <strong className="dark:text-white">Authentication</strong> – Secure user authentication and session management using <span className="dark:text-white">JWT</span> for token-based authentication.</li>
-						<li>🧰 <strong className="dark:text-white">Tooling</strong> – Utilizes <span className="dark:text-white">Socket.IO</span> for WebSocket communication, enabling efficient handling of real-time data.</li>
-						<li>⚙️ <strong className="dark:text-white">Development</strong> – Built with <span className="dark:text-white">TypeScript</span> to ensure strong typing and better maintainability of the codebase.</li>
+						<li>🎨 <strong className="text-white">Frontend</strong> – Built with <span className="text-white">Angular</span> for dynamic, single-page application development, providing smooth, fast, and responsive interactions.</li>
+						<li>🔗 <strong className="text-white">Real-Time Communication</strong> – Powered by <span className="text-white">WebSocket</span> for instant message delivery, allowing for real-time updates without refreshing the page.</li>
+						<li>🎨 <strong className="text-white">UI Design</strong> – Styled with <span className="text-white">Material UI</span>, providing a modern, sleek, and user-friendly interface.</li>
+						<li>🔒 <strong className="text-white">Authentication</strong> – Secure user authentication and session management using <span className="text-white">JWT</span> for token-based authentication.</li>
+						<li>🧰 <strong className="text-white">Tooling</strong> – Utilizes <span className="text-white">Socket.IO</span> for WebSocket communication, enabling efficient handling of real-time data.</li>
+						<li>⚙️ <strong className="text-white">Development</strong> – Built with <span className="text-white">TypeScript</span> to ensure strong typing and better maintainability of the codebase.</li>
 					</ul>
 				</div>
 			</div>

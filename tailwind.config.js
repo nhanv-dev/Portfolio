@@ -28,10 +28,8 @@ module.exports = {
         },
         extend: {
             colors: {
-                lightBg: '#ffffff',
-                lightBg2: '#e9e9e9',
-                darkBg: '#000000',
-                darkBg2: '#111111',
+                lightBg: '#eeeeee',
+                darkBg: '#000',
                 primary: '#14bfb5',
                 secondary: '#e76f51',
                 borderLight: '#ffffff14',
@@ -45,7 +43,9 @@ module.exports = {
                 lg: '3px 3px 6px rgba(0, 0, 0, 0.5)',
             },
             fontFamily: {
-                unbounded: ['"Unbounded"', 'sans-serif'],
+                unbounded: ['"unbounded"', 'sans-serif'],
+                prompt: ['"Prompt"', 'sans-serif'],
+                kanit: ['"Kanit"', 'sans-serif'],
             },
         },
         colors: ({ colors }) => ({

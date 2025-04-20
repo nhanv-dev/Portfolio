@@ -20,15 +20,15 @@ const ProjectLayout = ({ tag, children, index }) => {
 
 
 	return (
-		<div className="dark:bg-darkBg dark:text-darkText min-h-screen py-10">
+		<div className="bg-darkBg text-darkText min-h-screen py-10">
 			<div className="container">
 				<div className="mb-4 flex items-center justify-between gap-6">
-					<Link to={"/projects"} className="dark:text-gray-400 text-[0.95rem] font-bold flex items-center gap-2" onClick={() => { setIsLoaded(true); }} >
+					<Link to={"/projects"} className="text-gray-400 text-[0.95rem] font-bold flex items-center gap-2" onClick={() => { setIsLoaded(true); }} >
 						<IoArrowBackOutline size={"1.1rem"} />
 						<span>Back to Projects</span>
 					</Link>
 					{tag &&
-						<p className="dark:text-gray-400 text-sm font-bold py-1 px-3 border-2 border-gray-500 rounded">
+						<p className="text-gray-400 text-sm font-bold py-1 px-3 border-2 border-gray-500 rounded">
 							{tag}
 						</p>
 					}
@@ -48,7 +48,7 @@ const ProjectLayout = ({ tag, children, index }) => {
 					<h1 className="text-4xl font-bold">{project.card.title} - {project.card.subTitle}</h1>
 					<div className="flex items-center justify-end gap-3">
 						{project.github &&
-							<a href={project.github} target="_blank" rel="noopener noreferrer" className="dark:bg-lightBg dark:text-lightText px-4 pr-3 py-1 rounded-full flex items-center justify-center gap-2 font-semibold">
+							<a href={project.github} target="_blank" rel="noopener noreferrer" className="bg-lightBg text-lightText px-4 pr-3 py-1 rounded-full flex items-center justify-center gap-2 font-semibold">
 								<span className="text-sm">
 									Github
 								</span>
@@ -56,7 +56,7 @@ const ProjectLayout = ({ tag, children, index }) => {
 							</a>
 						}
 						{project.website &&
-							<a href={project.website} target="_blank" rel="noopener noreferrer" className="dark:bg-lightBg dark:text-lightText px-4 pr-3 py-1 rounded-full flex items-center justify-center gap-2 font-semibold">
+							<a href={project.website} target="_blank" rel="noopener noreferrer" className="bg-lightBg text-lightText px-4 pr-3 py-1 rounded-full flex items-center justify-center gap-2 font-semibold">
 								<span className="text-sm">
 									Live Site
 								</span>
@@ -70,10 +70,10 @@ const ProjectLayout = ({ tag, children, index }) => {
 					<div className="flex w-full items-center justify-between gap-6 mt-20">
 						{prevIndex != null ? (
 							<div>
-								<Link to={projects[prevIndex].slug} className="min-w-[180px] flex items-center justify-between gap-6 border-2 rounded-lg p-3 dark:border-gray-800">
+								<Link to={projects[prevIndex].slug} className="min-w-[180px] flex items-center justify-between gap-6 border-2 rounded-lg p-3 border-gray-800">
 									<IoChevronBack />
 									<div className="flex flex-col items-end text-sm font-medium">
-										<span className="dark:text-gray-400">Prev</span>
+										<span className="text-gray-400">Prev</span>
 										<span className="font-semibold">{projects[prevIndex].card.title}</span>
 									</div>
 								</Link>
@@ -81,9 +81,9 @@ const ProjectLayout = ({ tag, children, index }) => {
 						) : <div></div>}
 						{nextIndex != null ? (
 							<div>
-								<Link to={projects[nextIndex].slug} className="min-w-[180px] flex items-center justify-between gap-6 border-2 rounded-lg p-3 dark:border-gray-800">
+								<Link to={projects[nextIndex].slug} className="min-w-[180px] flex items-center justify-between gap-6 border-2 rounded-lg p-3 border-gray-800">
 									<div className="flex flex-col items-start text-sm font-medium">
-										<span className="dark:text-gray-400">Next</span>
+										<span className="text-gray-400">Next</span>
 										<span className="font-semibold">{projects[nextIndex].card.title}</span>
 									</div>
 									<IoChevronForward />

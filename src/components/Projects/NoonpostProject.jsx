@@ -16,7 +16,7 @@ const NoonpostProject = ({ item, index }) => {
 					</p>
 					<div className="flex flex-wrap gap-2 mt-4">
 						{['Node.js', 'Express.js', 'Handlebars', 'MongoDB', 'Server Side Rendering'].map(tag => (
-							<span key={tag} className="dark:bg-gray-800 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-semibold">{tag}</span>
+							<span key={tag} className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm font-semibold">{tag}</span>
 						))}
 					</div>
 				</div>
