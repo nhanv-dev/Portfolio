@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo, useCallback } from 'react';
 import { FaLocationDot } from "react-icons/fa6";
 import { RiArrowRightUpLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
@@ -8,6 +8,15 @@ import CircularText from "../CircularText";
 import './style.css';
 import BlurTextEffect from "../TypeEffect/BlurTextEffect";
 
+// Animation configurations
+
+const IMAGE_ANIMATION = {
+    initial: { opacity: 0, filter: "blur(8px)", scale: 1.1 },
+    animate: { opacity: 1, filter: "blur(0px)", scale: 1 },
+    exit: { opacity: 0, filter: "blur(8px)", scale: 1.1 },
+    transition: { duration: 1.8, ease: [0.16, 1, 0.3, 1] }
+};
+
 export default function HomeSlider() {
     const totalSlide = slides.length;
     const [activeSlide, setActiveSlide] = useState(0);
@@ -15,17 +24,22 @@ export default function HomeSlider() {
     const scale = useTransform(scrollY, [0, 500], [1, 1.2]);
     const circularTextRef = useRef();
 
+    const memoizedSlides = useMemo(() => slides, []);
+    const memoizedImageAnimation = useMemo(() => IMAGE_ANIMATION, []);
+
+    const handleSlideChange = useCallback((index) => {
+        setActiveSlide(index);
+    }, []);
+
     useEffect(() => {
         const timeout = setTimeout(() => {
-            setActiveSlide((prev) => (prev + 1 >= totalSlide ? 0 : prev + 1));  // Switch to next slide
-
+            setActiveSlide((prev) => (prev + 1 >= totalSlide ? 0 : prev + 1));
         }, 10 * 1000);
 
         return () => {
             clearTimeout(timeout);
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [activeSlide]);
+        };
+    }, [activeSlide, totalSlide]);
 
     return (
         <section className="h-screen w-full relative">
@@ -38,8 +52,7 @@ export default function HomeSlider() {
                         spinDuration={20}
                         className="w-[140px] h-[140px]"
                         innerClassName="text-white"
-                    >
-                    </CircularText>
+                    />
                     <div
                         onMouseEnter={() => circularTextRef.current?.handleHoverStart()}
                         onMouseLeave={() => circularTextRef.current?.handleHoverEnd()}
@@ -63,35 +76,47 @@ export default function HomeSlider() {
                     className="w-full h-full relative overflow-hidden z-[1]"
                     style={{ scale }}
                 >
-                    {slides.map((slide, index) => (
-                        <SlideImage key={index} index={index} active={activeSlide} image={slide.src} />
+                    {memoizedSlides.map((slide, index) => (
+                        <SlideImage
+                            key={index}
+                            index={index}
+                            active={activeSlide}
+                            image={slide.src}
+                            animation={memoizedImageAnimation}
+                        />
                     ))}
                 </motion.div>
 
                 <div className="h-[3px] absolute left-0 right-[500px] bottom-[100px] translate-y-[50%] z-20 bg-white"></div>
 
-                <Slide isActive={activeSlide === 0} subtitle={"Welcome to My Developer Journey"} title={"Code Voyager Here"}> </Slide>
-                <Slide isActive={activeSlide === 1} subtitle={"Where Ideas Come to Life"} title={"Code Creations"}></Slide>
-                <Slide isActive={activeSlide === 2} subtitle={"Ready to Collaborate?"} title={"Let’s Connect!"}></Slide>
+                {memoizedSlides.map((slide, index) => (
+                    <Slide
+                        key={index}
+                        isActive={activeSlide === index}
+                        subtitle={slide.subtitle}
+                        title={slide.title}
+                    />
+                ))}
 
-                <ImageNavigation activeSlide={activeSlide} setActiveSlide={setActiveSlide} />
+                <ImageNavigation
+                    activeSlide={activeSlide}
+                    setActiveSlide={handleSlideChange}
+                />
             </div>
         </section>
-    )
+    );
 }
 
 const Clock = () => {
     const [time, setTime] = useState(new Date());
 
     useEffect(() => {
-        let interval; // Lưu interval để có thể clear
+        let interval;
         const now = new Date();
-        const delay = (60 - now.getSeconds()) * 1000; // Đợi đến đầu phút tiếp theo
+        const delay = (60 - now.getSeconds()) * 1000;
 
         const timeout = setTimeout(() => {
             setTime(new Date());
-
-            // Sau đó cập nhật mỗi phút
             interval = setInterval(() => {
                 setTime(new Date());
             }, 60 * 1000);
@@ -99,7 +124,7 @@ const Clock = () => {
 
         return () => {
             clearTimeout(timeout);
-            if (interval) clearInterval(interval); // Đảm bảo cleanup chính xác 
+            if (interval) clearInterval(interval);
         };
     }, []);
 
@@ -119,22 +144,20 @@ const Clock = () => {
 
 const Slide = ({ isActive, title, subtitle }) => {
     return (
-        <div
-            className={`px-10 py-5 absolute left-0 bottom-[100px] transition-opacity delay-100 duration-[300ms] ease-in-out z-20 
-                ${isActive ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-[-1] pointer-events-none"}`}
-        >
+        <div className={`px-10 py-5 absolute left-0 bottom-[100px] transition-opacity delay-100 duration-[300ms] ease-in-out z-20 
+            ${isActive ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-[-1] pointer-events-none"}`} >
             <div className="w-full h-full flex items-center mb-5">
                 <motion.span
                     initial={{ opacity: 0, y: 0, x: -100 }} // Bắt đầu mờ và dịch xuống
                     animate={isActive ? { opacity: 1, y: 0, x: 0 } : { opacity: 0, y: 0, x: -100 }} // Khi active thì hiện lên
                     transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }} // Hiệu ứng mềm mại, chậm về cuối
-                    className="font-[600] text-[.8rem] md:text-[1rem] tracking-[2px] capitalize text-white flex items-center font-unbounded"
+                    className="font-[600] text-[.8rem] md:text-[1rem] tracking-[2px] capitalize text-white flex items-center font-bold"
                 >
                     <span className="inline-block mt-1 mr-5 w-[40px] h-[2px] bg-[rgba(255,255,255,1)]"></span>
                     {subtitle}
                 </motion.span>
             </div>
-            {isActive &&
+            {isActive && (
                 <BlurTextEffect
                     text={title}
                     delay={500}
@@ -142,37 +165,26 @@ const Slide = ({ isActive, title, subtitle }) => {
                     direction="top"
                     className="text-white text-[80px] font-extrabold uppercase font-unbounded"
                 />
-            }
+            )}
         </div>
     );
-}
+};
 
-const SlideImage = ({ image, active, index }) => {
+const SlideImage = ({ image, active, index, animation }) => {
     const isActive = index === active;
-
     const textStyle = {
         WebkitTextStroke: '3px rgba(255, 255, 255, 0.5)',
     };
 
     return (
         <motion.div
-            className="absolute w-full h-full bg-cover bg-center transition-transform"
+            className="absolute w-full h-full bg-cover bg-center"
             style={{ backgroundImage: `url(${image})` }}
-            animate={{
-                opacity: isActive ? 1 : 0,  // Make inactive slides fully transparent
-                filter: isActive ? "blur(0px)" : "blur(8px)",
-                scale: isActive ? 1 : 1.1,  // Scale inactive images, but don't let them exceed 1
-                zIndex: isActive ? 10 : 0,   // Ensure active slide is on top
-            }}
-            transition={{
-                opacity: { duration: 1.8, ease: [0.16, 1, 0.3, 1] },
-                filter: { duration: 1.8, ease: [0.16, 1, 0.3, 1] },
-                scale: { duration: 1.8, ease: [0.16, 1, 0.3, 1] },
-            }}
+            initial={animation.initial}
+            animate={isActive ? animation.animate : animation.exit}
+            transition={animation.transition}
         >
-            {/* Lớp overlay màu đen nhẹ */}
             <div className="z-[1] absolute bg-[rgba(0,0,0,0.1)] left-0 top-0 right-0 bottom-0"></div>
-
             <div className="z-[2] absolute font-bold right-[60px] bottom-[170px] text-[10vw] text-[rgba(255,255,255,0.1)]"
                 style={textStyle}
             >
@@ -184,17 +196,16 @@ const SlideImage = ({ image, active, index }) => {
 
 const ImageNavigation = ({ activeSlide = 0, setActiveSlide }) => {
     const [active, setActive] = useState("next");
-
     const nextIndex = (activeSlide + 1) % slides.length;
     const prevIndex = (activeSlide - 1 + slides.length) % slides.length;
 
-    const handleNext = () => {
+    const handleNext = useCallback(() => {
         setActiveSlide(nextIndex);
-    };
+    }, [nextIndex, setActiveSlide]);
 
-    const handlePrev = () => {
+    const handlePrev = useCallback(() => {
         setActiveSlide(prevIndex);
-    };
+    }, [prevIndex, setActiveSlide]);
 
     return (
         <div className="md:flex hidden w-[500px] h-[200px] absolute right-0 bottom-0 z-20">
@@ -247,4 +258,4 @@ const ImageNavigation = ({ activeSlide = 0, setActiveSlide }) => {
             </div>
         </div>
     );
-}
+};

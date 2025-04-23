@@ -1,34 +1,33 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
         "./src/**/*.{js,jsx,ts,tsx}",
+        "./public/index.html"
     ],
     presets: [],
     darkMode: 'class',
     theme: {
         screens: {
-            sm: '640px',
-            md: '768px',
-            lg: '1024px',
-            xl: '1280px',
+            sm: '480px',    // Mobile
+            md: '768px',    // Tablet
+            lg: '1024px',   // Laptop
+            xl: '1200px',   // Desktop
+            '2xl': '1440px',  // Large Desktop 
         },
         container: {
             center: true,
-            padding: {
-                DEFAULT: '1rem',
-                sm: '2rem',
-                lg: '2rem',
-                xl: '2rem',
-            },
+            padding: '1rem',
             screens: {
-                sm: "100%",
-                md: "100%",
-                lg: "1500px",
-                xl: "1280px",
+                sm: "640px",
+                md: "768px",
+                lg: "1024px",
+                xl: "1336px",
             }
         },
         extend: {
             colors: {
-                lightBg: '#eeeeee',
+                lightBg: '#F3F3F3',
+                lightBg2: '#E9E9E9',
                 darkBg: '#000',
                 primary: '#14bfb5',
                 secondary: '#e76f51',
@@ -44,8 +43,10 @@ module.exports = {
             },
             fontFamily: {
                 unbounded: ['"unbounded"', 'sans-serif'],
-                prompt: ['"Prompt"', 'sans-serif'],
                 kanit: ['"Kanit"', 'sans-serif'],
+            },
+            maxWidth: {
+                'container-wide': '1780px',
             },
         },
         colors: ({ colors }) => ({

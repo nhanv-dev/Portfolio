@@ -4,23 +4,27 @@
 
 * {
     box-sizing: border-box;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    margin: 0;
 }
 
 html,
 body {
-    background: #040404;
+    background-color: #000;
     overflow-x: hidden;
 }
 
 body {
-    background: #040404;
-    color: #fff;
+    background-color: #000;
+    color: white;
     width: 100%;
     min-height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    margin: 0;
 }
 
 body::-webkit-scrollbar {
@@ -40,10 +44,26 @@ body:hover::-webkit-scrollbar-thumb {
     background-color: #555;
 }
 
+@layer components {
+    .container-wide {
+        @apply container;
+        max-width: 1780px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
 @layer utilities {
     .text-stroke {
-        -webkit-text-stroke: 2px rgb(238, 238, 238);
+        -webkit-text-stroke: 1px rgb(255, 255, 255);
         color: black;
+    }
+
+    .text-stroke-black {
+        -webkit-text-stroke: 1px rgb(0, 0, 0);
+        color: white;
     }
 }
 

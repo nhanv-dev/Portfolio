@@ -1,13 +1,30 @@
 import { motion } from "framer-motion";
 import { FaFacebook, FaGithub, FaInstagram } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa6";
+import { GoDotFill } from 'react-icons/go';
 import { Link } from "react-router-dom";
 import ContactBanner from "../components/ContactBanner";
 import DevInfiniteScroll from "../components/InfiniteScroll/DevInfiniteScroll";
+import TechInfiniteScroll from "../components/InfiniteScroll/TechInfiniteScroll";
+import { useLoading } from "../components/LoadingProvider";
 import PageWithPreload from "../components/PageWithPreload";
 import TitleSection from "../components/TitleSection";
 
+const slideDownVariants = {
+    hidden: { opacity: 0, y: -100 },  // Bắt đầu từ vị trí thấp và ẩn
+    visible: { opacity: 1, y: 0 }   // Khi vào viewport, di chuyển về vị trí ban đầu
+};
+
 const tags = ['Web Development', 'UI/UX', 'Responsive Design', 'Database Design', 'Problem Solving'];
+
+const favoriteStack = [
+    { title: 'Javascript', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
+    { title: '.NET', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
+    { title: 'Java', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
+    { title: 'SQL Server', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
+    { title: 'React', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
+    { title: 'Angular', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
+];
 
 export default function AboutPage() {
 
@@ -21,19 +38,20 @@ export default function AboutPage() {
                 <HeroComponent />
             </motion.div>
 
+            <div className="py-6 border-t border-gray-900">
+                <DevInfiniteScroll list={tags} innerClassName={'!text-[1.5rem]'} innerClassNameSplit={'!text-[1rem]'} />
+            </div>
+            <ExploreAboutComponent />
+
             <IntroduceComponent />
 
-            <TechStackComponent />
+            <TechInfiniteScroll />
 
             <ExploreProjectsComponent />
 
             <ResumeComponent />
 
             <ContactBanner />
-            {/* 
-            <TechInfiniteScroll />
-
-       */}
 
         </PageWithPreload>
     );
@@ -60,7 +78,7 @@ const HeroComponent = () => {
                         <motion.div
                             className="xl:text-[7rem] leading-none font-extrabold relative z-[2] font-unbounded max-w-5xl w-full min-w-full flex items-end justify-end gap-10 text-shadow-sm">
                             <div className="text-[1rem] leading-relaxed font-medium mb-2">
-                                End-to-End Fullstack Development with a focus on speed, scalability, and modern web architecture. 
+                                End-to-End Fullstack Development with a focus on speed, scalability, and modern web architecture.
                             </div>
                             <p>
                                 Developer
@@ -90,39 +108,184 @@ const HeroComponent = () => {
                     </div>
                 </div>
             </div>
-            <div className="py-6 border-t border-gray-900">
-                <DevInfiniteScroll list={tags} innerClassName={'!text-[1.5rem]'} innerClassNameSplit={'!text-[1rem]'} />
-            </div>
         </div>
     )
 }
 
-const ExploreProjectsComponent = () => {
+const ExploreAboutComponent = () => {
+    const { setIsLoaded } = useLoading();
+
     return (
-        <section className="py-20 border-t border-gray-900 bg-darkBg">
+        <section className="py-[120px] bg-darkBg text-white">
+            <div className='container'>
+                <div className="relative">
+                    <TitleSection
+                        className={'mb-12'}
+                        title={'What I Do'}
+                        title2={'MY CRAFT'}
+                        subTitle={'Coding'}
+                        subTitle2={'Stuff'}
+                    ></TitleSection>
+                    <div className="pr-[520px] w-full">
+                        <div className="w-full flex items-center justify-end gap-10">
+                            <Link to={'/about'} onClick={() => setIsLoaded(false)} className='flex items-center justify-start gap-4 font-bold text-[1.1rem] min-w-[160px]'>
+                                <GoDotFill />
+                                <p className='relative'>
+                                    About me
+                                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white"></span>
+                                </p>
+                            </Link>
+                            <motion.div
+                                initial={{ opacity: 0, x: 50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, amount: 0.4 }}
+                                transition={{ duration: .8, ease: 'easeOut', delay: 0.4 }}
+                                className="flex-1 bg-[#131313]">
+                                <p className="text-[1rem] leading-[1.75] font-medium text-gray-300 text-end py-6 px-10">
+                                    With a focus on clean architecture and seamless user experience, I build fullstack web applications that are both scalable and maintainable.
+                                    Each line of code reflects a blend of logic and design, crafted to solve real-world problems.
+                                </p>
+                            </motion.div>
+                        </div>
+                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: -50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.4 }}
+                        transition={{ duration: .8, ease: 'easeOut', }}
+                        className="absolute right-0 top-0 z-10">
+                        <div className="w-[520px] h-[380px] bg-center bg-cover"
+                            style={{
+                                backgroundImage: `url(https://themexriver.com/wp/agenriver-demo/freelancer/wp-content/uploads/sites/16/2025/03/pro23.webp)`
+                            }}
+                        ></div>
+                        <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/0"></div>
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.4 }}
+                        transition={{ duration: .8, ease: 'easeOut', }}
+                        className="relative w-full pr-20">
+                        <div className="w-full h-[50vh] bg-top bg-cover"
+                            style={{
+                                backgroundImage: `url(https://themexriver.com/wp/agenriver-demo/freelancer/wp-content/uploads/sites/16/2025/03/pro24.webp)`
+                            }}
+                        ></div>
+                        <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/0"></div>
+                    </motion.div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+const ExploreProjectsComponent = () => {
+    const { setIsLoaded } = useLoading();
+
+    return (
+        <section className='py-[120px] bg-darkBg'>
             <div className="container">
                 <TitleSection
-                    className={'mb-14'}
+                    className={'mb-12'}
                     title={'selected'}
                     title2={'works'}
                     subTitle={'featured'}
                     subTitle2={'projects'}
-                    titleClassName='!text-darkBg'
                 ></TitleSection>
-                <div className="flex items-start justify-start gap-10">
-                    <div className="flex-1 relative">
-                        <img src="https://codeefly.net/wp/zyan/wp-content/uploads/2023/10/1.jpg" alt="welcome1" className="object-cover object-center rounded-xl" />
-
+                <div className="flex gap-7">
+                    <div className="flex-1 h-[300px]">
+                        <motion.div
+                            className="p-8 bg-[#1a1a1a] h-[300px] rounded-xl"
+                            variants={slideDownVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.4 }}
+                            transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
+                        >
+                            <div className='relative w-full h-full'>
+                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] text-stroke !text-[#1a1a1a] font-kanit'>
+                                    01
+                                </div>
+                                <div className="absolute bottom-0 left-0 font-bold text-[20px] font-unbounded leading-tight">
+                                    Creative <br /> Design
+                                </div>
+                            </div>
+                        </motion.div>
                     </div>
-                    <div className="flex-1 relative overflow-hidden">
-                        <img src="https://codeefly.net/wp/zyan/wp-content/uploads/2023/10/4.jpg" alt="welcome2" className="object-cover object-center rounded-xl" />
-                        <div className="absolute bottom-0 left-0">
-                            <div className="bg-darkBg w-[190px] h-[190px] flex items-end justify-start rounded-tr-xl">
-                                <Link to={'/projects'} className='hover:bg-white hover:text-black transition-all duration-700 font-kanit w-[150px] h-[150px] flex items-center justify-center border-[3px] border-white rounded-full font-medium uppercase text-[17px]'>
-                                    Let's <br />start
-                                </Link>
+                    <div className="flex-1 h-[300px]">
+                        <motion.div
+                            className="p-8 bg-[#1a1a1a] h-[300px] rounded-xl"
+                            variants={slideDownVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.4 }}
+                            transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
+                        >
+                            <div className='relative w-full h-full'>
+                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] text-stroke !text-[#1a1a1a] font-kanit'>
+                                    02
+                                </div>
+                                <div className="absolute bottom-0 left-0 font-bold text-[20px] font-unbounded leading-tight">
+                                    System <br /> Scalability
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                    <div className="flex-1 relative h-[300px]">
+                        <div className='relative top-[-70%] bg-[#1a1a1a] h-[300px] p-8 rounded-xl'>
+                            <div className='relative w-full h-full'>
+                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] text-stroke !text-[#1a1a1a] font-kanit'>
+                                    03
+                                </div>
+                                <div className="absolute bottom-0 left-0 font-bold text-[20px] font-unbounded leading-tight">
+                                    Tech <br /> Innovation
+                                </div>
                             </div>
                         </div>
+                        <motion.div
+                            className='absolute bottom-0 left-1/2'
+                            variants={{
+                                hidden: { opacity: 0, y: 100, x: '-50%' },
+                                visible: { opacity: 1, y: 0, x: '-50%' }
+                            }}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.4 }}
+                            transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
+                        >
+                            <Link
+                                to={'/projects'} onClick={() => setIsLoaded(false)}
+                                className='hover:bg-black hover:text-white transition-all duration-700 font-unbounded w-[150px] h-[150px] flex items-center justify-center border-[3px] border-white rounded-full font-medium uppercase text-[17px]'>
+                                Let's <br />start
+                            </Link>
+                        </motion.div>
+                    </div>
+                    <div className="flex-1 h-[300px]">
+                        <motion.div
+                            className="p-8 bg-[#1a1a1a] h-[300px] rounded-xl"
+                            variants={slideDownVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.4 }}
+                            transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
+                        >
+                            <div className='relative w-full h-full'>
+                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] text-stroke !text-[#1a1a1a] font-kanit'>
+                                    04
+                                </div>
+                                <div className="absolute bottom-0 left-0 font-bold text-[20px] font-unbounded leading-tight">
+                                    Optimal <br /> Performance
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+                <div className="flex mt-20 gap-7">
+                    <div className="flex-1"></div>
+                    <div className="flex-1 font-medium text-gray-300 leading-relaxed text-[1.1rem]">
+                        These projects highlight my passion for building innovative, high-performance solutions focused on scalability and user experience.
+                        Each project demonstrates my expertise in integrating cutting-edge technologies to solve real-world challenges.
                     </div>
                 </div>
             </div>
@@ -133,7 +296,7 @@ const ExploreProjectsComponent = () => {
 const IntroduceComponent = () => {
     return (
         <section className="bg-darkBg border-t border-gray-900">
-            <div className="container py-20 max-w-5xl">
+            <div className="container py-[120px] max-w-5xl">
                 <div className="flex mb-10">
                     <div className="w-[350px]">
                         <p className="font-bold text-[1rem]">Who I Am:</p>
@@ -178,139 +341,19 @@ const IntroduceComponent = () => {
     );
 }
 
-const TechStackComponent = () => {
-    return (
-        <>
-            <section className="bg-darkBg border-t border-gray-900">
-                <div
-                    className="bg-cover bg-top relative"
-                    style={{ backgroundImage: 'url(https://themexriver.com/wp/agenriver-demo/freelancer/wp-content/uploads/sites/16/2025/03/pro24.webp)' }}
-                >
-                    <div className="absolute left-0 top-0 w-full h-full bg-black/70"></div>
-                    <div className="container py-[120px] relative z-10">
-                        <TitleSection
-                            className={'mb-10'}
-                            title={'What I Do'}
-                            title2={'MY CRAFT'}
-                            subTitle={'Coding'}
-                            subTitle2={'Stuff'}
-                        ></TitleSection>
-                        <div className="grid lg:grid-cols-3">
-                            <div className="flex">
-                                <div className="flex items-start gap-4">
-                                    <p className="flex items-center gap-4 h-[26px]">
-                                        <span className="font-bold text-[1.1rem] font-kanit text-primary">01</span>
-                                        <span className="block w-[50px] h-[2px] bg-primary"></span>
-                                    </p>
-                                    <div className="flex flex-col gap-4">
-                                        <p className="uppercase font-bold text-[0.95rem] font-kanit h-[26px]">
-                                            Frontend Dev
-                                        </p>
-                                        <p className="font-medium text-[17px]">
-                                            Creativity for us something personal.
-                                        </p>
-                                        <ul className="list-disc ml-5 font-semibold text-[17px]">
-                                            <li className="mb-2">CMS Development</li>
-                                            <li className="mb-2">Back-end Prototype</li>
-                                            <li className="mb-2">Coding strategy</li>
-                                            <li className="mb-2">Beta testing</li>
-                                            <li className="mb-0">Page builder</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="flex">
-                                <div className="flex items-start gap-4">
-                                    <p className="flex items-center gap-4 h-[26px]">
-                                        <span className="font-bold text-[1.1rem] font-kanit text-primary">01</span>
-                                        <span className="block w-[50px] h-[2px] bg-primary"></span>
-                                    </p>
-                                    <div className="flex flex-col gap-4">
-                                        <p className="uppercase font-bold text-[0.95rem] font-kanit h-[26px]">
-                                            Frontend Dev
-                                        </p>
-                                        <p className="font-medium text-[17px]">
-                                            Creativity for us something personal.
-                                        </p>
-                                        <ul className="list-disc ml-5 font-semibold text-[17px]">
-                                            <li className="mb-2">CMS Development</li>
-                                            <li className="mb-2">Back-end Prototype</li>
-                                            <li className="mb-2">Coding strategy</li>
-                                            <li className="mb-2">Beta testing</li>
-                                            <li className="mb-0">Page builder</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="flex">
-                                <div className="flex items-start gap-4">
-                                    <p className="flex items-center gap-4 h-[26px]">
-                                        <span className="font-bold text-[1.1rem] font-kanit text-primary">01</span>
-                                        <span className="block w-[50px] h-[2px] bg-primary"></span>
-                                    </p>
-                                    <div className="flex flex-col gap-4">
-                                        <p className="uppercase font-bold text-[0.95rem] font-kanit h-[26px]">
-                                            Frontend Dev
-                                        </p>
-                                        <p className="font-medium text-[17px]">
-                                            Creativity for us something personal.
-                                        </p>
-                                        <ul className="list-disc ml-5 font-semibold text-[17px]">
-                                            <li className="mb-2">CMS Development</li>
-                                            <li className="mb-2">Back-end Prototype</li>
-                                            <li className="mb-2">Coding strategy</li>
-                                            <li className="mb-2">Beta testing</li>
-                                            <li className="mb-0">Page builder</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section className="bg-darkBg border-t border-gray-900">
-                <div className="container py-20">
-                    <div className="flex">
-                        <h2>FAVOURITE STACK</h2>
-                        <div className="">
-                            <div className=""></div>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-        </>
-    )
-}
-
 const ResumeComponent = () => {
     return (
-        <section id="resume" className="bg-darkBg">
-            <div className="container py-[120px]">
+        <section id="resume" className="bg-darkBg py-[120px] border-t border-gray-900">
+            <div className="container">
                 {/* Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: 'easeOut' }}
-                    viewport={{ once: true, amount: 0.4 }}
-                    className="px-4 py-2 bg-darkBg w-[max-content] font-bold text-[14px] tracking-[2px] text-[#bbb]"
-                >
-                    My Resume
-                </motion.div>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
-                    viewport={{ once: true, amount: 0.4 }}
-                    className="mb-[60px]"
-                >
-                    <h3 className="pb-6 font-bold text-[2.5rem] leading-[3.5rem] tracking-[2px] my-3">
-                        Education & Experience
-                    </h3>
-                    <div className="relative block w-full h-[2px] bg-gray-900 after:w-[200px] after:h-[4px] after:bg-primary after:left-0 after:top-1/2 after:-translate-y-1/2 after:rounded-full rounded-full after:absolute" />
-                </motion.div>
+                <TitleSection
+                    className={'mb-12'}
+                    title={'My Resume'}
+                    title2={'What I’ve Done'}
+                    subTitle={'Build History'}
+                    subTitle2={'Education & Experience'}
+                    titleClassName='!text-darkBg'
+                ></TitleSection>
 
                 {/* Education & Experience */}
                 <div className="flex flex-wrap">
@@ -336,10 +379,13 @@ const ResumeComponent = () => {
                             </h5>
                             <div className="pl-5 pt-3 pb-10 relative text-[#bbb] text-[16px] leading-[1.6] font-[500]">
                                 <p className="mb-3 tracking-[1px]">2019 - 2023</p>
-                                <p>
+                                <p className="mb-6">
                                     Graduated in Information Technology, specializing in web application development.
                                     Gained expertise in software development, database management, and system maintenance. Passionate about full-stack web development.
                                 </p>
+                                <div className="h-[300px] w-full">
+                                    <img src={'https://themexriver.com/wp/agenriver-demo/web-agency/wp-content/uploads/sites/20/2025/04/w2-img-2.webp'} alt="" className="h-full w-full object-cover" />
+                                </div>
                                 <div className="absolute left-0 bottom-[0] top-0 translate-x-[-50%] bg-gray-800 w-[1px] h-full"></div>
                             </div>
                         </motion.div>

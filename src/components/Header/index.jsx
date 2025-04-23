@@ -28,14 +28,14 @@ export default function Header() {
 
     return (
         <header
-            className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-[800ms] flex justify-between items-center border-white/20 ${scrolled
-                ? "animate-border-glow top-4 w-[850px] max-w-[850px] rounded-full bg-black/60 border py-3 px-0 backdrop-blur-2xl"
-                : "top-0 bg-transparent bg-none w-screen max-w-[100%] px-0 py-4 border-none"}`}
+            className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-[800ms] flex justify-between items-center border-white/20  ${scrolled
+                ? "animate-border-glow top-4 w-[850px] max-w-[850px] rounded-full border py-3 px-0 backdrop-blur-2xl bg-black/70"
+                : "top-0 bg-none w-screen max-w-[100%] px-0 py-4 border-none bg-black"}`}
         >
             <div className={`container flex items-center justify-between transition-all duration-[800ms] ${scrolled ? 'px-6' : ''}`}>
                 {/* Logo */}
                 <div className="flex items-center w-[150px] justify-start">
-                    <Link to="/home" className="font-extrabold text-lg tracking-wide text-darkText">
+                    <Link to="/home" className="font-extrabold text-lg tracking-wide text-white">
                         <span>Port</span>
                         <span className="text-primary ml-1">folio.</span>
                     </Link>

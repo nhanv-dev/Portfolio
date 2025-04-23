@@ -10,9 +10,9 @@ import SpotifyProject from './components/Projects/SpotifyProject';
 import TodoProject from './components/Projects/TodoProject';
 
 export const slides = [
-    { title: 'Welcome Aboard', src: '/images/slide-1.avif' },
-    { title: 'Discover Me', src: '/images/slide-2.avif' },
-    { title: 'Get in Touch', src: '/images/slide-3.avif' },
+    { title: 'Code Voyager Here', subtitle: 'Welcome to My Developer Journey', src: '/images/slide-1.avif' },
+    { title: 'Code Creations', subtitle: 'Where Ideas Come to Life', src: '/images/slide-2.avif' },
+    { title: 'Let’s Connect!', subtitle: 'Ready to Collaborate?', src: '/images/slide-3.avif' },
 ]
 
 export const projects = [

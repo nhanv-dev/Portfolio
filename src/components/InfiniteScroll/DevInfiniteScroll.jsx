@@ -21,7 +21,7 @@ const DevInfiniteScroll = ({ list, innerClassName, innerClassNameSplit }) => {
         {[...list, ...list, ...list].map((item, index) => (
           <div key={index} className="flex gap-5 items-center">
             <div className="inline-flex w-fit min-w-fit">
-              <span className={`text-[3rem] font-extrabold font-kanit ${innerClassName}`}>{item?.name || item}</span>
+              <span className={`text-[3rem] font-extrabold font-unbounded ${innerClassName}`}>{item?.name || item}</span>
             </div>
             <span className={`inline-flex text-[2.5rem] ${innerClassNameSplit}`}>
               <GoDotFill />

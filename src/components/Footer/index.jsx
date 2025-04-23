@@ -66,7 +66,7 @@ export default function Footer() {
 
                 </div>
             </div>
-            <div className='bg-[#000] py-8 border-t border-gray-900'>
+            <div className='bg-darkBg py-8 border-t border-gray-900'>
                 <div className='container'>
                     <div className="text-center flex items-center justify-between gap-10">
                         <p className="text-darkText font-bold text-[0.75rem] uppercase tracking-[2px]">

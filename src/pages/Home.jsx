@@ -1,17 +1,10 @@
 import { motion } from 'framer-motion';
-import { GoDotFill } from 'react-icons/go';
 import { Link } from 'react-router-dom';
 import ContactBanner from "../components/ContactBanner";
 import HomeSlider from '../components/HomeSlider';
 import DevInfiniteScroll from '../components/InfiniteScroll/DevInfiniteScroll';
-import { useLoading } from '../components/LoadingProvider';
 import PageWithPreload from "../components/PageWithPreload";
-import TitleSection from '../components/TitleSection';
-
-const slideDownVariants = {
-    hidden: { opacity: 0, y: -100 },  // Bắt đầu từ vị trí thấp và ẩn
-    visible: { opacity: 1, y: 0 }   // Khi vào viewport, di chuyển về vị trí ban đầu
-};
+import { projects } from '../data';
 
 const list = [
     { name: "Fullstack Developer" },
@@ -30,18 +23,13 @@ export default function HomePage() {
             >
                 <HomeSlider />
             </motion.div>
+
+
+            <ExploreProjectsComponent />
+
             <div className="py-10 border-t border-b border-gray-900">
                 <DevInfiniteScroll list={list} innerClassName={'!text-[1.5rem]'} innerClassNameSplit={'!text-[1rem]'} />
             </div>
-
-            <ExploreAboutComponent />
-
-
-            <div className="bg-lightBg text-darkBg py-20">
-                ádsadsa
-            </div>
-
-            <ExploreProjectsComponent />
 
             <ContactBanner />
 
@@ -49,191 +37,107 @@ export default function HomePage() {
     )
 }
 
-const ExploreAboutComponent = () => {
-    const { setIsLoaded } = useLoading();
-
-    return (
-        <section className="bg-darkBg">
-            <div className='container py-20'>
-                <div className="relative">
-                    <TitleSection
-                        className={'mb-10'}
-                        title={'What I Do'}
-                        title2={'MY CRAFT'}
-                        subTitle={'Coding'}
-                        subTitle2={'Stuff'}
-                    ></TitleSection>
-                    <div className="pr-[520px] w-full">
-                        <div className="w-full flex items-center justify-end gap-10">
-                            <Link to={'/about'} onClick={() => setIsLoaded(false)} className='flex items-center justify-start gap-4 font-bold text-[1.1rem] min-w-[160px]'>
-                                <GoDotFill />
-                                <p className='relative'>
-                                    About me
-                                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white"></span>
-                                </p>
-                            </Link>
-                            <motion.div
-                                initial={{ opacity: 0, x: 50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, amount: 0.4 }}
-                                transition={{ duration: .8, ease: 'easeOut', delay: 0.4 }}
-                                className="flex-1 bg-[#131313]">
-                                <p className="text-[1rem] leading-[1.75] font-medium text-gray-300 text-end py-6 px-10">
-                                    With a focus on clean architecture and seamless user experience, I build fullstack web applications that are both scalable and maintainable.
-                                    Each line of code reflects a blend of logic and design, crafted to solve real-world problems.
-                                </p>
-                            </motion.div>
-                        </div>
-                    </div>
-                    <motion.div
-                        initial={{ opacity: 0, y: -50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.4 }}
-                        transition={{ duration: .8, ease: 'easeOut', }}
-                        className="absolute right-0 top-0 z-10">
-                        <div className="w-[520px] h-[380px] bg-center bg-cover"
-                            style={{
-                                backgroundImage: `url(https://themexriver.com/wp/agenriver-demo/freelancer/wp-content/uploads/sites/16/2025/03/pro23.webp)`
-                            }}
-                        ></div>
-                        <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/0"></div>
-                    </motion.div>
-                    <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.4 }}
-                        transition={{ duration: .8, ease: 'easeOut', }}
-                        className="relative w-full pr-20">
-                        <div className="w-full h-[50vh] bg-top bg-cover"
-                            style={{
-                                backgroundImage: `url(https://themexriver.com/wp/agenriver-demo/freelancer/wp-content/uploads/sites/16/2025/03/pro24.webp)`
-                            }}
-                        ></div>
-                        <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/0"></div>
-                    </motion.div>
-                </div>
-            </div>
-        </section>
-    )
-}
-
 const ExploreProjectsComponent = () => {
-    const { setIsLoaded } = useLoading();
-
     return (
-        <section className='py-[120px]'>
-            <div className="container">
-                <TitleSection
-                    className={'mb-14'}
-                    title={'selected'}
-                    title2={'works'}
-                    subTitle={'featured'}
-                    subTitle2={'projects'}
-                ></TitleSection>
-                <div className="flex gap-7">
-                    <div className="flex-1 h-[300px]">
-                        <motion.div
-                            className="p-8 bg-[#1a1a1a] h-[300px] rounded-xl"
-                            variants={slideDownVariants}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, amount: 0.4 }}
-                            transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
-                        >
-                            <div className='relative w-full h-full'>
-                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] font-kanit text-stroke text-[#1a1a1a]'
-                                    style={{ WebkitTextStrokeWidth: '3px' }}
+        <section className='relative'>
+            <div className="pt-[120px] bg-lightBg">
+                <div className="container">
+                    <div className="ml-[100px] flex flex-col lg:flex-row items-end justify-between">
+                        <div className="flex-1">
+                            <h2 className="text-6xl font-semibold font-kanit text-[#10172B]">
+                                <span className="block text-[56px] leading-[60px]">My Selected</span>
+                                <span className="block text-[300px] leading-[211px] mt-5 ml-12">Work</span>
+                            </h2>
+                        </div>
+
+                        <div className="mt-6 lg:mt-0">
+                            <div className="bg-[#D9D0FF] relative">
+                                <p className="text-lg text-[#3D3D3D] px-[48px] py-[44px] font-medium">
+                                    We proudly showcase our creative design work, reflecting our passion for innovation and attention to detail. Each project highlights our commitment to delivering visually stunning and effective solutions.
+                                </p>
+                                <Link
+                                    to="/projects"
+                                    className="p-[22px] flex justify-center items-center text-emerald-400 hover:text-emerald-300 transition-colors  font-bold text-[20px] absolute top-full right-0 w-full bg-white"
                                 >
-                                    01
-                                </div>
-                                <div className="absolute bottom-0 left-0 font-bold text-[24px] font-kanit leading-tight">
-                                    Creative   <br /> Design
-                                </div>
-                            </div>
-                        </motion.div>
-                    </div>
-                    <div className="flex-1 h-[300px]">
-                        <motion.div
-                            className="p-8 bg-[#1a1a1a] h-[300px] rounded-xl"
-                            variants={slideDownVariants}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, amount: 0.4 }}
-                            transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
-                        >
-                            <div className='relative w-full h-full'>
-                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] font-kanit text-stroke text-[#1a1a1a]'
-                                    style={{ WebkitTextStrokeWidth: '3px' }}
-                                >
-                                    02
-                                </div>
-                                <div className="absolute bottom-0 left-0 font-bold text-[24px] font-kanit leading-tight">
-                                    System  <br /> Scalability
-                                </div>
-                            </div>
-                        </motion.div>
-                    </div>
-                    <div className="flex-1 relative h-[300px]">
-                        <div className='relative top-[-70%] bg-[#1a1a1a] h-[300px] p-8 rounded-xl'>
-                            <div className='relative w-full h-full'>
-                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] font-kanit text-stroke text-[#1a1a1a]'
-                                    style={{ WebkitTextStrokeWidth: '3px' }}
-                                >
-                                    03
-                                </div>
-                                <div className="absolute bottom-0 left-0 font-bold text-[24px] font-kanit leading-tight">
-                                    Tech   <br /> Innovation
-                                </div>
+                                    Browse All Projects
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                                    </svg>
+                                </Link>
                             </div>
                         </div>
-                        <motion.div
-                            className='absolute bottom-0 left-1/2'
-                            variants={{
-                                hidden: { opacity: 0, y: 100, x: '-50%' },
-                                visible: { opacity: 1, y: 0, x: '-50%' }
-                            }}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, amount: 0.4 }}
-                            transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
-                        >
-                            <Link
-                                to={'/projects'} onClick={() => setIsLoaded(false)}
-                                className='hover:bg-white hover:text-black transition-all duration-700 font-kanit w-[150px] h-[150px] flex items-center justify-center border-[3px] border-white rounded-full font-medium uppercase text-[17px]'>
-                                Let's <br />start
-                            </Link>
-                        </motion.div>
-                    </div>
-                    <div className="flex-1 h-[300px]">
-                        <motion.div
-                            className="p-8 bg-[#1a1a1a] h-[300px] rounded-xl"
-                            variants={slideDownVariants}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, amount: 0.4 }}
-                            transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
-                        >
-                            <div className='relative w-full h-full'>
-                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] font-kanit text-stroke text-[#1a1a1a]'
-                                    style={{ WebkitTextStrokeWidth: '3px' }}
-                                >
-                                    04
-                                </div>
-                                <div className="absolute bottom-0 left-0 font-bold text-[24px] font-kanit leading-tight">
-                                    Optimal   <br /> Performance
-                                </div>
-                            </div>
-                        </motion.div>
                     </div>
                 </div>
-                <div className="flex mt-20 gap-7">
-                    <div className="flex-1"></div>
-                    <div className="flex-1 font-medium text-gray-300 leading-relaxed text-[1.1rem]">
-                        These projects highlight my passion for building innovative, high-performance solutions focused on scalability and user experience.
-                        Each project demonstrates my expertise in integrating cutting-edge technologies to solve real-world challenges.
+            </div>
+
+            {/* Projects Grid */}
+            <div className="bg-center bg-cover bg-no-repeat pt-[200px] pb-20 bg-gray-900"
+                style={{
+                    backgroundImage: 'url("https://themexriver.com/wp/agenriver-demo/web-agency/wp-content/uploads/sites/20/2025/04/w2-bg.webp")',
+                }}>
+                <div className="container-wide">
+                    <div className="grid grid-cols-4 gap-8 p-4">
+                        <div className="col-span-1">
+                            <ProjectCard project={projects[0]} />
+                        </div>
+
+                        <div className="col-span-1">
+                            <ProjectCard project={projects[1]} />
+                        </div>
+
+                        <div className="col-span-2">
+                            <ProjectCard project={projects[2]} />
+                        </div>
+
+                        <div className="col-span-2">
+                            <ProjectCard project={projects[3]} />
+                        </div>
+
+                        <div className="col-span-1">
+                            <ProjectCard project={projects[4]} />
+                        </div>
+                        <div className="col-span-1">
+                            <ProjectCard project={projects[5]} />
+                        </div>
+
+                        <div className="col-span-1"></div>
+
+                        <div className="col-span-1">
+                            <ProjectCard project={projects[6]} />
+                        </div>
+
+                        <div className="col-span-1">
+                            <ProjectCard project={projects[7]} />
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     )
 }
+
+const ProjectCard = ({ project }) => {
+    return (
+        <Link to={project.slug} className="group overflow-hidden h-full flex flex-col">
+            {/* Image container */}
+            <div className="relative aspect-square overflow-hidden">
+                <img
+                    src={project.card.thumbnail}
+                    alt={project.card.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+            </div>
+            {/* Content below image */}
+            <div className="pt-4 flex-1 flex flex-col justify-between">
+                <div className='text-white'>
+                    <h2 className="text-xl font-bold text-white mb-2">{project.card.title}</h2>
+                    <p className="text-[1.05rem] text-[#fff9] font-medium">
+                        <span className='text-[#fff9] relative top-[-2px]'>//</span> {project.card.subTitle}
+                    </p>
+                </div>
+            </div>
+        </Link>
+    )
+}
+
+
