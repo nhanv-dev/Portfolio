@@ -17,14 +17,14 @@ const slideDownVariants = {
 
 const tags = ['Web Development', 'UI/UX', 'Responsive Design', 'Database Design', 'Problem Solving'];
 
-const favoriteStack = [
-    { title: 'Javascript', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
-    { title: '.NET', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
-    { title: 'Java', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
-    { title: 'SQL Server', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
-    { title: 'React', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
-    { title: 'Angular', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
-];
+// const favoriteStack = [
+//     { title: 'Javascript', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
+//     { title: '.NET', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
+//     { title: 'Java', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
+//     { title: 'SQL Server', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
+//     { title: 'React', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
+//     { title: 'Angular', subTitle: 'Frontend Development', percent: 95, description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla facere, doloribus accusamus mollitia expedita, officiis unde dolores ab nostrum harum saepe sint quod amet asperiores quasi qui, vel ad aliquam.' },
+// ];
 
 export default function AboutPage() {
 
