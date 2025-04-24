@@ -1,18 +1,16 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { useLenis } from "../LenisProvider";
 import './style.css';
-import { useLoading } from "../LoadingProvider";
 
-const listRouting = ["/home", "/about", "/projects", "/contact"];
+// const listRouting = ["/home", "/about", "/projects", "/contact"];
 
 export default function Header() {
     const lenis = useLenis();
-    const [isVisible, setIsVisible] = useState(true);
+    // const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const location = useLocation();
-    const { setIsLoaded } = useLoading();
+    // const location = useLocation();
+    // const { setIsLoaded } = useLoading();
 
     useEffect(() => {
         if (!lenis) return;
@@ -21,11 +19,11 @@ export default function Header() {
             // Determine scroll direction and update header visibility
             if (scroll > lastScrollY) {
                 // Scrolling down
-                setIsVisible(false);
+                // setIsVisible(false);
                 setIsMenuOpen(true);
             } else {
                 // Scrolling up
-                setIsVisible(true);
+                // setIsVisible(true);
                 setIsMenuOpen(false);
             }
             setLastScrollY(scroll);
@@ -50,7 +48,7 @@ export default function Header() {
                     <span className={`w-full h-0.5 bg-white transition-all ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
                 </div>
             </button>
-  
+
         </>
     );
 }
