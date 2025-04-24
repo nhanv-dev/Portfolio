@@ -26,15 +26,15 @@ module.exports = {
         },
         extend: {
             colors: {
-                lightBg: '#F3F3F3',
-                lightBg2: '#E9E9E9',
-                darkBg: '#000',
+                lightBg: '#FFFFFF',
+                lightBg2: '#F3F3F3',
+                darkBg: '#000000',
+                darkBg2: '#111111',
+                lightText: '#10172B',
+                darkText: '#F3F3F3',
                 primary: '#14bfb5',
-                secondary: '#e76f51',
-                borderLight: '#ffffff14',
-                borderDark: '#ffffff14',
-                lightText: '#000',
-                darkText: '#fff',
+                greenPrimary: '#00af78',
+                secondary: '#e76f51', 
             },
             textShadow: {
                 sm: '1px 1px 2px rgba(0, 0, 0, 0.5)',

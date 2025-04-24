@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 export default function Footer() {
     return (
         <footer>
-            <div className='py-10 bg-darkBg border-t border-gray-900'>
+            <div className='py-10 bg-darkBg border-t border-gray-900 relative'>
                 <div className="container">
-                    <div className="flex flex-wrap items-start">
+                    <div className="flex flex-wrap items-start justify-between">
                         <div className="flex-1">
                             <h2 className="mb-8 leading-[28px] text-[1.4rem] tracking-wider uppercase font-extrabold">
                                 Port<span className="text-primary">folio.</span>
@@ -30,37 +30,24 @@ export default function Footer() {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex-1">
-                            <h3 className="relative mb-8 leading-5 text-[1rem] tracking-[2px] uppercase font-bold pb-2 after:bottom-0 after:left-0 after:absolute after:h-[2px] after:w-[20px] after:bg-white ">
-                                Contact
-                            </h3>
-                            <ul>
-                                <li className="mb-3 text-darkText font-semibold text-[.8rem]  tracking-[2px]">
-                                    Email: tthanhnhan1512@gmail.com
-                                </li>
-                                <li className="mb-3 text-darkText font-semibold text-[.8rem] tracking-[2px]">
-                                    <a href="https://www.facebook.com/nhan.kden/" target="_blank" rel="noreferrer">Facebook: nhan.kden</a>
-                                </li>
-                                <li className="mb-3 text-darkText font-semibold text-[.8rem] tracking-[2px]">
-                                    <a href="https://github.com/nhanv-dev" target="_blank" rel="noreferrer">Github: nhanv-dev</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="flex-1">
-                            <h3 className="relative mb-8 leading-5 text-[1rem] tracking-[2px] uppercase font-bold pb-2 after:bottom-0 after:left-0 after:absolute after:h-[2px] after:w-[20px] after:bg-white ">
-                                Navigation Links
-                            </h3>
-                            <ul>
-                                <li className="mb-3 text-darkText font-semibold text-[.8rem] uppercase  tracking-[2px]">
-                                    <Link to={"/about"}>About me</Link>
-                                </li>
-                                <li className="mb-3 text-darkText font-semibold text-[.8rem] uppercase  tracking-[2px]">
-                                    <Link to={"/projects"}>Projects</Link>
-                                </li>
-                                <li className="mb-3 text-darkText font-semibold text-[.8rem] uppercase  tracking-[2px]">
-                                    <Link to={"/contact"}>Contact</Link>
-                                </li>
-                            </ul>
+                        <div className="flex flex-wrap items-start justify-end gap-4">
+
+                            <div className="flex-1">
+                                <h3 className="relative mb-8 leading-5 text-[1rem] tracking-[2px] uppercase font-bold pb-2 after:bottom-0 after:left-0 after:absolute after:h-[2px] after:w-[20px] after:bg-white ">
+                                    Navigation Links
+                                </h3>
+                                <ul>
+                                    <li className="mb-3 text-darkText font-semibold text-[.8rem] uppercase  tracking-[2px]">
+                                        <Link to={"/about"}>About me</Link>
+                                    </li>
+                                    <li className="mb-3 text-darkText font-semibold text-[.8rem] uppercase  tracking-[2px]">
+                                        <Link to={"/projects"}>Projects</Link>
+                                    </li>
+                                    <li className="mb-3 text-darkText font-semibold text-[.8rem] uppercase  tracking-[2px]">
+                                        <Link to={"/contact"}>Contact</Link>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 

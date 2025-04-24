@@ -20,7 +20,7 @@ const ProjectLayout = ({ tag, children, index }) => {
 
 
 	return (
-		<div className="bg-darkBg text-darkText min-h-screen py-10">
+		<div className="bg-darkBg min-h-screen py-10">
 			<div className="container">
 				<div className="mb-4 flex items-center justify-between gap-6">
 					<Link to={"/projects"} className="text-gray-400 text-[0.95rem] font-bold flex items-center gap-2" onClick={() => { setIsLoaded(true); }} >
@@ -48,7 +48,7 @@ const ProjectLayout = ({ tag, children, index }) => {
 					<h1 className="text-4xl font-bold">{project.card.title} - {project.card.subTitle}</h1>
 					<div className="flex items-center justify-end gap-3">
 						{project.github &&
-							<a href={project.github} target="_blank" rel="noopener noreferrer" className="bg-lightBg text-lightText px-4 pr-3 py-1 rounded-full flex items-center justify-center gap-2 font-semibold">
+							<a href={project.github} target="_blank" rel="noopener noreferrer" className="bg-lightBg text-darkText px-4 pr-3 py-1 rounded-full flex items-center justify-center gap-2 font-semibold">
 								<span className="text-sm">
 									Github
 								</span>
@@ -56,7 +56,7 @@ const ProjectLayout = ({ tag, children, index }) => {
 							</a>
 						}
 						{project.website &&
-							<a href={project.website} target="_blank" rel="noopener noreferrer" className="bg-lightBg text-lightText px-4 pr-3 py-1 rounded-full flex items-center justify-center gap-2 font-semibold">
+							<a href={project.website} target="_blank" rel="noopener noreferrer" className="bg-lightBg text-darkText px-4 pr-3 py-1 rounded-full flex items-center justify-center gap-2 font-semibold">
 								<span className="text-sm">
 									Live Site
 								</span>

@@ -45,8 +45,8 @@ function ContactBanner() {
     const memoizedScrollAnimation = useMemo(() => SCROLL_ANIMATION, []);
 
     return (
-        <section id="contact" className='py-[120px] border-t border-gray-900 bg-darkBg'>
-            <div className='container'>
+        <section id="contact" className='py-[120px] border-t border-gray-900 bg-darkBg relative'>
+            <div className='container relative z-10'>
                 <div className="flex items-end justify-between gap-14">
                     <TitleSection
                         title={"Ready to"}
@@ -58,7 +58,7 @@ function ContactBanner() {
                         <Link
                             to={'/contact'}
                             onClick={handleClick}
-                            className='relative p-2 hover:bg-white hover:text-black transition-all duration-700 font-unbounded w-[120px] h-[120px] bg-white text-black flex items-end justify-center'>
+                            className='relative p-2 font-unbounded w-[120px] h-[120px] bg-lightBg text-lightText flex items-end justify-center'>
                             <span className="text-[15px] font-bold">
                                 Let's Talk
                             </span>

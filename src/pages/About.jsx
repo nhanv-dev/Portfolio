@@ -116,7 +116,7 @@ const ExploreAboutComponent = () => {
     const { setIsLoaded } = useLoading();
 
     return (
-        <section className="py-[120px] bg-darkBg text-white">
+        <section className="py-[120px] bg-darkBg text-darkText">
             <div className='container'>
                 <div className="relative">
                     <TitleSection
@@ -132,7 +132,7 @@ const ExploreAboutComponent = () => {
                                 <GoDotFill />
                                 <p className='relative'>
                                     About me
-                                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white"></span>
+                                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-lightBg"></span>
                                 </p>
                             </Link>
                             <motion.div

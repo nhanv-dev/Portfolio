@@ -51,7 +51,7 @@ export default function HomeSlider() {
                         onHover="speedUp"
                         spinDuration={20}
                         className="w-[140px] h-[140px]"
-                        innerClassName="text-white"
+                        innerClassName="text-ligbg-lightBg"
                     />
                     <div
                         onMouseEnter={() => circularTextRef.current?.handleHoverStart()}
@@ -63,10 +63,10 @@ export default function HomeSlider() {
 
                 <div className="z-[30] absolute left-10 bottom-[50px] translate-y-[50%] gap-10 hidden md:flex items-center justify-start">
                     <div className="h-[35px] flex items-center justify-center ">
-                        <p className="h-[35px] flex items-center justify-center w-[35px] border-2 border-white/90 border-r-white/40">
+                        <p className="h-[35px] flex items-center justify-center w-[35px] border-2 border-ligbg-lightBg/90 border-r-ligbg-lightBg/40">
                             <FaLocationDot />
                         </p>
-                        <p className="h-[35px] text-[0.95rem] flex items-center justify-center font-bold px-2 relative border-2 border-l-0 border-white/90">Ho Chi Minh City, Vietnam</p>
+                        <p className="h-[35px] text-[0.95rem] flex items-center justify-center font-bold px-2 relative border-2 border-l-0 border-ligbg-lightBg/90">Ho Chi Minh City, Vietnam</p>
                     </div>
                     <Clock />
                 </div>
@@ -87,7 +87,7 @@ export default function HomeSlider() {
                     ))}
                 </motion.div>
 
-                <div className="h-[3px] absolute left-0 right-[500px] bottom-[100px] translate-y-[50%] z-20 bg-white"></div>
+                <div className="h-[3px] absolute left-0 right-[500px] bottom-[100px] translate-y-[50%] z-20 bg-lightBg"></div>
 
                 {memoizedSlides.map((slide, index) => (
                     <Slide
@@ -151,7 +151,7 @@ const Slide = ({ isActive, title, subtitle }) => {
                     initial={{ opacity: 0, y: 0, x: -100 }} // Bắt đầu mờ và dịch xuống
                     animate={isActive ? { opacity: 1, y: 0, x: 0 } : { opacity: 0, y: 0, x: -100 }} // Khi active thì hiện lên
                     transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }} // Hiệu ứng mềm mại, chậm về cuối
-                    className="font-[600] text-[.8rem] md:text-[1rem] tracking-[2px] capitalize text-white flex items-center font-bold"
+                    className="text-[.8rem] md:text-[1rem] tracking-[2px] capitalize text-ligbg-lightBg flex items-center font-bold"
                 >
                     <span className="inline-block mt-1 mr-5 w-[40px] h-[2px] bg-[rgba(255,255,255,1)]"></span>
                     {subtitle}
@@ -163,7 +163,7 @@ const Slide = ({ isActive, title, subtitle }) => {
                     delay={500}
                     animateBy="words"
                     direction="top"
-                    className="text-white text-[80px] font-extrabold uppercase font-unbounded"
+                    className="text-ligbg-lightBg text-[80px] font-extrabold uppercase font-unbounded"
                 />
             )}
         </div>
@@ -177,20 +177,23 @@ const SlideImage = ({ image, active, index, animation }) => {
     };
 
     return (
-        <motion.div
-            className="absolute w-full h-full bg-cover bg-center"
-            style={{ backgroundImage: `url(${image})` }}
-            initial={animation.initial}
-            animate={isActive ? animation.animate : animation.exit}
-            transition={animation.transition}
-        >
-            <div className="z-[1] absolute bg-[rgba(0,0,0,0.1)] left-0 top-0 right-0 bottom-0"></div>
-            <div className="z-[2] absolute font-bold right-[60px] bottom-[170px] text-[10vw] text-[rgba(255,255,255,0.1)]"
-                style={textStyle}
+        <div className="absolute w-full h-full flex justify-end ">
+            <div className="flex-1 h=full bg-darkBg"></div>
+            <motion.div
+                className="relative w-[75%] h-full bg-cover bg-center"
+                style={{ backgroundImage: `url(${image})` }}
+                initial={animation.initial}
+                animate={isActive ? animation.animate : animation.exit}
+                transition={animation.transition}
             >
-                {String(index + 1).padStart(2, "0")}
-            </div>
-        </motion.div>
+                <div className="z-[1] absolute bg-[rgba(0,0,0,0.1)] left-0 top-0 right-0 bottom-0"></div>
+                <div className="z-[2] absolute font-bold right-[60px] bottom-[170px] text-[10vw] text-[rgba(255,255,255,0.1)]"
+                    style={textStyle}
+                >
+                    {String(index + 1).padStart(2, "0")}
+                </div>
+            </motion.div>
+        </div>
     );
 };
 
@@ -211,7 +214,7 @@ const ImageNavigation = ({ activeSlide = 0, setActiveSlide }) => {
         <div className="md:flex hidden w-[500px] h-[200px] absolute right-0 bottom-0 z-20">
             {/* Prev Button */}
             <div
-                className={`relative h-full transition-all duration-[800ms] cursor-pointer bg-white ${active === "prev" ? "w-[300px]" : "w-[200px]"}`}
+                className={`relative h-full transition-all duration-[800ms] cursor-pointer bg-lightBg ${active === "prev" ? "w-[300px]" : "w-[200px]"}`}
                 onClick={handlePrev}
                 onMouseEnter={() => setActive("prev")}
                 style={{
@@ -220,8 +223,8 @@ const ImageNavigation = ({ activeSlide = 0, setActiveSlide }) => {
                     backgroundPosition: "center",
                 }}
             >
-                <div className={`z-[1] absolute left-0 top-0 w-full h-full transition-all duration-[600ms] bg-white ${active === "prev" ? "opacity-0" : "opacity-100"}`}></div>
-                <div className={`z-[2] absolute inset-0 flex flex-col items-center justify-center ${active === "prev" ? "bg-black/20 text-white" : "bg-transparent text-gray-800"}`}>
+                <div className={`z-[1] absolute left-0 top-0 w-full h-full transition-all duration-[600ms] bg-lightBg ${active === "prev" ? "opacity-0" : "opacity-100"}`}></div>
+                <div className={`z-[2] absolute inset-0 flex flex-col items-center justify-center ${active === "prev" ? "bg-black/20 text-ligbg-lightBg" : "bg-transparent text-gray-800"}`}>
                     <p className={`absolute top-[80px] left-[50%] translate-x-[-50%] font-bold uppercase transition-all duration-[800ms] ${active === 'prev'
                         ? "text-[6.25rem]"
                         : "text-[1.2rem]"
@@ -235,7 +238,7 @@ const ImageNavigation = ({ activeSlide = 0, setActiveSlide }) => {
 
             {/* Next Button */}
             <div
-                className={`relative h-full transition-all duration-[800ms] cursor-pointer bg-white ${active === "next" ? "w-[300px]" : "w-[200px]"}`}
+                className={`relative h-full transition-all duration-[800ms] cursor-pointer bg-lightBg ${active === "next" ? "w-[300px]" : "w-[200px]"}`}
                 onClick={handleNext}
                 onMouseEnter={() => setActive("next")}
                 style={{
@@ -244,8 +247,8 @@ const ImageNavigation = ({ activeSlide = 0, setActiveSlide }) => {
                     backgroundPosition: "center",
                 }}
             >
-                <div className={`z-[1] absolute left-0 top-0 w-full h-full transition-all duration-[600ms] bg-white ${active === "next" ? "opacity-0" : "opacity-100"}`}></div>
-                <div className={`z-[2] absolute inset-0 flex flex-col items-center justify-center ${active === "next" ? "bg-black/20 text-white" : "bg-transparent text-gray-800"}`}>
+                <div className={`z-[1] absolute left-0 top-0 w-full h-full transition-all duration-[600ms] bg-lightBg ${active === "next" ? "opacity-0" : "opacity-100"}`}></div>
+                <div className={`z-[2] absolute inset-0 flex flex-col items-center justify-center ${active === "next" ? "bg-black/20 text-ligbg-lightBg" : "bg-transparent text-gray-800"}`}>
                     <p className={`absolute top-[80px] left-[50%] translate-x-[-50%] font-bold uppercase transition-all duration-[800ms] ${active === 'next'
                         ? "text-[6.25rem]"
                         : "text-[1.2rem]"

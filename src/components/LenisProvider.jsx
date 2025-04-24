@@ -12,13 +12,9 @@ export const LenisProvider = ({ children }) => {
         if (!!lenis) return;
 
         const instance = new Lenis({
-            smoothWheel: true,
             lerp: 0.045,             // tăng nhẹ để phản hồi nhanh hơn chút
             duration: 1.5,           // giảm xuống, scrollTo đỡ bị kéo dài quá
-            mouseMultiplier: 0.85,   // giảm lực cuộn tay để hạn chế “văng xa”
-            normalizeWheel: true,
-            smoothTouch: true,
-            direction: 'vertical',
+            mouseMultiplier: 0.85,   // giảm lực cuộn tay để hạn chế “văng xa” 
         });
 
         setLenis(instance)

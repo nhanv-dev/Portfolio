@@ -25,7 +25,7 @@ export default function ProjectDetailPage() {
                 <div className="mt-20 flex items-center justify-center">
                     <button
                         type="button"
-                        className="bg-white py-2 px-6 rounded-full text-black text-[0.95rem] font-bold flex items-center gap-2"
+                        className="bg-lightBg py-2 px-6 rounded-full text-black text-[0.95rem] font-bold flex items-center gap-2"
                         onClick={() => { setIsLoaded(true); navigate(-1) }}
                     >
                         <IoArrowBackOutline size={"1.1rem"} />
