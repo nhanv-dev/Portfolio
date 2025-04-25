@@ -60,7 +60,7 @@ export default function AboutPage() {
 const HeroComponent = () => {
 
     return (
-        <div className="relative h-screen flex flex-col" >
+        <div className="relative h-[calc(100vh-72px)] flex flex-col" >
             <div className="mt-[60px] container flex-1 relative">
                 <div
                     className="w-full h-full bg-center bg-cover"

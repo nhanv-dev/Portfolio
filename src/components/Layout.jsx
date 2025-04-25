@@ -27,10 +27,7 @@ const Layout = () => {
             <LoadingProvider>
                 <div className="h-full w-full relative text-darkText overflow-hidden">
                     <Header />
-                    <div className="ml-[60px]">
-
-                        <Outlet />
-                    </div>
+                    <Outlet />
                     <Footer />
                 </div>
                 <ScrollTop />

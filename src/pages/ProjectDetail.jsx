@@ -37,7 +37,7 @@ export default function ProjectDetailPage() {
     }
 
     return (
-        <div className="pt-20">
+        <div>
             <motion.div
                 initial={{ opacity: 0, filter: 'blur(20px)' }}
                 animate={{ opacity: 1, filter: 'blur(0px)' }}
@@ -47,7 +47,6 @@ export default function ProjectDetailPage() {
             </motion.div>
 
             <ContactBanner />
-
         </div>
     )
 }

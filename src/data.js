@@ -10,16 +10,11 @@ import SpotifyProject from './components/Projects/SpotifyProject';
 import TodoProject from './components/Projects/TodoProject';
 
 export const links = {
-    facebook: 'https://www.facebook.com/your-profile',
-    gmail: 'mailto:your.email@gmail.com',
-    linkedin: 'https://www.linkedin.com/in/your-profile',
-    github: 'https://github.com/your-username',
-    twitter: 'https://twitter.com/your-handle',
-    instagram: 'https://www.instagram.com/your-profile',
-    youtube: 'https://www.youtube.com/@your-channel',
-    medium: 'https://medium.com/@your-username',
-    dev: 'https://dev.to/your-username',
-    stackoverflow: 'https://stackoverflow.com/users/your-user-id'
+    facebook: 'facebook.com/nhan.kden',
+    gmail: 'tthanhnhan1512@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/thanh-nh%C3%A2n-a6195a290/',
+    github: 'github.com/nhanv-dev',
+    phone: '+84 946 286 951'
 }
 
 export const slides = [

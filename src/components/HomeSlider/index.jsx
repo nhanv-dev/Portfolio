@@ -38,7 +38,7 @@ export default function HomeSlider() {
     }, [activeSlide, totalSlide]);
 
     return (
-        <section className="h-screen w-full relative">
+        <section className="h-[calc(100vh-72px)] w-full relative">
             <div id="slider" className="h-full w-full flex relative overflow-hidden">
 
                 <div className="z-[30] absolute left-[60%] bottom-0 gap-10 hidden md:flex items-center justify-start ml-5 mb-5">

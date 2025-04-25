@@ -75,7 +75,7 @@ function HeroSlider() {
         setActiveIndex(activeIndex - 1 < 0 ? memoizedProjects.length - 1 : activeIndex - 1);
     }, [activeIndex, memoizedProjects.length]);
 
-    const progressPercent = useMemo(() => 
+    const progressPercent = useMemo(() =>
         ((activeIndex + 1) / (memoizedProjects.length)) * 100,
         [activeIndex, memoizedProjects.length]
     );
@@ -89,7 +89,7 @@ function HeroSlider() {
     }, [activeIndex, nextSlide]);
 
     return (
-        <section className="relative w-full h-[100vh] overflow-hidden text-white flex">
+        <section className="relative w-full h-[calc(100vh-72px)] overflow-hidden text-white flex">
             <div className="relative h-full lg:w-[75vw] overflow-hidden">
                 {memoizedProjects.map((project, index) => (
                     <motion.div
@@ -256,7 +256,7 @@ function HeroSlider() {
 
 function Projects() {
     const memoizedProjects = useMemo(() => projects, []);
-    
+
     return (
         <section className="py-[120px] container border-t border-gray-900">
             <TitleSection
