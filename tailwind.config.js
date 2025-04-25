@@ -32,7 +32,7 @@ module.exports = {
                 darkBg2: '#111111',
                 lightText: '#10172B',
                 darkText: '#F3F3F3',
-                primary: '#14bfb5',
+                primary: '#14bfb5', 
                 greenPrimary: '#00af78',
                 secondary: '#e76f51', 
             },

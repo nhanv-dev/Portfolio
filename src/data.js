@@ -9,10 +9,23 @@ import SnakeGameProject from './components/Projects/SnakeGameProject';
 import SpotifyProject from './components/Projects/SpotifyProject';
 import TodoProject from './components/Projects/TodoProject';
 
+export const links = {
+    facebook: 'https://www.facebook.com/your-profile',
+    gmail: 'mailto:your.email@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/your-profile',
+    github: 'https://github.com/your-username',
+    twitter: 'https://twitter.com/your-handle',
+    instagram: 'https://www.instagram.com/your-profile',
+    youtube: 'https://www.youtube.com/@your-channel',
+    medium: 'https://medium.com/@your-username',
+    dev: 'https://dev.to/your-username',
+    stackoverflow: 'https://stackoverflow.com/users/your-user-id'
+}
+
 export const slides = [
-    { title: 'Code Voyager Here', subtitle: 'Welcome to My Developer Journey', src: '/images/slide-1.avif' },
-    { title: 'Code Creations', subtitle: 'Where Ideas Come to Life', src: '/images/slide-2.avif' },
-    { title: 'Let’s Connect!', subtitle: 'Ready to Collaborate?', src: '/images/slide-3.avif' },
+    { title: 'Code Voyager', subtitle: 'Welcome to My Developer Journey', image: '/images/slide-1.avif', thumbnail: 'https://i.pinimg.com/736x/29/6a/14/296a146a26b1fc95d51f87bc4b3c5719.jpg ' },
+    { title: 'Code Creations', subtitle: 'Where Ideas Come to Life', image: '/images/slide-2.avif', thumbnail: 'https://i.pinimg.com/736x/29/6a/14/296a146a26b1fc95d51f87bc4b3c5719.jpg ' },
+    { title: 'Let’s Connect!', subtitle: 'Ready to Collaborate ?', image: '/images/slide-3.avif', thumbnail: 'https://i.pinimg.com/736x/29/6a/14/296a146a26b1fc95d51f87bc4b3c5719.jpg ' },
 ]
 
 export const projects = [

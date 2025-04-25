@@ -1,11 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef, useState, useMemo, useCallback } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { FaLocationDot } from "react-icons/fa6";
-import { RiArrowRightUpLine } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { MdOutlineNavigateBefore, MdOutlineNavigateNext } from "react-icons/md";
 import { slides } from "../../data";
-import CircularText from "../CircularText";
-import './style.css';
 import BlurTextEffect from "../TypeEffect/BlurTextEffect";
 
 // Animation configurations
@@ -22,7 +19,6 @@ export default function HomeSlider() {
     const [activeSlide, setActiveSlide] = useState(0);
     const { scrollY } = useScroll();
     const scale = useTransform(scrollY, [0, 500], [1, 1.2]);
-    const circularTextRef = useRef();
 
     const memoizedSlides = useMemo(() => slides, []);
     const memoizedImageAnimation = useMemo(() => IMAGE_ANIMATION, []);
@@ -44,24 +40,8 @@ export default function HomeSlider() {
     return (
         <section className="h-screen w-full relative">
             <div id="slider" className="h-full w-full flex relative overflow-hidden">
-                <Link to={'/contact'} tabIndex={-1} className="z-[30] absolute right-[600px] bottom-[100px] translate-y-[50%] p-1 bg-black rounded-full">
-                    <CircularText
-                        ref={circularTextRef}
-                        text="LETS TALK . LETS TALK . LETS TALK . "
-                        onHover="speedUp"
-                        spinDuration={20}
-                        className="w-[140px] h-[140px]"
-                        innerClassName="text-ligbg-lightBg"
-                    />
-                    <div
-                        onMouseEnter={() => circularTextRef.current?.handleHoverStart()}
-                        onMouseLeave={() => circularTextRef.current?.handleHoverEnd()}
-                        className="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[72px] h-[72px] bg-[#111111] border-2 border-[#2b2a2a] rounded-full flex items-center justify-center">
-                        <RiArrowRightUpLine className="text-gray-300" size={30} />
-                    </div>
-                </Link>
 
-                <div className="z-[30] absolute left-10 bottom-[50px] translate-y-[50%] gap-10 hidden md:flex items-center justify-start">
+                <div className="z-[30] absolute left-[60%] bottom-0 gap-10 hidden md:flex items-center justify-start ml-5 mb-5">
                     <div className="h-[35px] flex items-center justify-center ">
                         <p className="h-[35px] flex items-center justify-center w-[35px] border-2 border-ligbg-lightBg/90 border-r-ligbg-lightBg/40">
                             <FaLocationDot />
@@ -71,30 +51,46 @@ export default function HomeSlider() {
                     <Clock />
                 </div>
 
-                <motion.div
-                    id="slideImage"
-                    className="w-full h-full relative overflow-hidden z-[1]"
-                    style={{ scale }}
-                >
-                    {memoizedSlides.map((slide, index) => (
-                        <SlideImage
-                            key={index}
-                            index={index}
-                            active={activeSlide}
-                            image={slide.src}
-                            animation={memoizedImageAnimation}
-                        />
-                    ))}
-                </motion.div>
+                <div className="z-[30] absolute left-[60%] top-5 gap-10 flex items-center justify-center ml-5 mb-5">
+                    <div className="relative pl-5">
+                        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-[90%] bg-darkText"></div>
+                        <p className="mb-1 font-bold text-[1rem] text-darkText">
+                            Designed & Coded by Tran Thanh Nhan
+                        </p>
+                        <p className="font-bold text-[1rem] text-darkText">
+                            Personal Portfolio
+                        </p>
+                    </div>
+                </div>
 
-                <div className="h-[3px] absolute left-0 right-[500px] bottom-[100px] translate-y-[50%] z-20 bg-lightBg"></div>
+                <div className="z-[30] absolute right-[40%] bottom-5 gap-10 flex items-center justify-center mr-10">
+                    <div className="flex items-center gap-6 h-[35px]">
+                        <p className="font-bold text-[1.05rem] text-darkText">
+                            Facebook
+                        </p>
+                        <p className="w-[7px] h-[7px] bg-darkText rounded-full"></p>
+                        <p className="font-bold text-[1.05rem] text-darkText">
+                            Github
+                        </p>
+                        <p className="w-[7px] h-[7px] bg-darkText rounded-full"></p>
+                        <p className="font-bold text-[1.05rem] text-darkText">
+                            Linkedin
+                        </p>
+                    </div>
+                </div>
+
+
 
                 {memoizedSlides.map((slide, index) => (
-                    <Slide
+                    <SlideImage
                         key={index}
-                        isActive={activeSlide === index}
-                        subtitle={slide.subtitle}
-                        title={slide.title}
+                        slide={slide}
+                        index={index}
+                        active={activeSlide}
+                        scale={scale}
+                        animation={memoizedImageAnimation}
+                        activeSlide={activeSlide}
+                        setActiveSlide={handleSlideChange}
                     />
                 ))}
 
@@ -106,6 +102,191 @@ export default function HomeSlider() {
         </section>
     );
 }
+
+const SlideImage = ({ active, index, scale, animation, slide, activeSlide, setActiveSlide }) => {
+    const isActive = index === active;
+    const textStyle = {
+        WebkitTextStroke: '3px rgba(255, 255, 255, 0.5)',
+    };
+
+    return (
+        <div className={`absolute w-full h-full flex justify-end ${isActive ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-[-1] pointer-events-none"}`}>
+            <div className="relative w-[60%] min-w-[60%] h-full overflow-hidden">
+                <motion.div
+                    className="relative w-full h-full bg-cover bg-center"
+                    style={{
+                        backgroundImage: `url(${slide.image})`,
+                        scale: isActive ? scale : 1
+                    }}
+                    initial={animation.initial}
+                    animate={isActive ? animation.animate : animation.exit}
+                    transition={animation.transition}
+                >
+                    <div className="z-[1] absolute bg-[rgba(0,0,0,0.2)] left-0 top-0 right-0 bottom-0"></div>
+
+                    <div className="z-[2] absolute font-bold left-10 bottom-[170px] text-[10vw] text-[rgba(255,255,255,0.1)]"
+                        style={textStyle}
+                    >
+                        {String(index + 1).padStart(2, "0")}
+                    </div>
+                </motion.div>
+            </div>
+            <div className={`flex-1 h-full bg-darkBg flex flex-col`}>
+                <div className="relative flex-1 overflow-hidden">
+                    <motion.div
+                        className="relative w-full h-full bg-cover bg-center"
+                        style={{ backgroundImage: `url(${slide.thumbnail})` }}
+                        initial={{ opacity: 0 }}
+                        animate={isActive ? { opacity: 1 } : { opacity: 0 }}
+                        transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                        <div className="z-[1] absolute bg-[rgba(0,0,0,0.2)] left-0 top-0 right-0 bottom-0"></div>
+                    </motion.div>
+
+                    <div className="z-[30] absolute right-5 bottom-5 gap-10 hidden md:flex items-center justify-start">
+                        <div className="flex items-center gap-5">
+                            <button
+                                type="button"
+                                className="text-white flex items-center justify-center cursor-pointer"
+                                onClick={() => {
+                                    const prevIndex = (activeSlide - 1 + slides.length) % slides.length;
+                                    setActiveSlide(prevIndex);
+                                }}
+                            >
+                                <MdOutlineNavigateBefore size={"4rem"} />
+                            </button>
+                            <button
+                                type="button"
+                                className="text-white flex items-center justify-center cursor-pointer"
+                                onClick={() => {
+                                    const nextIndex = (activeSlide + 1) % slides.length;
+                                    setActiveSlide(nextIndex);
+                                }}
+                            >
+                                <MdOutlineNavigateNext size={"4rem"} />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="flex-1 bg-[#60725A] p-5 relative">
+                    <div className="absolute left-5 top-0 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+                        <p
+                            className="text-darkText text-[1.1rem] font-bold tracking-wide flex items-center justify-center"
+                            style={{
+                                writingMode: 'vertical-lr',
+                                textOrientation: 'mixed',
+                                transform: 'rotate(0deg)',
+                            }}
+                        >
+                            Let's Build Together
+                        </p>
+                    </div>
+                    <div className="absolute left-5 top-1/2 -translate-y-1/2 flex flex-col items-center gap-10 bg-white w-[3px] h-[120px]">
+                    </div>
+                    <div className="absolute right-5 top-1/2 translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+                        <p
+                            className="text-darkText text-[1.1rem] font-bold tracking-wide flex items-center justify-center"
+                            style={{
+                                writingMode: 'vertical-lr',
+                                textOrientation: 'mixed',
+                                transform: 'rotate(0deg)',
+                            }}
+                        >
+                            Just a place to share what I build.
+                        </p>
+                    </div>
+                    <div className="ml-20 mt-10">
+                        <p className="text-darkText text-2xl font-extrabold font-unbounded tracking-wider mb-2">
+                            {String(index + 1).padStart(2, "0")}.
+                        </p>
+                        {isActive && (
+                            <BlurTextEffect
+                                text={slide.title}
+                                delay={500}
+                                animateBy="words"
+                                direction="top"
+                                className="text-ligbg-lightBg text-[45px] font-extrabold uppercase tracking-wider font-unbounded"
+                            />
+                        )}
+                        <div className="flex items-center gap-5 mt-6">
+                            <span className="w-[50px] h-[3px] bg-lightBg rounded-full"></span>
+                            <p className="text-darkText text-[1rem] font-extrabold font-unbounded tracking-wider">
+                                {slide.subtitle}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const ImageNavigation = ({ activeSlide = 0, setActiveSlide }) => {
+    const [active, setActive] = useState("next");
+    const nextIndex = (activeSlide + 1) % slides.length;
+    const prevIndex = (activeSlide - 1 + slides.length) % slides.length;
+
+    const handleNext = useCallback(() => {
+        setActiveSlide(nextIndex);
+    }, [nextIndex, setActiveSlide]);
+
+    const handlePrev = useCallback(() => {
+        setActiveSlide(prevIndex);
+    }, [prevIndex, setActiveSlide]);
+
+    return (
+        <div className="md:flex hidden w-[500px] h-[200px] absolute left-10 bottom-0 z-20">
+            {/* Prev Button */}
+            <div
+                className={`relative h-full transition-all duration-[800ms] cursor-pointer bg-lightBg ${active === "prev" ? "w-[300px]" : "w-[200px]"}`}
+                onClick={handlePrev}
+                onMouseEnter={() => setActive("prev")}
+                style={{
+                    backgroundImage: `url(${slides[prevIndex].image})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                }}
+            >
+                <div className={`z-[1] absolute left-0 top-0 w-full h-full transition-all duration-[600ms] bg-lightBg ${active === "prev" ? "opacity-0" : "opacity-100"}`}></div>
+                <div className={`z-[2] absolute inset-0 flex flex-col items-center justify-center ${active === "prev" ? "bg-black/20 text-ligbg-lightBg" : "bg-transparent text-gray-800"}`}>
+                    <p className={`absolute top-[80px] left-[50%] translate-x-[-50%] font-bold font-kanit uppercase transition-all duration-[800ms] ${active === 'prev'
+                        ? "text-[6.25rem]"
+                        : "text-[1.5rem] "
+                        }`}>prev</p>
+                    <p className={`absolute top-[110px] text-[1.25rem] font-bold font-kanit transition-all duration-[800ms] ${active === 'prev'
+                        ? "translate-y-[-35px]"
+                        : ""
+                        }`}>{slides[prevIndex].title}</p>
+                </div>
+            </div>
+
+            {/* Next Button */}
+            <div
+                className={`relative h-full transition-all duration-[800ms] cursor-pointer bg-lightBg ${active === "next" ? "w-[300px]" : "w-[200px]"}`}
+                onClick={handleNext}
+                onMouseEnter={() => setActive("next")}
+                style={{
+                    backgroundImage: `url(${slides[nextIndex].image})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                }}
+            >
+                <div className={`z-[1] absolute left-0 top-0 w-full h-full transition-all duration-[600ms] bg-lightBg ${active === "next" ? "opacity-0" : "opacity-100"}`}></div>
+                <div className={`z-[2] absolute inset-0 flex flex-col items-center justify-center ${active === "next" ? "bg-black/20 text-ligbg-lightBg" : "bg-transparent text-gray-800"}`}>
+                    <p className={`absolute top-[80px] left-[50%] translate-x-[-50%] font-bold font-kanit uppercase transition-all duration-[800ms] ${active === 'next'
+                        ? "text-[6.25rem]"
+                        : "text-[1.5rem]"
+                        }`}>next</p>
+                    <p className={`absolute top-[110px] text-[1.25rem] font-bold font-kanit transition-all duration-[800ms] ${active === 'next'
+                        ? "translate-y-[-35px]"
+                        : ""
+                        }`}>{slides[nextIndex].title}</p>
+                </div>
+            </div>
+        </div>
+    );
+};
 
 const Clock = () => {
     const [time, setTime] = useState(new Date());
@@ -138,127 +319,6 @@ const Clock = () => {
     return (
         <div className="h-[35px] flex items-center justify-center font-bold text-[0.95rem]">
             Local / {`${vietnamTime} (GMT+7)`}
-        </div>
-    );
-};
-
-const Slide = ({ isActive, title, subtitle }) => {
-    return (
-        <div className={`px-10 py-5 absolute left-0 bottom-[100px] transition-opacity delay-100 duration-[300ms] ease-in-out z-20 
-            ${isActive ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-[-1] pointer-events-none"}`} >
-            <div className="w-full h-full flex items-center mb-5">
-                <motion.span
-                    initial={{ opacity: 0, y: 0, x: -100 }} // Bắt đầu mờ và dịch xuống
-                    animate={isActive ? { opacity: 1, y: 0, x: 0 } : { opacity: 0, y: 0, x: -100 }} // Khi active thì hiện lên
-                    transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }} // Hiệu ứng mềm mại, chậm về cuối
-                    className="text-[.8rem] md:text-[1rem] tracking-[2px] capitalize text-ligbg-lightBg flex items-center font-bold"
-                >
-                    <span className="inline-block mt-1 mr-5 w-[40px] h-[2px] bg-[rgba(255,255,255,1)]"></span>
-                    {subtitle}
-                </motion.span>
-            </div>
-            {isActive && (
-                <BlurTextEffect
-                    text={title}
-                    delay={500}
-                    animateBy="words"
-                    direction="top"
-                    className="text-ligbg-lightBg text-[80px] font-extrabold uppercase font-unbounded"
-                />
-            )}
-        </div>
-    );
-};
-
-const SlideImage = ({ image, active, index, animation }) => {
-    const isActive = index === active;
-    const textStyle = {
-        WebkitTextStroke: '3px rgba(255, 255, 255, 0.5)',
-    };
-
-    return (
-        <div className="absolute w-full h-full flex justify-end ">
-            <div className="flex-1 h=full bg-darkBg"></div>
-            <motion.div
-                className="relative w-[75%] h-full bg-cover bg-center"
-                style={{ backgroundImage: `url(${image})` }}
-                initial={animation.initial}
-                animate={isActive ? animation.animate : animation.exit}
-                transition={animation.transition}
-            >
-                <div className="z-[1] absolute bg-[rgba(0,0,0,0.1)] left-0 top-0 right-0 bottom-0"></div>
-                <div className="z-[2] absolute font-bold right-[60px] bottom-[170px] text-[10vw] text-[rgba(255,255,255,0.1)]"
-                    style={textStyle}
-                >
-                    {String(index + 1).padStart(2, "0")}
-                </div>
-            </motion.div>
-        </div>
-    );
-};
-
-const ImageNavigation = ({ activeSlide = 0, setActiveSlide }) => {
-    const [active, setActive] = useState("next");
-    const nextIndex = (activeSlide + 1) % slides.length;
-    const prevIndex = (activeSlide - 1 + slides.length) % slides.length;
-
-    const handleNext = useCallback(() => {
-        setActiveSlide(nextIndex);
-    }, [nextIndex, setActiveSlide]);
-
-    const handlePrev = useCallback(() => {
-        setActiveSlide(prevIndex);
-    }, [prevIndex, setActiveSlide]);
-
-    return (
-        <div className="md:flex hidden w-[500px] h-[200px] absolute right-0 bottom-0 z-20">
-            {/* Prev Button */}
-            <div
-                className={`relative h-full transition-all duration-[800ms] cursor-pointer bg-lightBg ${active === "prev" ? "w-[300px]" : "w-[200px]"}`}
-                onClick={handlePrev}
-                onMouseEnter={() => setActive("prev")}
-                style={{
-                    backgroundImage: `url(${slides[prevIndex].src})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}
-            >
-                <div className={`z-[1] absolute left-0 top-0 w-full h-full transition-all duration-[600ms] bg-lightBg ${active === "prev" ? "opacity-0" : "opacity-100"}`}></div>
-                <div className={`z-[2] absolute inset-0 flex flex-col items-center justify-center ${active === "prev" ? "bg-black/20 text-ligbg-lightBg" : "bg-transparent text-gray-800"}`}>
-                    <p className={`absolute top-[80px] left-[50%] translate-x-[-50%] font-bold uppercase transition-all duration-[800ms] ${active === 'prev'
-                        ? "text-[6.25rem]"
-                        : "text-[1.2rem]"
-                        }`}>prev</p>
-                    <p className={`absolute top-[100px] text-[1.25rem] font-bold transition-all duration-[800ms] ${active === 'prev'
-                        ? "translate-y-[-15px]"
-                        : ""
-                        }`}>{slides[prevIndex].title}</p>
-                </div>
-            </div>
-
-            {/* Next Button */}
-            <div
-                className={`relative h-full transition-all duration-[800ms] cursor-pointer bg-lightBg ${active === "next" ? "w-[300px]" : "w-[200px]"}`}
-                onClick={handleNext}
-                onMouseEnter={() => setActive("next")}
-                style={{
-                    backgroundImage: `url(${slides[nextIndex].src})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}
-            >
-                <div className={`z-[1] absolute left-0 top-0 w-full h-full transition-all duration-[600ms] bg-lightBg ${active === "next" ? "opacity-0" : "opacity-100"}`}></div>
-                <div className={`z-[2] absolute inset-0 flex flex-col items-center justify-center ${active === "next" ? "bg-black/20 text-ligbg-lightBg" : "bg-transparent text-gray-800"}`}>
-                    <p className={`absolute top-[80px] left-[50%] translate-x-[-50%] font-bold uppercase transition-all duration-[800ms] ${active === 'next'
-                        ? "text-[6.25rem]"
-                        : "text-[1.2rem]"
-                        }`}>next</p>
-                    <p className={`absolute top-[100px] text-[1.25rem] font-bold transition-all duration-[800ms] ${active === 'next'
-                        ? "translate-y-[-15px]"
-                        : ""
-                        }`}>{slides[nextIndex].title}</p>
-                </div>
-            </div>
         </div>
     );
 };

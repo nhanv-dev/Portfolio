@@ -110,7 +110,7 @@ const ExploreAboutComponent = () => {
                                     >
                                         <Link
                                             to="/contact"
-                                            onClick={() => setIsLoaded(true)}
+                                            onClick={() => setIsLoaded(false)}
                                             className="inline-flex items-center px-8 py-3 bg-darkBg text-white rounded-full font-bold transition-colors"
                                         >
                                             Get Started
@@ -170,10 +170,10 @@ const ExploreAboutComponent = () => {
                 </div>
             </div>
             <div className="overflow-hidden pb-[120px]">
-                <div className="container flex items-end gap-20 relative">
+                <div className="container flex items-end gap-20 relative z-30">
                     <motion.div
                         className="lg:w-[40%] h-[625px] overflow-hidden"
-                        initial={{ opacity: 0, x: 20 }}
+                        initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, amount: 0.4 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
@@ -238,7 +238,7 @@ const ExploreAboutComponent = () => {
                             >
                                 <Link
                                     to="/about"
-                                    onClick={() => setIsLoaded(true)}
+                                    onClick={() => setIsLoaded(false)}
                                     className="inline-flex items-center text-greenPrimary text-[1.05rem] font-bold tracking-[-0.01rem]"
                                 >
                                     About Me
