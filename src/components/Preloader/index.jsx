@@ -56,7 +56,13 @@ const Preloader = ({ texts, onLoaded }) => {
     if (!isVisible) return null;
 
     return (
-        <div className="fixed inset-0 flex flex-col items-center justify-center z-[999] transition-all duration-500 bg-black text-white">
+        <motion.div
+            initial={{ filter: "blur(10px)" }}
+            animate={{ filter: "blur(0px)" }}
+            exit={{ filter: "blur(10px)" }}
+            transition={{ duration: 0.5 }}
+            className="fixed inset-0 flex flex-col items-center justify-center z-[9999] transition-all duration-500 bg-black text-white"
+        >
             {textIndex < texts.length && (
                 <motion.h1
                     key={textIndex}
@@ -79,7 +85,7 @@ const Preloader = ({ texts, onLoaded }) => {
                 <div className="text-center text-lg font-bold">{Math.round(progress || 0)}%</div>
                 <div className="font-semibold text-md tracking-[0.2rem] text-darkText uppercase w-[200px] text-right">Loading... </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

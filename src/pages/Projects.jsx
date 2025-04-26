@@ -7,6 +7,7 @@ import ContactBanner from "../components/ContactBanner";
 import PageWithPreload from "../components/PageWithPreload";
 import TitleSection from "../components/TitleSection";
 import { projects } from "../data";
+import { blurAnimation } from "../utils/animations";
 
 // Animation configs
 const SLIDE_ANIMATION = {
@@ -44,11 +45,7 @@ const THUMBNAIL_VARIANTS = {
 export default function ProjectsPage() {
     return (
         <PageWithPreload texts={["Ignite Creativity", "Turn Ideas into Reality"]}>
-            <motion.div
-                initial={{ opacity: 0, filter: 'blur(20px)' }}
-                animate={{ opacity: 1, filter: 'blur(0px)' }}
-                transition={{ duration: 1.5, ease: 'easeOut', delay: '0.3' }}
-            >
+            <motion.div {...blurAnimation}>
                 <HeroSlider />
             </motion.div>
 

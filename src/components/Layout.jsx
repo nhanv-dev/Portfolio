@@ -1,11 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import CustomCursor from "./CustomCursor";
 import Footer from "./Footer";
 import Header from "./Header";
 import { LenisProvider } from "./LenisProvider";
-import { LoadingProvider } from "./LoadingProvider";
+import { useLoading } from "./LoadingProvider";
 import ScrollTop from "./ScrollTop";
+import { motion } from "framer-motion";
 
 const titles = {
     "/": "Home - Portfolio",
@@ -17,22 +18,47 @@ const titles = {
 
 const Layout = () => {
     const location = useLocation();
+    const { isLoaded, transition, setTransition } = useLoading();
+    const [showOverlay, setShowOverlay] = useState(false);
 
     useEffect(() => {
         document.title = titles[location.pathname] || "Portfolio";
     }, [location.pathname]);
 
+    useEffect(() => {
+        setShowOverlay(transition);
+    }, [transition]);
+
+    useEffect(() => {
+        if (!isLoaded) setTransition(false);
+    }, [isLoaded, setTransition]);
+
     return (
         <LenisProvider>
-            <LoadingProvider>
-                <div className="h-full w-full relative text-darkText overflow-hidden">
-                    <Header />
-                    <Outlet />
-                    <Footer />
-                </div>
-                <ScrollTop />
-                <CustomCursor />
-            </LoadingProvider>
+            <div className="h-full w-full relative text-darkText overflow-hidden">
+                <Header />
+                {showOverlay && (
+                    <motion.div
+                        initial={{ 
+                            scale: 0,
+                            borderRadius: "0 100% 0 0"
+                        }}
+                        animate={{ 
+                            scale: 1.5,
+                            borderRadius: "0 100% 0 0"
+                        }}
+                        transition={{
+                            duration: 1.5,
+                            ease: [0.16, 1, 0.3, 1]
+                        }}
+                        className="fixed left-0 bottom-0 w-full h-full bg-black z-[9998] origin-bottom-left"
+                    />
+                )}
+                <Outlet />
+                <Footer />
+            </div>
+            <ScrollTop />
+            <CustomCursor />
         </LenisProvider>
     );
 };

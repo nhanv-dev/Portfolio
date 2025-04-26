@@ -4,13 +4,14 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 import { GoArrowDownLeft, GoArrowUpRight } from "react-icons/go";
 import { LiaLaptopCodeSolid } from "react-icons/lia";
 import { LuGithub } from "react-icons/lu";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ContactBanner from "../components/ContactBanner";
 import HomeSlider from '../components/HomeSlider';
 import DevInfiniteScroll from '../components/InfiniteScroll/DevInfiniteScroll';
-import PageWithPreload from "../components/PageWithPreload";
-import { projects } from '../data';
 import { useLoading } from '../components/LoadingProvider';
+import PageWithPreload from "../components/PageWithPreload";
+import { personalInfo, projects } from '../data';
+import { blurAnimation, opacityWheelAnimation, slideLeftWheelAnimation, slideUpWheelAnimation } from '../utils/animations';
 
 const list = [
     { name: "Fullstack Developer" },
@@ -22,11 +23,7 @@ export default function HomePage() {
 
     return (
         <PageWithPreload texts={["Welcome", "Let's Explore"]}>
-            <motion.div
-                initial={{ opacity: 0, filter: 'blur(20px)' }}
-                animate={{ opacity: 1, filter: 'blur(0px)' }}
-                transition={{ duration: 1.5, ease: 'easeOut', delay: '0.3' }}
-            >
+            <motion.div {...blurAnimation}>
                 <HomeSlider />
             </motion.div>
 
@@ -45,7 +42,9 @@ export default function HomePage() {
 }
 
 const ExploreAboutComponent = () => {
-    const { setIsLoaded } = useLoading();
+    const { handleNavigationWithAnimation } = useLoading();
+    const navigate = useNavigate();
+
     return (
         <section className="bg-lightBg text-lightText">
             {/* Main Content */}
@@ -53,13 +52,13 @@ const ExploreAboutComponent = () => {
                 <div className="container-wide relative">
                     <div className="flex flex-col items-center gap-6 z-10 min-w-max absolute top-0 left-0">
                         <div className="w-[44px] h-[235px] bg-gradient-to-b from-transparent to-[#F3F3F3] rounded-b-[40px]"></div>
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-[44px] h-[44px] text-[17px] text-black border-2 border-[#DFE0DF] rounded-[22px] transition-all duration-400">
+                        <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-[44px] h-[44px] text-[17px] text-black border-2 border-[#DFE0DF] rounded-[22px] transition-all duration-400">
                             <FaFacebookF size={17} />
                         </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-[44px] h-[44px] text-[17px] text-black border-2 border-[#DFE0DF] rounded-[22px] transition-all duration-400">
+                        <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-[44px] h-[44px] text-[17px] text-black border-2 border-[#DFE0DF] rounded-[22px] transition-all duration-400">
                             <LuGithub size={17} />
                         </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-[44px] h-[44px] text-[17px] text-black border-2 border-[#DFE0DF] rounded-[22px] transition-all duration-400">
+                        <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-[44px] h-[44px] text-[17px] text-black border-2 border-[#DFE0DF] rounded-[22px] transition-all duration-400">
                             <FaLinkedin size={17} />
                         </a>
                         <div className="w-[44px] h-[235px] bg-gradient-to-b from-[#F3F3F3] to-transparent rounded-t-[40px]"></div>
@@ -78,10 +77,7 @@ const ExploreAboutComponent = () => {
                     <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0">
                         <div className="container">
                             <motion.h1
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.4 }}
-                                transition={{ duration: 0.8 }}
+                                {...slideUpWheelAnimation}
                                 className="text-[3.5rem] font-extrabold leading-tight"
                             >
                                 Transforming Ideas Into
@@ -101,32 +97,22 @@ const ExploreAboutComponent = () => {
                                         I turn ideas into scalable web applications using modern fullstack technologies.
                                         With a strong focus on clean architecture and real-world impact, I build reliable, production-ready solutions tailored to business needs.
                                     </p>
-                                    <motion.div
-                                        initial={{ opacity: 0 }}
-                                        whileInView={{ opacity: 1 }}
-                                        viewport={{ once: true, amount: 0.4 }}
-                                        transition={{ delay: 0.5 }}
-                                        className='mt-10'
-                                    >
-                                        <Link
-                                            to="/contact"
-                                            onClick={() => setIsLoaded(false)}
+                                    <motion.div {...slideUpWheelAnimation} className='mt-10'>
+                                        <button
+                                            onClick={() => handleNavigationWithAnimation('/contact', navigate)}
                                             className="inline-flex items-center px-8 py-3 bg-darkBg text-white rounded-full font-bold transition-colors"
                                         >
                                             Get Started
                                             <FaArrowRightLong className='ml-3 relative top-[1px]' size={18} />
-                                        </Link>
+                                        </button>
                                     </motion.div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <motion.div
+                        {...slideLeftWheelAnimation}
                         className="lg:w-[40%] relative z-20 h-[780px]"
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, amount: 0.4 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
                     >
                         <img
                             src="https://i.pinimg.com/736x/3f/ac/a7/3faca77b9d10bae4a7cb3d15720ce0d3.jpg"
@@ -189,9 +175,7 @@ const ExploreAboutComponent = () => {
                         <div className="w-full absolute right-0 bottom-0 0">
                             <motion.div
                                 className="flex items-end justify-between gap-20 mb-10"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.4 }}
+                                {...opacityWheelAnimation}
                                 transition={{ duration: 0.8, delay: 0.4 }}
                             >
                                 <div className="flex-1 ">
@@ -230,22 +214,18 @@ const ExploreAboutComponent = () => {
                                 </div>
                             </motion.div>
                             <motion.div
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                viewport={{ once: true, amount: 0.4 }}
-                                transition={{ delay: 0.5 }}
+                                {...slideLeftWheelAnimation}
                                 className='mt-10'
                             >
-                                <Link
-                                    to="/about"
-                                    onClick={() => setIsLoaded(false)}
+                                <button
+                                    onClick={() => handleNavigationWithAnimation('/about', navigate)}
                                     className="inline-flex items-center text-greenPrimary text-[1.05rem] font-bold tracking-[-0.01rem]"
                                 >
                                     About Me
                                     <span className='ml-3 flex items-center justify-center bg-greenPrimary rounded-full w-[32px] h-[32px] text-darkText'>
                                         <FaArrowRightLong size={14} />
                                     </span>
-                                </Link>
+                                </button>
                             </motion.div>
                         </div>
                     </div>

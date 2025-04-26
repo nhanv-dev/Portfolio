@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout";
+import { LoadingProvider } from "./components/LoadingProvider";
 
 // Lazy loading pages
 const Home = lazy(() => import("./pages/Home"));
@@ -41,8 +42,10 @@ const router = createBrowserRouter(
 
 export default function App() {
     return (
-        <Suspense fallback={<div className="fixed top-0 left-0 w-full h-full bg-black z-[9999]"></div>}>
-            <RouterProvider router={router} />
-        </Suspense>
+        <LoadingProvider>
+            <Suspense fallback={<div className="fixed top-0 left-0 w-full h-full bg-black z-[9999]"></div>}>
+                <RouterProvider router={router} />
+            </Suspense>
+        </LoadingProvider>
     );
 }

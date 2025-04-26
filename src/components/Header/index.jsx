@@ -1,26 +1,18 @@
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { RiAppsLine } from "react-icons/ri";
+import { useLocation, useNavigate } from 'react-router-dom';
+import { personalInfo } from '../../data';
 import { useLenis } from '../LenisProvider';
+import { useLoading } from '../LoadingProvider';
 
 const listRouting = ["/home", "/about", "/projects", "/contact"];
-
-const personalInfo = {
-    contact: {
-        email: "your.email@example.com",
-        phone: "+84 123 456 789",
-        location: "Ho Chi Minh City, Vietnam"
-    },
-    social: {
-        github: "github.com/nhanv-dev",
-        linkedin: "linkedin.com/in/yourusername",
-        twitter: "twitter.com/yourusername"
-    }
-};
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
     const lenis = useLenis();
+    const { handleNavigationWithAnimation } = useLoading();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (lenis) {
@@ -34,13 +26,26 @@ export default function Header() {
         }
     }, [isMenuOpen, lenis]);
 
+    useEffect(() => {
+        const handleEscKey = (event) => {
+            if (event.key === 'Escape' && isMenuOpen) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('keydown', handleEscKey);
+        return () => {
+            document.removeEventListener('keydown', handleEscKey);
+        };
+    }, [isMenuOpen]);
+
     return (
         <header className="h-[72px]">
             <div className="fixed top-0 left-0 right-0 z-[1000] bg-black/90 backdrop-blur-2xl text-white border-b border-white/10">
                 <div className="container mx-auto px-4">
                     <div className="flex items-center justify-between h-[72px]">
                         {/* Logo with animation */}
-                        <div className="text-2xl font-bold font-kanit relative group">
+                        <div className="text-[1.5rem] font-bold font-kanit relative group">
                             <span className="relative z-10">
                                 Port
                                 <span className="text-primary">folio.</span>
@@ -49,92 +54,89 @@ export default function Header() {
                         </div>
 
                         {/* Phone Number and Menu Button */}
-                        <div className="flex items-center gap-8">
-                            <a href={`tel:${personalInfo.contact.phone}`} className="text-white hover:text-primary transition-colors font-bold text-[0.9rem]">
-                                <span className="text-gray-400">PHONE:</span> {personalInfo.contact.phone}
-                            </a>
+                        <div className="flex items-center gap-10">
+                            {/* Navigation Links */}
+                            <nav className="hidden md:flex items-center gap-10">
+                                {listRouting.map((route, index) => {
+                                    const isActive = location.pathname === route;
+                                    return (
+                                        <button
+                                            key={index}
+                                            type="button"
+                                            onClick={() => handleNavigationWithAnimation(route, navigate)}
+                                            className={`text-base font-bold tracking-normal transition-colors relative group ${isActive
+                                                ? 'text-primary'
+                                                : 'text-white'
+                                                }`}
+                                        >
+                                            {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
+                                            <span className={`absolute -bottom-1 left-0 w-full h-[3px] transition-all duration-300 ${isActive
+                                                ? 'bg-primary'
+                                                : 'bg-transparent'
+                                                }`}></span>
+                                        </button>
+                                    );
+                                })}
+                            </nav>
+
                             <button
                                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                                className="w-10 h-10 relative flex flex-col justify-center items-center group"
+                                className="max-w-max relative flex flex-col justify-center items-center group !border-none !outline-none"
                             >
-                                <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-                                <span className={`w-6 h-0.5 bg-white transition-all duration-300 mt-1.5 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-                                <span className={`w-6 h-0.5 bg-white transition-all duration-300 mt-1.5 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                                <RiAppsLine className="text-2xl" />
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* Full Screen Menu Overlay */}
-            <div className={`fixed top-[72px] left-0 right-0 bottom-0 bg-black/90 backdrop-blur-2xl z-[999] flex items-center transition-all duration-500 ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
-                <div className="container mx-auto px-4 h-full">
-                    <div className="grid grid-cols-2 gap-20 h-full">
-                        {/* Navigation Links */}
-                        <nav className={`transition-all duration-500 border-r border-white/10 pr-20 h-full flex items-center ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                            }`}>
-                            <ul className="flex flex-col gap-8">
-                                {listRouting.map((route, index) => {
-                                    const isActive = location.pathname === route;
-                                    return (
-                                        <li key={index}>
-                                            {isActive ? (
-                                                <span className="text-4xl font-bold text-primary cursor-default">
-                                                    {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
-                                                    <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary"></span>
-                                                </span>
-                                            ) : (
-                                                <a
-                                                    href={route}
-                                                    className="text-4xl font-bold text-white hover:text-gray-400 transition-colors relative group"
-                                                >
-                                                    {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
-                                                    <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                                                </a>
-                                            )}
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        </nav>
-
+            {/* Sliding Menu from Right */}
+            <div className={`fixed top-[72px] right-0 h-[calc(100vh-72px)] w-[400px] bg-black/90 backdrop-blur-2xl z-[999] transition-all duration-500 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+                }`}>
+                <div className="h-full overflow-y-auto">
+                    <div className="p-8">
                         {/* Personal Information */}
-                        <div className={`grid grid-cols-2 gap-8 transition-all duration-500 h-full items-center ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                            }`}>
+                        <div className="grid grid-cols-1 gap-8">
                             {/* Contact Info */}
                             <div>
-                                <h3 className="text-xl font-bold mb-6 text-primary">Contact</h3>
-                                <ul className="space-y-4">
+                                <h3 className="text-lg font-bold mb-6 text-primary">Contact</h3>
+                                <ul className="space-y-6">
                                     <li>
-                                        <span className="text-gray-400">Email:</span>
-                                        <p className="text-white">{personalInfo.contact.email}</p>
+                                        <p className="text-sm text-gray-400 mb-1">Email:</p>
+                                        <p className="text-base text-white">{personalInfo.contact.email}</p>
                                     </li>
                                     <li>
-                                        <span className="text-gray-400">Phone:</span>
-                                        <p className="text-white">{personalInfo.contact.phone}</p>
+                                        <p className="text-sm text-gray-400 mb-1">Phone:</p>
+                                        <p className="text-base text-white">{personalInfo.contact.phone}</p>
                                     </li>
                                     <li>
-                                        <span className="text-gray-400">Location:</span>
-                                        <p className="text-white">{personalInfo.contact.location}</p>
+                                        <p className="text-sm text-gray-400 mb-1">Location:</p>
+                                        <p className="text-base text-white">{personalInfo.contact.location}</p>
                                     </li>
                                 </ul>
                             </div>
 
                             {/* Social Links */}
                             <div>
-                                <h3 className="text-xl font-bold mb-6 text-primary">Social</h3>
-                                <ul className="space-y-4">
+                                <h3 className="text-lg font-bold mb-6 text-primary">Social</h3>
+                                <ul className="space-y-6">
                                     <li>
-                                        <span className="text-gray-400">GitHub:</span>
-                                        <p className="text-white">{personalInfo.social.github}</p>
+                                        <p className="text-sm text-gray-400 mb-1">GitHub:</p>
+                                        <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                                            <p className="text-base text-white">{personalInfo.social.github}</p>
+                                        </a>
                                     </li>
                                     <li>
-                                        <span className="text-gray-400">LinkedIn:</span>
-                                        <p className="text-white">{personalInfo.social.linkedin}</p>
+                                        <p className="text-sm text-gray-400 mb-1">LinkedIn:</p>
+                                        <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                                            <p className="text-base text-white">{personalInfo.social.linkedin}</p>
+                                        </a>
                                     </li>
                                     <li>
-                                        <span className="text-gray-400">Twitter:</span>
-                                        <p className="text-white">{personalInfo.social.twitter}</p>
+                                        <p className="text-sm text-gray-400 mb-1">Facebook:</p>
+                                        <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                                            <p className="text-base text-white">{personalInfo.social.facebook}</p>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>

@@ -5,6 +5,7 @@ import GlitchText from "../components/GlitchText";
 import { useLoading } from "../components/LoadingProvider";
 import { projects } from "../data";
 import ContactBanner from "../components/ContactBanner";
+import { blurAnimation } from "../utils/animations";
 
 export default function ProjectDetailPage() {
     const { setIsLoaded } = useLoading();
@@ -38,11 +39,7 @@ export default function ProjectDetailPage() {
 
     return (
         <div>
-            <motion.div
-                initial={{ opacity: 0, filter: 'blur(20px)' }}
-                animate={{ opacity: 1, filter: 'blur(0px)' }}
-                transition={{ duration: 1.5, ease: 'easeOut', delay: '0.3' }}
-            >
+            <motion.div {...blurAnimation}>
                 <project.component item={project} index={index} />
             </motion.div>
 
