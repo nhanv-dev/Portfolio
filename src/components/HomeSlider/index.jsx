@@ -1,8 +1,8 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineNavigateBefore, MdOutlineNavigateNext } from "react-icons/md";
-import { slides } from "../../data";
+import { personalInfo, slides } from "../../data";
 import BlurTextEffect from "../TypeEffect/BlurTextEffect";
 
 // Animation configurations
@@ -17,8 +17,8 @@ const IMAGE_ANIMATION = {
 export default function HomeSlider() {
     const totalSlide = slides.length;
     const [activeSlide, setActiveSlide] = useState(0);
-    const { scrollY } = useScroll();
-    const scale = useTransform(scrollY, [0, 500], [1, 1.2]);
+    // const { scrollY } = useScroll();
+    // const scale = useTransform(scrollY, [0, 500], [1, 1.2]);
 
     const memoizedSlides = useMemo(() => slides, []);
     const memoizedImageAnimation = useMemo(() => IMAGE_ANIMATION, []);
@@ -54,10 +54,10 @@ export default function HomeSlider() {
                 <div className="z-[30] absolute left-[60%] top-5 gap-10 flex items-center justify-center ml-5 mb-5">
                     <div className="relative pl-5">
                         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-[90%] bg-darkText"></div>
-                        <p className="mb-1 font-bold text-[1rem] text-darkText">
+                        <p className="mb-1.5 font-bold text-[1.05rem] text-darkText">
                             Designed & Coded by Tran Thanh Nhan
                         </p>
-                        <p className="font-bold text-[1rem] text-darkText">
+                        <p className="font-bold text-[1.05rem] text-darkText">
                             Personal Portfolio
                         </p>
                     </div>
@@ -65,21 +65,19 @@ export default function HomeSlider() {
 
                 <div className="z-[30] absolute right-[40%] bottom-5 gap-10 flex items-center justify-center mr-10">
                     <div className="flex items-center gap-6 h-[35px]">
-                        <p className="font-bold text-[1.05rem] text-darkText">
+                        <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer" className="font-bold text-[1.05rem] text-darkText">
                             Facebook
-                        </p>
+                        </a>
                         <p className="w-[7px] h-[7px] bg-darkText rounded-full"></p>
-                        <p className="font-bold text-[1.05rem] text-darkText">
+                        <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer" className="font-bold text-[1.05rem] text-darkText">
                             Github
-                        </p>
+                        </a>
                         <p className="w-[7px] h-[7px] bg-darkText rounded-full"></p>
-                        <p className="font-bold text-[1.05rem] text-darkText">
+                        <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer" className="font-bold text-[1.05rem] text-darkText">
                             Linkedin
-                        </p>
+                        </a>
                     </div>
                 </div>
-
-
 
                 {memoizedSlides.map((slide, index) => (
                     <SlideImage
@@ -87,7 +85,7 @@ export default function HomeSlider() {
                         slide={slide}
                         index={index}
                         active={activeSlide}
-                        scale={scale}
+                        // scale={scale}
                         animation={memoizedImageAnimation}
                         activeSlide={activeSlide}
                         setActiveSlide={handleSlideChange}
@@ -116,7 +114,7 @@ const SlideImage = ({ active, index, scale, animation, slide, activeSlide, setAc
                     className="relative w-full h-full bg-cover bg-center"
                     style={{
                         backgroundImage: `url(${slide.image})`,
-                        scale: isActive ? scale : 1
+                        // scale: isActive ? scale : 1
                     }}
                     initial={animation.initial}
                     animate={isActive ? animation.animate : animation.exit}
@@ -134,7 +132,7 @@ const SlideImage = ({ active, index, scale, animation, slide, activeSlide, setAc
             <div className={`flex-1 h-full bg-darkBg flex flex-col`}>
                 <div className="relative flex-1 overflow-hidden">
                     <motion.div
-                        className="relative w-full h-full bg-cover bg-center"
+                        className="relative w-full h-full bg-cover bg-center z-[1]"
                         style={{ backgroundImage: `url(${slide.thumbnail})` }}
                         initial={{ opacity: 0 }}
                         animate={isActive ? { opacity: 1 } : { opacity: 0 }}
@@ -169,7 +167,7 @@ const SlideImage = ({ active, index, scale, animation, slide, activeSlide, setAc
                     </div>
                 </div>
 
-                <div className="flex-1 bg-[#60725A] p-5 relative">
+                <div className="flex-1 bg-[#60725A] p-5 relative z-[2]">
                     <div className="absolute left-5 top-0 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
                         <p
                             className="text-darkText text-[1.1rem] font-bold tracking-wide flex items-center justify-center"
@@ -179,7 +177,7 @@ const SlideImage = ({ active, index, scale, animation, slide, activeSlide, setAc
                                 transform: 'rotate(0deg)',
                             }}
                         >
-                            Let's Build Together
+                            Let's Build Together.
                         </p>
                     </div>
                     <div className="absolute left-5 top-1/2 -translate-y-1/2 flex flex-col items-center gap-10 bg-white w-[3px] h-[120px]">

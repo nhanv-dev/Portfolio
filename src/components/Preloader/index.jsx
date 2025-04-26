@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import './style.css';
+
+
 
 const Preloader = ({ texts, onLoaded }) => {
     const [textIndex, setTextIndex] = useState(0);
@@ -61,20 +62,29 @@ const Preloader = ({ texts, onLoaded }) => {
             animate={{ filter: "blur(0px)" }}
             exit={{ filter: "blur(10px)" }}
             transition={{ duration: 0.5 }}
-            className="fixed inset-0 flex flex-col items-center justify-center z-[9999] transition-all duration-500 bg-black text-white"
+            className="fixed left-0 top-0 w-full h-full flex flex-col items-center justify-center z-[9999] transition-all duration-500 bg-black text-white"
         >
-            {textIndex < texts.length && (
-                <motion.h1
-                    key={textIndex}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -50 }}
-                    transition={{ duration: 1.2, ease: "easeOut" }}
-                    className="text-5xl font-bold"
-                >
-                    {texts[textIndex]}
-                </motion.h1>
-            )}
+            {texts.map((text, index) => {
+                if (index <= textIndex) {
+                    return (
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                            <motion.h1
+                                key={index}
+                                initial={{ y: 100, opacity: 0 }}
+                                animate={{
+                                    y: index === textIndex ? 0 : -20,
+                                    opacity: index === textIndex ? 1 : 0,
+                                }}
+                                transition={{ duration: 1.2, ease: "easeOut" }}
+                                className="text-5xl font-bold"
+                            >
+                                {text}
+                            </motion.h1>
+                        </div>
+                    )
+                }
+                return null;
+            })}
             <div className="fixed bottom-10 left-10 right-10 flex items-end justify-between">
                 <div className="flex items-center min-w-max w-[200px] justify-start">
                     <h5 className="font-extrabold text-lg tracking-wide text-darkText">

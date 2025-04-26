@@ -54,11 +54,11 @@ export default function AboutPage() {
 
 const HeroComponent = () => {
     return (
-        <div className="relative h-[calc(100vh-72px)] max-h-[1024px] flex bg-darkBg text-lightText" >
-            <div className="h-full flex-1 flex flex-col">
+        <section className="relative h-[calc(100vh-72px)] max-h-[1024px] flex" >
+            <div className="h-full flex-1 flex flex-col bg-darkBg text-darkText">
                 <div className="flex-1 flex">
                     <div className="w-[150px] flex items-start justify-center pt-14">
-                        <div className="text-darkText text-[18px] font-bold tracking-wider flex items-center justify-center gap-6"
+                        <div className="text-[18px] font-bold tracking-wider flex items-center justify-center gap-6"
                             style={{
                                 writingMode: 'vertical-lr',
                                 textOrientation: 'mixed',
@@ -67,7 +67,7 @@ const HeroComponent = () => {
                             <span>About Me</span>
                         </div>
                     </div>
-                    <div className="flex-1 pt-14 text-darkText flex flex-col justify-between">
+                    <div className="flex-1 pt-14 flex flex-col justify-between">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -80,21 +80,21 @@ const HeroComponent = () => {
                             <h1 className="text-4xl font-bold mb-8 font-unbounded">
                                 Hi, I'm <span className="text-primary">Tran Thanh Nhan</span>
                             </h1>
-                            <p className="text-gray-300 text-lg leading-relaxed font-medium mb-8">
+                            <p className="text-lg leading-relaxed font-medium mb-8">
                                 I build seamless, end-to-end web applications with a focus on performance,
                                 scalability, and user experience.<br /> Passionate about creating innovative
                                 solutions that solve real-world problems.
                             </p>
                         </motion.div>
-                        <div className="flex items-center justify-start gap-5 py-5">
+                        <div className="flex items-center justify-start gap-5 py-8">
                             <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer" className="text-darkText text-[1rem] leading-relaxed font-medium">
                                 Facebook
                             </a>
-                            <p className="w-[15px] h-[2px] bg-darkText"></p>
+                            <p className="w-[30px] h-[2px] bg-darkText"></p>
                             <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer" className="text-darkText text-[1rem] leading-relaxed font-medium">
                                 Github
                             </a>
-                            <p className="w-[15px] h-[2px] bg-darkText"></p>
+                            <p className="w-[30px] h-[2px] bg-darkText"></p>
                             <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer" className="text-darkText text-[1rem] leading-relaxed font-medium">
                                 LinkedIn
                             </a>
@@ -119,14 +119,14 @@ const HeroComponent = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-[40%] h-full bg-darkBg flex flex-col">
+            <div className="w-[40%] h-full bg-darkBg text-darkText flex flex-col">
                 <div className="w-full h-[380px] flex">
                     <div className="h-full flex-1">
                         <img src="https://i.pinimg.com/736x/3e/02/d5/3e02d5f343be14713c463544fd2a747d.jpg" alt="" className="w-full h-full object-cover object-center" />
                     </div>
-                    <div className="w-[150px] h-full bg-darkBg flex items-center justify-center">
+                    <div className="w-[150px] h-full flex items-center justify-center">
 
-                        <div className="text-darkText text-[18px] font-bold flex items-center justify-center"
+                        <div className="text-[18px] font-bold flex items-center justify-center"
                             style={{
                                 writingMode: 'vertical-lr',
                                 textOrientation: 'mixed',
@@ -136,7 +136,7 @@ const HeroComponent = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex-1 bg-darkBg2 text-darkText flex items-center justify-center">
+                <div className="flex-1 bg-lightBg2 text-lightText flex items-center justify-center">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -149,26 +149,13 @@ const HeroComponent = () => {
                         <h1 className="text-4xl font-bold font-unbounded mb-6">
                             Hi, I'm <span className="text-primary">Tran Thanh Nhan</span>
                         </h1>
-                        <p className="text-darkText text-[1rem] leading-loose tracking-wide font-medium mb-14">
+                        <p className="text-[1rem] leading-loose tracking-wide font-medium mb-14">
                             I am a software developer passionate about building meaningful, sustainable solutions that drive real-world impact. I value precision, creativity, and a deep understanding of how technology can solve complex problems.
-                        </p>
-                        <div className="flex items-center justify-end gap-5">
-                            <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer" className="text-darkText text-[1rem] leading-relaxed font-medium">
-                                Facebook
-                            </a>
-                            <p className="w-[15px] h-[2px] bg-darkText"></p>
-                            <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer" className="text-darkText text-[1rem] leading-relaxed font-medium">
-                                Github
-                            </a>
-                            <p className="w-[15px] h-[2px] bg-darkText"></p>
-                            <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer" className="text-darkText text-[1rem] leading-relaxed font-medium">
-                                LinkedIn
-                            </a>
-                        </div>
+                        </p> 
                     </motion.div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

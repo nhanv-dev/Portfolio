@@ -3,7 +3,7 @@ import { FaFacebookF, FaLinkedin } from 'react-icons/fa';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { GoArrowDownLeft, GoArrowUpRight } from "react-icons/go";
 import { LiaLaptopCodeSolid } from "react-icons/lia";
-import { LuGithub } from "react-icons/lu";
+import { FaGithub } from "react-icons/fa6";
 import { Link, useNavigate } from 'react-router-dom';
 import ContactBanner from "../components/ContactBanner";
 import HomeSlider from '../components/HomeSlider';
@@ -52,14 +52,14 @@ const ExploreAboutComponent = () => {
                 <div className="container-wide relative">
                     <div className="flex flex-col items-center gap-6 z-10 min-w-max absolute top-0 left-0">
                         <div className="w-[44px] h-[235px] bg-gradient-to-b from-transparent to-[#F3F3F3] rounded-b-[40px]"></div>
-                        <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-[44px] h-[44px] text-[17px] text-black border-2 border-[#DFE0DF] rounded-[22px] transition-all duration-400">
-                            <FaFacebookF size={17} />
+                        <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-[44px] h-[44px] text-black border-2 border-[#DFE0DF] rounded-full transition-all duration-400">
+                            <FaFacebookF size={18} />
                         </a>
-                        <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-[44px] h-[44px] text-[17px] text-black border-2 border-[#DFE0DF] rounded-[22px] transition-all duration-400">
-                            <LuGithub size={17} />
+                        <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-[44px] h-[44px] text-black border-2 border-[#DFE0DF] rounded-full transition-all duration-400">
+                            <FaGithub size={18} />
                         </a>
-                        <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-[44px] h-[44px] text-[17px] text-black border-2 border-[#DFE0DF] rounded-[22px] transition-all duration-400">
-                            <FaLinkedin size={17} />
+                        <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-[44px] h-[44px] text-black border-2 border-[#DFE0DF] rounded-full transition-all duration-400">
+                            <FaLinkedin size={18} />
                         </a>
                         <div className="w-[44px] h-[235px] bg-gradient-to-b from-[#F3F3F3] to-transparent rounded-t-[40px]"></div>
                     </div>
@@ -236,6 +236,9 @@ const ExploreAboutComponent = () => {
 }
 
 const ExploreProjectsComponent = () => {
+    const { handleNavigationWithAnimation } = useLoading();
+    const navigate = useNavigate();
+
     return (
         <section className='relative'>
             <div className="pt-[120px] bg-lightBg text-lightText">
@@ -252,15 +255,15 @@ const ExploreProjectsComponent = () => {
                             <p className="text-[1.2rem] text-[#3D3D3D] px-12 py-10 font-medium leading-[2rem]">
                                 We proudly showcase our creative design work, reflecting our passion for innovation and attention to detail. Each project highlights our commitment to delivering visually stunning and effective solutions.
                             </p>
-                            <Link
-                                to="/projects"
+                            <button
+                                onClick={() => handleNavigationWithAnimation('/projects', navigate)}
                                 className="p-[22px] font-bold text-[1.05rem] group absolute top-full right-0 w-full bg-lightBg"
                             >
                                 <span className='flex justify-center items-center group-hover: transition-all duration-300 text-emerald-400'>
                                     Browse All Projects
                                     <FaArrowRightLong className='ml-3 relative top-[1px]' size={18} />
                                 </span>
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 </div>

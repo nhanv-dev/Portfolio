@@ -18,10 +18,8 @@ export default function Header() {
         if (lenis) {
             if (isMenuOpen) {
                 lenis.stop();
-                document.body.style.overflow = 'hidden';
             } else {
                 lenis.start();
-                document.body.style.overflow = '';
             }
         }
     }, [isMenuOpen, lenis]);
@@ -41,7 +39,7 @@ export default function Header() {
 
     return (
         <header className="h-[72px]">
-            <div className="fixed top-0 left-0 right-0 z-[1000] bg-black/90 backdrop-blur-2xl text-white border-b border-white/10">
+            <div className="fixed top-0 left-0 right-0 z-[1000] bg-black text-white border-b border-white/10">
                 <div className="container mx-auto px-4">
                     <div className="flex items-center justify-between h-[72px]">
                         {/* Logo with animation */}
@@ -91,54 +89,57 @@ export default function Header() {
             </div>
 
             {/* Sliding Menu from Right */}
-            <div className={`fixed top-[72px] right-0 h-[calc(100vh-72px)] w-[400px] bg-black/90 backdrop-blur-2xl z-[999] transition-all duration-500 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-                }`}>
-                <div className="h-full overflow-y-auto">
-                    <div className="p-8">
+            <div className={`fixed top-[72px] right-0 h-[calc(100vh-72px)] w-[400px] bg-black border-l border-white/10 z-[999] transition-all duration-500 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+                <div className="h-full overflow-hidden">
+                    <div className="px-8 py-6 h-full">
                         {/* Personal Information */}
-                        <div className="grid grid-cols-1 gap-8">
+                        <div className="h-full flex flex-col gap-8 justify-between">
                             {/* Contact Info */}
                             <div>
-                                <h3 className="text-lg font-bold mb-6 text-primary">Contact</h3>
-                                <ul className="space-y-6">
+                                <h3 className="text-lg font-bold mb-4 text-primary">Contact</h3>
+                                <ul className="space-y-5">
                                     <li>
-                                        <p className="text-sm text-gray-400 mb-1">Email:</p>
-                                        <p className="text-base text-white">{personalInfo.contact.email}</p>
+                                        <p className="text-sm text-gray-400 mb-1 font-bold">Email:</p>
+                                        <p className="text-base text-white font-medium">{personalInfo.contact.email}</p>
                                     </li>
                                     <li>
-                                        <p className="text-sm text-gray-400 mb-1">Phone:</p>
-                                        <p className="text-base text-white">{personalInfo.contact.phone}</p>
+                                        <p className="text-sm text-gray-400 mb-1 font-bold">Phone:</p>
+                                        <p className="text-base text-white font-medium">{personalInfo.contact.phone}</p>
                                     </li>
                                     <li>
-                                        <p className="text-sm text-gray-400 mb-1">Location:</p>
-                                        <p className="text-base text-white">{personalInfo.contact.location}</p>
+                                        <p className="text-sm text-gray-400 mb-1 font-bold">Location:</p>
+                                        <p className="text-base text-white font-medium">{personalInfo.contact.location}</p>
                                     </li>
                                 </ul>
                             </div>
 
                             {/* Social Links */}
                             <div>
-                                <h3 className="text-lg font-bold mb-6 text-primary">Social</h3>
-                                <ul className="space-y-6">
+                                <h3 className="text-lg font-bold mb-4 text-primary">Social Links</h3>
+                                <ul className="space-y-5">
                                     <li>
-                                        <p className="text-sm text-gray-400 mb-1">GitHub:</p>
+                                        <p className="text-sm text-gray-400 mb-1 font-bold">GitHub:</p>
                                         <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                                            <p className="text-base text-white">{personalInfo.social.github}</p>
+                                            <p className="text-base text-white font-medium">{personalInfo.social.github}</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <p className="text-sm text-gray-400 mb-1">LinkedIn:</p>
+                                        <p className="text-sm text-gray-400 mb-1 font-bold">LinkedIn:</p>
                                         <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                                            <p className="text-base text-white">{personalInfo.social.linkedin}</p>
+                                            <p className="text-base text-white font-medium">{personalInfo.social.linkedin}</p>
                                         </a>
                                     </li>
                                     <li>
-                                        <p className="text-sm text-gray-400 mb-1">Facebook:</p>
+                                        <p className="text-sm text-gray-400 mb-1 font-bold">Facebook:</p>
                                         <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                                            <p className="text-base text-white">{personalInfo.social.facebook}</p>
+                                            <p className="text-base text-white font-medium">{personalInfo.social.facebook}</p>
                                         </a>
                                     </li>
                                 </ul>
+                            </div>
+
+                            <div className="h-[260px] w-full overflow-hidden">
+                                <img src="https://i.pinimg.com/736x/e3/5a/43/e35a43db2a75327248f698dc1b65cccb.jpg" alt="Profile" className="w-full h-full object-cover" />
                             </div>
                         </div>
                     </div>
