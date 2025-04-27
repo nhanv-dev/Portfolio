@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ContactBanner from "../components/ContactBanner";
 import PageWithPreload from "../components/PageWithPreload";
 import TitleSection from "../components/TitleSection";
-import { projects } from "../data";
+import { personalInfo, projects } from "../data";
 import { blurAnimation } from "../utils/animations";
 import { useLoading } from "../components/LoadingProvider";
 
@@ -224,14 +224,20 @@ function HeroSlider({ handleNavigation }) {
             <div className="absolute right-10 top-1/2 -translate-y-1/2">
                 <div className="">
                     <ul className="flex gap-10 rotate-90 translate-x-1/2">
-                        <li className="font-medium text-[1rem]">
-                            Facebook
+                        <li className="font-medium text-[1.1rem]">
+                            <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer">
+                                Facebook
+                            </a>
                         </li>
-                        <li className="font-medium text-[1rem]">
-                            Instagram
+                        <li className="font-medium text-[1.1rem]">
+                            <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer">
+                                Github
+                            </a>
                         </li>
-                        <li className="font-medium text-[1rem]">
-                            Github
+                        <li className="font-medium text-[1.1rem]">
+                            <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer">
+                                LinkedIn
+                            </a>
                         </li>
                     </ul>
                 </div>
