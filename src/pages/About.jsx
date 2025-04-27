@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { FaArrowRightLong } from "react-icons/fa6";
 import { GoDotFill } from 'react-icons/go';
 import { Link, useNavigate } from "react-router-dom";
 import ContactBanner from "../components/ContactBanner";
@@ -34,9 +35,9 @@ export default function AboutPage() {
                 <HeroComponent />
             </motion.div>
 
-            <div className="py-6 border-t border-gray-900">
+            {/* <div className="py-6 border-t border-b border-gray-900">
                 <DevInfiniteScroll list={tags} innerClassName={'!text-[1.5rem]'} innerClassNameSplit={'!text-[1rem]'} />
-            </div>
+            </div> */}
 
             <ExploreAboutComponent />
 
@@ -53,106 +54,142 @@ export default function AboutPage() {
 }
 
 const HeroComponent = () => {
+    const { handleNavigationWithAnimation } = useLoading();
+    const navigate = useNavigate();
     return (
-        <section className="relative h-[calc(100vh-72px)] max-h-[1024px] flex" >
-            <div className="h-full flex-1 flex flex-col bg-darkBg text-darkText">
-                <div className="flex-1 flex">
-                    <div className="w-[150px] flex items-start justify-center pt-14">
-                        <div className="text-[18px] font-bold tracking-wider flex items-center justify-center gap-6"
-                            style={{
-                                writingMode: 'vertical-lr',
-                                textOrientation: 'mixed',
-                                transform: 'rotate(180deg)',
-                            }}>
-                            <span>About Me</span>
-                        </div>
-                    </div>
-                    <div className="flex-1 pt-14 flex flex-col justify-between">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className=""
-                        >
-                            <h2 className="font-bold text-[1rem] tracking-wider mb-5">
-                                Who I Am
-                            </h2>
-                            <h1 className="text-4xl font-bold mb-8 font-unbounded">
-                                Hi, I'm <span className="text-primary">Tran Thanh Nhan</span>
-                            </h1>
-                            <p className="text-lg leading-relaxed font-medium mb-8">
-                                I build seamless, end-to-end web applications with a focus on performance,
-                                scalability, and user experience.<br /> Passionate about creating innovative
-                                solutions that solve real-world problems.
-                            </p>
-                        </motion.div>
-                        <div className="flex items-center justify-start gap-5 py-8">
-                            <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer" className="text-darkText text-[1rem] leading-relaxed font-medium">
-                                Facebook
-                            </a>
-                            <p className="w-[30px] h-[2px] bg-darkText"></p>
-                            <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer" className="text-darkText text-[1rem] leading-relaxed font-medium">
-                                Github
-                            </a>
-                            <p className="w-[30px] h-[2px] bg-darkText"></p>
-                            <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer" className="text-darkText text-[1rem] leading-relaxed font-medium">
-                                LinkedIn
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div className="w-full h-[420px] flex overflow-hidden">
-                    <div className="w-[150px] h-full bg-darkBg flex items-center justify-center">
+        <section className="relative h-[calc(100vh-72px)] max-h-[1024px] flex bg-darkBg" >
+            <div className="flex-1">
+                <div className="h-full flex flex-col items-end justify-center p-10">
+                    <div className="flex items-center justify-center">
                         <div className="text-darkText text-[18px] font-bold tracking-wider flex items-center justify-center gap-6"
                             style={{
                                 writingMode: 'vertical-lr',
                                 textOrientation: 'mixed',
                                 transform: 'rotate(180deg)',
                             }}>
-                            <span>Scroll down</span>
+                            <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer" className="text-darkText text-[1.1rem] leading-relaxed font-medium">
+                                Facebook
+                            </a>
+                            <p className="h-[30px] w-[2px] bg-darkText"></p>
+                            <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer" className="text-darkText text-[1.1rem] leading-relaxed font-medium">
+                                Github
+                            </a>
+                            <p className="h-[30px] w-[2px] bg-darkText"></p>
+                            <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer" className="text-darkText text-[1.1rem] leading-relaxed font-medium">
+                                LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="container flex flex-col items-start justify-start h-full max-h-full">
+                <div className="flex-1 flex w-full gap-10">
+                    <div className="flex-1 flex items-center">
+                        <div>
+                            <h2 className="text-[1.1rem] font-bold mb-4 flex items-center gap-2">
+                                <span className="w-[50px] h-[2px] bg-primary rounded-full relative">
+                                    <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[16px] h-[16px] bg-primary rounded-full">
+                                        <span className="absolute inset-0 bg-primary rounded-full animate-ping opacity-75 scale-150"></span>
+                                    </div>
+                                </span>
+                                <span>Hi there, I'm <span className="text-primary">Tran Thanh Nhan</span></span>
+                            </h2>
+                            <div className="flex items-center gap-10 mb-6">
+                                <h1 className="text-[3rem] leading-[1.3] font-bold">
+                                    Step Inside to <span className="text-secondary">Discover</span> <br />
+                                    the <span className="text-primary">My World</span>
+                                </h1>
+                            </div>
+                            <p className="text-[1.1rem] leading-[1.5] font-medium text-gray-300 mb-9">
+                                I am a software developer who turns ideas into reality through clean code and creative solutions.
+                                With a strong foundation in full-stack development, I focus on building performant, user-centric applications.
+                            </p>
+                            <div className="flex items-center">
+                                <div className="flex-1 h-[2px] bg-gray-300"></div>
+                                <Link to={'/contact'} onClick={(e) => {
+                                    e.preventDefault();
+                                    handleNavigationWithAnimation('/contact', navigate);
+                                }} className="text-[1rem] leading-[1.75] font-semibold text-gray-300 border-2 border-gray-300 rounded-full px-4 py-1 flex items-center gap-4 max-w-max">
+                                    Get Started
+                                    <FaArrowRightLong />
+                                </Link>
+                                <div className="w-[5%] h-[2px] bg-gray-300"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-[40%] relative">
+                        <div
+                            className="absolute inset-0 w-full h-full bg-center bg-cover"
+                            style={{ backgroundImage: 'url(https://i.pinimg.com/736x/3e/02/d5/3e02d5f343be14713c463544fd2a747d.jpg)' }}
+                        />
+                    </div>
+                </div>
+                <div className="w-full overflow-hidden min-h-[80px] h-[80px] flex items-center justify-center">
+                    <DevInfiniteScroll list={tags} innerClassName={'!text-[1rem]'} innerClassNameSplit={'!text-[1rem]'} />
+                </div>
+                <div className="flex w-full h-[35%] gap-10">
+                    <div className="w-[50%] relative">
+                        <div className="absolute inset-0 w-full h-full bg-center bg-cover"
+                            style={{ backgroundImage: 'url(https://i.pinimg.com/736x/3e/02/d5/3e02d5f343be14713c463544fd2a747d.jpg)' }}
+                        />
+                    </div>
+                    <div className="flex-1 h-full bg-[#60725A] p-10">
+                        <h2 className="text-[1.05rem] font-bold mb-4">
+                            A passionate developer shaping digital experiences.
+                        </h2>
+                        <p className="text-[1.1rem] leading-[1.75] font-medium text-gray-300 mb-8">
+                            Beyond coding, I constantly explore new technologies and design trends to refine my craft.
+                            I believe that great software not only functions perfectly but also tells a meaningful story through its experience.
+                        </p>
+                        <div className="flex items-center gap-5">
+                            <div className='flex items-center justify-start gap-3 font-bold text-[1rem]'>
+                                <p className='relative'>
+                                    What I Do
+                                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-lightBg"></span>
+                                </p>
+                            </div>
+                            <GoDotFill />
+                            <div className='flex items-center justify-start gap-3 font-bold text-[1rem]'>
+                                <p className='relative'>
+                                    Tech Stack
+                                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-lightBg"></span>
+                                </p>
+                            </div>
+                            <GoDotFill />
+                            <div className='flex items-center justify-start gap-3 font-bold text-[1rem]'>
+
+                                <p className='relative'>
+                                    Resume
+                                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-lightBg"></span>
+                                </p>
+                            </div>
+                            <GoDotFill />
+                            <div className='flex items-center justify-start gap-3 font-bold text-[1rem]'>
+                                <p className='relative'>
+                                    Projects
+                                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-lightBg"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="flex-1">
+                <div className="h-full flex flex-col items-start justify-center px-10 py-20">
+                    <div className="flex items-center justify-center">
+                        <div className="text-[1.1rem] leading-relaxed font-medium flex items-center justify-center gap-6"
+                            style={{
+                                writingMode: 'vertical-lr',
+                                textOrientation: 'mixed',
+                                transform: 'rotate(0)',
+                            }}>
+                            <span>Designed & Coded by Nhan</span>
                             <div className="w-[3px] h-[30px] bg-darkText"></div>
                             <span>2025</span>
                         </div>
                     </div>
-                    <div className="h-full flex-1 overflow-hidden">
-                        <img src="https://i.pinimg.com/736x/aa/2c/e8/aa2ce82e4b6e287bf64a770f40a4be58.jpg" alt="" className="w-full h-full object-cover" />
-                    </div>
-                </div>
-            </div>
-            <div className="w-[40%] h-full bg-darkBg text-darkText flex flex-col">
-                <div className="w-full h-[380px] flex">
-                    <div className="h-full flex-1">
-                        <img src="https://i.pinimg.com/736x/3e/02/d5/3e02d5f343be14713c463544fd2a747d.jpg" alt="" className="w-full h-full object-cover object-center" />
-                    </div>
-                    <div className="w-[150px] h-full flex items-center justify-center">
-
-                        <div className="text-[18px] font-bold flex items-center justify-center"
-                            style={{
-                                writingMode: 'vertical-lr',
-                                textOrientation: 'mixed',
-                                transform: 'rotate(180deg)',
-                            }}>
-                            Developed by Nhan
-                        </div>
-                    </div>
-                </div>
-                <div className="flex-1 bg-lightBg2 text-lightText flex items-center justify-center">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                        className="px-10"
-                    >
-                        <h2 className="font-bold text-[1rem] tracking-wider mb-6">
-                            Who I Am
-                        </h2>
-                        <h1 className="text-4xl font-bold font-unbounded mb-6">
-                            Hi, I'm <span className="text-primary">Tran Thanh Nhan</span>
-                        </h1>
-                        <p className="text-[1rem] leading-loose tracking-wide font-medium mb-14">
-                            I am a software developer passionate about building meaningful, sustainable solutions that drive real-world impact. I value precision, creativity, and a deep understanding of how technology can solve complex problems.
-                        </p>
-                    </motion.div>
                 </div>
             </div>
         </section>
@@ -162,7 +199,7 @@ const HeroComponent = () => {
 const ExploreAboutComponent = () => {
 
     return (
-        <div className="w-full">
+        <div className="w-full mt-[120px] border-t border-gray-900">
             <section className="py-[120px] bg-darkBg text-darkText">
                 <div className='container'>
                     <div className="relative">
@@ -175,7 +212,7 @@ const ExploreAboutComponent = () => {
                         ></TitleSection>
                         <div className="pr-[520px] w-full">
                             <div className="w-full flex items-center justify-end gap-10">
-                                <div className='flex items-center justify-start gap-4 font-bold text-[1.1rem] min-w-[160px]'>
+                                <div className='flex items-center justify-start gap-3 font-bold text-[1.1rem] min-w-[160px]'>
                                     <GoDotFill />
                                     <p className='relative'>
                                         Introduction
@@ -232,7 +269,7 @@ const ExploreProjectsComponent = () => {
     const navigate = useNavigate();
 
     return (
-        <section className='py-[120px] bg-darkBg'>
+        <section className='py-[120px] bg-darkBg border-t border-gray-900'>
             <div className="container">
                 <TitleSection
                     className={'mb-12'}
@@ -375,7 +412,7 @@ const ResumeComponent = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.6 }}
                             viewport={{ once: true, amount: 0.4 }}
-                            className="mb-5 pl-1"
+                            className="mb-8 pl-1"
                         >
                             <h5 className="pl-5 relative text-[1.2rem] font-bold tracking-[1px]">
                                 Nong Lam University
@@ -390,7 +427,7 @@ const ResumeComponent = () => {
                                 <div className="absolute left-0 bottom-[0] top-0 translate-x-[-50%] bg-gray-800 w-[1px] h-full"></div>
                             </div>
                         </motion.div>
-                        <div className="h-[340px] w-full flex items-center justify-center overflow-hidden">
+                        <div className="h-[330px] w-full flex items-center justify-center overflow-hidden">
                             <img src={'https://i.pinimg.com/736x/7d/63/e1/7d63e100d2d24ace9de49d759c74cf8e.jpg'} alt="" className="h-full w-full object-cover object-center" />
                         </div>
                     </motion.div>

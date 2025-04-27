@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { RiAppsLine } from "react-icons/ri";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { personalInfo } from '../../data';
-import { useLenis } from '../LenisProvider';
 import { useLoading } from '../LoadingProvider';
 
 const listRouting = ["/home", "/about", "/projects", "/contact"];
@@ -10,19 +9,8 @@ const listRouting = ["/home", "/about", "/projects", "/contact"];
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
-    const lenis = useLenis();
     const { handleNavigationWithAnimation } = useLoading();
     const navigate = useNavigate();
-
-    useEffect(() => {
-        if (lenis) {
-            if (isMenuOpen) {
-                lenis.stop();
-            } else {
-                lenis.start();
-            }
-        }
-    }, [isMenuOpen, lenis]);
 
     useEffect(() => {
         const handleEscKey = (event) => {
@@ -59,7 +47,7 @@ export default function Header() {
                                     const isActive = location.pathname === route;
                                     return (
                                         <Link
-                                            key={index} 
+                                            key={index}
                                             to={route}
                                             onClick={(e) => {
                                                 e.preventDefault();

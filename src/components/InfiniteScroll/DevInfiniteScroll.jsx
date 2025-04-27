@@ -8,7 +8,7 @@ const DevInfiniteScroll = ({ list, innerClassName, innerClassNameSplit, variant 
   const bgColor = isBlack ? "bg-darkBg" : "bg-lightBg";
 
   return (
-    <div className={`relative w-full overflow-hidden max-h-[400px] ${bgColor}`}>
+    <div className={`relative w-full overflow-hidden ${bgColor}`}>
       {/* Gradient che phủ hai bên */}
       <div className={`absolute inset-y-0 left-0 w-[40rem] bg-gradient-to-r ${gradientColor} to-transparent z-10`}></div>
       <div className={`absolute inset-y-0 right-0 w-[40rem] bg-gradient-to-l ${gradientColor} to-transparent z-10`}></div>

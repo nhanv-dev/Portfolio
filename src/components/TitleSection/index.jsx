@@ -6,7 +6,7 @@ export default function TitleSection({ title, title2, subTitle, subTitle2, class
 	return (
 		<div className={`text-center md:text-left ${className}`}>
 			<motion.h2
-				className={`text-6xl lg:text-6xl font-extrabold tracking-wider font-kanit uppercase mb-2 ${titleClassName} ${variant === 'white' ? '!text-lightBg' : '!text-darkBg'}`}
+				className={`text-6xl lg:text-6xl font-extrabold tracking-wider font-kanit uppercase mb-2 ${titleClassName} text-transparent`}
 				initial={{ opacity: 0, x: 50 }}
 				whileInView={{ opacity: 1, x: 0 }}
 				viewport={{ once: true, amount: 0.4 }}

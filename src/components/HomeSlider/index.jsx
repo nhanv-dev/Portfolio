@@ -74,7 +74,7 @@ export default function HomeSlider() {
                         </a>
                         <p className="w-[7px] h-[7px] bg-darkText rounded-full"></p>
                         <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer" className="font-bold text-[1.05rem] text-darkText">
-                            Linkedin
+                            LinkedIn
                         </a>
                     </div>
                 </div>
