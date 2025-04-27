@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
+import { useMemo } from "react";
 import { GoDotFill } from "react-icons/go";
-import { Link } from "react-router-dom";
-import { useLoading } from "../LoadingProvider";
 import { RiArrowRightUpLine } from "react-icons/ri";
+import { Link, useNavigate } from "react-router-dom";
+import { useLoading } from "../LoadingProvider";
 import TitleSection from "../TitleSection";
-import { useMemo, useCallback } from "react";
 
 // Animation configurations
 const ANIMATION_CONFIG = {
@@ -35,11 +35,8 @@ const list = [
 ];
 
 function ContactBanner() {
-    const { setIsLoaded } = useLoading();
-
-    const handleClick = useCallback(() => {
-        setIsLoaded(false);
-    }, [setIsLoaded]);
+    const { handleNavigationWithAnimation } = useLoading();
+    const navigate = useNavigate();
 
     const memoizedAnimationConfig = useMemo(() => ANIMATION_CONFIG, []);
     const memoizedScrollAnimation = useMemo(() => SCROLL_ANIMATION, []);
@@ -57,7 +54,10 @@ function ContactBanner() {
                     <motion.div {...memoizedAnimationConfig}>
                         <Link
                             to={'/contact'}
-                            onClick={handleClick}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                handleNavigationWithAnimation('/contact', navigate);
+                            }}
                             className='relative p-2 font-unbounded w-[120px] h-[120px] bg-lightBg text-lightText flex items-end justify-center'>
                             <span className="text-[15px] font-bold">
                                 Let's Talk

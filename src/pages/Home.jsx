@@ -187,11 +187,11 @@ const ExploreAboutComponent = () => {
                                         <div className="w-full h-[2px] bg-[#F5F5F5]"></div>
                                     </div>
                                     <div className="">
-                                        <h5 className="font-unbounded font-semibold text-[20px] leading-[32px] tracking-[-0.01em] text-black my-[32px] mb-6">
-                                            Best Quality Services
+                                        <h5 className="font-unbounded font-bold text-[1.25rem] leading-[32px] tracking-wide text-black/80 my-[32px] mb-6">
+                                            A Little About Me
                                         </h5>
-                                        <p>
-                                            We provide top-tier services that meet the highest standards of quality. Our expert team ensures.
+                                        <p className='font-medium text-base'>
+                                            Passionate Fullstack Developer with 1+ years of experience in crafting fast, scalable web application.
                                         </p>
                                     </div>
                                 </div>
@@ -204,11 +204,11 @@ const ExploreAboutComponent = () => {
                                         <div className="w-full h-[2px] bg-[#F5F5F5]"></div>
                                     </div>
                                     <div className="">
-                                        <h5 className="font-unbounded font-semibold text-[20px] leading-[32px] tracking-[-0.01em] text-black my-[32px] mb-6">
-                                            Best Quality Services
+                                        <h5 className="font-unbounded font-bold text-[1.25rem] leading-[32px] tracking-wide text-black/80 my-[32px] mb-6">
+                                            Behind the Code
                                         </h5>
-                                        <p>
-                                            We provide top-tier services that meet the highest standards of quality. Our expert team ensures.
+                                        <p className='font-medium text-base'>
+                                            Turning ideas into fast, reliable web applications with a passion for technology and detail.
                                         </p>
                                     </div>
                                 </div>
@@ -297,18 +297,8 @@ const ExploreProjectsComponent = () => {
                             <ProjectCard project={projects[4]} />
                         </div>
 
-                        <div className="col-span-1">
+                        <div className="col-span-1 flex items-end">
                             <ProjectCard project={projects[5]} />
-                        </div>
-
-                        <div className="col-span-1"></div>
-
-                        <div className="col-span-1">
-                            <ProjectCard project={projects[6]} />
-                        </div>
-
-                        <div className="col-span-1">
-                            <ProjectCard project={projects[7]} />
                         </div>
                     </div>
                 </div>

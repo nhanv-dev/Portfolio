@@ -30,30 +30,32 @@ const Layout = () => {
     }, [transition]);
 
     useEffect(() => {
-        if (!isLoaded) setTransition(false);
+        if (isLoaded) setTransition(false);
     }, [isLoaded, setTransition]);
+
 
     return (
         <LenisProvider>
             <div className="h-full w-full relative text-darkText overflow-hidden">
                 <Header />
-                {showOverlay && (
-                    <motion.div
-                        initial={{ 
-                            scale: 0,
-                            borderRadius: "0 100% 0 0"
-                        }}
-                        animate={{ 
-                            scale: 1.5,
-                            borderRadius: "0 100% 0 0"
-                        }}
-                        transition={{
-                            duration: 1.5,
-                            ease: [0.16, 1, 0.3, 1]
-                        }}
-                        className="fixed left-0 bottom-0 w-full h-full bg-black z-[9998] origin-bottom-left"
-                    />
-                )}
+                <motion.div
+                    initial={{
+                        scale: 0,
+                        borderRadius: "0 100% 0 0"
+                    }}
+                    animate={showOverlay ? {
+                        scale: 1.5,
+                        borderRadius: "0 100% 0 0"
+                    } : {
+                        scale: 0,
+                        borderRadius: "0 100% 0 0"
+                    }}
+                    transition={{
+                        duration: 1.5,
+                        ease: [0.16, 1, 0.3, 1]
+                    }}
+                    className="fixed left-0 bottom-0 w-full h-full bg-black z-[9998] origin-bottom-left"
+                />
                 <Outlet />
                 <Footer />
             </div>

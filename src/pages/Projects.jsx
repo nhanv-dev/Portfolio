@@ -2,12 +2,13 @@ import { motion } from "framer-motion";
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { ImLocation2 } from "react-icons/im";
 import { MdOutlineNavigateBefore, MdOutlineNavigateNext } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ContactBanner from "../components/ContactBanner";
 import PageWithPreload from "../components/PageWithPreload";
 import TitleSection from "../components/TitleSection";
 import { projects } from "../data";
 import { blurAnimation } from "../utils/animations";
+import { useLoading } from "../components/LoadingProvider";
 
 // Animation configs
 const SLIDE_ANIMATION = {
@@ -43,20 +44,28 @@ const THUMBNAIL_VARIANTS = {
 };
 
 export default function ProjectsPage() {
+    const { handleNavigationWithOverlay } = useLoading();
+    const navigate = useNavigate();
+
+    const handleNavigation = (e, route) => {
+        e.preventDefault();
+        handleNavigationWithOverlay(route, navigate);
+    }
+
     return (
         <PageWithPreload texts={["Ignite Creativity", "Turn Ideas into Reality"]}>
             <motion.div {...blurAnimation}>
-                <HeroSlider />
+                <HeroSlider handleNavigation={handleNavigation} />
             </motion.div>
 
-            <Projects />
+            <Projects handleNavigation={handleNavigation} />
 
             <ContactBanner />
         </PageWithPreload>
     );
 }
 
-function HeroSlider() {
+function HeroSlider({ handleNavigation }) {
     const [activeIndex, setActiveIndex] = useState(0);
     const memoizedProjects = useMemo(() => projects, []);
 
@@ -136,7 +145,7 @@ function HeroSlider() {
                             ))}
                         </div>
                         <div className="max-w-max">
-                            <Link to={memoizedProjects[activeIndex].slug} className="font-semibold py-2 px-5 border-2 border-white">
+                            <Link to={memoizedProjects[activeIndex].slug} onClick={(e) => handleNavigation(e, memoizedProjects[activeIndex].slug)} className="font-semibold py-2 px-5 border-2 border-white">
                                 Explore more
                             </Link>
                         </div>
@@ -251,7 +260,7 @@ function HeroSlider() {
     );
 }
 
-function Projects() {
+function Projects({ handleNavigation }) {
     const memoizedProjects = useMemo(() => projects, []);
 
     return (
@@ -265,7 +274,7 @@ function Projects() {
             ></TitleSection>
             <div className="grid grid-cols-3 gap-3">
                 {memoizedProjects.slice(0, 9).map((project, index) => (
-                    <Link to={project.slug} key={index} className="group relative">
+                    <Link to={project.slug} onClick={(e) => handleNavigation(e, project.slug)} key={index} className="group relative">
                         <div
                             className="w-full h-[540px] bg-center bg-cover"
                             style={{ backgroundImage: `url(${project.card.image})` }}

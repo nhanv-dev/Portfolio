@@ -5,7 +5,8 @@ const LoadingContext = createContext({
     setIsLoaded: (value) => { },
     transition: false,
     setTransition: (value) => { },
-    handleNavigationWithAnimation: (route, navigate) => { }
+    handleNavigationWithAnimation: (route, navigate) => { },
+    handleNavigationWithOverlay: (route, navigate) => { }
 });
 
 export const LoadingProvider = ({ children }) => {
@@ -14,11 +15,18 @@ export const LoadingProvider = ({ children }) => {
 
     const handleNavigationWithAnimation = (route, navigate) => {
         setTransition(true);
-
         setTimeout(() => {
             setIsLoaded(false);
             navigate(route);
         }, 500);
+    };
+
+    const handleNavigationWithOverlay = (route, navigate) => {
+        setTransition(true);
+        setTimeout(() => {
+            navigate(route);
+            setTransition(false);
+        }, 750);
     };
 
     return (
@@ -27,7 +35,8 @@ export const LoadingProvider = ({ children }) => {
             setIsLoaded,
             transition,
             setTransition,
-            handleNavigationWithAnimation
+            handleNavigationWithAnimation,
+            handleNavigationWithOverlay
         }}>
             {children}
         </LoadingContext.Provider>

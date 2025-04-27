@@ -20,20 +20,26 @@ const DepotProject = ({ item, index }) => {
 						))}
 					</div>
 				</div>
-				<div className="min-w-[250px]">
-					<div className="text-gray-300 text-sm">
-						<p className="mb-2">
-							<span className="font-bold text-gray-400 inline-block w-[65px]">Roles:</span>
-							<span className="font-semibold">Web Developer</span>
-						</p>
-						<p className="mb-2">
-							<span className="font-bold text-gray-400 inline-block w-[65px]">Client:</span>
-							<span className="font-semibold">Personal Project</span>
-						</p>
+				<div className="min-w-[250px] text-gray-300 text-[0.95rem]">
+					<p className="mb-2">
+						<span className="font-bold text-gray-400 inline-block w-[65px]">Roles:</span>
+						<span className="font-semibold">Web Developer</span>
+					</p>
+					<p className="mb-5">
+						<span className="font-bold text-gray-400 inline-block w-[65px]">Client:</span>
+						<span className="font-semibold">Personal Project</span>
+					</p>
+					<div className="flex gap-2">
+						<a href={item.github} target="_blank" rel="noopener noreferrer" className="flex-1 border-2 p-3 border-gray-800 hover:border-white transition-all duration-[800] text-darkText px-4 py-1.5 rounded-sm flex items-center justify-center gap-2 text-[0.95rem] font-medium">
+							<span>Github</span>
+						</a>
+						<a href={item.website} target="_blank" rel="noopener noreferrer" className="flex-1 border-2 p-3 border-gray-800 hover:border-white transition-all duration-[800] text-darkText px-4 py-1.5 rounded-sm flex items-center justify-center gap-2 text-[0.95rem] font-medium">
+							<span>Live Site</span>
+						</a>
 					</div>
 				</div>
 			</div>
-			
+
 			<div className="mt-6">
 				<h2 className="text-xl font-bold">Overview</h2>
 				<div className="mt-4">

@@ -61,22 +61,31 @@ const Preloader = ({ texts, onLoaded }) => {
             initial={{ filter: "blur(10px)" }}
             animate={{ filter: "blur(0px)" }}
             exit={{ filter: "blur(10px)" }}
-            transition={{ duration: 0.5 }}
+            transition={{
+                duration: 1,
+                ease: 'easeOut'
+            }}
             className="fixed left-0 top-0 w-full h-full flex flex-col items-center justify-center z-[9999] transition-all duration-500 bg-black text-white"
         >
             {texts.map((text, index) => {
                 if (index <= textIndex) {
                     return (
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                        <div key={index} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                             <motion.h1
                                 key={index}
-                                initial={{ y: 100, opacity: 0 }}
+                                initial={{
+                                    y: 100,
+                                    opacity: 0
+                                }}
                                 animate={{
                                     y: index === textIndex ? 0 : -20,
                                     opacity: index === textIndex ? 1 : 0,
                                 }}
-                                transition={{ duration: 1.2, ease: "easeOut" }}
-                                className="text-5xl font-bold"
+                                transition={{
+                                    duration: index === textIndex ? 1.2 : 0.8,
+                                    ease: 'easeOut'
+                                }}
+                                className="text-5xl font-bold font-unbounded"
                             >
                                 {text}
                             </motion.h1>

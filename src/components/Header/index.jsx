@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { RiAppsLine } from "react-icons/ri";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { personalInfo } from '../../data';
 import { useLenis } from '../LenisProvider';
 import { useLoading } from '../LoadingProvider';
@@ -58,10 +58,13 @@ export default function Header() {
                                 {listRouting.map((route, index) => {
                                     const isActive = location.pathname === route;
                                     return (
-                                        <button
-                                            key={index}
-                                            type="button"
-                                            onClick={() => handleNavigationWithAnimation(route, navigate)}
+                                        <Link
+                                            key={index} 
+                                            to={route}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                handleNavigationWithAnimation(route, navigate);
+                                            }}
                                             className={`text-base font-bold tracking-normal transition-colors relative group ${isActive
                                                 ? 'text-primary'
                                                 : 'text-white'
@@ -72,7 +75,7 @@ export default function Header() {
                                                 ? 'bg-primary'
                                                 : 'bg-transparent'
                                                 }`}></span>
-                                        </button>
+                                        </Link>
                                     );
                                 })}
                             </nav>

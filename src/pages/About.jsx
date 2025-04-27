@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { GoDotFill } from 'react-icons/go';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ContactBanner from "../components/ContactBanner";
 import DevInfiniteScroll from "../components/InfiniteScroll/DevInfiniteScroll";
 import TechInfiniteScroll from "../components/InfiniteScroll/TechInfiniteScroll";
@@ -151,7 +151,7 @@ const HeroComponent = () => {
                         </h1>
                         <p className="text-[1rem] leading-loose tracking-wide font-medium mb-14">
                             I am a software developer passionate about building meaningful, sustainable solutions that drive real-world impact. I value precision, creativity, and a deep understanding of how technology can solve complex problems.
-                        </p> 
+                        </p>
                     </motion.div>
                 </div>
             </div>
@@ -228,7 +228,8 @@ const ExploreAboutComponent = () => {
 }
 
 const ExploreProjectsComponent = () => {
-    const { setIsLoaded } = useLoading();
+    const { handleNavigationWithAnimation } = useLoading();
+    const navigate = useNavigate();
 
     return (
         <section className='py-[120px] bg-darkBg'>
@@ -302,7 +303,10 @@ const ExploreProjectsComponent = () => {
                             transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
                         >
                             <Link
-                                to={'/projects'} onClick={() => setIsLoaded(false)}
+                                to={'/projects'} onClick={(e) => {
+                                    e.preventDefault();
+                                    handleNavigationWithAnimation('/projects', navigate);
+                                }}
                                 className='hover:bg-black hover:text-white transition-all duration-700 font-unbounded w-[150px] h-[150px] flex items-center justify-center border-[3px] border-white rounded-full font-medium uppercase text-[17px]'>
                                 Let's <br />start
                             </Link>

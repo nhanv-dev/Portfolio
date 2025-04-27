@@ -1,16 +1,16 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { useTransition, a } from '@react-spring/web';
-
 import './style.css';
 
 function Masonry({ data }) {
+    const ref = useRef();
     const [columns, setColumns] = useState(2);
-    console.log(data);
+    const [width, setWidth] = useState(0);
 
     useEffect(() => {
         const updateColumns = () => {
             if (window.matchMedia('(min-width: 1500px)').matches) {
-                setColumns(3);
+                setColumns(2);
             } else if (window.matchMedia('(min-width: 1000px)').matches) {
                 setColumns(2);
             } else if (window.matchMedia('(min-width: 600px)').matches) {
@@ -24,9 +24,6 @@ function Masonry({ data }) {
         window.addEventListener('resize', updateColumns);
         return () => window.removeEventListener('resize', updateColumns);
     }, []);
-
-    const ref = useRef();
-    const [width, setWidth] = useState(0);
 
     useEffect(() => {
         const handleResize = () => {
@@ -68,14 +65,14 @@ function Masonry({ data }) {
                 <a.div key={item.id} style={style}>
                     <div
                         style={{
-                            backgroundColor: '#ffffff', // Set background if needed
+                            backgroundColor: '#ffffff',  
                             width: '100%',
                             height: '100%',
                             backgroundImage: `url(${item.image})`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                         }}
-                    /> 
+                    />
                 </a.div>
             ))
             }
