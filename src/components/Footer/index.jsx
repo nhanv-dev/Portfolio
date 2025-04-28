@@ -1,6 +1,8 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useLoading } from '../LoadingProvider';
 import { personalInfo } from '../../data';
+import { FaFacebookF, FaLinkedin } from 'react-icons/fa';
+import { FaGithub } from "react-icons/fa6";
 
 export default function Footer() {
     const { handleNavigationWithAnimation } = useLoading();
@@ -60,8 +62,20 @@ export default function Footer() {
                                     </li>
                                 </ul>
                             </div>
+                            <div className="flex items-center gap-3 mb-6">
+                                <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-[34px] h-[34px] text-sm text-black bg-white rounded-full transition-all duration-400">
+                                    <FaFacebookF size={16} />
+                                </a>
+                                <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-[34px] h-[34px] text-sm text-black bg-white rounded-full transition-all duration-400">
+                                    <FaGithub size={16} />
+                                </a>
+                                <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer" className="flex justify-center items-center w-[34px] h-[34px] text-sm text-black bg-white rounded-full transition-all duration-400">
+                                    <FaLinkedin size={16} />
+                                </a>
+                            </div>
                             <p className="text-darkText font-bold text-[0.75rem] uppercase tracking-[2px]">
-                                @2025. Personal portfolio
+                                Developed by
+                                <a href="https://www.facebook.com/nhan.kden/" target="_blank" rel="noreferrer" className="text-primary"> Tran Thanh Nhan</a>
                             </p>
                         </div>
                         <div className="min-w-max flex flex-wrap items-start justify-end gap-4">
@@ -90,9 +104,8 @@ export default function Footer() {
             </div>
             <div className='py-6 border-t border-gray-900'>
                 <div className="text-center">
-                    <p className="text-darkText font-bold text-[0.8rem] uppercase tracking-[2px]">
-                        Developed by
-                        <a href="https://www.facebook.com/nhan.kden/" target="_blank" rel="noreferrer" className="text-primary"> Tran Thanh Nhan</a>
+                    <p className="text-darkText font-bold text-[0.75rem] uppercase tracking-[2px]">
+                        @2025. Personal portfolio
                     </p>
                 </div>
             </div>
