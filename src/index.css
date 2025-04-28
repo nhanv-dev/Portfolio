@@ -44,6 +44,10 @@ body:hover::-webkit-scrollbar-thumb {
     background-color: #555;
 }
 
+textarea {
+    resize: none;
+}
+
 @layer components {
     .container-wide {
         @apply container;

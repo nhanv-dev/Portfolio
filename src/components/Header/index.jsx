@@ -31,13 +31,18 @@ export default function Header() {
                 <div className="container mx-auto px-4">
                     <div className="flex items-center justify-between h-[72px]">
                         {/* Logo with animation */}
-                        <div className="text-[1.5rem] font-bold font-kanit relative group">
+                        <Link to="/home"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                if (location.pathname !== "/home") handleNavigationWithAnimation("/home", navigate)
+                            }}
+                            className="text-[1.5rem] font-bold font-kanit relative"
+                        >
                             <span className="relative z-10">
                                 Port
                                 <span className="text-primary">folio.</span>
                             </span>
-                            <div className="absolute inset-0 bg-white/10 rounded-lg transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
-                        </div>
+                        </Link>
 
                         {/* Phone Number and Menu Button */}
                         <div className="flex items-center gap-10">
@@ -51,7 +56,7 @@ export default function Header() {
                                             to={route}
                                             onClick={(e) => {
                                                 e.preventDefault();
-                                                handleNavigationWithAnimation(route, navigate);
+                                                if (!isActive) handleNavigationWithAnimation(route, navigate);
                                             }}
                                             className={`text-base font-bold tracking-normal transition-colors relative group ${isActive
                                                 ? 'text-primary'
