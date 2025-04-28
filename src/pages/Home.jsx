@@ -22,7 +22,7 @@ const list = [
 export default function HomePage() {
 
     return (
-        <PageWithPreload texts={["Welcome", "Let's Explore"]}>
+        <PageWithPreload texts={["Discover What's Ahead", "Let's Explore"]}>
             <motion.div {...blurAnimation}>
                 <HomeSlider />
             </motion.div>
@@ -81,7 +81,7 @@ const ExploreAboutComponent = () => {
                                 className="text-[3.5rem] font-extrabold leading-tight"
                             >
                                 Transforming Ideas Into
-                                <span className="block text-greenPrimary">Web Applications</span>
+                                <span className="block text-primary">Web Applications</span>
                                 with <span className="inline-block text-gray-500">Modern Technology</span>
                             </motion.h1>
 
@@ -190,7 +190,7 @@ const ExploreAboutComponent = () => {
                                         <h5 className="font-unbounded font-bold text-[1.25rem] leading-[32px] tracking-wide text-black/80 my-[32px] mb-6">
                                             A Little About Me
                                         </h5>
-                                        <p className='font-medium text-base'>
+                                        <p className='font-medium text-base text-gray-600'>
                                             Passionate Fullstack Developer with 1+ years of experience in crafting fast, scalable web application.
                                         </p>
                                     </div>
@@ -207,7 +207,7 @@ const ExploreAboutComponent = () => {
                                         <h5 className="font-unbounded font-bold text-[1.25rem] leading-[32px] tracking-wide text-black/80 my-[32px] mb-6">
                                             Behind the Code
                                         </h5>
-                                        <p className='font-medium text-base'>
+                                        <p className='font-medium text-base text-gray-600'>
                                             Turning ideas into fast, reliable web applications with a passion for technology and detail.
                                         </p>
                                     </div>
@@ -219,10 +219,10 @@ const ExploreAboutComponent = () => {
                             >
                                 <button
                                     onClick={() => handleNavigationWithAnimation('/about', navigate)}
-                                    className="inline-flex items-center text-greenPrimary text-[1.05rem] font-bold tracking-[-0.01rem]"
+                                    className="inline-flex items-center text-primary text-[1.05rem] font-bold tracking-[-0.01rem]"
                                 >
                                     About Me
-                                    <span className='ml-3 flex items-center justify-center bg-greenPrimary rounded-full w-[32px] h-[32px] text-darkText'>
+                                    <span className='ml-3 flex items-center justify-center bg-primary rounded-full w-[32px] h-[32px] text-darkText'>
                                         <FaArrowRightLong size={14} />
                                     </span>
                                 </button>
@@ -236,8 +236,13 @@ const ExploreAboutComponent = () => {
 }
 
 const ExploreProjectsComponent = () => {
-    const { handleNavigationWithAnimation } = useLoading();
+    const { handleNavigationWithAnimation, handleNavigationWithOverlay } = useLoading();
     const navigate = useNavigate();
+
+    const handleClick = (e, slug) => {
+        e.preventDefault();
+        handleNavigationWithOverlay(slug, navigate);
+    }
 
     return (
         <section className='relative'>
@@ -259,7 +264,7 @@ const ExploreProjectsComponent = () => {
                                 onClick={() => handleNavigationWithAnimation('/projects', navigate)}
                                 className="p-[22px] font-bold text-[1.05rem] group absolute top-full right-0 w-full bg-lightBg"
                             >
-                                <span className='flex justify-center items-center group-hover: transition-all duration-300 text-emerald-400'>
+                                <span className='flex justify-center items-center transition-all duration-300 text-primary'>
                                     Browse All Projects
                                     <FaArrowRightLong className='ml-3 relative top-[1px]' size={18} />
                                 </span>
@@ -278,27 +283,27 @@ const ExploreProjectsComponent = () => {
                 <div className="container-wide relative z-10">
                     <div className="grid grid-cols-4 gap-8">
                         <div className="col-span-1">
-                            <ProjectCard project={projects[0]} />
+                            <ProjectCard project={projects[0]} handleClick={handleClick} />
                         </div>
 
                         <div className="col-span-1">
-                            <ProjectCard project={projects[1]} />
+                            <ProjectCard project={projects[1]} handleClick={handleClick} />
                         </div>
 
                         <div className="col-span-2">
-                            <ProjectCard project={projects[2]} />
+                            <ProjectCard project={projects[2]} handleClick={handleClick} />
                         </div>
 
                         <div className="col-span-2">
-                            <ProjectCard project={projects[3]} />
+                            <ProjectCard project={projects[3]} handleClick={handleClick} />
                         </div>
 
                         <div className="col-span-1">
-                            <ProjectCard project={projects[4]} />
+                            <ProjectCard project={projects[4]} handleClick={handleClick} />
                         </div>
 
                         <div className="col-span-1 flex items-end">
-                            <ProjectCard project={projects[5]} />
+                            <ProjectCard project={projects[5]} handleClick={handleClick} />
                         </div>
                     </div>
                 </div>
@@ -307,9 +312,13 @@ const ExploreProjectsComponent = () => {
     )
 }
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, handleClick }) => {
     return (
-        <Link to={project.slug} className="group overflow-hidden max-h-max flex flex-col">
+        <Link
+            to={project.slug}
+            onClick={(e) => handleClick(e, project.slug)}
+            className="group overflow-hidden max-h-max flex flex-col"
+        >
             <motion.div
                 className="relative aspect-square overflow-hidden"
                 initial={{ opacity: 0, scale: 0.9 }}

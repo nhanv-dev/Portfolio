@@ -26,7 +26,7 @@ export const LoadingProvider = ({ children }) => {
         setTimeout(() => {
             navigate(route);
             setTransition(false);
-        }, 750);
+        }, 500);
     };
 
     return (

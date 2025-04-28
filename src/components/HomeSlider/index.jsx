@@ -167,7 +167,7 @@ const SlideImage = ({ active, index, scale, animation, slide, activeSlide, setAc
                     </div>
                 </div>
 
-                <div className="flex-1 bg-[#60725A] p-5 relative z-[2]">
+                <div className="flex-1 bg-primaryBg p-5 relative z-[2]">
                     <div className="absolute left-5 top-0 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
                         <p
                             className="text-darkText text-[1.1rem] font-bold tracking-wide flex items-center justify-center"

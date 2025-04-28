@@ -14,7 +14,7 @@ const Preloader = ({ texts, onLoaded }) => {
             return;
         }
 
-        const totalDuration = texts.length * 1500; // Total time for loading (texts.length * 1800)
+        const totalDuration = texts.length * 1800; // Total time for loading (texts.length * 1800)
         const targetDuration = totalDuration * 0.85;
         let startTime = Date.now();
 
@@ -38,7 +38,7 @@ const Preloader = ({ texts, onLoaded }) => {
 
         let interval = setInterval(() => {
             setTextIndex((prev) => prev + 1);
-        }, 1500);
+        }, 1800);
 
         let timeout = setTimeout(() => {
             clearInterval(interval);
@@ -60,7 +60,6 @@ const Preloader = ({ texts, onLoaded }) => {
         <motion.div
             initial={{ filter: "blur(10px)" }}
             animate={{ filter: "blur(0px)" }}
-            exit={{ filter: "blur(10px)" }}
             transition={{
                 duration: 1,
                 ease: 'easeOut'
@@ -80,12 +79,13 @@ const Preloader = ({ texts, onLoaded }) => {
                                 animate={{
                                     y: index === textIndex ? 0 : -20,
                                     opacity: index === textIndex ? 1 : 0,
+                                    scale: index === textIndex ? 1 : 0.9,
                                 }}
                                 transition={{
-                                    duration: index === textIndex ? 1.2 : 0.8,
+                                    duration: index === textIndex ? 1.5 : 0.6,
                                     ease: 'easeOut'
                                 }}
-                                className="text-5xl font-bold font-unbounded"
+                                className="text-4xl font-bold font-unbounded"
                             >
                                 {text}
                             </motion.h1>

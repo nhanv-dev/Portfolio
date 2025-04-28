@@ -64,7 +64,7 @@ export default function Header() {
                                                 }`}
                                         >
                                             {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
-                                            <span className={`absolute -bottom-1 left-0 w-full h-[3px] transition-all duration-300 ${isActive
+                                            <span className={`absolute -bottom-1 left-0 w-full h-[3px] transition-all duration-300 rounded-full ${isActive
                                                 ? 'bg-primary'
                                                 : 'bg-transparent'
                                                 }`}></span>

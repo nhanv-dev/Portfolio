@@ -76,15 +76,15 @@ export default function ContactPage() {
     }, [formik.values.message]);
 
     return (
-        <PageWithPreload texts={["Get in Touch", "Reach Today"]}>
+        <PageWithPreload texts={["Start a Conversation", "I'm Listening"]}>
             <motion.div {...blurAnimation}>
                 <div className="flex gap-10 flex-col">
-                    <div className="relative h-[300px] w-[100%] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(https://images.pexels.com/photos/464366/pexels-photo-464366.jpeg?cs=srgb&dl=pexels-francesco-ungaro-464366.jpg&fm=jpg)' }}>
-                        <svg className="absolute bottom-0 left-0 h-[150px]" xmlns="http://www.w3.org/2000/svg" version="1.1" fill="#000" width="100%" height="150" viewBox="0 0 4.66666 0.333331" preserveAspectRatio="none">
+                    <div className="relative h-[350px] w-[100%] bg-cover bg-fixed bg-center bg-no-repeat" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1458668383970-8ddd3927deed?q=80&w=2667&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)' }}>
+                        <svg className="absolute bottom-0 left-0 h-[120px]" xmlns="http://www.w3.org/2000/svg" version="1.1" fill="#000" width="100%" viewBox="0 0 4.66666 0.333331" preserveAspectRatio="none">
                             <path className="fil0" d="M-7.87402e-006 0.0148858l0.00234646 0c0.052689,0.0154094 0.554437,0.154539 1.51807,0.166524l0.267925 0c0.0227165,-0.00026378 0.0456102,-0.000582677 0.0687992,-0.001 1.1559,-0.0208465 2.34191,-0.147224 2.79148,-0.165524l0.0180591 0 0 0.166661 -7.87402e-006 0 0 0.151783 -4.66666 0 0 -0.151783 -7.87402e-006 0 0 -0.166661z"></path>
                         </svg>
-                        <div className="absolute top-0 left-0 w-full h-full bg-black/30">
-                             
+                        <div className="absolute top-0 left-0 w-full h-full bg-black/40">
+
                         </div>
                     </div>
                     <section id="contact" className="bg-darkBg flex-1">
@@ -154,7 +154,7 @@ export default function ContactPage() {
                                                 <button
                                                     type="submit"
                                                     disabled={isSubmitting}
-                                                    className={`group-hover:translate-x-[8px] group-hover:translate-y-[8px] transition-transform ease duration-[300ms] z-[2] opacity-100 relative capitalize tracking-wide font-semibold text-[0.95rem] p-4 bg-white text-lightText ${isSubmitting ? 'cursor-not-allowed' : ''}`}
+                                                    className={`group-hover:translate-x-[8px] group-hover:translate-y-[8px] transition-transform ease duration-[300ms] z-[2] opacity-100 relative capitalize tracking-wide font-bold text-[0.95rem] p-4 bg-white text-lightText ${isSubmitting ? 'cursor-not-allowed' : ''}`}
                                                 >
                                                     {isSubmitting ? 'Sending...' : 'Send message'}
                                                 </button>
@@ -203,6 +203,7 @@ export default function ContactPage() {
                             </div>
                         </div>
                     </section>
+
                 </div>
             </motion.div>
             <div className="py-10 border-t border-gray-900">

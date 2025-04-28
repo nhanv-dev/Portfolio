@@ -20,7 +20,7 @@
     -webkit-transition: all .075s ease-out;
     transition: all .075s ease-out;
     border-radius: 50px;
-    border: 3px solid #14bfb5 !important;
+    border: 3px solid #0fa29b !important;
 }
 
 .cursor-outer.cursor-hover {
@@ -31,7 +31,7 @@
     width: 8px;
     height: 8px;
     z-index: 10000001;
-    background-color: #14bfb5;
+    background-color: #0fa29b;
     transition: width .3s ease-in-out, height .3s ease-in-out, margin .3s ease-in-out, opacity .3s ease-in-out;
 }
 
