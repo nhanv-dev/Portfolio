@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoading } from "../LoadingProvider";
 import Preloader from "../Preloader";
 
 export default function PageWithPreload({ children, texts = [] }) {
-	const { isLoaded, setIsLoaded } = useLoading();
+	const { isLoaded, setIsLoaded, setTransition } = useLoading();
+	const [isComplete, setIsComplete] = useState(false);
 
-	return (
-		<>
-			{!isLoaded && (
-				<Preloader texts={texts} onLoaded={() => setIsLoaded(true)} />
-			)}
-			{isLoaded && children}
-		</>
-	);
+	if (!isLoaded && !isComplete) {
+		return (
+			<Preloader texts={texts} onLoaded={() => {
+				setIsComplete(true);
+				setIsLoaded(true);
+				setTransition(false);
+			}} />
+		);
+	}
+
+	return (children);
 }
 

@@ -18,7 +18,7 @@ const titles = {
 
 const Layout = () => {
     const location = useLocation();
-    const { isLoaded, transition, setTransition } = useLoading();
+    const { transition } = useLoading();
     const [showOverlay, setShowOverlay] = useState(false);
 
     useEffect(() => {
@@ -28,11 +28,6 @@ const Layout = () => {
     useEffect(() => {
         setShowOverlay(transition);
     }, [transition]);
-
-    useEffect(() => {
-        if (isLoaded) setTransition(false);
-    }, [isLoaded, setTransition]);
-
 
     return (
         <LenisProvider>

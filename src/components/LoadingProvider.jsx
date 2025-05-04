@@ -16,8 +16,8 @@ export const LoadingProvider = ({ children }) => {
     const handleNavigationWithAnimation = (route, navigate) => {
         setTransition(true);
         setTimeout(() => {
-            setIsLoaded(false);
             navigate(route);
+            setIsLoaded(false);
         }, 500);
     };
 

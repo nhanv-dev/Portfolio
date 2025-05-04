@@ -89,7 +89,7 @@ export default function Header() {
                 <div className="h-full overflow-hidden">
                     <div className="px-8 py-6 h-full">
                         {/* Personal Information */}
-                        <div className="h-full flex flex-col gap-8 justify-between">
+                        <div className="h-full flex flex-col gap-8">
                             {/* Contact Info */}
                             <div>
                                 <h3 className="text-lg font-bold mb-4 text-primary">Contact</h3>

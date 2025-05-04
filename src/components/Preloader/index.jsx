@@ -1,12 +1,38 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
+const ProgressBar = ({ totalDuration }) => {
+    const [progress, setProgress] = useState(0);
 
+    useEffect(() => {
+        const targetDuration = totalDuration * 0.85;
+        const interval = 100; // Update every 100ms
+        const totalSteps = targetDuration / interval;
+        const incrementPerStep = 100 / totalSteps;
+
+        let progressInterval = setInterval(() => {
+            setProgress((prev) => {
+                if (prev >= 100) {
+                    clearInterval(progressInterval);
+                    return 100;
+                }
+                return Math.min(prev + incrementPerStep, 100);
+            });
+        }, interval);
+
+        return () => {
+            clearInterval(progressInterval);
+        };
+    }, [totalDuration]);
+
+    return (
+        <div className="text-center text-lg font-bold">{Math.round(progress || 0)}%</div>
+    );
+};
 
 const Preloader = ({ texts, onLoaded }) => {
     const [textIndex, setTextIndex] = useState(0);
     const [isVisible, setIsVisible] = useState(true);
-    const [progress, setProgress] = useState(0);
 
     useEffect(() => {
         if (!texts || texts.length === 0) {
@@ -15,26 +41,6 @@ const Preloader = ({ texts, onLoaded }) => {
         }
 
         const totalDuration = texts.length * 1800; // Total time for loading (texts.length * 1800)
-        const targetDuration = totalDuration * 0.85;
-        let startTime = Date.now();
-
-        let progressInterval = setInterval(() => {
-            const elapsedTime = Date.now() - startTime; // Time elapsed in ms
-            const progressPercentage = (elapsedTime / targetDuration) * 100; // Calculate the progress in the first 90% of the time
-
-            // Add randomness to the increment (between 0.5% and 2% per interval)
-            const randomIncrement = Math.random() * (2 - 0.5) + 0.5; // Random value between 0.5% and 2%
-            const newProgress = progressPercentage + randomIncrement;
-
-            // Cap at 100% and ensure smooth progress
-            setProgress((prev) => {
-                if (newProgress >= 100) {
-                    clearInterval(progressInterval); // Stop the interval once 100% is reached
-                    return 100; // Cap at 100%
-                }
-                return Math.min(newProgress, 100); // Keep the value within bounds
-            });
-        }, 100);
 
         let interval = setInterval(() => {
             setTextIndex((prev) => prev + 1);
@@ -42,14 +48,12 @@ const Preloader = ({ texts, onLoaded }) => {
 
         let timeout = setTimeout(() => {
             clearInterval(interval);
-            clearInterval(progressInterval);
             setIsVisible(false);
             onLoaded();
         }, totalDuration);
 
         return () => {
             clearInterval(interval);
-            clearInterval(progressInterval);
             clearTimeout(timeout);
         };
     }, [texts, onLoaded]);
@@ -61,7 +65,7 @@ const Preloader = ({ texts, onLoaded }) => {
             initial={{ filter: "blur(10px)" }}
             animate={{ filter: "blur(0px)" }}
             transition={{
-                duration: 1,
+                duration: .8,
                 ease: 'easeOut'
             }}
             className="fixed left-0 top-0 w-full h-full flex flex-col items-center justify-center z-[9999] transition-all duration-500 bg-black text-white"
@@ -101,9 +105,10 @@ const Preloader = ({ texts, onLoaded }) => {
                         <span className="text-primary ml-1">folio.</span>
                     </h5>
                 </div>
-                <div className="text-center text-lg font-bold">{Math.round(progress || 0)}%</div>
+                <ProgressBar totalDuration={texts.length * 1800} />
                 <div className="font-semibold text-md tracking-[0.2rem] text-darkText uppercase w-[200px] text-right">Loading... </div>
             </div>
+
         </motion.div>
     );
 };
