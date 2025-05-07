@@ -1,4 +1,4 @@
-import AmigoTasksProject from "./components/Projects/AmigoTasksProject";
+﻿import AmigoTasksProject from "./components/Projects/AmigoTasksProject";
 import ChitchatProject from "./components/Projects/ChitchatProject";
 import CommoditiesMartProject from "./components/Projects/CommoditiesMartProject";
 import DepotProject from "./components/Projects/DepotProject";
@@ -101,9 +101,23 @@ export const projects = [
         },
         component: DepotProject,
         images: [
-            { id: 2, image: "/images/spotifyv1/spotify-2.png", height: 975 },
-            { id: 4, image: "/images/spotifyv1/spotify-4.png", height: 650 },
-            { id: 3, image: "/images/spotifyv1/spotify-3.png", height: 650 },
+            { id: 1, image: "/images/projects/depot/depot-1.png", height: 650 },
+            { id: 2, image: "/images/projects/depot/depot-2.png", height: 650 },
+            { id: 3, image: "/images/projects/depot/depot-3.png", height: 650 },
+            { id: 4, image: "/images/projects/depot/depot-4.png", height: 650 },
+            { id: 5, image: "/images/projects/depot/depot-5.png", height: 650 },
+            { id: 6, image: "/images/projects/depot/depot-6.png", height: 650 },
+            { id: 7, image: "/images/projects/depot/depot-7.png", height: 650 },
+            { id: 8, image: "/images/projects/depot/depot-8.png", height: 650 },
+            { id: 9, image: "/images/projects/depot/depot-9.png", height: 650 },
+            { id: 10, image: "/images/projects/depot/depot-10.png", height: 650 },
+            { id: 11, image: "/images/projects/depot/depot-11.png", height: 650 },
+            { id: 12, image: "/images/projects/depot/depot-12.png", height: 650 },
+            { id: 13, image: "/images/projects/depot/depot-13.png", height: 650 },
+            { id: 14, image: "/images/projects/depot/depot-14.png", height: 650 },
+            { id: 15, image: "/images/projects/depot/depot-15.png", height: 650 },
+            { id: 16, image: "/images/projects/depot/depot-16.png", height: 650 },
+            { id: 17, image: "/images/projects/depot/depot-17.png", height: 650 }
         ],
     },
     {
@@ -139,11 +153,11 @@ export const projects = [
         },
         component: NoonpostProject,
         images: [
-            { id: 1, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-1.png?alt=media&token=fab3ad5f-de15-4856-bbee-a16dcf27d065", height: 975 },
-            { id: 2, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-2.png?alt=media&token=bf5db890-0a09-4036-911b-559d56559338", height: 650 },
-            { id: 3, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-3.png?alt=media&token=87060777-9296-4f03-9e33-65551d9384ff", height: 650 },
-            { id: 4, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-4.png?alt=media&token=6fd7736d-aa8b-41db-a6ac-bd7d5b6e72a9", height: 975 },
-            { id: 5, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/noonpost%2Fnoonpost-5.png?alt=media&token=26a5cbd8-a23f-4bc0-b0ea-36aef396c5f6", height: 650 }
+            { id: 1, image: "/images/projects/noonpost/noonpost-1.png", height: 650 },
+            { id: 2, image: "/images/projects/noonpost/noonpost-2.png", height: 650 },
+            { id: 3, image: "/images/projects/noonpost/noonpost-3.png", height: 650 },
+            { id: 4, image: "/images/projects/noonpost/noonpost-4.png", height: 650 },
+            { id: 5, image: "/images/projects/noonpost/noonpost-5.png", height: 650 }
         ],
     },
     {
@@ -162,11 +176,22 @@ export const projects = [
         },
         component: SpotifyProject,
         images: [
-            { id: 2, image: "/images/spotifyv1/spotify-2.png", height: 975 },
-            { id: 4, image: "/images/spotifyv1/spotify-4.png", height: 650 },
-            { id: 3, image: "/images/spotifyv1/spotify-3.png", height: 650 },
-            { id: 1, image: "/images/spotifyv1/spotify-6.png", height: 975 },
-            { id: 5, image: "/images/spotifyv1/spotify-8.png", height: 650 },
+            { id: 1, image: "/images/projects/spotify/spotify-v1-1.png", height: 650 },
+            { id: 2, image: "/images/projects/spotify/spotify-v1-2.png", height: 650 },
+            { id: 3, image: "/images/projects/spotify/spotify-v1-3.png", height: 650 },
+            { id: 4, image: "/images/projects/spotify/spotify-v1-4.png", height: 650 },
+            { id: 5, image: "/images/projects/spotify/spotify-v1-5.png", height: 650 },
+            { id: 6, image: "/images/projects/spotify/spotify-v1-6.png", height: 650 },
+            { id: 7, image: "/images/projects/spotify/spotify-v1-7.png", height: 650 },
+            { id: 8, image: "/images/projects/spotify/spotify-v1-8.png", height: 650 },
+            { id: 9, image: "/images/projects/spotify/spotify-v2-1.png", height: 650 },
+            { id: 10, image: "/images/projects/spotify/spotify-v2-2.png", height: 650 },
+            { id: 11, image: "/images/projects/spotify/spotify-v2-3.png", height: 650 },
+            { id: 12, image: "/images/projects/spotify/spotify-v2-4.png", height: 650 },
+            { id: 13, image: "/images/projects/spotify/spotify-v2-5.png", height: 650 },
+            { id: 14, image: "/images/projects/spotify/spotify-v2-6.png", height: 650 },
+            { id: 15, image: "/images/projects/spotify/spotify-v2-7.png", height: 650 },
+            { id: 16, image: "/images/projects/spotify/spotify-v2-8.png", height: 650 }
         ],
     },
     {
@@ -185,14 +210,14 @@ export const projects = [
         },
         component: ShopioProject,
         images: [
-            { id: 1, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-2.png?alt=media&token=d5b778ad-1ce6-435f-b8ba-e1a5ebb885f9", height: 750 },
-            { id: 2, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-1.png?alt=media&token=a6649940-6d0a-4283-bce9-778d3f04ca74", height: 650 },
-            { id: 3, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-3.png?alt=media&token=48548d4b-829f-4081-b782-28e9bc7da1f7", height: 750 },
-            { id: 4, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-4.png?alt=media&token=00a7c5a8-cf8d-4b63-b5a3-a6ad2a13b247", height: 400 },
-            { id: 5, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-5.png?alt=media&token=4f65fc0c-9692-4e03-879e-669119097b9d", height: 750 },
-            { id: 6, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-6.png?alt=media&token=e55ea527-a5b9-4c16-b4bc-69b097c50353", height: 500 },
-            { id: 7, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-7.png?alt=media&token=e529e57b-8463-4e95-ad0b-e86c96a64a80", height: 650 },
-            { id: 8, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/shopio%2Fshopio-8.png?alt=media&token=922f8645-379b-423e-b226-a635ee314de7", height: 500 }
+            { id: 1, image: "/images/projects/shopio/shopio-1.png", height: 650 },
+            { id: 2, image: "/images/projects/shopio/shopio-2.png", height: 650 },
+            { id: 3, image: "/images/projects/shopio/shopio-3.png", height: 650 },
+            { id: 4, image: "/images/projects/shopio/shopio-4.png", height: 650 },
+            { id: 5, image: "/images/projects/shopio/shopio-5.png", height: 650 },
+            { id: 6, image: "/images/projects/shopio/shopio-6.png", height: 650 },
+            { id: 7, image: "/images/projects/shopio/shopio-7.png", height: 650 },
+            { id: 8, image: "/images/projects/shopio/shopio-8.png", height: 650 }
         ]
     },
     {
@@ -211,9 +236,9 @@ export const projects = [
         },
         component: ChitchatProject,
         images: [
-            { id: 1, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/chitchat%2Fchitchat-1.png?alt=media&token=28232f6a-3a7a-4476-868a-e2bf02ed5be8", height: 750 },
-            { id: 2, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/chitchat%2Fchitchat-2.png?alt=media&token=97b27d3e-4fef-46fe-bde9-f234ea7ce7a4", height: 650 },
-            { id: 3, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/chitchat%2Fchitchat-3.png?alt=media&token=aaf39dcf-ad2a-46e8-8910-1a6edfa78923", height: 750 },
+            { id: 1, image: "/images/projects/chitchat/chitchat-1.png", height: 650 },
+            { id: 2, image: "/images/projects/chitchat/chitchat-2.png", height: 650 },
+            { id: 3, image: "/images/projects/chitchat/chitchat-3.png", height: 650 }
         ],
     },
     {
@@ -232,8 +257,8 @@ export const projects = [
         },
         component: TodoProject,
         images: [
-            { id: 1, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/todo%2Ftodo-1.png?alt=media&token=ccfe5a0e-b1b0-4975-84f7-0ff7b74f3626", height: 750 },
-            { id: 2, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/todo%2Ftodo-2.png?alt=media&token=55402e14-f91d-4fa7-bc1b-20c3377138e5", height: 650 },
+            { id: 1, image: "/images/projects/todo-list/todo-list-1.png", height: 650 },
+            { id: 2, image: "/images/projects/todo-list/todo-list-2.png", height: 650 }
         ],
     },
     {
@@ -251,9 +276,12 @@ export const projects = [
         },
         component: SnakeGameProject,
         images: [
-            { id: 1, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/snake%2Fsnake-1.png?alt=media&token=100164ea-7ec4-4a2e-825f-7224f72eba69", height: 500 },
-            { id: 3, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/snake%2Fsnake-3.png?alt=media&token=32f97ed9-85b0-4078-b456-eb3130b35fdb", height: 500 },
-            { id: 6, image: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/snake%2Fsnake-6.png?alt=media&token=c81047f0-a77a-4da5-9684-f0b5cb55b99a", height: 500 },
+            { id: 1, image: "/images/projects/snake-game/snake-game-1.png", height: 650 },
+            { id: 2, image: "/images/projects/snake-game/snake-game-2.png", height: 650 },
+            { id: 3, image: "/images/projects/snake-game/snake-game-3.png", height: 650 },
+            { id: 4, image: "/images/projects/snake-game/snake-game-4.png", height: 650 },
+            { id: 5, image: "/images/projects/snake-game/snake-game-5.png", height: 650 },
+            { id: 6, image: "/images/projects/snake-game/snake-game-6.png", height: 650 }
         ],
     },
     {
