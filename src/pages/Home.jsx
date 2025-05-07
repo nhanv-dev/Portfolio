@@ -179,7 +179,7 @@ const ExploreAboutComponent = () => {
                                 <div className="flex-1">
                                     <div>
                                         <div className="w-[68px] h-[68px] bg-[#D9D0FF] flex items-center justify-center ml-[24px]">
-                                            <img src="/images/web-development.png" alt="Bulb" className='w-[32px] h-[32px]' />
+                                            <img src="/images/icons/web-development.png" alt="Bulb" className='w-[32px] h-[32px]' />
                                         </div>
                                         <div className="w-[24px] h-[24px] bg-[#F5F5F5]"></div>
                                         <div className="w-full h-[2px] bg-[#F5F5F5]"></div>
@@ -196,7 +196,7 @@ const ExploreAboutComponent = () => {
                                 <div className="flex-1">
                                     <div>
                                         <div className="w-[68px] h-[68px] bg-[#D9D0FF] flex items-center justify-center ml-[24px]">
-                                            <img src="/images/innovation.png" alt="Bulb" className='w-[40px] h-[40px]' />
+                                            <img src="/images/icons/innovation.png" alt="Bulb" className='w-[40px] h-[40px]' />
                                         </div>
                                         <div className="w-[24px] h-[24px] bg-[#F5F5F5]"></div>
                                         <div className="w-full h-[2px] bg-[#F5F5F5]"></div>

@@ -28,9 +28,9 @@ export const personalInfo = {
 }
 
 export const slides = [
-    { title: "Code Voyager", subtitle: "Welcome to My Developer Journey", image: "/images/slide-1.avif", thumbnail: "https://i.pinimg.com/736x/29/6a/14/296a146a26b1fc95d51f87bc4b3c5719.jpg" },
-    { title: "Code Creations", subtitle: "Where Ideas Come to Life", image: "/images/slide-2.avif", thumbnail: "https://i.pinimg.com/736x/29/6a/14/296a146a26b1fc95d51f87bc4b3c5719.jpg" },
-    { title: "Let's Connect!", subtitle: "Ready to Collaborate ?", image: "/images/slide-3.avif", thumbnail: "https://i.pinimg.com/736x/29/6a/14/296a146a26b1fc95d51f87bc4b3c5719.jpg" },
+    { title: "Code Voyager", subtitle: "Welcome to My Developer Journey", image: "/images/slides/slide-1.avif", thumbnail: "/images/slides/thumbnail-1.jpg" },
+    { title: "Code Creations", subtitle: "Where Ideas Come to Life", image: "/images/slides/slide-2.avif", thumbnail: "/images/slides/thumbnail-2.jpg" },
+    { title: "Let's Connect!", subtitle: "Ready to Collaborate ?", image: "/images/slides/slide-3.avif", thumbnail: "/images/slides/thumbnail-3.jpg" },
 ]
 
 export const skills = [
@@ -38,48 +38,48 @@ export const skills = [
         title: "Frontend Development",
         description: "Building responsive and interactive user interfaces with modern frameworks.",
         technologies: [
-            { name: "React", level: 90, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-            { name: "Next.js", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-            { name: "Angular", level: 80, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
-            { name: "Redux", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
-            { name: "JavaScript", level: 90, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-            { name: "TypeScript", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-            { name: "HTML5", level: 90, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-            { name: "CSS3", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" }
+            { name: "React", level: 90, logo: "/images/icons/react.svg" },
+            { name: "Next.js", level: 85, logo: "/images/icons/next.js.svg" },
+            { name: "Angular", level: 80, logo: "/images/icons/angular.svg" },
+            { name: "Redux", level: 85, logo: "/images/icons/redux.svg" },
+            { name: "JavaScript", level: 90, logo: "/images/icons/javascript.svg" },
+            { name: "TypeScript", level: 85, logo: "/images/icons/typescript.svg" },
+            { name: "HTML5", level: 90, logo: "/images/icons/html5.svg" },
+            { name: "CSS3", level: 85, logo: "/images/icons/css3.svg" }
         ]
     },
     {
         title: "Backend Development",
         description: "Developing robust server-side applications and APIs with secure authentication.",
         technologies: [
-            { name: "Node.js", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-            { name: "Express.js", level: 80, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
-            { name: "NestJS", level: 75, logo: "https://nestjs.com/img/logo-small.svg" },
-            { name: ".NET", level: 80, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" },
-            { name: "Java", level: 75, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
-            { name: "Spring Boot", level: 70, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
-            { name: "JSP / Servlet", level: 70, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" }
+            { name: "Node.js", level: 85, logo: "/images/icons/node.js.svg" },
+            { name: "Express.js", level: 80, logo: "/images/icons/express.js.svg" },
+            { name: "NestJS", level: 75, logo: "/images/icons/nestjs.svg" },
+            { name: ".NET", level: 80, logo: "/images/icons/net.svg" },
+            { name: "Java", level: 75, logo: "/images/icons/java.svg" },
+            { name: "Spring Boot", level: 70, logo: "/images/icons/spring_boot.svg" },
+            { name: "JSP / Servlet", level: 70, logo: "/images/icons/jsp___servlet.svg" }
         ]
     },
     {
         title: "Database & Cloud",
         description: "Designing and managing database systems with cloud solutions for scalability.",
         technologies: [
-            { name: "SQL Server", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" },
-            { name: "MySQL", level: 80, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-            { name: "MongoDB", level: 75, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-            { name: "Firebase", level: 70, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" }
+            { name: "SQL Server", level: 85, logo: "/images/icons/sql_server.svg" },
+            { name: "MySQL", level: 80, logo: "/images/icons/mysql.svg" },
+            { name: "MongoDB", level: 75, logo: "/images/icons/mongodb.svg" },
+            { name: "Firebase", level: 70, logo: "/images/icons/firebase.svg" }
         ]
     },
     {
         title: "DevOps & Tools",
         description: "Implementing CI/CD pipelines and managing infrastructure for optimal deployment.",
         technologies: [
-            { name: "Docker", level: 75, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-            { name: "Git", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-            { name: "Nginx", level: 65, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" },
-            { name: "Socket.IO", level: 75, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg" },
-            { name: "Ocelot", level: 70, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" }
+            { name: "Docker", level: 75, logo: "/images/icons/docker.svg" },
+            { name: "Git", level: 85, logo: "/images/icons/git.svg" },
+            { name: "Nginx", level: 65, logo: "/images/icons/nginx.svg" },
+            { name: "Socket.IO", level: 75, logo: "/images/icons/socket.io.svg" },
+            { name: "Ocelot", level: 70, logo: "/images/icons/ocelot.svg" }
         ]
     }
 ];
@@ -95,8 +95,8 @@ export const projects = [
             productType: "Digital Commerce",
             useCase: "Interactive Online Storefront",
             tags: ["ReactJS", "Spring Boot", "SQL Server"],
-            image: "https://colabrio.ams3.cdn.digitaloceanspaces.com/ohio-demo-2/oh__img59.1.jpg",
-            thumbnail: "https://images.unsplash.com/photo-1634578197578-dd387521fea3?q=80&w=2338&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            image: "/images/projects/depot/image.jpg",
+            thumbnail: "/images/projects/depot/thumbnail.jpg",
             description: "An advanced eCommerce platform built with ReactJS and Spring Boot, offering seamless user experiences, real-time inventory tracking, and modern UI design. Optimized for speed, scalability, and security.",
         },
         component: DepotProject,
@@ -116,8 +116,8 @@ export const projects = [
             productType: "Productivity Workspace",
             useCase: "Knowledge Workspace",
             tags: ["NextJS", "NestJS", "MongoDB", "ChatGPT"],
-            image: "https://images.unsplash.com/photo-1509483730228-811e47696246?q=80&w=2356&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            thumbnail: "https://images.unsplash.com/photo-1610736311554-fc17d5c43de8?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            image: "/images/projects/amigo-tasks/image.jpg",
+            thumbnail: "/images/projects/amigo-tasks/thumbnail.jpg",
             description: "A powerful note-taking and task management workspace designed for structured thinking, real-time collaboration, and effortless organization. Ideal for individuals and teams who value clarity, focus, and flexibility."
         },
         component: AmigoTasksProject,
@@ -133,8 +133,8 @@ export const projects = [
             productType: "Content Platform",
             useCase: "Digital Publishing",
             tags: ["Brand", "Blog", "Webapp"],
-            image: "https://images.unsplash.com/photo-1721864428830-7417b93831b8?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            thumbnail: "https://images.unsplash.com/photo-1612736232022-691d6243202b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            image: "/images/projects/noonpost/image.jpg",
+            thumbnail: "/images/projects/noonpost/thumbnail.jpg",
             description: "A minimalist blogging platform designed for focus and flow — offering intuitive editing, seamless publishing, and a clean reading experience. Crafted for writers who value clarity, simplicity, and creative freedom.",
         },
         component: NoonpostProject,
@@ -156,8 +156,8 @@ export const projects = [
             productType: "Music Streaming Platform",
             useCase: "Reimagined Music Streaming",
             tags: ["Brand", "Product", "Webapp"],
-            image: "https://images.unsplash.com/photo-1504509546545-e000b4a62425?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            thumbnail: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/spotify%2Fspotify-card.webp?alt=media&token=5af72c1b-760c-4890-9995-752bfc88ab26",
+            image: "/images/projects/spotify/image.jpg",
+            thumbnail: "/images/projects/spotify/thumbnail.jpg",
             description: "A feature-rich music streaming platform that replicates the Spotify experience with real-time playback, playlist management, and API-integrated audio control. Built in two versions — one powered by the official Spotify API, and another using a custom backend for full-stack control and flexibility.",
         },
         component: SpotifyProject,
@@ -179,8 +179,8 @@ export const projects = [
             productType: "Digital Commerce",
             useCase: "Interactive Online Storefront",
             tags: ["e-commerce", "ReactJS", "NodeJS"],
-            image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            thumbnail: "https://images.unsplash.com/photo-1592839961530-17838c766df1?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            image: "/images/projects/shopio/image.jpg",
+            thumbnail: "/images/projects/shopio/thumbnail.jpg",
             description: "A modern eCommerce solution built for streamlined shopping experiences, intuitive product discovery, and efficient order management. Designed to scale with growing businesses while ensuring fast, secure, and engaging user journeys.",
         },
         component: ShopioProject,
@@ -205,8 +205,8 @@ export const projects = [
             productType: "Messaging Platform",
             useCase: "Real-Time Communication",
             tags: ["Websocket", "CSR", "Angular"],
-            image: "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            thumbnail: "https://images.unsplash.com/photo-1704018453307-d563498b585b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            image: "/images/projects/chitchat/image.jpg",
+            thumbnail: "/images/projects/chitchat/thumbnail.jpg",
             description: "A responsive chat application enabling real-time messaging, smart conversations, and seamless user interactions. Built to support fluid communication, modern UI, and efficient message delivery across devices.",
         },
         component: ChitchatProject,
@@ -226,8 +226,8 @@ export const projects = [
             productType: "Personal Productivity",
             useCase: "Task & Time Management",
             tags: ["React", "Redux"],
-            image: "https://images.unsplash.com/photo-1729710877209-1d2f9df0c8c8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            thumbnail: "https://firebasestorage.googleapis.com/v0/b/personal-portfolio-9a2f1.appspot.com/o/todo%2Ftodo-card.webp?alt=media&token=708a2847-58ab-43d4-9697-7dc22ab692fe",
+            image: "/images/projects/todo-list/image.jpg",
+            thumbnail: "/images/projects/todo-list/thumbnail.jpg",
             description: "A minimalist productivity tool designed for planning, prioritizing, and completing daily tasks. Helps users stay focused and organized with a clean, intuitive interface and efficient workflow.",
         },
         component: TodoProject,
@@ -245,8 +245,8 @@ export const projects = [
             productType: "Interactive Game",
             useCase: "Casual Gaming Experience",
             tags: ["Gaming", "Jquery", "Javascript"],
-            image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            thumbnail: "https://images.unsplash.com/photo-1555864326-5cf22ef123cf?q=80&w=1467&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            image: "/images/projects/snake-game/image.jpg",
+            thumbnail: "/images/projects/snake-game/thumbnail.jpg",
             description: "A classic arcade-inspired game delivering fast-paced, nostalgic gameplay with intuitive controls, responsive movement, and score-based progression. Designed for simplicity, fun, and endless replayability.",
         },
         component: SnakeGameProject,
@@ -266,8 +266,8 @@ export const projects = [
             productType: "Branded Commerce Site",
             useCase: "Single-Brand Online Shopping",
             tags: ["SSR", "Java", "JSP", "Servlet"],
-            image: "https://images.unsplash.com/photo-1631176093617-63490a3d785a?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            thumbnail: "https://images.unsplash.com/photo-1614860243518-c12eb2fdf66c?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            image: "/images/projects/electric-store/image.jpg",
+            thumbnail: "/images/projects/electric-store/thumbnail.jpg",
             description: "A complete e-commerce solution tailored for a single electronic retailer, featuring user authentication, product browsing, cart and checkout flows, and a seamless customer experience from login to order completion.",
         },
         component: ElectronicProject,
@@ -282,8 +282,8 @@ export const projects = [
             productType: "Data Aggregator",
             useCase: "Commodity Intelligence",
             tags: ["ETL", "Java", "Jsoup", "JSP", "Servlet"],
-            image: "https://images.unsplash.com/photo-1613441583994-7080eafd6e6b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            thumbnail: "https://images.unsplash.com/photo-1613441583079-89c728579a07?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            image: "/images/projects/commodities-mart/image.jpg",
+            thumbnail: "/images/projects/commodities-mart/thumbnail.jpg",
             description: "A lightweight data display platform that aggregates commodity prices from multiple online sources, helping users monitor global market trends in real-time. Designed for simplicity, clarity, and efficient data presentation.",
         },
         component: CommoditiesMartProject,
