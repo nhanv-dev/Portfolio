@@ -75,7 +75,7 @@ export default function Footer() {
                             </div>
                             <p className="text-darkText font-bold text-[0.75rem] uppercase tracking-[2px]">
                                 Developed by
-                                <a href="https://www.facebook.com/nhan.kden/" target="_blank" rel="noreferrer" className="text-primary"> Tran Thanh Nhan</a>
+                                <a href={personalInfo.link.facebook} target="_blank" rel="noreferrer" className="text-primary"> Tran Thanh Nhan</a>
                             </p>
                         </div>
                         <div className="min-w-max flex flex-wrap items-start justify-end gap-4">
