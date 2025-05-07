@@ -69,6 +69,12 @@ textarea {
         -webkit-text-stroke: 1px rgb(0, 0, 0);
         color: white;
     }
+
+    .text-stroke-unbounded {
+        background-image: linear-gradient(to right, #DDDDDD, #DDDDDD);
+        background-clip: text;
+        -webkit-text-stroke-color: transparent; 
+    }
 }
 
 .animate-slideUp {

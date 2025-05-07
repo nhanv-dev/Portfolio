@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { FaArrowRight, FaChevronRight } from "react-icons/fa6";
 import { GoDotFill } from 'react-icons/go';
 import { MdArrowForward } from 'react-icons/md';
 import { Link, useNavigate } from "react-router-dom";
@@ -10,8 +11,6 @@ import PageWithPreload from "../components/PageWithPreload";
 import TitleSection from "../components/TitleSection";
 import { personalInfo, projects, skills } from "../data";
 import { blurAnimation, slideDownWheelAnimation } from "../utils/animations";
-import { FaChevronRight, FaArrowRight } from "react-icons/fa6";
-import CircularText from "../components/CircularText";
 
 export default function AboutPage() {
 
@@ -67,11 +66,11 @@ const HeroComponent = () => {
                                 Tran Thanh Nhan
                             </h1>
                         </div>
-                        <p className="text-base font-medium mb-10">
+                        <p className="text-base font-medium mb-8">
                             I am a software developer who turns ideas into reality through clean code and creative solutions.
                             With a strong foundation in full-stack development, I focus on building performant, user-centric applications.
                         </p>
-                        <div className="flex gap-20 mb-14 text-base">
+                        <div className="flex gap-20 mb-10 text-base">
                             <div className="flex flex-col gap-2">
                                 <p className="font-bold">Location</p>
                                 <p className="font-medium">{personalInfo.contact.location}</p>
@@ -85,12 +84,11 @@ const HeroComponent = () => {
                                 <p className="font-medium">{personalInfo.contact.email}</p>
                             </div>
                         </div>
-                        <div className="w-full h-[200px] relative">
+                        <div className="w-full h-[230px] relative">
                             <img src={projects[0].card.image} alt="avatar" className="w-full h-full object-cover pr-[50px]" />
-
-                            <div className="absolute top-0 right-[50px] -translate-y-1/2 translate-x-1/2">
+                            {/* <div className="absolute top-0 right-[50px] -translate-y-1/2 translate-x-1/2">
                                 <CircularText text="Since 2025 . Since 2025 . Since 2025 . " innerClassName="text-black" />
-                            </div>
+                            </div> */}
                             <Link to={'/contact'} onClick={(e) => {
                                 e.preventDefault();
                                 handleNavigationWithAnimation('/contact', navigate);
@@ -132,7 +130,7 @@ const HeroComponent = () => {
                 <div className="flex-1 bg-gray-100 flex items-center justify-center relative">
                     <img src={projects[0].card.image} alt="project" className="object-cover w-full h-full" />
                 </div>
-                <div className="bg-black text-white flex min-h-[300px]">
+                <div className="bg-darkBg text-darkText flex min-h-[300px]">
                     <div className="flex-1 p-8 pb-10 flex flex-col justify-center">
                         <p className="text-base font-semibold mb-4 flex items-center gap-3">
                             <span className="w-[20px] h-[3px] bg-white block"></span>
@@ -359,10 +357,13 @@ const ExploreProjectsComponent = () => {
                             transition={{ duration: .8, ease: 'easeOut' }}
                         >
                             <div className='relative w-full h-full'>
-                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] text-stroke !text-[#1a1a1a] font-kanit'>
+                                <div
+                                    className='absolute top-0 right-0 lg:text-[45px] text-stroke-unbounded font-extrabold font-unbounded text-[#1a1a1a]'
+                                    style={{ WebkitTextStrokeWidth: '3px' }}
+                                >
                                     01
                                 </div>
-                                <div className="absolute bottom-0 left-0 font-bold text-[20px] font-unbounded leading-tight">
+                                <div className="absolute bottom-0 left-0 font-bold text-[20px] font-unbounded leading-snug">
                                     Creative <br /> Design
                                 </div>
                             </div>
@@ -375,10 +376,13 @@ const ExploreProjectsComponent = () => {
                             transition={{ duration: .8, ease: 'easeOut' }}
                         >
                             <div className='relative w-full h-full'>
-                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] text-stroke !text-[#1a1a1a] font-kanit'>
+                                <div
+                                    className='absolute top-0 right-0 lg:text-[45px] text-stroke-unbounded font-extrabold font-unbounded text-[#1a1a1a]'
+                                    style={{ WebkitTextStrokeWidth: '3px' }}
+                                >
                                     02
                                 </div>
-                                <div className="absolute bottom-0 left-0 font-bold text-[20px] font-unbounded leading-tight">
+                                <div className="absolute bottom-0 left-0 font-bold text-[20px] font-unbounded leading-snug">
                                     System <br /> Scalability
                                 </div>
                             </div>
@@ -387,10 +391,13 @@ const ExploreProjectsComponent = () => {
                     <div className="flex-1 relative h-[300px]">
                         <div className='relative top-[-70%] bg-[#1a1a1a] h-[300px] p-8 rounded-xl'>
                             <div className='relative w-full h-full'>
-                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] text-stroke !text-[#1a1a1a] font-kanit'>
+                                <div
+                                    className='absolute top-0 right-0 lg:text-[45px] text-stroke-unbounded font-extrabold font-unbounded text-[#1a1a1a]'
+                                    style={{ WebkitTextStrokeWidth: '3px' }}
+                                >
                                     03
                                 </div>
-                                <div className="absolute bottom-0 left-0 font-bold text-[20px] font-unbounded leading-tight">
+                                <div className="absolute bottom-0 left-0 font-bold text-[20px] font-unbounded leading-snug">
                                     Tech <br /> Innovation
                                 </div>
                             </div>
@@ -423,10 +430,13 @@ const ExploreProjectsComponent = () => {
                             transition={{ duration: .8, ease: 'easeOut' }}
                         >
                             <div className='relative w-full h-full'>
-                                <div className='absolute top-0 right-0 font-semibold lg:text-[45px] text-stroke !text-[#1a1a1a] font-kanit'>
+                                <div
+                                    className='absolute top-0 right-0 lg:text-[45px] text-stroke-unbounded font-extrabold font-unbounded text-[#1a1a1a]'
+                                    style={{ WebkitTextStrokeWidth: '3px' }}
+                                >
                                     04
                                 </div>
-                                <div className="absolute bottom-0 left-0 font-bold text-[20px] font-unbounded leading-tight">
+                                <div className="absolute bottom-0 left-0 font-bold text-[20px] font-unbounded leading-snug">
                                     Optimal <br /> Performance
                                 </div>
                             </div>
