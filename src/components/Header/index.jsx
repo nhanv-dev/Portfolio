@@ -49,14 +49,18 @@ export default function Header() {
                             {/* Navigation Links */}
                             <nav className="hidden md:flex items-center gap-10">
                                 {listRouting.map((route, index) => {
-                                    const isActive = location.pathname === route;
+                                    const isActive = route === '/projects' 
+                                        ? location.pathname.startsWith('/projects')
+                                        : location.pathname === route;
                                     return (
                                         <Link
                                             key={index}
                                             to={route}
                                             onClick={(e) => {
                                                 e.preventDefault();
-                                                if (!isActive) handleNavigationWithAnimation(route, navigate);
+                                                if (route === '/projects' || !isActive) {
+                                                    handleNavigationWithAnimation(route, navigate);
+                                                }
                                             }}
                                             className={`text-base font-bold tracking-normal transition-colors relative group ${isActive
                                                 ? 'text-primary'

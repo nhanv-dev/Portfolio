@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function TitleSection({ title, title2, subTitle, subTitle2, className = "", titleClassName = "", variant }) {
 
 	return (
-		<div className={`text-center md:text-left ${className}`}>
+		<div className={`text-left ${className}`}>
 			<motion.h2
 				className={`text-6xl lg:text-6xl font-extrabold tracking-wider font-kanit uppercase mb-2 ${titleClassName} text-transparent`}
 				initial={{ opacity: 0, x: 50 }}

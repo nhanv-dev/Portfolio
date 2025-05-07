@@ -1,14 +1,21 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout";
 import { LoadingProvider } from "./components/LoadingProvider";
 
-// Lazy loading pages
-const Home = lazy(() => import("./pages/Home"));
-const ContactPage = lazy(() => import("./pages/Contact"));
-const ProjectsPage = lazy(() => import("./pages/Projects"));
-const AboutPage = lazy(() => import("./pages/About"));
-const ProjectDetailPage = lazy(() => import("./pages/ProjectDetail"));
+// Direct imports instead of lazy loading
+import AboutPage from "./pages/About";
+import ContactPage from "./pages/Contact";
+import Home from "./pages/Home";
+import ProjectDetailPage from "./pages/ProjectDetail";
+import ProjectsPage from "./pages/Projects";
+
+// Commented out lazy loading
+// const Home = lazy(() => import("./pages/Home"));
+// const ContactPage = lazy(() => import("./pages/Contact"));
+// const ProjectsPage = lazy(() => import("./pages/Projects"));
+// const AboutPage = lazy(() => import("./pages/About"));
+// const ProjectDetailPage = lazy(() => import("./pages/ProjectDetail"));
 
 const router = createBrowserRouter(
     [
@@ -43,9 +50,8 @@ const router = createBrowserRouter(
 export default function App() {
     return (
         <LoadingProvider>
-            <Suspense fallback={<div className="fixed top-0 left-0 w-full h-full bg-black z-[9999]"></div>}>
-                <RouterProvider router={router} />
-            </Suspense>
+            {/* Removed Suspense since we're not using lazy loading anymore */}
+            <RouterProvider router={router} />
         </LoadingProvider>
     );
 }

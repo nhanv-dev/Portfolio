@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaFacebookF, FaLinkedin } from 'react-icons/fa';
-import { FaArrowRightLong } from 'react-icons/fa6';
+import { FaArrowRightLong, FaGithub } from 'react-icons/fa6';
 import { GoArrowDownLeft, GoArrowUpRight } from "react-icons/go";
-import { LiaLaptopCodeSolid } from "react-icons/lia";
-import { FaGithub } from "react-icons/fa6";
 import { Link, useNavigate } from 'react-router-dom';
 import ContactBanner from "../components/ContactBanner";
 import HomeSlider from '../components/HomeSlider';
@@ -126,7 +124,7 @@ const ExploreAboutComponent = () => {
                     </motion.div>
                 </div>
                 <div className="bg-transparent absolute left-0 top-[90%] w-full h-[300px] z-20">
-                    <div className="absolute top-0 left-[50%] translate-y-[-50%] z-30">
+                    <div className="absolute top-0 left-1/2 -translate-y-1/2 z-30">
                         <div className="w-[112px] h-[112px] flex flex-wrap">
                             <div className="w-[56px] h-[56px] bg-[#ECEAEB] flex items-center justify-center">
                                 <GoArrowUpRight size={24} />
@@ -172,42 +170,42 @@ const ExploreAboutComponent = () => {
                     </motion.div>
 
                     <div className="flex-1 relative">
-                        <div className="w-full absolute right-0 bottom-0 0">
+                        <div className="w-full absolute right-0 bottom-0">
                             <motion.div
                                 className="flex items-end justify-between gap-20 mb-10"
                                 {...opacityWheelAnimation}
                                 transition={{ duration: 0.8, delay: 0.4 }}
                             >
-                                <div className="flex-1 ">
-                                    <div className="">
-                                        <div className="w-[68px] h-[68px] bg-[#BAF6BE] flex items-center justify-center ml-[24px]">
-                                            <LiaLaptopCodeSolid size={40} className='text-lightText' />
+                                <div className="flex-1">
+                                    <div>
+                                        <div className="w-[68px] h-[68px] bg-[#D9D0FF] flex items-center justify-center ml-[24px]">
+                                            <img src="/images/web-development.png" alt="Bulb" className='w-[32px] h-[32px]' />
                                         </div>
                                         <div className="w-[24px] h-[24px] bg-[#F5F5F5]"></div>
                                         <div className="w-full h-[2px] bg-[#F5F5F5]"></div>
                                     </div>
-                                    <div className="">
+                                    <div>
                                         <h5 className="font-unbounded font-bold text-[1.25rem] leading-[32px] tracking-wide text-black/80 my-[32px] mb-6">
                                             A Little About Me
                                         </h5>
-                                        <p className='font-medium text-base text-gray-600'>
+                                        <p className='font-medium text-base text-gray-500'>
                                             Passionate Fullstack Developer with 1+ years of experience in crafting fast, scalable web application.
                                         </p>
                                     </div>
                                 </div>
-                                <div className="flex-1 ">
-                                    <div className="">
+                                <div className="flex-1">
+                                    <div>
                                         <div className="w-[68px] h-[68px] bg-[#D9D0FF] flex items-center justify-center ml-[24px]">
-                                            <LiaLaptopCodeSolid size={40} className='text-lightText' />
+                                            <img src="/images/innovation.png" alt="Bulb" className='w-[40px] h-[40px]' />
                                         </div>
                                         <div className="w-[24px] h-[24px] bg-[#F5F5F5]"></div>
                                         <div className="w-full h-[2px] bg-[#F5F5F5]"></div>
                                     </div>
-                                    <div className="">
+                                    <div>
                                         <h5 className="font-unbounded font-bold text-[1.25rem] leading-[32px] tracking-wide text-black/80 my-[32px] mb-6">
                                             Behind the Code
                                         </h5>
-                                        <p className='font-medium text-base text-gray-600'>
+                                        <p className='font-medium text-base text-gray-500'>
                                             Turning ideas into fast, reliable web applications with a passion for technology and detail.
                                         </p>
                                     </div>

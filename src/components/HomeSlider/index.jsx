@@ -17,8 +17,6 @@ const IMAGE_ANIMATION = {
 export default function HomeSlider() {
     const totalSlide = slides.length;
     const [activeSlide, setActiveSlide] = useState(0);
-    // const { scrollY } = useScroll();
-    // const scale = useTransform(scrollY, [0, 500], [1, 1.2]);
 
     const memoizedSlides = useMemo(() => slides, []);
     const memoizedImageAnimation = useMemo(() => IMAGE_ANIMATION, []);
@@ -248,7 +246,7 @@ const ImageNavigation = ({ activeSlide = 0, setActiveSlide }) => {
             >
                 <div className={`z-[1] absolute left-0 top-0 w-full h-full transition-all duration-[600ms] bg-lightBg ${active === "prev" ? "opacity-0" : "opacity-100"}`}></div>
                 <div className={`z-[2] absolute inset-0 flex flex-col items-center justify-center ${active === "prev" ? "bg-black/20 text-ligbg-lightBg" : "bg-transparent text-gray-800"}`}>
-                    <p className={`absolute top-[80px] left-[50%] translate-x-[-50%] font-bold font-kanit uppercase transition-all duration-[800ms] ${active === 'prev'
+                    <p className={`absolute top-[80px] left-1/2 -translate-x-1/2 font-bold font-kanit uppercase transition-all duration-[800ms] ${active === 'prev'
                         ? "text-[6.25rem]"
                         : "text-[1.5rem] "
                         }`}>prev</p>
@@ -272,7 +270,7 @@ const ImageNavigation = ({ activeSlide = 0, setActiveSlide }) => {
             >
                 <div className={`z-[1] absolute left-0 top-0 w-full h-full transition-all duration-[600ms] bg-lightBg ${active === "next" ? "opacity-0" : "opacity-100"}`}></div>
                 <div className={`z-[2] absolute inset-0 flex flex-col items-center justify-center ${active === "next" ? "bg-black/20 text-ligbg-lightBg" : "bg-transparent text-gray-800"}`}>
-                    <p className={`absolute top-[80px] left-[50%] translate-x-[-50%] font-bold font-kanit uppercase transition-all duration-[800ms] ${active === 'next'
+                    <p className={`absolute top-[80px] left-1/2 -translate-x-1/2 font-bold font-kanit uppercase transition-all duration-[800ms] ${active === 'next'
                         ? "text-[6.25rem]"
                         : "text-[1.5rem]"
                         }`}>next</p>

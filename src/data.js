@@ -33,6 +33,57 @@ export const slides = [
     { title: "Let's Connect!", subtitle: "Ready to Collaborate ?", image: "/images/slide-3.avif", thumbnail: "https://i.pinimg.com/736x/29/6a/14/296a146a26b1fc95d51f87bc4b3c5719.jpg" },
 ]
 
+export const skills = [
+    {
+        title: "Frontend Development",
+        description: "Building responsive and interactive user interfaces with modern frameworks.",
+        technologies: [
+            { name: "React", level: 90, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+            { name: "Next.js", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+            { name: "Angular", level: 80, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
+            { name: "Redux", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
+            { name: "JavaScript", level: 90, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+            { name: "TypeScript", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+            { name: "HTML5", level: 90, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+            { name: "CSS3", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" }
+        ]
+    },
+    {
+        title: "Backend Development",
+        description: "Developing robust server-side applications and APIs with secure authentication.",
+        technologies: [
+            { name: "Node.js", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+            { name: "Express.js", level: 80, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+            { name: "NestJS", level: 75, logo: "https://nestjs.com/img/logo-small.svg" },
+            { name: ".NET", level: 80, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" },
+            { name: "Java", level: 75, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+            { name: "Spring Boot", level: 70, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
+            { name: "JSP / Servlet", level: 70, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" }
+        ]
+    },
+    {
+        title: "Database & Cloud",
+        description: "Designing and managing database systems with cloud solutions for scalability.",
+        technologies: [
+            { name: "SQL Server", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" },
+            { name: "MySQL", level: 80, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+            { name: "MongoDB", level: 75, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+            { name: "Firebase", level: 70, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" }
+        ]
+    },
+    {
+        title: "DevOps & Tools",
+        description: "Implementing CI/CD pipelines and managing infrastructure for optimal deployment.",
+        technologies: [
+            { name: "Docker", level: 75, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+            { name: "Git", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+            { name: "Nginx", level: 65, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" },
+            { name: "Socket.IO", level: 75, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg" },
+            { name: "Ocelot", level: 70, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" }
+        ]
+    }
+];
+
 export const projects = [
     {
         slug: "/projects/depot",

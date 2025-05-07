@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
+import ContactBanner from "../components/ContactBanner";
 import GlitchText from "../components/GlitchText";
 import { useLoading } from "../components/LoadingProvider";
 import { projects } from "../data";
-import ContactBanner from "../components/ContactBanner";
 import { blurAnimation } from "../utils/animations";
 
 export default function ProjectDetailPage() {
