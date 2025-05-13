@@ -41,13 +41,15 @@ const PageWithPreload = ({ children, texts = [] }) => {
 
 	return (
 		<>
-			{children}
 			{showPreloader && (
 				<Preloader
 					texts={texts}
 					onLoaded={handlePreloaderComplete}
 				/>
 			)}
+			<div className={`${showPreloader ? 'h-[0px] overflow-hidden' : ''}`}>
+				{children}
+			</div>
 		</>
 	);
 };

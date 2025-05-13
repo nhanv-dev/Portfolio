@@ -28,9 +28,24 @@ export const personalInfo = {
 }
 
 export const slides = [
-	{ title: "Code Voyager", subtitle: "Welcome to My Developer Journey", image: "/images/slides/slide-1.avif", thumbnail: "/images/slides/thumbnail-1.jpg" },
-	{ title: "Code Creations", subtitle: "Where Ideas Come to Life", image: "/images/slides/slide-2.avif", thumbnail: "/images/slides/thumbnail-2.jpg" },
-	{ title: "Let's Connect!", subtitle: "Ready to Collaborate ?", image: "/images/slides/slide-3.avif", thumbnail: "/images/slides/thumbnail-3.jpg" },
+	{
+		title: "Code Voyager",
+		subtitle: "Welcome to My Developer Journey",
+		image: "/images/slides/slide-1.avif",
+		thumbnail: "/images/slides/thumbnail-1.jpg"
+	},
+	{
+		title: "Code Creations",
+		subtitle: "Where Ideas Come to Life",
+		image: "/images/slides/slide-2.avif",
+		thumbnail: "/images/slides/thumbnail-2.jpg"
+	},
+	{
+		title: "Let's Connect!",
+		subtitle: "Ready to Collaborate ?",
+		image: "/images/slides/slide-3.avif",
+		thumbnail: "/images/slides/thumbnail-3.jpg"
+	},
 ]
 
 export const skills = [

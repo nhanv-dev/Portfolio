@@ -99,7 +99,7 @@ export default function HomeSlider() {
     );
 }
 
-const SlideImage = ({ active, index, scale, animation, slide, activeSlide, setActiveSlide }) => {
+const SlideImage = ({ active, index, animation, slide, activeSlide, setActiveSlide }) => {
     const isActive = index === active;
     const textStyle = {
         WebkitTextStroke: '3px rgba(255, 255, 255, 0.5)',
@@ -109,23 +109,29 @@ const SlideImage = ({ active, index, scale, animation, slide, activeSlide, setAc
         <div className={`absolute w-full h-full flex justify-end ${isActive ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-[-1] pointer-events-none"}`}>
             <div className="relative w-[60%] min-w-[60%] h-full overflow-hidden">
                 <motion.div
-                    className="relative w-full h-full bg-cover bg-center"
-                    style={{
-                        backgroundImage: `url(${slide.image})`,
-                        // scale: isActive ? scale : 1
-                    }}
+                    className="z-10 relative w-full h-full bg-cover bg-center"
+                    style={{ backgroundImage: `url(${slide.image})` }}
                     initial={animation.initial}
                     animate={isActive ? animation.animate : animation.exit}
                     transition={animation.transition}
                 >
                     <div className="z-[1] absolute bg-[rgba(0,0,0,0.2)] left-0 top-0 right-0 bottom-0"></div>
 
-                    <div className="z-[2] absolute font-bold left-10 bottom-[170px] text-[10vw] text-[rgba(255,255,255,0.1)]"
-                        style={textStyle}
-                    >
+                </motion.div>
+
+
+
+                <div className="z-20 absolute left-10 bottom-[200px] pb-5">
+                    <div className="font-bold text-[10vw] text-[rgba(255,255,255,0.1)]" style={textStyle}>
                         {String(index + 1).padStart(2, "0")}
                     </div>
-                </motion.div>
+                    <div className="flex items-center gap-5">
+                        <span className="w-[50px] h-[3px] bg-lightBg rounded-full"></span>
+                        <p className="text-darkText text-[1rem] font-extrabold font-unbounded tracking-wider">
+                            {slide.subtitle}
+                        </p>
+                    </div>
+                </div>
             </div>
             <div className={`flex-1 h-full bg-darkBg flex flex-col`}>
                 <div className="relative flex-1 overflow-hidden">
@@ -166,7 +172,7 @@ const SlideImage = ({ active, index, scale, animation, slide, activeSlide, setAc
                 </div>
 
                 <div className="flex-1 bg-primaryBg p-5 relative z-[2]">
-                    <div className="absolute left-5 top-0 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+                    <div className="absolute left-3 top-0  -translate-y-1/2 flex items-center justify-center">
                         <p
                             className="text-darkText text-[1.1rem] font-bold tracking-wide flex items-center justify-center"
                             style={{
@@ -180,7 +186,7 @@ const SlideImage = ({ active, index, scale, animation, slide, activeSlide, setAc
                     </div>
                     <div className="absolute left-5 top-1/2 -translate-y-1/2 flex flex-col items-center gap-10 bg-white w-[3px] h-[120px]">
                     </div>
-                    <div className="absolute right-5 top-1/2 translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center">
                         <p
                             className="text-darkText text-[1.1rem] font-bold tracking-wide flex items-center justify-center"
                             style={{
@@ -205,12 +211,6 @@ const SlideImage = ({ active, index, scale, animation, slide, activeSlide, setAc
                                 className="text-ligbg-lightBg text-[45px] font-extrabold uppercase tracking-wider font-unbounded"
                             />
                         )}
-                        <div className="flex items-center gap-5 mt-6">
-                            <span className="w-[50px] h-[3px] bg-lightBg rounded-full"></span>
-                            <p className="text-darkText text-[1rem] font-extrabold font-unbounded tracking-wider">
-                                {slide.subtitle}
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>

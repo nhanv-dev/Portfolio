@@ -11,6 +11,8 @@ import PageWithPreload from "../components/PageWithPreload";
 import TitleSection from "../components/TitleSection";
 import { personalInfo, projects, skills } from "../data";
 import { blurAnimation, slideDownWheelAnimation } from "../utils/animations";
+import CircularText from "../components/CircularText";
+
 
 export default function AboutPage() {
 
@@ -40,7 +42,7 @@ const HeroComponent = () => {
 
     return (
         <section className="w-full h-[calc(100vh-72px)] max-h-[1024px] flex bg-lightBg text-lightText overflow-hidden shadow-lg">
-            <div className="flex-1 flex flex-col justify-between">
+            <div className="flex-1 flex flex-col justify-between relative">
                 <div className="flex-1 flex gap-20">
                     <div className="flex-1 pl-20 pt-20">
                         <h2 className="text-[1.1rem] font-bold mb-8 flex items-center gap-2">
@@ -86,13 +88,10 @@ const HeroComponent = () => {
                         </div>
                         <div className="w-full h-[230px] relative">
                             <img src={projects[0].card.image} alt="avatar" className="w-full h-full object-cover pr-[50px]" />
-                            {/* <div className="absolute top-0 right-[50px] -translate-y-1/2 translate-x-1/2">
-                                <CircularText text="Since 2025 . Since 2025 . Since 2025 . " innerClassName="text-black" />
-                            </div> */}
                             <Link to={'/contact'} onClick={(e) => {
                                 e.preventDefault();
                                 handleNavigationWithAnimation('/contact', navigate);
-                            }} className="absolute bottom-0 right-0 bg-[#173c3a] px-6 py-4 translate-y-1/2 text-white font-semibold flex items-center gap-4">
+                            }} className="absolute bottom-0 right-0 bg-[#173c3a] px-6 py-4 translate-y-1/2 text-white font-bold flex items-center gap-4">
                                 Start a Conversation
                                 <FaArrowRight className="text-[1rem]" />
                             </Link>
@@ -124,6 +123,13 @@ const HeroComponent = () => {
                     <p className="text-base font-normal font-kanit">
                         Designed & Coded by Tran Thanh Nhan
                     </p>
+                </div>
+                <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2">
+                    <CircularText
+                        text="Since 2025 . Since 2025 . Since 2025 . From code into reality . From code into reality . "
+                        innerClassName="text-black "
+                        className="!w-[400px] !h-[400px]"
+                    />
                 </div>
             </div>
             <div className="w-[45%] flex flex-col">
