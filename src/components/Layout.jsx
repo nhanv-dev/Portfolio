@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import CustomCursor from "./CustomCursor";
@@ -5,8 +6,6 @@ import Footer from "./Footer";
 import Header from "./Header";
 import { LenisProvider } from "./LenisProvider";
 import { useLoading } from "./LoadingProvider";
-import ScrollTop from "./ScrollTop";
-import { motion } from "framer-motion";
 
 const titles = {
     "/": "Home - Portfolio",
@@ -31,8 +30,7 @@ const Layout = () => {
 
     return (
         <LenisProvider>
-            <div className="h-full w-full relative text-darkText overflow-hidden">
-                <Header />
+            <div className="h-full w-full relative text-darkText overflow-hidden pr-[5vw]">
                 <motion.div
                     initial={{
                         scale: 0,
@@ -53,8 +51,9 @@ const Layout = () => {
                 />
                 <Outlet />
                 <Footer />
+                <Header />
             </div>
-            <ScrollTop />
+            {/* <ScrollTop /> */}
             <CustomCursor />
         </LenisProvider>
     );

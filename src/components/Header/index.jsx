@@ -26,75 +26,51 @@ export default function Header() {
     }, [isMenuOpen]);
 
     return (
-        <header className="h-[72px]">
-            <div className="fixed top-0 left-0 right-0 z-[1000] bg-black text-white border-b border-white/10">
-                <div className="container mx-auto px-4">
-                    <div className="flex items-center justify-between h-[72px]">
-                        {/* Logo with animation */}
-                        <Link to="/home"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                if (location.pathname !== "/home") handleNavigationWithAnimation("/home", navigate)
-                            }}
-                            className="text-[1.5rem] font-bold font-kanit relative"
-                        >
-                            <span className="relative z-10">
-                                Port
-                                <span className="text-primary">folio.</span>
-                            </span>
-                        </Link>
-
-                        {/* Phone Number and Menu Button */}
-                        <div className="flex items-center gap-10">
-                            {/* Navigation Links */}
-                            <nav className="hidden md:flex items-center gap-10">
-                                {listRouting.map((route, index) => {
-                                    const isActive = route === '/projects' 
-                                        ? location.pathname.startsWith('/projects')
-                                        : location.pathname === route;
-                                    return (
-                                        <Link
-                                            key={index}
-                                            to={route}
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                if (route === '/projects' || !isActive) {
-                                                    handleNavigationWithAnimation(route, navigate);
-                                                }
-                                            }}
-                                            className={`text-base font-bold tracking-normal transition-colors relative group ${isActive
-                                                ? 'text-primary'
-                                                : 'text-white'
-                                                }`}
-                                        >
-                                            {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
-                                            <span className={`absolute -bottom-1 left-0 w-full h-[3px] transition-all duration-300 rounded-full ${isActive
-                                                ? 'bg-primary'
-                                                : 'bg-transparent'
-                                                }`}></span>
-                                        </Link>
-                                    );
-                                })}
-                            </nav>
-
-                            <button
-                                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                                className="max-w-max relative flex flex-col justify-center items-center group !border-none !outline-none"
-                            >
-                                <RiAppsLine className="text-2xl" />
-                            </button>
-                        </div>
-                    </div>
+        <header>
+            <div className="fixed top-0 bottom-0 right-0 w-[5vw] h-screen overflow-hidden z-[1000] bg-black border-l border-white/10">
+                <div className="h-full flex items-center gap-10 flex-col justify-between py-20">
+                    <nav className="flex flex-col items-center gap-10">
+                        {listRouting.map((route, index) => {
+                            const isActive = route === '/projects'
+                                ? location.pathname.startsWith('/projects')
+                                : location.pathname === route;
+                            return (
+                                <Link
+                                    key={index}
+                                    to={route}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        if (route === '/projects' || !isActive) {
+                                            handleNavigationWithAnimation(route, navigate);
+                                        }
+                                    }} style={{
+                                        writingMode: 'vertical-lr',
+                                        textOrientation: 'mixed',
+                                        transform: 'rotate(180deg)',
+                                    }}
+                                    className={`text-[0.925rem] font-semibold tracking-normal transition-colors font-unbounded relative group ${isActive
+                                        ? 'text-white'
+                                        : 'text-[rgba(255,255,255,0.7)]'
+                                        }`}
+                                >
+                                    {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
+                                </Link>
+                            );
+                        })}
+                    </nav>
+                    <button
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        className="max-w-max relative flex flex-col justify-center items-center group !border-none !outline-none"
+                    >
+                        <RiAppsLine className="text-2xl" />
+                    </button>
                 </div>
             </div>
 
-            {/* Sliding Menu from Right */}
-            <div className={`fixed top-[72px] right-0 h-[calc(100vh-72px)] w-[400px] bg-black border-l border-white/10 z-[999] transition-all duration-500 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+            <div className={`fixed top-0 right-[5vw] bottom-0 w-[400px] bg-black border-l border-white/10 z-[999] transition-all duration-500 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                 <div className="h-full overflow-hidden">
-                    <div className="px-8 py-6 h-full">
-                        {/* Personal Information */}
+                    <div className="px-8 py-10 h-full">
                         <div className="h-full flex flex-col gap-8">
-                            {/* Contact Info */}
                             <div>
                                 <h3 className="text-lg font-bold mb-4 text-primary">Contact</h3>
                                 <ul className="space-y-5">
@@ -113,7 +89,6 @@ export default function Header() {
                                 </ul>
                             </div>
 
-                            {/* Social Links */}
                             <div>
                                 <h3 className="text-lg font-bold mb-4 text-primary">Social Links</h3>
                                 <ul className="space-y-5">
@@ -145,6 +120,6 @@ export default function Header() {
                     </div>
                 </div>
             </div>
-        </header>
+        </header >
     );
 }

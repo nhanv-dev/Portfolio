@@ -11,7 +11,7 @@ export default function Footer() {
 
     return (
         <footer>
-            <div className='py-10 bg-darkBg border-t border-gray-900 relative'>
+            <div className='hidden py-10 bg-darkBg border-t border-gray-900 relative'>
                 <div className="container">
                     <div className="flex flex-wrap items-start justify-between">
                         <div className="min-w-max">
@@ -112,39 +112,3 @@ export default function Footer() {
         </footer>
     )
 }
-
-// export default function Footer() {
-
-//     return (
-//         <footer className='mt-[120px]'>
-//             <div className='relative container'>
-//                 <ul className='flex items-center justify-center gap-7 mb-10 font-semibold text-[1.1rem]'>
-//                     <li>
-//                         <Link to={"/home"}>Home</Link>
-//                     </li>
-//                     <li>
-//                         <Link to={"/about"}>About me</Link>
-//                     </li>
-//                     <li>
-//                         <Link to={"/projects"}>Projects</Link>
-//                     </li>
-//                     <li>
-//                         <Link to={"/contact"}>Contact</Link>
-//                     </li>
-//                 </ul>
-//                 <div className='flex items-center justify-center gap-4 mb-10'>
-//                     <div className="text-center flex items-center justify-between gap-10">
-//                         <p className="text-darkText font-bold text-[0.75rem] uppercase tracking-[2px]">
-//                             @2025. Personal portfolio  Developed by:
-//                             <a href="https://www.facebook.com/nhan.kden/" target="_blank" rel="noreferrer" className="text-primary"> Tran Thanh Nhan</a>
-//                         </p>
-//                     </div>
-
-//                 </div>
-//             </div>
-//             <div className="relative">
-//                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 h-[800px] w-[800px] border-[3px] border-gray-400 rounded-full"></div>
-//             </div>
-//         </footer>
-//     )
-// }

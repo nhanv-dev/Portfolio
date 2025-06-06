@@ -1,11 +1,9 @@
-import { motion } from "framer-motion";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { useNavigate, useParams } from "react-router-dom";
 import ContactBanner from "../components/ContactBanner";
 import GlitchText from "../components/GlitchText";
 import { useLoading } from "../components/LoadingProvider";
 import { projects } from "../data";
-import { blurAnimation } from "../utils/animations";
 
 export default function ProjectDetailPage() {
     const { setIsLoaded } = useLoading();
@@ -39,10 +37,7 @@ export default function ProjectDetailPage() {
 
     return (
         <div>
-            <motion.div {...blurAnimation}>
-                <project.component item={project} index={index} />
-            </motion.div>
-
+            <project.component item={project} index={index} />
             <ContactBanner />
         </div>
     )

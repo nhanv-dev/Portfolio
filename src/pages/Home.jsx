@@ -10,6 +10,7 @@ import { useLoading } from '../components/LoadingProvider';
 import PageWithPreload from "../components/PageWithPreload";
 import { personalInfo, projects } from '../data';
 import { blurAnimation, opacityWheelAnimation, slideLeftWheelAnimation, slideUpWheelAnimation } from '../utils/animations';
+import { memo } from 'react';
 
 const list = [
     { name: "Fullstack Developer" },
@@ -21,9 +22,9 @@ export default function HomePage() {
 
     return (
         <PageWithPreload texts={["Discover What's Ahead", "Let's Explore"]}>
-            <motion.div {...blurAnimation}>
+            {/* <motion.div {...blurAnimation}>
                 <HomeSlider />
-            </motion.div>
+            </motion.div> */}
 
             <ExploreAboutComponent />
 
@@ -33,13 +34,15 @@ export default function HomePage() {
 
             <ExploreProjectsComponent />
 
+            <ExploreContactComponent />
+
             <ContactBanner />
 
         </PageWithPreload>
     )
 }
 
-const ExploreAboutComponent = () => {
+const ExploreAboutComponent = memo(() => {
     const { handleNavigationWithAnimation } = useLoading();
     const navigate = useNavigate();
 
@@ -65,7 +68,7 @@ const ExploreAboutComponent = () => {
                 <div className="absolute top-0 left-0 w-full ">
                     <div className="container-wide relative">
                         <img
-                            src="https://themexriver.com/wp/agenriver-demo/web-agency/wp-content/uploads/sites/20/2025/04/h2-shape-1.webp"
+                            src="/images/h2-shape-1.webp"
                             alt="Shape"
                             className="absolute top-0 left-0 w-auto h-auto"
                         />
@@ -231,9 +234,9 @@ const ExploreAboutComponent = () => {
             </div>
         </section>
     )
-}
+})
 
-const ExploreProjectsComponent = () => {
+const ExploreProjectsComponent = memo(() => {
     const { handleNavigationWithAnimation, handleNavigationWithOverlay } = useLoading();
     const navigate = useNavigate();
 
@@ -308,9 +311,9 @@ const ExploreProjectsComponent = () => {
             </div>
         </section>
     )
-}
+})
 
-const ProjectCard = ({ project, handleClick }) => {
+const ProjectCard = memo(({ project, handleClick }) => {
     return (
         <Link
             to={project.slug}
@@ -346,6 +349,36 @@ const ProjectCard = ({ project, handleClick }) => {
             </motion.div>
         </Link>
     )
-}
+})
 
+
+const ExploreContactComponent = memo(() => {
+    const { handleNavigationWithAnimation, handleNavigationWithOverlay } = useLoading();
+    const navigate = useNavigate();
+
+    const handleClick = (e, slug) => {
+        e.preventDefault();
+        handleNavigationWithOverlay(slug, navigate);
+    }
+
+    return (
+        <section className='relative py-[120px] bg-lightBg text-lightText'>
+            <div className="container">
+                <div className="flex flex-col lg:flex-row items-end justify-between mb-20">
+                    <div className="flex-1">
+                        <div className="text-6xl font-semibold font-kanit text-lightText">
+                            <span className="flex-1block text-[56px] leading-[60px]">My Selected</span>
+                            <span className="ml-[100px] block text-[300px] leading-[210px] mt-5">Work</span>
+                        </div>
+                    </div>
+                </div>
+                <div className="flex flex-col">
+                    <div className="">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+})
 

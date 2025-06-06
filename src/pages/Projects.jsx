@@ -95,7 +95,7 @@ function HeroSlider({ handleNavigation }) {
     }, [activeIndex, nextSlide]);
 
     return (
-        <section className="relative w-full h-[calc(100vh-72px)] overflow-hidden text-white flex">
+        <section className="relative w-full h-[calc(100vh-72px)] max-h-hero overflow-hidden text-white flex">
             <div className="relative h-full lg:w-[75vw] overflow-hidden">
                 {memoizedProjects.map((project, index) => (
                     <motion.div
@@ -279,7 +279,7 @@ function Projects({ handleNavigation }) {
                 subTitle2={'work'}
             ></TitleSection>
             <div className="grid grid-cols-3 gap-3">
-                {memoizedProjects.slice(0, 9).map((project, index) => (
+                {memoizedProjects.map((project, index) => (
                     <Link to={project.slug} onClick={(e) => handleNavigation(e, project.slug)} key={index} className="group relative">
                         <div
                             className="w-full h-[540px] bg-center bg-cover"

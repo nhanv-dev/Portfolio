@@ -1,6 +1,6 @@
-/* body {
+body {
     cursor: none;
-} */
+}
 
 .mouse-cursor {
     position: fixed;
@@ -28,8 +28,8 @@
 }
 
 .cursor-inner {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     z-index: 10000001;
     background-color: #0fa29b;
     transition: width .3s ease-in-out, height .3s ease-in-out, margin .3s ease-in-out, opacity .3s ease-in-out;

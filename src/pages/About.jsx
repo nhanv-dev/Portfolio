@@ -1,9 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
-import { FaArrowRight, FaChevronRight } from "react-icons/fa6";
+import { memo, useState } from "react";
+import { FaArrowRight, FaChevronRight, FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { GoDotFill } from 'react-icons/go';
 import { MdArrowForward } from 'react-icons/md';
 import { Link, useNavigate } from "react-router-dom";
+import CircularText from "../components/CircularText";
 import ContactBanner from "../components/ContactBanner";
 import TechInfiniteScroll from "../components/InfiniteScroll/TechInfiniteScroll";
 import { useLoading } from "../components/LoadingProvider";
@@ -11,7 +12,6 @@ import PageWithPreload from "../components/PageWithPreload";
 import TitleSection from "../components/TitleSection";
 import { personalInfo, projects, skills } from "../data";
 import { blurAnimation, slideDownWheelAnimation } from "../utils/animations";
-import CircularText from "../components/CircularText";
 
 
 export default function AboutPage() {
@@ -36,107 +36,118 @@ export default function AboutPage() {
     );
 }
 
-const HeroComponent = () => {
+const HeroComponent = memo(() => {
     const navigate = useNavigate();
     const { handleNavigationWithAnimation } = useLoading();
 
     return (
-        <section className="w-full h-[calc(100vh-72px)] max-h-[1024px] flex bg-lightBg text-lightText overflow-hidden shadow-lg">
-            <div className="flex-1 flex flex-col justify-between relative">
-                <div className="flex-1 flex gap-20">
-                    <div className="flex-1 pl-20 pt-20">
-                        <h2 className="text-[1.1rem] font-bold mb-8 flex items-center gap-2">
-                            <span className="w-[50px] h-[2px] bg-primary rounded-full relative">
-                                <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[16px] h-[16px] bg-primary rounded-full">
-                                    <span className="absolute inset-0 bg-primary rounded-full animate-ping opacity-75 scale-150"></span>
-                                </div>
-                            </span>
-                            <span>Hi there, I'm <span className="text-primary">Tran Thanh Nhan</span></span>
-                        </h2>
-                        <div className="mb-8">
-                            <motion.h2
-                                className={`text-6xl font-extrabold tracking-wider font-kanit uppercase text-transparent mb-4`}
-                                initial={{ opacity: 0, x: 50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, amount: 0.4 }}
-                                transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
-                                style={{ WebkitTextStroke: '1px rgb(0, 0, 0)' }}
-                            >
-                                Fullstack Developer
-                            </motion.h2>
-                            <h1 className="text-6xl font-extrabold font-kanit uppercase">
-                                Tran Thanh Nhan
-                            </h1>
-                        </div>
-                        <p className="text-base font-medium mb-8">
-                            I am a software developer who turns ideas into reality through clean code and creative solutions.
-                            With a strong foundation in full-stack development, I focus on building performant, user-centric applications.
-                        </p>
-                        <div className="flex gap-20 mb-10 text-base">
+        <section className="w-full h-[calc(100vh-72px)] max-h-hero flex bg-lightBg text-lightText overflow-hidden shadow-lg">
+            <div className="flex-1 flex">
+                <div className="flex-1 mt-20 ml-20 relative">
+                    <h2 className="text-[1.1rem] font-bold mb-8 flex items-center gap-2">
+                        <span className="w-[50px] h-[2px] bg-primary rounded-full relative">
+                            <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[16px] h-[16px] bg-primary rounded-full">
+                                <span className="absolute inset-0 bg-primary rounded-full animate-ping opacity-75 scale-150"></span>
+                            </div>
+                        </span>
+                        <span>Hi there, I'm <span className="text-primary">Tran Thanh Nhan</span></span>
+                    </h2>
+                    <div className="mb-8">
+                        <motion.h2
+                            className={`text-6xl font-extrabold tracking-wider font-kanit uppercase text-transparent mb-4`}
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, amount: 0.4 }}
+                            transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
+                            style={{ WebkitTextStroke: '1px rgb(0, 0, 0)' }}
+                        >
+                            Fullstack Developer
+                        </motion.h2>
+                        <h1 className="text-6xl font-extrabold font-kanit uppercase">
+                            Tran Thanh Nhan
+                        </h1>
+                    </div>
+                    <p className="text-base font-medium mb-8">
+                        I am a software developer who turns ideas into reality through clean code and creative solutions.
+                        With a strong foundation in full-stack development, I focus on building performant, user-centric applications.
+                    </p>
+                    <div className="flex gap-20 mb-10 text-base">
+                        <div className="flex items-center gap-3">
+                            {/* <div className="w-[3px] h-[90%] bg-black rounded-full"></div> */}
                             <div className="flex flex-col gap-2">
-                                <p className="font-bold">Location</p>
+                                <p className="font-semibold">Location</p>
                                 <p className="font-medium">{personalInfo.contact.location}</p>
                             </div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                            {/* <div className="w-[3px] h-[90%] bg-black rounded-full"></div> */}
                             <div className="flex flex-col gap-2">
-                                <p className="font-bold">Phone</p>
+                                <p className="font-semibold">Phone</p>
                                 <p className="font-medium">{personalInfo.contact.phone}</p>
                             </div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                            {/* <div className="w-[3px] h-[90%] bg-black rounded-full"></div> */}
                             <div className="flex flex-col gap-2">
-                                <p className="font-bold">Email</p>
+                                <p className="font-semibold">Email</p>
                                 <p className="font-medium">{personalInfo.contact.email}</p>
                             </div>
                         </div>
-                        <div className="w-full h-[230px] relative">
-                            <img src={projects[0].card.image} alt="avatar" className="w-full h-full object-cover pr-[50px]" />
-                            <Link to={'/contact'} onClick={(e) => {
-                                e.preventDefault();
-                                handleNavigationWithAnimation('/contact', navigate);
-                            }} className="absolute bottom-0 right-0 bg-[#173c3a] px-6 py-4 translate-y-1/2 text-white font-bold flex items-center gap-4">
-                                Start a Conversation
-                                <FaArrowRight className="text-[1rem]" />
-                            </Link>
+                    </div>
+                    <div className="w-full h-[230px] relative">
+                        <img src={projects[0].card.image} alt="avatar" className="w-full h-full object-cover pr-[50px]" />
+                        <Link to={'/contact'} onClick={(e) => {
+                            e.preventDefault();
+                            handleNavigationWithAnimation('/contact', navigate);
+                        }} className="absolute bottom-0 right-0 bg-[#173c3a] px-6 py-4 translate-y-1/2 text-white font-bold flex items-center gap-4">
+                            Start a Conversation
+                            <FaArrowRight className="text-[1rem]" />
+                        </Link>
+                    </div>
+                    <div className="absolute bottom-5 left-0">
+                        <div className="text-base font-normal font-kanit flex items-center gap-6">
+                            <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer">
+                                <FaFacebook size={21} />
+                            </a>
+                            <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer">
+                                <FaGithub size={21} />
+                            </a>
+                            <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer">
+                                <FaLinkedin size={21} />
+                            </a>
                         </div>
                     </div>
-                    <div className="flex items-center justify-end px-5">
-                        <p className="text-base font-normal font-kanit"
-                            style={{
-                                writingMode: 'vertical-lr',
-                                textOrientation: 'mixed',
-                                transform: 'rotate(180deg)',
-                            }}>
-                            Let's Build Something Amazing Together
+                    <div className="absolute bottom-5 right-0">
+                        <p className="text-[17px] font-normal font-kanit tracking-wider">
+                            Scroll Down
                         </p>
                     </div>
                 </div>
-                <div className="flex gap-8 font-semibold pl-20 pr-5 py-5 justify-between">
-                    <div className="text-base font-normal font-kanit flex items-center justify-center gap-6">
-                        <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer">
-                            Facebook
-                        </a>
-                        <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer">
-                            Github
-                        </a>
-                        <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer">
-                            LinkedIn
-                        </a>
-                    </div>
-                    <p className="text-base font-normal font-kanit">
-                        Designed & Coded by Tran Thanh Nhan
+                <div className="flex items-center justify-end px-8">
+                    <p className="text-[17px] font-normal font-kanit tracking-wider"
+                        style={{
+                            writingMode: 'vertical-lr',
+                            textOrientation: 'mixed',
+                            transform: 'rotate(180deg)',
+                        }}>
+                        Let's Build Something Amazing Together
                     </p>
-                </div>
-                <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2">
-                    <CircularText
-                        text="Since 2025 . Since 2025 . Since 2025 . From code into reality . From code into reality . "
-                        innerClassName="text-black "
-                        className="!w-[400px] !h-[400px]"
-                    />
                 </div>
             </div>
             <div className="w-[45%] flex flex-col">
-                <div className="flex-1 bg-gray-100 flex items-center justify-center relative">
+                <div className="flex-1 bg-gray-100 flex items-center justify-center relative z-0">
                     <img src={projects[0].card.image} alt="project" className="object-cover w-full h-full" />
+                    <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2">
+                        <CircularText
+                            text="Turning visions into interactive realities . Building seamless experiences with purpose . Turning visions into interactive realities . "
+                            innerClassName="!text-black !text-[1.05rem]"
+                            className="!w-[550px] !h-[550px]"
+                            onHover=""
+                            spinDuration="60"
+                        />
+                    </div>
                 </div>
-                <div className="bg-darkBg text-darkText flex min-h-[300px]">
+                <div className="bg-darkBg text-darkText flex min-h-[300px] relative">
                     <div className="flex-1 p-8 pb-10 flex flex-col justify-center">
                         <p className="text-base font-semibold mb-4 flex items-center gap-3">
                             <span className="w-[20px] h-[3px] bg-white block"></span>
@@ -160,9 +171,9 @@ const HeroComponent = () => {
             </div>
         </section>
     )
-}
+})
 
-const IntroductionSection = () => {
+const IntroductionSection = memo(() => {
     return (
         <section className="py-[120px] bg-darkBg text-darkText border-t border-gray-900">
             <div className='container'>
@@ -203,7 +214,7 @@ const IntroductionSection = () => {
                         className="absolute right-0 top-0 z-10">
                         <div
                             className="w-[520px] h-[380px] bg-center bg-cover"
-                            style={{ backgroundImage: `url(https://themexriver.com/wp/agenriver-demo/freelancer/wp-content/uploads/sites/16/2025/03/pro23.webp)` }}
+                            style={{ backgroundImage: `url(images/pro23.webp)` }}
                         ></div>
                         <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/10"></div>
                     </motion.div>
@@ -215,7 +226,7 @@ const IntroductionSection = () => {
                         className="relative w-full pr-20">
                         <div
                             className="w-full h-[40vh] bg-top bg-cover"
-                            style={{ backgroundImage: `url(https://themexriver.com/wp/agenriver-demo/freelancer/wp-content/uploads/sites/16/2025/03/pro24.webp)` }}
+                            style={{ backgroundImage: `url(images/pro24.webp)` }}
                         ></div>
                         <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/10"></div>
                     </motion.div>
@@ -223,9 +234,9 @@ const IntroductionSection = () => {
             </div>
         </section>
     )
-}
+})
 
-const SkillsSection = () => {
+const SkillsSection = memo(() => {
     const [activeCategory, setActiveCategory] = useState('Frontend Development');
     const activeCategoryData = skills.find(item => item.title === activeCategory);
 
@@ -330,18 +341,18 @@ const SkillsSection = () => {
             </div>
         </section>
     )
-}
+})
 
-const ExploreAboutComponent = () => {
+const ExploreAboutComponent = memo(() => {
     return (
         <div className="w-full">
             <IntroductionSection />
             <SkillsSection />
         </div>
     )
-}
+})
 
-const ExploreProjectsComponent = () => {
+const ExploreProjectsComponent = memo(() => {
     const { handleNavigationWithAnimation } = useLoading();
     const navigate = useNavigate();
 
@@ -459,9 +470,9 @@ const ExploreProjectsComponent = () => {
             </div>
         </section>
     )
-}
+})
 
-const ResumeComponent = () => {
+const ResumeComponent = memo(() => {
     return (
         <section id="resume" className="bg-darkBg py-[120px] border-t border-gray-900">
             <div className="container">
@@ -573,4 +584,4 @@ const ResumeComponent = () => {
             </div>
         </section>
     );
-};
+})

@@ -27,6 +27,18 @@ body {
     margin: 0;
 }
 
+html,
+body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow: hidden;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
 body::-webkit-scrollbar {
     width: 8px;
 }
@@ -48,14 +60,15 @@ textarea {
     resize: none;
 }
 
+
 @layer components {
     .container-wide {
         @apply container;
-        max-width: 1780px;
+        max-width: 1600px;
         margin-left: auto;
         margin-right: auto;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
 }
 
@@ -73,7 +86,11 @@ textarea {
     .text-stroke-unbounded {
         background-image: linear-gradient(to right, #DDDDDD, #DDDDDD);
         background-clip: text;
-        -webkit-text-stroke-color: transparent; 
+        -webkit-text-stroke-color: transparent;
+    }
+
+    .max-h-hero {
+        max-height: 990px;
     }
 }
 

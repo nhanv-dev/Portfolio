@@ -1,7 +1,7 @@
 export const blurAnimation = {
-    // initial: { opacity: 0, filter: 'blur(20px)' },
-    // animate: { opacity: 1, filter: 'blur(0px)' },
-    // transition: { duration: 1.5, ease: 'easeOut' }
+    initial: { opacity: 0, filter: 'blur(20px)' },
+    animate: { opacity: 1, filter: 'blur(0px)' },
+    transition: { duration: 1, ease: 'easeOut', delay: 3.6 }
 };
 
 export const opacityWheelAnimation = {

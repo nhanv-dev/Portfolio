@@ -47,7 +47,7 @@ const PageWithPreload = ({ children, texts = [] }) => {
 					onLoaded={handlePreloaderComplete}
 				/>
 			)}
-			<div className={`${showPreloader ? 'h-[0px] overflow-hidden' : ''}`}>
+			<div className={`${showPreloader ? 'hidden' : ''}`}>
 				{children}
 			</div>
 		</>
