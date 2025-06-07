@@ -1,16 +1,16 @@
 import { motion } from 'framer-motion';
+import { memo } from 'react';
 import { FaFacebookF, FaLinkedin } from 'react-icons/fa';
 import { FaArrowRightLong, FaGithub } from 'react-icons/fa6';
 import { GoArrowDownLeft, GoArrowUpRight } from "react-icons/go";
 import { Link, useNavigate } from 'react-router-dom';
 import ContactBanner from "../components/ContactBanner";
-import HomeSlider from '../components/HomeSlider';
 import DevInfiniteScroll from '../components/InfiniteScroll/DevInfiniteScroll';
 import { useLoading } from '../components/LoadingProvider';
 import PageWithPreload from "../components/PageWithPreload";
 import { personalInfo, projects } from '../data';
-import { blurAnimation, opacityWheelAnimation, slideLeftWheelAnimation, slideUpWheelAnimation } from '../utils/animations';
-import { memo } from 'react';
+import { opacityWheelAnimation, slideLeftWheelAnimation, slideUpWheelAnimation } from '../utils/animations';
+import { MdOutlineArrowOutward } from "react-icons/md";
 
 const list = [
     { name: "Fullstack Developer" },
@@ -22,9 +22,6 @@ export default function HomePage() {
 
     return (
         <PageWithPreload texts={["Discover What's Ahead", "Let's Explore"]}>
-            {/* <motion.div {...blurAnimation}>
-                <HomeSlider />
-            </motion.div> */}
 
             <ExploreAboutComponent />
 
@@ -49,7 +46,7 @@ const ExploreAboutComponent = memo(() => {
     return (
         <section className="bg-lightBg text-lightText">
             {/* Main Content */}
-            <div className="relative pt-20">
+            <div className="relative pt-10">
                 <div className="container-wide relative">
                     <div className="flex flex-col items-center gap-6 z-10 min-w-max absolute top-0 left-0">
                         <div className="w-[44px] h-[235px] bg-gradient-to-b from-transparent to-[#F3F3F3] rounded-b-[40px]"></div>
@@ -353,28 +350,64 @@ const ProjectCard = memo(({ project, handleClick }) => {
 
 
 const ExploreContactComponent = memo(() => {
-    const { handleNavigationWithAnimation, handleNavigationWithOverlay } = useLoading();
+    const { handleNavigationWithAnimation } = useLoading();
     const navigate = useNavigate();
 
-    const handleClick = (e, slug) => {
-        e.preventDefault();
-        handleNavigationWithOverlay(slug, navigate);
-    }
-
     return (
-        <section className='relative py-[120px] bg-lightBg text-lightText'>
-            <div className="container">
-                <div className="flex flex-col lg:flex-row items-end justify-between mb-20">
-                    <div className="flex-1">
-                        <div className="text-6xl font-semibold font-kanit text-lightText">
-                            <span className="flex-1block text-[56px] leading-[60px]">My Selected</span>
-                            <span className="ml-[100px] block text-[300px] leading-[210px] mt-5">Work</span>
+        <section className='relative bg-[#F6F3FF] text-lightText'>
+            <div className="container mb-[120px]">
+                <div className="flex items-start">
+                    <div className="min-w-[40%] pt-[120px] pb-20 relative h-full">
+                        <div className="text-5xl leading-[5.5vh] tracking-wider font-bold uppercase font-kanit">
+                            <p>Experimental</p>
+                            <p>Studio</p>
                         </div>
+                        <p className='absolute h-[85%] top-0 right-0 bg-black w-[2px]'>
+                            <button
+                                type='button'
+                                onClick={() => handleNavigationWithAnimation('/projects', navigate)}
+                                className='absolute top-full w-[80px] h-[80px] left-1/2 -translate-x-1/2 border-2 border-black rounded-full font-semibold flex items-center justify-center'>
+                                <MdOutlineArrowOutward className='text-[2.25rem]' />
+                            </button>
+                        </p>
+                    </div>
+                    <div className="flex-1 pt-[60px] ml-[120px] relative">
+                        <p className='absolute left-0 font-bold text-[12rem] leading-none opacity-5 font-unbounded'>
+                            2025
+                        </p>
+                        <p className='pt-[110px] mb-3 font-extrabold font-kanit text-[6rem] uppercase leading-none text-end'>
+                            Project
+                        </p>
+                        <p className='font-medium text-[1rem] uppercase font-kanit tracking-wider'>
+                            Development is a high-qualified team of developers.
+                        </p>
                     </div>
                 </div>
-                <div className="flex flex-col">
-                    <div className="">
-                        
+            </div>
+            <div className="h-[16vh] w-full overflow-hidden bg-center bg-cover" style={{ backgroundImage: 'url("./images/home.jpg")' }}>
+                <div className="container w-full h-full">
+                    <img src="./images/studio.svg" alt="studio" className='h-full' />
+                </div>
+            </div>
+            <div className="container py-[120px]">
+                <div className="flex items-center">
+                    <div className="w-[40%] text-5xl leading-5xl tracking-wider font-bold uppercase font-kanit">
+                        <p>Design +</p>
+                        <p>Development</p>
+                    </div>
+                    <div className="flex-1 flex justify-between gap-20">
+                        <div className="font-medium text-[1rem] uppercase font-kanit tracking-wider">
+                            <p className='mb-3'>
+                                Development is a high-qualified team of developers.
+                            </p>
+                            <p>
+                                Every project is a challenge to do better than <br />anything I have already done!
+                            </p>
+                        </div>
+                        <div className="pl-10 text-2xl leading-2xl font-kanit font-bold">
+                            <p>{projects.length + 1}+</p>
+                            <p>Projects</p>
+                        </div>
                     </div>
                 </div>
             </div>

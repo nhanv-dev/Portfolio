@@ -27,7 +27,7 @@ export default function Header() {
 
     return (
         <header>
-            <div className="fixed top-0 bottom-0 right-0 w-[5vw] h-screen overflow-hidden z-[1000] bg-black border-l border-white/10">
+            <div className="fixed top-0 bottom-0 right-0 w-[5vw] h-screen z-[1000] bg-white border-l border-black/10">
                 <div className="h-full flex items-center gap-10 flex-col justify-between py-20">
                     <nav className="flex flex-col items-center gap-10">
                         {listRouting.map((route, index) => {
@@ -43,24 +43,30 @@ export default function Header() {
                                         if (route === '/projects' || !isActive) {
                                             handleNavigationWithAnimation(route, navigate);
                                         }
-                                    }} style={{
-                                        writingMode: 'vertical-lr',
-                                        textOrientation: 'mixed',
-                                        transform: 'rotate(180deg)',
                                     }}
-                                    className={`text-[0.925rem] font-semibold tracking-normal transition-colors font-unbounded relative group ${isActive
-                                        ? 'text-white'
-                                        : 'text-[rgba(255,255,255,0.7)]'
-                                        }`}
+                                    className={`text-[0.95rem] font-bold tracking-normal transition-colors font-unbounded relative group ${isActive ? 'text-black' : 'text-[rgba(0,0,0,0.4)]'}`}
                                 >
-                                    {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
+                                    <span
+                                        style={{
+                                            writingMode: 'vertical-lr',
+                                            textOrientation: 'mixed',
+                                            transform: 'rotate(180deg)',
+                                        }}
+                                        className='group-hover:opacity-0 opacity-100 group-hover:translate-x-[20px] transition-all duration-500'
+                                    >
+                                        {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
+                                    </span>
+                                    <span className='absolute left-0 top-1/2 -translate-y-1/2 text-[3rem] opacity-0 group-hover:opacity-100 group-hover:-translate-x-full transition-all duration-500 text-black'>
+                                        {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
+                                    </span>
+                                    <span></span>
                                 </Link>
                             );
                         })}
                     </nav>
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="max-w-max relative flex flex-col justify-center items-center group !border-none !outline-none"
+                        className="max-w-max relative flex flex-col justify-center items-center group !outline-none text-black"
                     >
                         <RiAppsLine className="text-2xl" />
                     </button>

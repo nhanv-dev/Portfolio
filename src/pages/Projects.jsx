@@ -58,7 +58,9 @@ export default function ProjectsPage() {
                 <HeroSlider handleNavigation={handleNavigation} />
             </motion.div>
 
-            <Projects handleNavigation={handleNavigation} />
+            <div className="py-10 border-t border-gray-900 bg-darkBg">
+                <Projects handleNavigation={handleNavigation} />
+            </div>
 
             <ContactBanner />
         </PageWithPreload>
@@ -270,7 +272,7 @@ function Projects({ handleNavigation }) {
     const memoizedProjects = useMemo(() => projects, []);
 
     return (
-        <section className="py-[120px] container border-t border-gray-900">
+        <section className="py-[120px] container">
             <TitleSection
                 className={'mb-12'}
                 title={'PORTFOLIO'}
