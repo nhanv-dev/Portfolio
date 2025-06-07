@@ -30,10 +30,10 @@ export default function Header() {
     return (
         <header>
             <div
-                className="fixed top-0 bottom-0 right-0 w-[5.25vw] h-screen z-[1000] border-l border-black/10"
-                style={{
-                    background: 'linear-gradient(to bottom, #ffffff 0%, #ffffff 70%, #F6F3FF 100%)'
-                }}
+                className="fixed top-0 bottom-0 right-0 w-[5.25vw] h-screen z-[1000] border-l border-black/10 bg-white"
+                // style={{
+                //     background: 'linear-gradient(to bottom, #ffffff 0%, #ffffff 70%, #fff 100%)'
+                // }}
             >
                 <div className="h-full flex items-center gap-10 flex-col justify-between pb-20 pt-16">
                     <nav className="flex flex-col items-center w-full">

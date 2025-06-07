@@ -403,7 +403,7 @@ const ExploreContactComponent = memo(() => {
                     </div>
                 </div>
             </div>
-            <div className="h-[18vh] w-full overflow-hidden bg-center bg-cover" style={{ backgroundImage: 'url("https://zipl.pro/assets/eeaaea0d/img/mainBg/11.jpg")' }}>
+            <div className="h-[18vh] w-full overflow-hidden bg-center bg-cover" style={{ backgroundImage: 'url("./images/home.jpg")' }}>
                 <div className="container w-full h-full">
                     <img src="./images/studio.svg" alt="studio" className='h-full' />
                 </div>
