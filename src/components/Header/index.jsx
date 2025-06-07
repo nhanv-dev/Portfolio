@@ -3,11 +3,13 @@ import { RiAppsLine } from "react-icons/ri";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { personalInfo } from '../../data';
 import { useLoading } from '../LoadingProvider';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const listRouting = ["/home", "/about", "/projects", "/contact"];
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeOverlay, setActiveOverlay] = useState(null);
     const location = useLocation();
     const { handleNavigationWithAnimation } = useLoading();
     const navigate = useNavigate();
@@ -27,9 +29,14 @@ export default function Header() {
 
     return (
         <header>
-            <div className="fixed top-0 bottom-0 right-0 w-[5vw] h-screen z-[1000] bg-white border-l border-black/10">
-                <div className="h-full flex items-center gap-10 flex-col justify-between py-20">
-                    <nav className="flex flex-col items-center gap-10">
+            <div
+                className="fixed top-0 bottom-0 right-0 w-[5.25vw] h-screen z-[1000] border-l border-black/10"
+                style={{
+                    background: 'linear-gradient(to bottom, #ffffff 0%, #ffffff 70%, #F6F3FF 100%)'
+                }}
+            >
+                <div className="h-full flex items-center gap-10 flex-col justify-between pb-20 pt-16">
+                    <nav className="flex flex-col items-center w-full">
                         {listRouting.map((route, index) => {
                             const isActive = route === '/projects'
                                 ? location.pathname.startsWith('/projects')
@@ -44,19 +51,25 @@ export default function Header() {
                                             handleNavigationWithAnimation(route, navigate);
                                         }
                                     }}
-                                    className={`text-[0.95rem] font-bold tracking-normal transition-colors font-unbounded relative group ${isActive ? 'text-black' : 'text-[rgba(0,0,0,0.4)]'}`}
+                                    onMouseEnter={() => setActiveOverlay(index)}
+                                    onMouseLeave={() => setActiveOverlay(null)}
+                                    className={`text-center transition-colors font-unbounded relative z-[99999] group w-full hover:cursor-default ${isActive ? 'text-black' : 'text-[rgba(0,0,0,0.4)]'}`}
                                 >
-                                    <span
+                                    <motion.span
                                         style={{
                                             writingMode: 'vertical-lr',
                                             textOrientation: 'mixed',
-                                            transform: 'rotate(180deg)',
                                         }}
-                                        className='group-hover:opacity-0 opacity-100 group-hover:translate-x-[20px] transition-all duration-500'
+                                        animate={{ 
+                                            transform: activeOverlay === index ? 'rotate(180deg) translateX(-10px)' : 'rotate(180deg) translateX(0px)',
+                                            opacity: activeOverlay === index ? '0' : '1',
+                                        }}
+                                        transition={{ duration: 0.5 }}
+                                        className="py-4 relative transition-all duration-500 font-semibold tracking-normal text-[0.925rem]"
                                     >
                                         {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
-                                    </span>
-                                    <span className='absolute left-0 top-1/2 -translate-y-1/2 text-[3rem] opacity-0 group-hover:opacity-100 group-hover:-translate-x-full transition-all duration-500 text-black'>
+                                    </motion.span>
+                                    <span className='absolute left-full top-1/2 -translate-y-1/2 text-[3.5rem] uppercase font-extrabold group-hover:-translate-x-full transition-all duration-700 text-black z-[2]'>
                                         {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
                                     </span>
                                     <span></span>
@@ -64,6 +77,20 @@ export default function Header() {
                             );
                         })}
                     </nav>
+                    {/* Overlay with Framer Motion */}
+                    <AnimatePresence>
+                        {activeOverlay != null && (
+                            <motion.div
+                                key="hover-overlay"
+                                initial={{ opacity: 0, }}
+                                animate={{ opacity: 1, }}
+                                exit={{ opacity: 0, }}
+                                transition={{ duration: 0.5, ease: 'easeOut' }}
+                                className="fixed left-0 top-0 bottom-0 right-0 bg-white z-[9999]"
+                            >
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         className="max-w-max relative flex flex-col justify-center items-center group !outline-none text-black"

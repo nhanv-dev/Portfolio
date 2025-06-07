@@ -30,7 +30,7 @@ const Layout = () => {
 
     return (
         <LenisProvider>
-            <div className="h-full w-full relative text-darkText overflow-hidden pr-[5vw]">
+            <div className="h-full w-full relative text-darkText overflow-hidden pr-[5.25vw]">
                 <motion.div
                     initial={{
                         scale: 0,
@@ -53,7 +53,6 @@ const Layout = () => {
                 <Footer />
                 <Header />
             </div>
-            {/* <ScrollTop /> */}
             <CustomCursor />
         </LenisProvider>
     );

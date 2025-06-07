@@ -223,9 +223,9 @@ function HeroSlider({ handleNavigation }) {
                 </div>
             </div>
 
-            <div className="absolute right-10 top-1/2 -translate-y-1/2">
+            <div className="absolute right-10 top-10">
                 <div className="">
-                    <ul className="flex gap-10 rotate-90 translate-x-1/2">
+                    <ul className="flex gap-10">
                         <li className="font-medium text-[1.1rem]">
                             <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer">
                                 Facebook

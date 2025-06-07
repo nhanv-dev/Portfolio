@@ -357,10 +357,29 @@ const ExploreContactComponent = memo(() => {
         <section className='relative bg-[#F6F3FF] text-lightText'>
             <div className="container mb-[120px]">
                 <div className="flex items-start">
-                    <div className="min-w-[40%] pt-[120px] pb-20 relative h-full">
+                    <div className="min-w-[40%] pt-[120px] pb-10 relative h-full">
                         <div className="text-5xl leading-[5.5vh] tracking-wider font-bold uppercase font-kanit">
                             <p>Experimental</p>
                             <p>Studio</p>
+                        </div>
+                        <div className="mt-10">
+                            <ul className="flex gap-8">
+                                <li className="font-bold text-[1rem]">
+                                    <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer">
+                                        / Facebook
+                                    </a>
+                                </li>
+                                <li className="font-bold text-[1rem]">
+                                    <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer">
+                                        / Github
+                                    </a>
+                                </li>
+                                <li className="font-bold text-[1rem]">
+                                    <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer">
+                                        / LinkedIn
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                         <p className='absolute h-[85%] top-0 right-0 bg-black w-[2px]'>
                             <button
@@ -375,7 +394,7 @@ const ExploreContactComponent = memo(() => {
                         <p className='absolute left-0 font-bold text-[12rem] leading-none opacity-5 font-unbounded'>
                             2025
                         </p>
-                        <p className='pt-[110px] mb-3 font-extrabold font-kanit text-[6rem] uppercase leading-none text-end'>
+                        <p className='pt-[110px] mb-3 font-extrabold font-kanit text-[6rem] uppercase leading-none text-end text-stroke-trans'>
                             Project
                         </p>
                         <p className='font-medium text-[1rem] uppercase font-kanit tracking-wider'>
@@ -384,7 +403,7 @@ const ExploreContactComponent = memo(() => {
                     </div>
                 </div>
             </div>
-            <div className="h-[16vh] w-full overflow-hidden bg-center bg-cover" style={{ backgroundImage: 'url("./images/home.jpg")' }}>
+            <div className="h-[18vh] w-full overflow-hidden bg-center bg-cover" style={{ backgroundImage: 'url("https://zipl.pro/assets/eeaaea0d/img/mainBg/11.jpg")' }}>
                 <div className="container w-full h-full">
                     <img src="./images/studio.svg" alt="studio" className='h-full' />
                 </div>
