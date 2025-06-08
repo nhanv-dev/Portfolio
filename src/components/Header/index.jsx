@@ -7,6 +7,21 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 const listRouting = ["/home", "/about", "/projects", "/contact"];
 
+const colors = {
+    light: {
+        text: 'text-black',
+        text2: 'text-black/50',
+        bg: 'bg-white',
+        border: 'border-black/10',
+    },
+    dark: {
+        text: 'text-white',
+        text2: 'text-white/50',
+        bg: 'bg-black',
+        border: 'border-white/10',
+    },
+}
+
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeOverlay, setActiveOverlay] = useState(null);
@@ -27,15 +42,12 @@ export default function Header() {
         };
     }, [isMenuOpen]);
 
+    const color = (location.pathname.startsWith('/projects') || location.pathname.startsWith('/contact')) ? 'dark' : 'light'
+
     return (
         <header>
-            <div
-                className="fixed top-0 bottom-0 right-0 w-[5.25vw] h-screen z-[1000] border-l border-black/10 bg-white"
-                // style={{
-                //     background: 'linear-gradient(to bottom, #ffffff 0%, #ffffff 70%, #fff 100%)'
-                // }}
-            >
-                <div className="h-full flex items-center gap-10 flex-col justify-between pb-20 pt-16">
+            <div className={`fixed top-0 bottom-0 right-0 w-[5.25vw] h-screen z-[1000] border-l  ${colors[color].border} ${colors[color].bg}`}>
+                <div className="h-full flex items-center gap-10 flex-col justify-between pb-10 pt-10">
                     <nav className="flex flex-col items-center w-full">
                         {listRouting.map((route, index) => {
                             const isActive = route === '/projects'
@@ -53,23 +65,23 @@ export default function Header() {
                                     }}
                                     onMouseEnter={() => setActiveOverlay(index)}
                                     onMouseLeave={() => setActiveOverlay(null)}
-                                    className={`text-center transition-colors font-unbounded relative z-[99999] group w-full hover:cursor-default ${isActive ? 'text-black' : 'text-[rgba(0,0,0,0.4)]'}`}
+                                    className={`text-center transition-colors relative z-[99999] group w-full hover:cursor-default ${isActive ? colors[color].text : colors[color].text2}`}
                                 >
                                     <motion.span
                                         style={{
                                             writingMode: 'vertical-lr',
                                             textOrientation: 'mixed',
                                         }}
-                                        animate={{ 
+                                        animate={{
                                             transform: activeOverlay === index ? 'rotate(180deg) translateX(-10px)' : 'rotate(180deg) translateX(0px)',
-                                            opacity: activeOverlay === index ? '0' : '1',
+                                            opacity: activeOverlay === index ? 0 : 1,
                                         }}
                                         transition={{ duration: 0.5 }}
-                                        className="py-4 relative transition-all duration-500 font-semibold tracking-normal text-[0.925rem]"
+                                        className="py-4 relative transition-all duration-500 font-bold tracking-wider text-[0.925rem] font-unbounded"
                                     >
                                         {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
                                     </motion.span>
-                                    <span className='absolute left-full top-1/2 -translate-y-1/2 text-[3.5rem] uppercase font-extrabold group-hover:-translate-x-full transition-all duration-700 text-black z-[2]'>
+                                    <span className='absolute left-full top-1/2 -translate-y-1/2 text-[3.5rem] uppercase font-extrabold group-hover:-translate-x-full transition-all duration-700 text-black z-[2] pr-2'>
                                         {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
                                     </span>
                                     <span></span>
@@ -93,7 +105,7 @@ export default function Header() {
                     </AnimatePresence>
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="max-w-max relative flex flex-col justify-center items-center group !outline-none text-black"
+                        className="relative flex justify-center items-center group !outline-none text-black/90 w-[50px] h-[50px] border-2 border-black/20 rounded-full"
                     >
                         <RiAppsLine className="text-2xl" />
                     </button>

@@ -62,6 +62,14 @@ const ExploreAboutComponent = memo(() => {
                         <div className="w-[44px] h-[235px] bg-gradient-to-b from-[#F3F3F3] to-transparent rounded-t-[40px]"></div>
                     </div>
                 </div>
+                <div className="absolute left-0 top-10 w-full">
+                    <div className="container">
+                        <div className="text-[1.6rem] font-bold font-kanit relative">
+                            Port
+                            <span className="text-primary">folio.</span>
+                        </div>
+                    </div>
+                </div>
                 <div className="absolute top-0 left-0 w-full ">
                     <div className="container-wide relative">
                         <img
@@ -110,7 +118,7 @@ const ExploreAboutComponent = memo(() => {
                     </div>
                     <motion.div
                         {...slideLeftWheelAnimation}
-                        className="lg:w-[40%] relative z-20 h-[780px]"
+                        className="lg:w-[38%] relative z-20 h-[780px]"
                     >
                         <img
                             src="https://i.pinimg.com/736x/3f/ac/a7/3faca77b9d10bae4a7cb3d15720ce0d3.jpg"

@@ -63,7 +63,7 @@ function ContactBanner() {
                                 Let's Talk
                             </span>
                             <span className="absolute right-0 top-0">
-                                <RiArrowRightUpLine className="text-[52px]" />
+                                <RiArrowRightUpLine className="text-[60px]" />
                             </span>
                         </Link>
                     </motion.div>
