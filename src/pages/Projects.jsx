@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { ImLocation2 } from "react-icons/im";
 import { MdOutlineNavigateBefore, MdOutlineNavigateNext } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import ContactBanner from "../components/ContactBanner";
+import { useLoading } from "../components/LoadingProvider";
 import PageWithPreload from "../components/PageWithPreload";
 import TitleSection from "../components/TitleSection";
-import { personalInfo, projects } from "../data";
+import { projects } from "../data";
 import { blurAnimation } from "../utils/animations";
-import { useLoading } from "../components/LoadingProvider";
 
 // Animation configs
 const SLIDE_ANIMATION = {
@@ -220,28 +220,6 @@ function HeroSlider({ handleNavigation }) {
                             </p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div className="absolute right-10 top-10">
-                <div className="">
-                    <ul className="flex gap-10">
-                        <li className="font-medium text-[1.1rem]">
-                            <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer">
-                                Facebook
-                            </a>
-                        </li>
-                        <li className="font-medium text-[1.1rem]">
-                            <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer">
-                                Github
-                            </a>
-                        </li>
-                        <li className="font-medium text-[1.1rem]">
-                            <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer">
-                                LinkedIn
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </div>
 

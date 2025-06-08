@@ -4,7 +4,6 @@ import { FaArrowRight, FaChevronRight, FaFacebook, FaGithub, FaLinkedin } from "
 import { GoDotFill } from 'react-icons/go';
 import { MdArrowForward } from 'react-icons/md';
 import { Link, useNavigate } from "react-router-dom";
-import CircularText from "../components/CircularText";
 import ContactBanner from "../components/ContactBanner";
 import TechInfiniteScroll from "../components/InfiniteScroll/TechInfiniteScroll";
 import { useLoading } from "../components/LoadingProvider";
@@ -41,7 +40,7 @@ const HeroComponent = memo(() => {
     const { handleNavigationWithAnimation } = useLoading();
 
     return (
-        <section className="w-full h-[calc(100vh-72px)] max-h-hero flex bg-lightBg text-lightText overflow-hidden shadow-lg">
+        <section className="hidden w-full h-[calc(100vh-72px)] max-h-hero flex bg-lightBg text-lightText overflow-hidden shadow-lg">
             <div className="flex-1 flex">
                 <div className="flex-1 mt-20 ml-20 relative">
                     <h2 className="text-[1.1rem] font-bold mb-8 flex items-center gap-2">
@@ -137,15 +136,6 @@ const HeroComponent = memo(() => {
             <div className="w-[45%] flex flex-col">
                 <div className="flex-1 bg-gray-100 flex items-center justify-center relative z-0">
                     <img src={projects[0].card.image} alt="project" className="object-cover w-full h-full" />
-                    <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2">
-                        <CircularText
-                            text="Turning visions into interactive realities . Building seamless experiences with purpose . Turning visions into interactive realities . "
-                            innerClassName="!text-black !text-[1.05rem]"
-                            className="!w-[550px] !h-[550px]"
-                            onHover=""
-                            spinDuration="60"
-                        />
-                    </div>
                 </div>
                 <div className="bg-darkBg text-darkText flex min-h-[300px] relative">
                     <div className="flex-1 p-8 pb-10 flex flex-col justify-center">

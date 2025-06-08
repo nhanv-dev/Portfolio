@@ -13,12 +13,14 @@ const colors = {
         text2: 'text-black/50',
         bg: 'bg-white',
         border: 'border-black/10',
+        border2: 'border-black/10',
     },
     dark: {
         text: 'text-white',
         text2: 'text-white/50',
         bg: 'bg-black',
         border: 'border-white/10',
+        border2: 'border-white/30',
     },
 }
 
@@ -42,7 +44,7 @@ export default function Header() {
         };
     }, [isMenuOpen]);
 
-    const color = (location.pathname.startsWith('/projects') || location.pathname.startsWith('/contact')) ? 'dark' : 'light'
+    const color = (location.pathname.startsWith('/projects') || location.pathname.startsWith('/contact') || location.pathname.startsWith('/about')) ? 'dark' : 'light'
 
     return (
         <header>
@@ -65,7 +67,7 @@ export default function Header() {
                                     }}
                                     onMouseEnter={() => setActiveOverlay(index)}
                                     onMouseLeave={() => setActiveOverlay(null)}
-                                    className={`text-center transition-colors relative z-[99999] group w-full hover:cursor-default ${isActive ? colors[color].text : colors[color].text2}`}
+                                    className={`text-center transition-colors relative z-[99999] group w-full hover:cursor-none ${isActive ? colors[color].text : colors[color].text2}`}
                                 >
                                     <motion.span
                                         style={{
@@ -81,7 +83,7 @@ export default function Header() {
                                     >
                                         {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
                                     </motion.span>
-                                    <span className='absolute left-full top-1/2 -translate-y-1/2 text-[3.5rem] uppercase font-extrabold group-hover:-translate-x-full transition-all duration-700 text-black z-[2] pr-2'>
+                                    <span className={`absolute left-full top-1/2 -translate-y-1/2 text-[3.5rem] uppercase font-extrabold group-hover:-translate-x-full transition-all duration-700 z-[2] pr-2 ${colors[color].text}`}>
                                         {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
                                     </span>
                                     <span></span>
@@ -98,14 +100,14 @@ export default function Header() {
                                 animate={{ opacity: 1, }}
                                 exit={{ opacity: 0, }}
                                 transition={{ duration: 0.5, ease: 'easeOut' }}
-                                className="fixed left-0 top-0 bottom-0 right-0 bg-white z-[9999]"
+                                className={`fixed left-0 top-0 bottom-0 right-0 z-[9999] ${colors[color].bg}`}
                             >
                             </motion.div>
                         )}
                     </AnimatePresence>
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="relative flex justify-center items-center group !outline-none text-black/90 w-[50px] h-[50px] border-2 border-black/20 rounded-full"
+                        className={`relative flex justify-center items-center group !outline-none w-[50px] h-[50px] border-2 rounded-full ${colors[color].text}/90 ${colors[color].border2}`}
                     >
                         <RiAppsLine className="text-2xl" />
                     </button>
