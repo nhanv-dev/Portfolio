@@ -229,7 +229,7 @@ function HeroSlider({ handleNavigation }) {
                     initial={TEXT_VARIANTS.initial}
                     animate={TEXT_VARIANTS.animate(index, activeIndex)}
                     transition={SLIDE_ANIMATION}
-                    className="absolute right-[25vw] top-1/2 translate-x-1/2 lg:w-[700px] -translate-y-[120px]"
+                    className="absolute right-[25vw] top-1/2 translate-x-1/2 lg:w-[700px] -translate-y-[180px]"
                 >
                     <h5 className="font-semibold text-[1.5rem] text-shadow-xl mb-3">
                         {(index + 1).toString().padStart(2, '0')}. {project.card.productType}
