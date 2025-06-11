@@ -44,7 +44,7 @@ const Layout = () => {
                         borderRadius: "0 100% 0 0"
                     }}
                     transition={{
-                        duration: 1.5,
+                        duration: 1.25,
                         ease: [0.16, 1, 0.3, 1]
                     }}
                     className="fixed left-0 bottom-0 w-full h-full bg-black z-[9998] origin-bottom-left"

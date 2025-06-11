@@ -141,7 +141,7 @@ export default function ContactPage() {
                                                 id="message"
                                                 name="message"
                                                 placeholder="Tell me about you and the world"
-                                                className={`cursor-pointer focus:outline-0 block bg-darkBg2 font-semibold px-4 py-3 w-full text-[1rem] resize-none ${formik.touched.message && formik.errors.message ? 'border-red-500' : ''}`}
+                                                className={`cursor-pointer focus:outline-0 block bg-darkBg2 font-semibold px-4 py-3 w-full text-[1rem]  ${formik.touched.message && formik.errors.message ? 'border-red-500' : ''}`}
                                                 onChange={(e) => {
                                                     formik.handleChange(e);
                                                     adjustTextareaHeight();

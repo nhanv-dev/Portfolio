@@ -70,6 +70,13 @@ textarea {
         padding-left: 2rem;
         padding-right: 2rem;
     }
+
+    .container-fluid { 
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 }
 
 @layer utilities {
@@ -90,6 +97,12 @@ textarea {
 
     .text-stroke-unbounded {
         background-image: linear-gradient(to right, #DDDDDD, #DDDDDD);
+        background-clip: text;
+        -webkit-text-stroke-color: transparent;
+    }
+
+    .text-stroke-unbounded-black {
+        background-image: linear-gradient(to right, #272727, #272727);
         background-clip: text;
         -webkit-text-stroke-color: transparent;
     }

@@ -8,20 +8,36 @@ module.exports = {
     darkMode: 'class',
     theme: {
         screens: {
-            sm: '480px',    // Mobile
-            md: '768px',    // Tablet
-            lg: '1024px',   // Laptop
-            xl: '1200px',   // Desktop
-            '2xl': '1440px',  // Large Desktop 
+            xs: '480px',         // Extra small: smartphones
+            sm: '640px',         // Small: phones landscape
+            md: '768px',         // Medium: tablets
+            lg: '1024px',        // Large: laptops
+            xl: '1280px',        // Extra large: desktops
+            '2xl': '1536px',     // QHD / Retina MacBook 16"
+            '3xl': '1920px',     // Full HD standard displays
+            '4xl': '2560px',     // 2K / WQHD monitors
+            '5xl': '3200px',     // Ultra-wide / 5K monitors
+            '6xl': '3840px',     // True 4K UHD monitors
+            '8k': '7680px'       // 8K display (rare, futuristic)
         },
         container: {
             center: true,
-            padding: '1rem',
+            padding: {
+                DEFAULT: '1rem',
+                sm: '1rem',
+                md: '1.5rem',
+                lg: '2rem',
+                xl: '2rem',
+                '2xl': '2rem',
+                '3xl': '2rem',
+            },
             screens: {
-                sm: "640px",
-                md: "768px",
-                lg: "1024px",
-                xl: "1336px",
+                sm: '540px',       // tương đương Bootstrap
+                md: '720px',
+                lg: '960px',
+                xl: '1140px',
+                '2xl': '1320px',   // tương đương Bootstrap 5 `xxl`
+                '3xl': '1440px'    // tuỳ chọn, giữ giới hạn hợp lý cho màn lớn
             }
         },
         extend: {

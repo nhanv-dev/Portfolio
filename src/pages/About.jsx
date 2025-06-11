@@ -1,31 +1,30 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { memo, useState } from "react";
-import { FaArrowRight, FaChevronRight, FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa6";
-import { GoDotFill } from 'react-icons/go';
+import { FiArrowDownRight, FiArrowUpRight } from "react-icons/fi";
+import { LuDownload } from "react-icons/lu";
 import { MdArrowForward } from 'react-icons/md';
 import { Link, useNavigate } from "react-router-dom";
 import ContactBanner from "../components/ContactBanner";
 import TechInfiniteScroll from "../components/InfiniteScroll/TechInfiniteScroll";
+import { useLenis } from "../components/LenisProvider";
 import { useLoading } from "../components/LoadingProvider";
 import PageWithPreload from "../components/PageWithPreload";
 import TitleSection from "../components/TitleSection";
-import { personalInfo, projects, skills } from "../data";
-import { blurAnimation, slideDownWheelAnimation } from "../utils/animations";
+import { personalInfo, skills } from "../data";
+import { slideDownWheelAnimation } from "../utils/animations";
 
 
 export default function AboutPage() {
 
     return (
         <PageWithPreload texts={["Hi, I'm Tran Thanh Nhan", "Exploring Tech & Creativity"]}>
-            <motion.div {...blurAnimation}>
-                <HeroComponent />
-            </motion.div>
+            <HeroComponent />
 
-            <ExploreAboutComponent />
+            <ResumeComponent />
 
             <TechInfiniteScroll />
 
-            <ResumeComponent />
+            <SkillsSection />
 
             <ExploreProjectsComponent />
 
@@ -37,192 +36,197 @@ export default function AboutPage() {
 
 const HeroComponent = memo(() => {
     const navigate = useNavigate();
+    const lenis = useLenis();
     const { handleNavigationWithAnimation } = useLoading();
 
-    return (
-        <section className="hidden w-full h-[calc(100vh-72px)] max-h-hero flex bg-lightBg text-lightText overflow-hidden shadow-lg">
-            <div className="flex-1 flex">
-                <div className="flex-1 mt-20 ml-20 relative">
-                    <h2 className="text-[1.1rem] font-bold mb-8 flex items-center gap-2">
-                        <span className="w-[50px] h-[2px] bg-primary rounded-full relative">
-                            <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[16px] h-[16px] bg-primary rounded-full">
-                                <span className="absolute inset-0 bg-primary rounded-full animate-ping opacity-75 scale-150"></span>
-                            </div>
-                        </span>
-                        <span>Hi there, I'm <span className="text-primary">Tran Thanh Nhan</span></span>
-                    </h2>
-                    <div className="mb-8">
-                        <motion.h2
-                            className={`text-6xl font-extrabold tracking-wider font-kanit uppercase text-transparent mb-4`}
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, amount: 0.4 }}
-                            transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
-                            style={{ WebkitTextStroke: '1px rgb(0, 0, 0)' }}
-                        >
-                            Fullstack Developer
-                        </motion.h2>
-                        <h1 className="text-6xl font-extrabold font-kanit uppercase">
-                            Tran Thanh Nhan
-                        </h1>
-                    </div>
-                    <p className="text-base font-medium mb-8">
-                        I am a software developer who turns ideas into reality through clean code and creative solutions.
-                        With a strong foundation in full-stack development, I focus on building performant, user-centric applications.
-                    </p>
-                    <div className="flex gap-20 mb-10 text-base">
-                        <div className="flex items-center gap-3">
-                            {/* <div className="w-[3px] h-[90%] bg-black rounded-full"></div> */}
-                            <div className="flex flex-col gap-2">
-                                <p className="font-semibold">Location</p>
-                                <p className="font-medium">{personalInfo.contact.location}</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                            {/* <div className="w-[3px] h-[90%] bg-black rounded-full"></div> */}
-                            <div className="flex flex-col gap-2">
-                                <p className="font-semibold">Phone</p>
-                                <p className="font-medium">{personalInfo.contact.phone}</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                            {/* <div className="w-[3px] h-[90%] bg-black rounded-full"></div> */}
-                            <div className="flex flex-col gap-2">
-                                <p className="font-semibold">Email</p>
-                                <p className="font-medium">{personalInfo.contact.email}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="w-full h-[230px] relative">
-                        <img src={projects[0].card.image} alt="avatar" className="w-full h-full object-cover pr-[50px]" />
-                        <Link to={'/contact'} onClick={(e) => {
-                            e.preventDefault();
-                            handleNavigationWithAnimation('/contact', navigate);
-                        }} className="absolute bottom-0 right-0 bg-[#173c3a] px-6 py-4 translate-y-1/2 text-white font-bold flex items-center gap-4">
-                            Start a Conversation
-                            <FaArrowRight className="text-[1rem]" />
-                        </Link>
-                    </div>
-                    <div className="absolute bottom-5 left-0">
-                        <div className="text-base font-normal font-kanit flex items-center gap-6">
-                            <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer">
-                                <FaFacebook size={21} />
-                            </a>
-                            <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer">
-                                <FaGithub size={21} />
-                            </a>
-                            <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer">
-                                <FaLinkedin size={21} />
-                            </a>
-                        </div>
-                    </div>
-                    <div className="absolute bottom-5 right-0">
-                        <p className="text-[17px] font-normal font-kanit tracking-wider">
-                            Scroll Down
-                        </p>
-                    </div>
-                </div>
-                <div className="flex items-center justify-end px-8">
-                    <p className="text-[17px] font-normal font-kanit tracking-wider"
-                        style={{
-                            writingMode: 'vertical-lr',
-                            textOrientation: 'mixed',
-                            transform: 'rotate(180deg)',
-                        }}>
-                        Let's Build Something Amazing Together
-                    </p>
-                </div>
-            </div>
-            <div className="w-[45%] flex flex-col">
-                <div className="flex-1 bg-gray-100 flex items-center justify-center relative z-0">
-                    <img src={projects[0].card.image} alt="project" className="object-cover w-full h-full" />
-                </div>
-                <div className="bg-darkBg text-darkText flex min-h-[300px] relative">
-                    <div className="flex-1 p-8 pb-10 flex flex-col justify-center">
-                        <p className="text-base font-semibold mb-4 flex items-center gap-3">
-                            <span className="w-[20px] h-[3px] bg-white block"></span>
-                            Explore My Projects
-                        </p>
-                        <h2 className="text-3xl font-bold mb-6">
-                            Turn Ideas into <span className="text-primary">Realities</span>
-                        </h2>
-                        <p className="text-gray-300 text-[0.95rem] font-medium max-w-[600px]">
-                            Beyond coding, I constantly explore new technologies and design trends to refine my craft.
-                            I believe that great software not only functions perfectly but also tells a meaningful story through its experience.
-                        </p>
-                    </div>
-                    <Link to={'/projects'} onClick={(e) => {
-                        e.preventDefault();
-                        handleNavigationWithAnimation('/projects', navigate);
-                    }} className="flex justify-center items-center bg-[#141414] w-[70px]">
-                        <FaChevronRight className="text-[1.2rem]" />
-                    </Link>
-                </div>
-            </div>
-        </section>
-    )
-})
+    function scrollContent() {
+        const target = document.getElementById('content-about');
+        if (target) {
+            lenis.scrollTo(target, {
+                offset: 0,
+                duration: 1.5,
+                easing: (t) => 1 - Math.pow(1 - t, 3),
+            });
+        }
+    }
 
-const IntroductionSection = memo(() => {
     return (
-        <section className="py-[120px] bg-darkBg text-darkText border-t border-gray-900">
-            <div className='container'>
-                <div className="relative">
-                    <TitleSection
-                        className={'mb-12'}
-                        title={'What I Do'}
-                        title2={'MY CRAFT'}
-                        subTitle={'Coding'}
-                        subTitle2={'Stuff'}
-                    ></TitleSection>
-                    <div className="pr-[520px] w-full">
-                        <div className="w-full flex items-center justify-end gap-10">
-                            <div className='flex items-center justify-start gap-3 font-bold text-[1.1rem] min-w-[160px]'>
-                                <GoDotFill />
-                                <p className='relative'>
-                                    Introduction
-                                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-lightBg"></span>
-                                </p>
-                            </div>
-                            <motion.div
+        <section className="w-full">
+            <div className="bg-lightBg text-lightText relative">
+                <div className="container-wide relative z-[1]">
+                    <div className="pt-20">
+                        <div className={`text-center w-full text-6xl font-extrabold tracking-wider font-unbounded uppercase`}>
+                            <motion.h2
+                                className={`mb-6 text-stroke-unbounded-black font-unbounded text-lightBg`}
+                                initial={{ opacity: 0, x: -50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, amount: 0.4 }}
+                                transition={{ duration: 1.2, ease: 'easeOut', delay: 0 }}
+                                style={{ WebkitTextStrokeWidth: '3px' }}
+                            >
+                                I'm Tran Thanh Nhan
+                            </motion.h2>
+                            <motion.h2
                                 initial={{ opacity: 0, x: 50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true, amount: 0.4 }}
-                                transition={{ duration: .8, ease: 'easeOut', delay: 0.4 }}
-                                className="flex-1 bg-[#131313]">
-                                <p className="text-[1rem] leading-[1.75] font-medium text-gray-300 text-end py-6 px-10">
-                                    I'm a Fullstack Web Developer, specializing in building seamless, end-to-end web applications. I work on both front-end and back-end solutions, ensuring smooth integration for efficient, scalable, and user-friendly digital experiences.
-                                </p>
-                            </motion.div>
+                                transition={{ duration: 1.2, ease: 'easeOut', delay: 0.4 }}
+                                className={`text-lightText`}
+                            >
+                                Full-stack Web Developer
+                            </motion.h2>
                         </div>
                     </div>
-                    <motion.div
-                        initial={{ opacity: 0, y: -50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.4 }}
-                        transition={{ duration: .8, ease: 'easeOut', }}
-                        className="absolute right-0 top-0 z-10">
-                        <div
-                            className="w-[520px] h-[380px] bg-center bg-cover"
-                            style={{ backgroundImage: `url(images/pro23.webp)` }}
-                        ></div>
-                        <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/10"></div>
-                    </motion.div>
-                    <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.4 }}
-                        transition={{ duration: .8, ease: 'easeOut', }}
-                        className="relative w-full pr-20">
-                        <div
-                            className="w-full h-[40vh] bg-top bg-cover"
-                            style={{ backgroundImage: `url(images/pro24.webp)` }}
-                        ></div>
-                        <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/10"></div>
-                    </motion.div>
+                    <div className="h-[500px] w-full bg-cover bg-top rounded-[25px] relative mt-[140px]"
+                        style={{ backgroundImage: 'url(./images/home2-welcome.webp)' }}
+                    >
+                        <div className="absolute -top-6 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                            <p className="absolute right-full top-12 text-[1.35rem] min-w-max font-unbounded font-bold pr-14">Since 2019</p>
+                            <button type="button" onClick={scrollContent} className=" rounded-full flex items-center justify-center bg-black text-white w-[170px] h-[170px] hover:rotate-45 transition-all duration-300">
+                                <FiArrowDownRight className="text-[3.5rem]" />
+                            </button>
+                            <p className="absolute left-full top-12 text-[1.35rem] min-w-max font-unbounded font-bold pl-14">Craft with clarity</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="absolute bg-[#eee] left-0 right-0 bottom-0 h-[200px]"></div>
+            </div>
+            <div className="bg-[#eee] text-black pt-[120px]" id="content-about">
+                <div className="container-fluid">
+                    <div className="grid grid-cols-4 gap-16">
+                        <div>
+                            <div className="relative flex items-end gap-5 mb-8">
+                                <motion.h2
+                                    className={`text-[45px] font-bold text-stroke-unbounded-black font-unbounded text-[#eee] leading-none`}
+                                    initial={{ opacity: 0, x: -50 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true, amount: 0.4 }}
+                                    transition={{ duration: 1.2, ease: 'easeOut', delay: 0 }}
+                                    style={{ WebkitTextStrokeWidth: '2px' }}
+                                >
+                                    01.
+                                </motion.h2>
+                                <p className="relative z-[1] font-unbounded font-bold text-[24px] capitalize">
+                                    About me
+                                </p>
+                            </div>
+                            <p className="text-[16px] font-medium leading-[1.75] mb-6">
+                                Full-stack web developer passionate about building clean, scalable, and user-friendly applications.
+                            </p>
+                            {/* <button type="button" className="flex items-center gap-2 font-medium uppercase font-unbounded text-[12px] text-black py-1">
+                                Download CV
+                                <LuDownload className="text-[20px]" />
+                            </button> */}
+                        </div>
+                        <div>
+                            <div className="relative flex items-end gap-5 mb-8">
+                                <motion.h2
+                                    className={`text-[45px] font-bold text-stroke-unbounded-black font-unbounded text-[#eee] leading-none`}
+                                    initial={{ opacity: 0, x: -50 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true, amount: 0.4 }}
+                                    transition={{ duration: 1.2, ease: 'easeOut', delay: 0 }}
+                                    style={{ WebkitTextStrokeWidth: '2px' }}
+                                >
+                                    02.
+                                </motion.h2>
+                                <p className="relative z-[1] font-unbounded font-bold text-[24px] capitalize">
+                                    What I Do
+                                </p>
+                            </div>
+                            <p className="text-[16px] font-medium leading-[1.75]">
+                                I specialize in building full-stack web applications using .NET, Angular, React, and SQL. From API architecture to frontend UI, I turn ideas into functional software.
+                            </p>
+                        </div>
+                        <div>
+                            <div className="relative flex items-end gap-5 mb-8">
+                                <motion.h2
+                                    className={`text-[45px] font-bold text-stroke-unbounded-black font-unbounded text-[#eee] leading-none`}
+                                    initial={{ opacity: 0, x: -50 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true, amount: 0.4 }}
+                                    transition={{ duration: 1.2, ease: 'easeOut', delay: 0 }}
+                                    style={{ WebkitTextStrokeWidth: '2px' }}
+                                >
+                                    03.
+                                </motion.h2>
+                                <p className="relative z-[1] font-unbounded font-bold text-[24px] capitalize">
+                                    My Work
+                                </p>
+                            </div>
+                            <p className="text-[16px] font-medium leading-[1.75] mb-6">
+                                I've developed admin dashboards, SaaS platforms, and internal tools that serve thousands of users. You can find my projects on GitHub.
+                            </p>
+                            <Link
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    handleNavigationWithAnimation("/projects", navigate);
+                                }}
+                                className="flex items-center gap-2 font-medium uppercase font-unbounded text-[12px] text-black py-1"
+                            >
+                                Read more
+                                <FiArrowUpRight className="text-[20px]" />
+                            </Link>
+                        </div>
+                        <div>
+                            <div className="relative flex items-end gap-5 mb-8">
+                                <motion.h2
+                                    className={`text-[45px] font-bold text-stroke-unbounded-black font-unbounded text-[#eee] leading-none`}
+                                    initial={{ opacity: 0, x: -50 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true, amount: 0.4 }}
+                                    transition={{ duration: 1.2, ease: 'easeOut', delay: 0 }}
+                                    style={{ WebkitTextStrokeWidth: '2px' }}
+                                >
+                                    04.
+                                </motion.h2>
+                                <p className="relative z-[1] font-unbounded font-bold text-[24px] capitalize">
+                                    My Education
+                                </p>
+                            </div>
+                            <p className="text-[16px] font-medium leading-[1.75]">
+                                B.S. in Software Engineering, Nong Lam University - HCMC, Vietnam (Class of 2023).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="container-fluid mt-[120px] pb-6">
+                    <div className="grid grid-cols-3 gap-[20px]">
+                        <div className="grid grid-cols-2 gap-[20px]">
+                            <img className="rounded-[20px]" src="./images/contact-2.webp" alt="about-1" />
+                            <img className="rounded-[20px]" src="./images/contact-1.webp" alt="about-1" />
+                        </div>
+                        <div className="relative w-full h-full bg-black rounded-[20px]">
+                            <div className="absolute top-10 right-10 text-white font-bold flex gap-7 text-[16px] font-unbounded">
+                                <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer">
+                                    fb.
+                                </a>
+                                <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer">
+                                    in.
+                                </a>
+                                <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer">
+                                    gh.
+                                </a>
+                            </div>
+                            <div className="absolute bottom-10 left-10 ">
+                                <p className="text-white font-bold text-[25px] font-unbounded leading-8 mb-3.5">
+                                    Join on My
+                                    <br />
+                                    Social Circle
+                                </p>
+                                <p className="text-[#ccc] font-medium text-[13px] font-unbounded">
+                                    <span className="text-[16px] leading-none">©</span> Built by Thanh Nhan
+                                </p>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-[20px]">
+                            <img className="rounded-[20px]" src="./images/contact-4.webp" alt="about-1" />
+                            <img className="rounded-[20px]" src="./images/contact-3.webp" alt="about-1" />
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </section >
     )
 })
 
@@ -330,15 +334,6 @@ const SkillsSection = memo(() => {
                 </div>
             </div>
         </section>
-    )
-})
-
-const ExploreAboutComponent = memo(() => {
-    return (
-        <div className="w-full">
-            <IntroductionSection />
-            <SkillsSection />
-        </div>
     )
 })
 

@@ -97,7 +97,7 @@ function HeroSlider({ handleNavigation }) {
     }, [activeIndex, nextSlide]);
 
     return (
-        <section className="relative w-full h-[calc(100vh-72px)] max-h-hero overflow-hidden text-white flex">
+        <section className="relative w-full h-screen max-h-hero overflow-hidden text-white flex">
             <div className="relative h-full lg:w-[75vw] overflow-hidden">
                 {memoizedProjects.map((project, index) => (
                     <motion.div
@@ -234,10 +234,10 @@ function HeroSlider({ handleNavigation }) {
                     <h5 className="font-semibold text-[1.5rem] text-shadow-xl mb-3">
                         {(index + 1).toString().padStart(2, '0')}. {project.card.productType}
                     </h5>
-                    <h1 className="mb-1 relative lg:text-[3.5rem] leading-tight font-bold text-shadow-xl capitalize">
+                    <h1 className="mb-1 relative text-[3.5rem] 2xl:text-[3.8rem] 4xl:text-[2.5vw] leading-tight font-bold text-shadow-xl capitalize">
                         {project.card.title}
                     </h1>
-                    <h1 className="lg:text-[3.5rem] leading-tight font-bold text-shadow-xl capitalize">
+                    <h1 className="text-[3.5rem] 2xl:text-[3.8rem] 4xl:text-[2.5vw] leading-tight font-bold text-shadow-xl capitalize">
                         {project.card.subTitle}
                     </h1>
                 </motion.div>

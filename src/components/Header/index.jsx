@@ -11,16 +11,18 @@ const colors = {
     light: {
         text: 'text-black',
         text2: 'text-black/50',
+        textIcon: 'text-gray-700',
         bg: 'bg-white',
-        border: 'border-black/10',
-        border2: 'border-black/10',
+        border: 'border-gray-200',
+        border2: 'border-gray-200',
     },
     dark: {
         text: 'text-white',
         text2: 'text-white/50',
+        textIcon: 'text-white/90',
         bg: 'bg-black',
-        border: 'border-white/10',
-        border2: 'border-white/30',
+        border: 'border-gray-900',
+        border2: 'border-gray-900',
     },
 }
 
@@ -44,11 +46,11 @@ export default function Header() {
         };
     }, [isMenuOpen]);
 
-    const color = (location.pathname.startsWith('/projects') || location.pathname.startsWith('/contact') || location.pathname.startsWith('/about')) ? 'dark' : 'light'
+    const color = (location.pathname.startsWith('/projects') || location.pathname.startsWith('/contact')) ? 'dark' : 'light'
 
     return (
         <header>
-            <div className={`fixed top-0 bottom-0 right-0 w-[5.25vw] h-screen z-[1000] border-l  ${colors[color].border} ${colors[color].bg}`}>
+            <div className={`fixed top-0 bottom-0 right-0 w-[5.25vw] h-screen z-[1000] border-l ${colors[color].border} ${colors[color].bg}`}>
                 <div className="h-full flex items-center gap-10 flex-col justify-between pb-10 pt-10">
                     <nav className="flex flex-col items-center w-full">
                         {listRouting.map((route, index) => {
@@ -107,7 +109,7 @@ export default function Header() {
                     </AnimatePresence>
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className={`relative flex justify-center items-center group !outline-none w-[50px] h-[50px] border-2 rounded-full ${colors[color].text}/90 ${colors[color].border2}`}
+                        className={`relative flex justify-center items-center group !outline-none w-[50px] h-[50px] border-2 rounded-full ${colors[color].textIcon} ${colors[color].border2}`}
                     >
                         <RiAppsLine className="text-2xl" />
                     </button>
