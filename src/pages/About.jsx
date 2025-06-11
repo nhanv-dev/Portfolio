@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { memo, useState } from "react";
 import { FiArrowDownRight, FiArrowUpRight } from "react-icons/fi";
-import { LuDownload } from "react-icons/lu";
 import { MdArrowForward } from 'react-icons/md';
 import { Link, useNavigate } from "react-router-dom";
 import ContactBanner from "../components/ContactBanner";
