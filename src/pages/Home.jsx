@@ -264,7 +264,7 @@ const ExploreProjectsComponent = memo(() => {
 
                         <div className="bg-[#D9D0FF] relative z-10 flex-1">
                             <p className="text-[1.2rem] text-[#3D3D3D] px-12 py-10 font-medium leading-[2rem]">
-                                We proudly showcase our creative design work, reflecting our passion for innovation and attention to detail. Each project highlights our commitment to delivering visually stunning and effective solutions.
+                                I proudly showcase our creative design work, reflecting our passion for innovation and attention to detail. Each project highlights our commitment to delivering visually stunning and effective solutions.
                             </p>
                             <button
                                 onClick={() => handleNavigationWithAnimation('/projects', navigate)}
@@ -406,7 +406,7 @@ const ExploreContactComponent = memo(() => {
                             Project
                         </p>
                         <p className='font-medium text-[1rem] uppercase font-kanit tracking-wider'>
-                            Development is a high-qualified team of developers.
+                            Development, for me, is about crafting solutions that last.
                         </p>
                     </div>
                 </div>
@@ -425,7 +425,7 @@ const ExploreContactComponent = memo(() => {
                     <div className="flex-1 flex justify-between gap-20">
                         <div className="font-medium text-[1rem] uppercase font-kanit tracking-wider">
                             <p className='mb-3'>
-                                Development is a high-qualified team of developers.
+                                Behind every clean UI and robust backend is thoughtful development.
                             </p>
                             <p>
                                 Every project is a challenge to do better than <br />anything I have already done!
