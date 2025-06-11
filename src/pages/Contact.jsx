@@ -1,12 +1,11 @@
 import emailjs from '@emailjs/browser';
 import { useFormik } from 'formik';
-import { useState, useRef, useEffect } from 'react';
-import * as Yup from 'yup';
-import PageWithPreload from "../components/PageWithPreload";
-import { blurAnimation } from '../utils/animations';
 import { motion } from 'framer-motion';
-import { personalInfo, projects } from '../data';
+import { useEffect, useRef, useState } from 'react';
+import * as Yup from 'yup';
 import DevInfiniteScroll from '../components/InfiniteScroll/DevInfiniteScroll';
+import PageWithPreload from "../components/PageWithPreload";
+import { personalInfo, projects } from '../data';
 
 export default function ContactPage() {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -77,9 +76,9 @@ export default function ContactPage() {
 
     return (
         <PageWithPreload texts={["Start a Conversation", "I'm Listening"]}>
-            <motion.div {...blurAnimation}>
+            <motion.div>
                 <div className="flex gap-10 flex-col">
-                    <div className="relative h-[300px] w-[100%] bg-cover bg-fixed bg-no-repeat" style={{ 
+                    <div className="relative h-[300px] w-[100%] bg-cover bg-fixed bg-no-repeat" style={{
                         backgroundImage: `url(${projects[0].card.image})`,
                         backgroundPosition: '50% 100%',
                         backgroundSize: 'cover'

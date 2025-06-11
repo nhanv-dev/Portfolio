@@ -8,7 +8,6 @@ import { useLoading } from "../components/LoadingProvider";
 import PageWithPreload from "../components/PageWithPreload";
 import TitleSection from "../components/TitleSection";
 import { projects } from "../data";
-import { blurAnimation } from "../utils/animations";
 
 // Animation configs
 const SLIDE_ANIMATION = {
@@ -54,9 +53,7 @@ export default function ProjectsPage() {
 
     return (
         <PageWithPreload texts={["Ignite Creativity", "Turn Ideas into Reality"]}>
-            <motion.div {...blurAnimation}>
-                <HeroSlider handleNavigation={handleNavigation} />
-            </motion.div>
+            <HeroSlider handleNavigation={handleNavigation} />
 
             <div className="py-10 border-t border-gray-900 bg-darkBg">
                 <Projects handleNavigation={handleNavigation} />
