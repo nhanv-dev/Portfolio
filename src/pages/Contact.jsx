@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import * as Yup from 'yup';
 import DevInfiniteScroll from '../components/InfiniteScroll/DevInfiniteScroll';
 import PageWithPreload from "../components/PageWithPreload";
-import { personalInfo, projects } from '../data';
+import { personalInfo } from '../data';
 
 export default function ContactPage() {
     const [isSubmitting, setIsSubmitting] = useState(false);
