@@ -15,8 +15,7 @@ export default function ContactPage() {
     const adjustTextareaHeight = () => {
         const textarea = textareaRef.current;
         if (textarea) {
-            textarea.style.height = 'auto';
-            textarea.style.height = `${textarea.scrollHeight}px`;
+            textarea.style.height = `${textarea.scrollHeight || '72'}px`;
         }
     };
 
@@ -78,23 +77,43 @@ export default function ContactPage() {
         <PageWithPreload texts={["Start a Conversation", "I'm Listening"]}>
             <motion.div>
                 <div className="flex gap-10 flex-col">
-                    <div className="relative h-[300px] w-[100%] bg-cover bg-fixed bg-no-repeat" style={{
-                        backgroundImage: `url(${projects[0].card.image})`,
-                        backgroundPosition: '50% 100%',
+                    <div className="relative h-[400px] w-[100%] bg-cover bg-no-repeat" style={{
+                        backgroundImage: `url(https://studiofifty.premiumthemes.in/wp-content/uploads/2024/11/home1-welcome.webp)`,
+                        backgroundPosition: 'center',
                         backgroundSize: 'cover'
                     }}>
-                        <svg className="absolute bottom-0 left-0 h-[120px]" xmlns="http://www.w3.org/2000/svg" version="1.1" fill="#000" width="100%" viewBox="0 0 4.66666 0.333331" preserveAspectRatio="none">
-                            <path className="fil0" d="M-7.87402e-006 0.0148858l0.00234646 0c0.052689,0.0154094 0.554437,0.154539 1.51807,0.166524l0.267925 0c0.0227165,-0.00026378 0.0456102,-0.000582677 0.0687992,-0.001 1.1559,-0.0208465 2.34191,-0.147224 2.79148,-0.165524l0.0180591 0 0 0.166661 -7.87402e-006 0 0 0.151783 -4.66666 0 0 -0.151783 -7.87402e-006 0 0 -0.166661z"></path>
-                        </svg>
-                        <div className="absolute top-0 left-0 w-full h-full bg-black/40">
-
+                        <div className="absolute left-0 top-0 w-full h-full z-10">
+                            <div className="container-wide relative h-full">
+                                <div className="absolute top-10 right-0 text-white font-bold flex gap-7 text-[16px] font-unbounded">
+                                    <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer">
+                                        fb.
+                                    </a>
+                                    <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer">
+                                        in.
+                                    </a>
+                                    <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer">
+                                        gh.
+                                    </a>
+                                </div>
+                                <div className="absolute bottom-10 left-0">
+                                    <p className="text-white font-bold text-[3vw] font-unbounded leading-tight mb-3.5">
+                                        Reach Out
+                                        <br />
+                                        to Collaborate
+                                    </p>
+                                    <p className="text-[#ccc] font-medium text-[13px] font-unbounded">
+                                        <span className="text-[16px] leading-none">©</span> Built by Thanh Nhan
+                                    </p>
+                                </div>
+                            </div>
                         </div>
+                        <div className="absolute top-0 left-0 w-full h-full bg-black/70"></div>
                     </div>
                     <section id="contact" className="bg-darkBg flex-1">
                         <div className="container pt-[20px] pb-[120px]">
                             <div className="flex flex-wrap gap-14">
                                 <div className="lg:w-[55%] w-full">
-                                    <div className="flex items-center gap-3 mb-8">
+                                    <div className="flex items-center gap-3 mb-8 hidden">
                                         <p className='w-[6px] h-[24px] bg-primary rounded-full'></p>
                                         <h3 className="font-bold text-2xl font-unbounded">
                                             Get in Touch with Me
@@ -172,7 +191,7 @@ export default function ContactPage() {
                                     </form>
                                 </div>
                                 <div className="flex-1">
-                                    <div className="flex items-center gap-3 mb-8">
+                                    <div className="flex items-center gap-3 mb-8 hidden">
                                         <p className='w-[6px] h-[24px] bg-primary rounded-full'></p>
                                         <h3 className="font-bold text-2xl font-unbounded">
                                             Contact Info
@@ -209,13 +228,48 @@ export default function ContactPage() {
 
                 </div>
             </motion.div>
-            <div className="py-10 border-t border-gray-900">
+            <div className="py-10 bordert border-b border-gray-900 bg-darkBg">
                 <DevInfiniteScroll list={[
                     "Ready to start?",
                     "Let's talk",
                     "Ready to start?",
                     "Let's talk",
                 ]} innerClassName={'!text-[1.25rem]'} innerClassNameSplit={'!text-[1rem]'} />
+            </div>
+            <div className="container-fluid py-10 bg-darkBg">
+                <div className="grid grid-cols-3 gap-[20px]">
+                    <div className="grid grid-cols-2 gap-[20px]">
+                        <img className="rounded-[20px]" src="./images/contact-2.webp" alt="about-1" />
+                        <img className="rounded-[20px]" src="./images/contact-1.webp" alt="about-1" />
+                    </div>
+                    <div className="relative w-full h-full bg-[#F6F3FF] rounded-[20px]">
+                        <div className="absolute top-10 right-10 text-black font-bold flex gap-7 text-[16px] font-unbounded">
+                            <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer">
+                                fb.
+                            </a>
+                            <a href={personalInfo.link.linkedin} target="_blank" rel="noopener noreferrer">
+                                in.
+                            </a>
+                            <a href={personalInfo.link.github} target="_blank" rel="noopener noreferrer">
+                                gh.
+                            </a>
+                        </div>
+                        <div className="absolute bottom-10 left-10 ">
+                            <p className="text-black font-bold text-[25px] font-unbounded leading-8 mb-3.5">
+                                Join on My
+                                <br />
+                                Social Circle
+                            </p>
+                            <p className="text-black/70 font-medium text-[13px] font-unbounded">
+                                <span className="text-[16px] leading-none">©</span> Built by Thanh Nhan
+                            </p>
+                        </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-[20px]">
+                        <img className="rounded-[20px]" src="./images/contact-4.webp" alt="about-1" />
+                        <img className="rounded-[20px]" src="./images/contact-3.webp" alt="about-1" />
+                    </div>
+                </div>
             </div>
         </PageWithPreload>
     )
