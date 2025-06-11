@@ -163,7 +163,7 @@ export default function Header() {
                             </div>
 
                             <div className="h-[260px] w-full overflow-hidden">
-                                <img src="https://i.pinimg.com/736x/e3/5a/43/e35a43db2a75327248f698dc1b65cccb.jpg" alt="Profile" className="w-full h-full object-cover" />
+                                <img src="./images/home1.jpg" alt="Profile" className="w-full h-full object-cover" />
                             </div>
                         </div>
                     </div>

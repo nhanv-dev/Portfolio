@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { memo, useState } from "react";
-import { FiArrowDownRight, FiArrowUpRight } from "react-icons/fi";
+import { FiArrowDownRight, FiArrowUpRight, FiDownload } from "react-icons/fi";
 import { MdArrowForward } from 'react-icons/md';
 import { Link, useNavigate } from "react-router-dom";
 import ContactBanner from "../components/ContactBanner";
@@ -502,8 +502,20 @@ const ResumeComponent = memo(() => {
                                 <div className="absolute left-0 bottom-[0] top-0 -translate-x-1/2 bg-gray-800 w-[1px] h-full"></div>
                             </div>
                         </motion.div>
-                        <div className="h-[330px] w-full flex items-center justify-center overflow-hidden ">
-                            <img src={'https://i.pinimg.com/736x/7d/63/e1/7d63e100d2d24ace9de49d759c74cf8e.jpg'} alt="" className="mr-3 h-full w-full object-cover object-center" />
+
+                        <div className="h-[330px] w-full flex items-center justify-center overflow-hidden rounded-[20px] relative">
+                            <div className="absolute bottom-10 left-10 z-10">
+                                <a href="./pdf/Tran-Thanh-Nhan-TopCV.pdf" download className="block text-white font-bold text-[25px] font-unbounded leading-8 mb-3.5">
+                                    Resume
+                                    <br />
+                                    <span className="inline-flex justify-center items-center gap-3">Available Here <FiDownload className="text-[25px]"/></span>
+                                </a>
+                                <p className="text-[#ccc] font-medium text-[13px] font-unbounded">
+                                    <span className="text-[16px] leading-none">©</span> Built by Thanh Nhan
+                                </p>
+                            </div>
+                            <img src={'./images/blog-7.webp'} alt="" className="absolute left-0 bottom-0 z-0 object-cover object-center" />
+                            <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/60 z-[1] backdrop-blur-sm"></div>
                         </div>
                     </motion.div>
 
@@ -565,7 +577,7 @@ const ResumeComponent = memo(() => {
                         </motion.div>
                     </motion.div>
                 </div>
-            </div>
-        </section>
+            </div >
+        </section >
     );
 })

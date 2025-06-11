@@ -121,13 +121,13 @@ const ExploreAboutComponent = memo(() => {
                         className="lg:w-[38%] relative z-20 h-[780px]"
                     >
                         <img
-                            src="https://i.pinimg.com/736x/3f/ac/a7/3faca77b9d10bae4a7cb3d15720ce0d3.jpg"
+                            src="./images/home2.jpg"
                             alt="Coding"
                             className="w-full h-full max-h-[780px] object-center object-cover relative z-10"
                         />
 
                         <div className="absolute bottom-[100px] left-[-100px] w-[258px] h-[316px] z-20">
-                            <img src="https://i.pinimg.com/736x/e3/5a/43/e35a43db2a75327248f698dc1b65cccb.jpg" alt="Coding" className="w-full h-full object-cover" />
+                            <img src="./images/home1.jpg" alt="Coding" className="w-full h-full object-cover" />
                         </div>
                     </motion.div>
                 </div>
@@ -171,7 +171,7 @@ const ExploreAboutComponent = memo(() => {
                         transition={{ duration: 0.8, delay: 0.3 }}
                     >
                         <img
-                            src="https://i.pinimg.com/736x/27/e2/b1/27e2b129a12587556a4cca1167709ffc.jpg"
+                            src="./images/home3.jpg"
                             alt="About Section"
                             className="w-full h-full object-cover relative z-10"
                         />
@@ -283,7 +283,7 @@ const ExploreProjectsComponent = memo(() => {
             {/* Projects Grid */}
             <div className="bg-center bg-cover bg-no-repeat pt-[200px] pb-20 bg-gray-900 relative z-0"
                 style={{
-                    backgroundImage: 'url("https://themexriver.com/wp/agenriver-demo/web-agency/wp-content/uploads/sites/20/2025/04/w2-bg.webp")',
+                    backgroundImage: 'url("./images/w2-bg.webp")',
                 }}>
                 <div className="absolute inset-0 bg-black/30"></div>
                 <div className="container-wide relative z-10">
