@@ -78,7 +78,7 @@ export default function ContactPage() {
             <motion.div>
                 <div className="flex gap-10 flex-col">
                     <div className="relative h-[400px] w-[100%] bg-cover bg-no-repeat" style={{
-                        backgroundImage: `url(https://studiofifty.premiumthemes.in/wp-content/uploads/2024/11/home1-welcome.webp)`,
+                        backgroundImage: `url(./images/home1-welcome.webp)`,
                         backgroundPosition: 'center',
                         backgroundSize: 'cover'
                     }}>
