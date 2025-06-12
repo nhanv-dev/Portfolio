@@ -53,8 +53,8 @@ function CustomCursor() {
 
     return (
         <>
-            <div id='cursorOuter' className="mouse-cursor cursor-outer" ref={cursorOuterRef} />
-            <div className="mouse-cursor cursor-inner" ref={cursorInnerRef} />
+            <div id='cursorOuter' className="hidden lg:block mouse-cursor cursor-outer" ref={cursorOuterRef} />
+            <div className="hidden lg:block mouse-cursor cursor-inner" ref={cursorInnerRef} />
         </>
     );
 }

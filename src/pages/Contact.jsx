@@ -77,14 +77,14 @@ export default function ContactPage() {
         <PageWithPreload texts={["Start a Conversation", "I'm Listening"]}>
             <motion.div>
                 <div className="flex gap-10 flex-col">
-                    <div className="relative h-[400px] w-[100%] bg-cover bg-no-repeat" style={{
+                    <div className="relative h-[300px] lg:h-[400px] w-[100%] bg-cover bg-no-repeat" style={{
                         backgroundImage: `url(./images/home1-welcome.webp)`,
                         backgroundPosition: 'center',
                         backgroundSize: 'cover'
                     }}>
                         <div className="absolute left-0 top-0 w-full h-full z-10">
                             <div className="container-wide relative h-full">
-                                <div className="absolute top-10 right-0 text-white font-bold flex gap-7 text-[16px] font-unbounded">
+                                <div className="absolute top-10 right-4 text-white font-bold flex gap-7 text-[14px] md:text-[14px] lg:[16px] font-unbounded">
                                     <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer">
                                         fb.
                                     </a>
@@ -95,8 +95,8 @@ export default function ContactPage() {
                                         gh.
                                     </a>
                                 </div>
-                                <div className="absolute bottom-10 left-0">
-                                    <p className="text-white font-bold text-[3vw] font-unbounded leading-tight mb-3.5">
+                                <div className="absolute bottom-10 left-4">
+                                    <p className="text-white font-bold text-[1.2rem] lg:text-[3vw] font-unbounded leading-tight mb-3.5">
                                         Reach Out
                                         <br />
                                         to Collaborate
@@ -112,13 +112,7 @@ export default function ContactPage() {
                     <section id="contact" className="bg-darkBg flex-1">
                         <div className="container pt-[20px] pb-[120px]">
                             <div className="flex flex-wrap gap-14">
-                                <div className="lg:w-[55%] w-full">
-                                    <div className="flex items-center gap-3 mb-8 hidden">
-                                        <p className='w-[6px] h-[24px] bg-primary rounded-full'></p>
-                                        <h3 className="font-bold text-2xl font-unbounded">
-                                            Get in Touch with Me
-                                        </h3>
-                                    </div>
+                                <div className="xl:w-[55%] w-full">
                                     <form onSubmit={formik.handleSubmit} className='text-[1.1rem]'>
                                         <div className="mb-8">
                                             <label htmlFor="name" className="block mb-3.5 font-bold">Your name</label>
@@ -191,14 +185,8 @@ export default function ContactPage() {
                                     </form>
                                 </div>
                                 <div className="flex-1">
-                                    <div className="flex items-center gap-3 mb-8 hidden">
-                                        <p className='w-[6px] h-[24px] bg-primary rounded-full'></p>
-                                        <h3 className="font-bold text-2xl font-unbounded">
-                                            Contact Info
-                                        </h3>
-                                    </div>
-                                    <div className="w-full grid grid-cols-2 gap-5">
-                                        <div className="">
+                                    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5">
+                                        <div>
                                             <h5 className="font-bold text-[1.1rem] mb-2.5 text-primary">Address</h5>
                                             <p className="font-[500] text-base text-gray-300 mb-7">{personalInfo.contact.location}</p>
                                             <h5 className="font-bold text-[1.1rem] mb-2.5 text-primary">Email</h5>
@@ -206,7 +194,7 @@ export default function ContactPage() {
                                             <h5 className="font-bold text-[1.1rem] mb-2.5 text-primary">Phone</h5>
                                             <p className="font-[500] text-base text-gray-300 mb-7">{personalInfo.contact.phone}</p>
                                         </div>
-                                        <div className="">
+                                        <div>
                                             <h5 className="font-bold text-[1.1rem] mb-2.5 text-primary">Facebook</h5>
                                             <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer" className="block font-[500] text-base text-gray-300 mb-7">
                                                 {personalInfo.social.facebook}
@@ -236,14 +224,14 @@ export default function ContactPage() {
                     "Let's talk",
                 ]} innerClassName={'!text-[1.25rem]'} innerClassNameSplit={'!text-[1rem]'} />
             </div>
-            <div className="container-fluid py-10 bg-darkBg">
-                <div className="grid grid-cols-3 gap-[20px]">
-                    <div className="grid grid-cols-2 gap-[20px]">
+            <div className="container-fluid mt-[120px] pb-6">
+                <div className="grid xl:grid-cols-3 gap-[20px]">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
                         <img className="rounded-[20px]" src="./images/contact-2.webp" alt="about-1" />
                         <img className="rounded-[20px]" src="./images/contact-1.webp" alt="about-1" />
                     </div>
-                    <div className="relative w-full h-full bg-[#F6F3FF] rounded-[20px]">
-                        <div className="absolute top-10 right-10 text-black font-bold flex gap-7 text-[16px] font-unbounded">
+                    <div className="relative w-full h-full bg-white rounded-[20px] min-h-[250px] lg:min-h-[280px] xl:min-h-min">
+                        <div className="absolute 2xl:top-10 2xl:right-10 xl:top-6 xl:right-6 top-5 right-5 text-black font-bold flex gap-7 text-[14px] md:text-[14px] lg:[16px] font-unbounded">
                             <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer">
                                 fb.
                             </a>
@@ -254,18 +242,18 @@ export default function ContactPage() {
                                 gh.
                             </a>
                         </div>
-                        <div className="absolute bottom-10 left-10 ">
-                            <p className="text-black font-bold text-[25px] font-unbounded leading-8 mb-3.5">
+                        <div className="absolute 2xl:bottom-10 2xl:left-10 xl:bottom-6 xl:left-6 bottom-5 left-5">
+                            <p className="text-black font-bold lg:text-[19px] xl:text-[17px] 2xl:text-[25px] font-unbounded leading-snug mb-3.5">
                                 Join on My
                                 <br />
                                 Social Circle
                             </p>
-                            <p className="text-black/70 font-medium text-[13px] font-unbounded">
-                                <span className="text-[16px] leading-none">©</span> Built by Thanh Nhan
+                            <p className="text-black/70 font-medium text-[12px] xl:text-[12px] 2xl:text-[13px] font-unbounded">
+                                <span className="text-[12px] xl:text-[12px] 2xl:text-[16px] leading-none">©</span> Built by Thanh Nhan
                             </p>
                         </div>
                     </div>
-                    <div className="grid grid-cols-2 gap-[20px]">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
                         <img className="rounded-[20px]" src="./images/contact-4.webp" alt="about-1" />
                         <img className="rounded-[20px]" src="./images/contact-3.webp" alt="about-1" />
                     </div>

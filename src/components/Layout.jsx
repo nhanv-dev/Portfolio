@@ -30,7 +30,7 @@ const Layout = () => {
 
     return (
         <LenisProvider>
-            <div className="h-full w-full relative text-darkText overflow-hidden pr-[5.25vw]">
+            <div className="h-full w-full relative text-darkText overflow-hidden lg:pr-[6.25vw] xl:pr-[5.25vw]">
                 <motion.div
                     initial={{
                         scale: 0,

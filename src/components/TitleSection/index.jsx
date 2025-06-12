@@ -6,7 +6,7 @@ export default function TitleSection({ title, title2, subTitle, subTitle2, class
 	return (
 		<div className={`text-left ${className}`}>
 			<motion.h2
-				className={`text-6xl lg:text-6xl font-extrabold tracking-wider font-kanit uppercase mb-2 ${titleClassName} text-transparent`}
+				className={`text-4xl md:text-6xl lg:text-6xl font-extrabold tracking-wider font-kanit uppercase mb-2 ${titleClassName} text-transparent`}
 				initial={{ opacity: 0, x: 50 }}
 				whileInView={{ opacity: 1, x: 0 }}
 				viewport={{ once: true, amount: 0.4 }}
@@ -21,11 +21,11 @@ export default function TitleSection({ title, title2, subTitle, subTitle2, class
 					whileInView={{ opacity: 1, x: 0 }}
 					viewport={{ once: true, amount: 0.4 }}
 					transition={{ duration: .8, ease: 'easeOut', delay: 0 }}
-					className={`text-6xl lg:text-6xl font-extrabold tracking-wider font-kanit uppercase ${variant === 'white' ? 'text-lightText' : 'text-darkText'}`}
+					className={`text-4xl md:text-6xl lg:text-6xl font-extrabold tracking-wider font-kanit uppercase ${variant === 'white' ? 'text-lightText' : 'text-darkText'}`}
 				>
 					{title2}
 				</motion.h2>
-				<div className={`flex flex-col leading-tight md:ml-4 ${variant === 'white' ? 'text-lightText' : 'text-darkText'}`}>
+				<div className={`hidden md:flex flex-col leading-tight md:ml-4 ${variant === 'white' ? 'text-lightText' : 'text-darkText'}`}>
 					<motion.span
 						className="text-[1.1rem] font-extrabold tracking-wide uppercase font-kanit mb-1.5"
 						initial={{ opacity: 0, x: -50 }}

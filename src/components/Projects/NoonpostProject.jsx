@@ -9,7 +9,7 @@ const NoonpostProject = ({ item, index }) => {
 			index={index}
 			tag={"2022"}
 		>
-			<div className="mt-6 flex gap-10">
+			<div className="mt-6 flex flex-wrap gap-10">
 				<div className="flex-1">
 					<p className="text-[1rem] text-gray-400 font-medium leading-7">
 						{item.card.description}
@@ -20,7 +20,7 @@ const NoonpostProject = ({ item, index }) => {
 						))}
 					</div>
 				</div>
-				<div className="min-w-[250px] text-gray-300 text-[0.95rem]">
+				<div className="min-w-full lg:min-w-[250px] text-gray-300 text-[0.95rem]">
 					<p className="mb-2">
 						<span className="font-bold text-gray-400 inline-block w-[65px]">Roles:</span>
 						<span className="font-semibold">Web Developer</span>

@@ -44,7 +44,7 @@ function ContactBanner() {
     return (
         <section id="contact" className='py-[120px] border-t border-gray-900 bg-darkBg relative'>
             <div className='container relative z-10'>
-                <div className="flex items-end justify-between gap-14">
+                <div className="flex flex-col md:flex-row items-start lg:items-end justify-between gap-6 lg:gap-14">
                     <TitleSection
                         title={"Ready to"}
                         title2={"Connect"}
@@ -68,8 +68,8 @@ function ContactBanner() {
                         </Link>
                     </motion.div>
                 </div>
-                <div className='flex items-center gap-14'>
-                    <div className='min-w-[450px]'>
+                <div className='flex flex-col lg:flex-row items-center lg:gap-14 mt-10 lg:mt-0'>
+                    <div className='w-full lg:min-w-[450px]'>
                         <p className="font-semibold text-[0.9rem] leading-relaxed tracking-wider uppercase font-kanit">
                             DON'T BE SHY. SAY HI TO UNLOCK CREATIVITY AND INNOVATION FOR YOUR SEAMLESS PROJECT
                         </p>

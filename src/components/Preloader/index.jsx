@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 
-const ProgressBar = ({ totalDuration }) => {
+const ProgressBar = memo(({ totalDuration }) => {
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
@@ -26,9 +26,9 @@ const ProgressBar = ({ totalDuration }) => {
     }, [totalDuration]);
 
     return (
-        <div className="text-center text-lg font-bold">{Math.round(progress || 0)}%</div>
+        <div className="flex-1 text-center text-lg font-bold">{Math.round(progress || 0)}%</div>
     );
-};
+})
 
 const Preloader = ({ texts, onLoaded }) => {
     const [textIndex, setTextIndex] = useState(0);
@@ -73,7 +73,7 @@ const Preloader = ({ texts, onLoaded }) => {
             {texts.map((text, index) => {
                 if (index <= textIndex) {
                     return (
-                        <div key={index} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                        <div key={index} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
                             <motion.h1
                                 key={index}
                                 initial={{
@@ -89,7 +89,7 @@ const Preloader = ({ texts, onLoaded }) => {
                                     duration: index === textIndex ? 1.5 : 0.6,
                                     ease: 'easeOut'
                                 }}
-                                className="text-4xl font-bold font-unbounded"
+                                className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold font-unbounded text-center"
                             >
                                 {text}
                             </motion.h1>
@@ -99,14 +99,14 @@ const Preloader = ({ texts, onLoaded }) => {
                 return null;
             })}
             <div className="fixed bottom-10 left-10 right-10 flex items-end justify-between">
-                <div className="flex items-center min-w-max w-[200px] justify-start">
+                <div className="hidden md:flex items-center min-w-max w-[200px] justify-start">
                     <h5 className="font-extrabold text-lg tracking-wide text-darkText">
                         <span>Port</span>
                         <span className="text-primary ml-1">folio.</span>
                     </h5>
                 </div>
                 <ProgressBar totalDuration={texts.length * 1800} />
-                <div className="font-semibold text-md tracking-[0.2rem] text-darkText uppercase w-[200px] text-right">Loading... </div>
+                <div className="hidden md:block font-semibold text-md tracking-[0.2rem] text-darkText uppercase w-[200px] text-right">Loading... </div>
             </div>
 
         </motion.div>

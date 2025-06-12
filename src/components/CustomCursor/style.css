@@ -43,3 +43,15 @@
     mix-blend-mode: exclusion;
     z-index: 9999;
 }
+
+.cursor-inner,
+.cursor-outer {
+    display: hidden;
+}
+
+@media (min-width: 1024px) {
+    .cursor-inner,
+    .cursor-outer {
+        display: block;
+    }
+}

@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { personalInfo } from '../../data';
 import { useLoading } from '../LoadingProvider';
 import { AnimatePresence, motion } from 'framer-motion';
+import { IoMdClose } from "react-icons/io";
 
 const listRouting = ["/home", "/about", "/projects", "/contact"];
 
@@ -28,6 +29,7 @@ const colors = {
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeOverlay, setActiveOverlay] = useState(null);
     const location = useLocation();
     const { handleNavigationWithAnimation } = useLoading();
@@ -50,9 +52,59 @@ export default function Header() {
 
     return (
         <header>
-            <div className={`fixed top-0 bottom-0 right-0 w-[5.25vw] h-screen z-[1000] border-l ${colors[color].border} ${colors[color].bg}`}>
-                <div className="h-full flex items-center gap-10 flex-col justify-between pb-10 pt-10">
-                    <nav className="flex flex-col items-center w-full">
+            <div className="lg:hidden fixed top-4 right-4 z-[1001]">
+                <button
+                    onClick={() => setIsMobileMenuOpen(true)}
+                    className={`w-10 h-10 rounded-full border ${colors[color].border} ${colors[color].bg} ${colors[color].text} flex items-center justify-center`}
+                >
+                    <RiAppsLine className="text-xl" />
+                </button>
+            </div>
+
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        initial={{ x: '-100%' }}
+                        animate={{ x: 0 }}
+                        exit={{ x: '-100%' }}
+                        transition={{ duration: 0.4, ease: 'easeOut' }}
+                        className={`lg:hidden fixed inset-0 z-[1002] bg-white dark:bg-black px-6 pt-4 pb-10 flex flex-col gap-6`}
+                    >
+                        <button
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className={`self-end w-10 h-10 rounded-full border ${colors[color].border} ${colors[color].bg} ${colors[color].text} flex items-center justify-center`}
+                        >
+                            <IoMdClose className='text-xl' />
+                        </button>
+
+                        <nav className="flex flex-col justify-center items-center space-y-6 mt-6">
+                            {listRouting.map((route, index) => {
+                                const isActive = route === '/projects'
+                                    ? location.pathname.startsWith('/projects')
+                                    : location.pathname === route;
+
+                                return (
+                                    <button
+                                        key={index}
+                                        onClick={() => {
+                                            setIsMobileMenuOpen(false);
+                                            handleNavigationWithAnimation(route, navigate);
+                                        }}
+                                        className={`text-left text-2xl font-bold tracking-wide uppercase ${isActive ? 'text-primary' : 'text-gray-600 dark:text-gray-300'
+                                            }`}
+                                    >
+                                        {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
+                                    </button>
+                                );
+                            })}
+                        </nav>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            <div className={`hidden lg:block fixed top-0 right-0 md:left-auto left-0 lg:w-[6.25vw] xl:w-[5.25vw] lg:h-screen z-[1000] border-l ${colors[color].border} ${colors[color].bg}`}>
+                <div className="h-full flex items-center gap-10 flex-col justify-between pb-10 pt-10 py-5">
+                    <nav className="flex md:flex-col items-center w-full">
                         {listRouting.map((route, index) => {
                             const isActive = route === '/projects'
                                 ? location.pathname.startsWith('/projects')
@@ -72,23 +124,18 @@ export default function Header() {
                                     className={`text-center transition-colors relative z-[99999] group w-full hover:cursor-none ${isActive ? colors[color].text : colors[color].text2}`}
                                 >
                                     <motion.span
-                                        style={{
-                                            writingMode: 'vertical-lr',
-                                            textOrientation: 'mixed',
-                                        }}
                                         animate={{
                                             transform: activeOverlay === index ? 'rotate(180deg) translateX(-10px)' : 'rotate(180deg) translateX(0px)',
                                             opacity: activeOverlay === index ? 0 : 1,
                                         }}
                                         transition={{ duration: 0.5 }}
-                                        className="py-4 relative transition-all duration-500 font-bold tracking-wider text-[0.925rem] font-unbounded"
+                                        className="vertical-label py-4 relative transition-all duration-500 font-bold tracking-wider text-[0.925rem] font-unbounded"
                                     >
                                         {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
                                     </motion.span>
                                     <span className={`absolute left-full top-1/2 -translate-y-1/2 text-[3.5rem] uppercase font-extrabold group-hover:-translate-x-full transition-all duration-700 z-[2] pr-2 ${colors[color].text}`}>
                                         {route.slice(1).charAt(0).toUpperCase() + route.slice(2)}
                                     </span>
-                                    <span></span>
                                 </Link>
                             );
                         })}
@@ -109,14 +156,14 @@ export default function Header() {
                     </AnimatePresence>
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className={`relative flex justify-center items-center group !outline-none w-[50px] h-[50px] border-2 rounded-full ${colors[color].textIcon} ${colors[color].border2}`}
+                        className={`hidden lg:flex relative justify-center items-center group !outline-none lg:w-[46px] lg:h-[46px] xl:w-[50px] xl:h-[50px] border-2 rounded-full ${colors[color].textIcon} ${colors[color].border2}`}
                     >
                         <RiAppsLine className="text-2xl" />
                     </button>
                 </div>
             </div>
 
-            <div className={`fixed top-0 right-[5vw] bottom-0 w-[400px] bg-black border-l border-white/10 z-[999] transition-all duration-500 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+            <div className={`hidden md:block fixed top-0 right-0 pr-[5vw] bottom-0 w-[400px] bg-black border-l border-white/10 z-[999] transition-all duration-500 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                 <div className="h-full overflow-hidden">
                     <div className="px-8 py-10 h-full">
                         <div className="h-full flex flex-col gap-8">

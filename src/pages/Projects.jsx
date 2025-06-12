@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { ImLocation2 } from "react-icons/im";
 import { MdOutlineNavigateBefore, MdOutlineNavigateNext } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
@@ -64,7 +64,7 @@ export default function ProjectsPage() {
     );
 }
 
-function HeroSlider({ handleNavigation }) {
+const HeroSlider = memo(({ handleNavigation }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const memoizedProjects = useMemo(() => projects, []);
 
@@ -94,8 +94,8 @@ function HeroSlider({ handleNavigation }) {
     }, [activeIndex, nextSlide]);
 
     return (
-        <section className="relative w-full h-screen max-h-hero overflow-hidden text-white flex">
-            <div className="relative h-full lg:w-[75vw] overflow-hidden">
+        <section className="hidden lg:flex relative w-full h-screen max-h-hero overflow-hidden text-white">
+            <div className="relative h-full lg:w-[100vw] 2xl:w-[75vw] overflow-hidden">
                 {memoizedProjects.map((project, index) => (
                     <motion.div
                         key={project.card.image}
@@ -125,8 +125,8 @@ function HeroSlider({ handleNavigation }) {
                 ))}
 
                 <div className="absolute bottom-0 left-0 right-0 transform z-30 bg-black flex h-[200px] pl-10">
-                    <div className="lg:ml-[600px] w-full flex items-start gap-10 py-8 pl-5">
-                        <div className="flex-1 relative">
+                    <div className="flex ml-[600px] w-full items-start gap-10 py-8 pl-5">
+                        <div className="hidden xl:block flex-1 relative">
                             <p className="flex items-center justify-start gap-2 mb-4">
                                 <ImLocation2 />
                                 <span className="font-bold">Turn code into innovation</span>
@@ -143,7 +143,7 @@ function HeroSlider({ handleNavigation }) {
                                 </motion.p>
                             ))}
                         </div>
-                        <div className="max-w-max">
+                        <div className="max-w-max xl:pr-4 2xl:pr-0">
                             <Link to={memoizedProjects[activeIndex].slug} onClick={(e) => handleNavigation(e, memoizedProjects[activeIndex].slug)} className="font-semibold py-2 px-5 border-2 border-white">
                                 Explore more
                             </Link>
@@ -241,9 +241,9 @@ function HeroSlider({ handleNavigation }) {
             ))}
         </section>
     );
-}
+})
 
-function Projects({ handleNavigation }) {
+const Projects = memo(({ handleNavigation }) => {
     const memoizedProjects = useMemo(() => projects, []);
 
     return (
@@ -255,11 +255,11 @@ function Projects({ handleNavigation }) {
                 subTitle={'creative'}
                 subTitle2={'work'}
             ></TitleSection>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3">
                 {memoizedProjects.map((project, index) => (
                     <Link to={project.slug} onClick={(e) => handleNavigation(e, project.slug)} key={index} className="group relative">
                         <div
-                            className="w-full h-[540px] bg-center bg-cover"
+                            className="w-full h-[350px] md:h-[380px] lg:h-[540px] bg-center bg-cover"
                             style={{ backgroundImage: `url(${project.card.image})` }}
                         ></div>
                         <div className="z-10 absolute bottom-0 left-0 top-0 right-0 bg-black/70 w-full group-hover:backdrop-blur-md transition-all duration-300 ease-out"></div>
@@ -268,10 +268,10 @@ function Projects({ handleNavigation }) {
                                 {(index + 1).toString().padStart(2, '0')}
                             </h6>
                             <div className="flex-1">
-                                <h6 className="font-bold text-[1.3rem] leading-tight mb-2.5 text-shadow-lg">
+                                <h6 className="font-bold text-[1rem] md:text-[1.1rem] lg:text-[1.3rem] leading-tight mb-2.5 text-shadow-lg">
                                     {project.card.title}
                                 </h6>
-                                <h6 className="font-bold text-[1.3rem] leading-tight text-shadow-lg">
+                                <h6 className="font-bold text-[1rem] md:text-[1.1rem] lg:text-[1.3rem] leading-tight text-shadow-lg">
                                     {project.card.subTitle}
                                 </h6>
                             </div>
@@ -286,4 +286,4 @@ function Projects({ handleNavigation }) {
             </div>
         </section>
     )
-}
+})

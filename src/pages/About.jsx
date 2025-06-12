@@ -28,7 +28,6 @@ export default function AboutPage() {
             <ExploreProjectsComponent />
 
             <ContactBanner />
-
         </PageWithPreload>
     );
 }
@@ -54,9 +53,9 @@ const HeroComponent = memo(() => {
             <div className="bg-lightBg text-lightText relative">
                 <div className="container-wide relative z-[1]">
                     <div className="pt-20">
-                        <div className={`text-center w-full text-6xl font-extrabold tracking-wider font-unbounded uppercase`}>
+                        <div className={`text-center w-full text-[1.25rem] md:text-5xl lg:text-[4rem] font-extrabold tracking-wider font-unbounded uppercase`}>
                             <motion.h2
-                                className={`mb-6 text-stroke-unbounded-black font-unbounded text-lightBg`}
+                                className={`mb-3 md:mb-4 lg:mb-6 text-stroke-unbounded-black leading-snug text-lightBg`}
                                 initial={{ opacity: 0, x: -50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true, amount: 0.4 }}
@@ -70,33 +69,33 @@ const HeroComponent = memo(() => {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true, amount: 0.4 }}
                                 transition={{ duration: 1.2, ease: 'easeOut', delay: 0.4 }}
-                                className={`text-lightText`}
+                                className={`text-lightText leading-snug`}
                             >
                                 Full-stack Web Developer
                             </motion.h2>
                         </div>
                     </div>
-                    <div className="h-[500px] w-full bg-cover bg-top rounded-[25px] relative mt-[140px]"
+                    <div className="h-[200px] md:h-[400px] lg:h-[500px] w-full bg-cover bg-top rounded-[25px] relative mt-[50px] md:mt-[75px] lg:mt-[140px]"
                         style={{ backgroundImage: 'url(./images/home2-welcome.webp)' }}
                     >
-                        <div className="absolute -top-6 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                            <p className="absolute right-full top-12 text-[1.35rem] min-w-max font-unbounded font-bold pr-14">Since 2019</p>
-                            <button type="button" onClick={scrollContent} className=" rounded-full flex items-center justify-center bg-black text-white w-[170px] h-[170px] hover:rotate-45 transition-all duration-300">
-                                <FiArrowDownRight className="text-[3.5rem]" />
+                        <div className="absolute -top-2 lg:-top-6 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                            <p className="hidden lg:block absolute right-full top-12 text-[1.35rem] min-w-max font-unbounded font-bold pr-14">Since 2019</p>
+                            <button type="button" onClick={scrollContent} className=" rounded-full flex items-center justify-center bg-black text-white w-[60px] h-[60px] md:w-[110px] md:h-[110px] lg:w-[160px] lg:h-[160px] xl:w-[170px] xl:h-[170px] hover:rotate-45 transition-all duration-300">
+                                <FiArrowDownRight className="text-[1.5rem] md:text-[2.5rem] lg:text-[3.5rem]" />
                             </button>
-                            <p className="absolute left-full top-12 text-[1.35rem] min-w-max font-unbounded font-bold pl-14">Craft with clarity</p>
+                            <p className="hidden lg:block absolute left-full top-12 text-[1.35rem] min-w-max font-unbounded font-bold pl-14">Craft with clarity</p>
                         </div>
                     </div>
                 </div>
-                <div className="absolute bg-[#eee] left-0 right-0 bottom-0 h-[200px]"></div>
+                <div className="absolute bg-[#eee] left-0 right-0 bottom-0 h-[60px] md:h-[100px] lg:h-[200px]"></div>
             </div>
-            <div className="bg-[#eee] text-black pt-[120px]" id="content-about">
-                <div className="container-fluid">
-                    <div className="grid grid-cols-4 gap-16">
+            <div className="bg-[#eee] text-black pt-14 lg:pt-[120px]" id="content-about">
+                <div className="container-fluid pb-20 lg:pb-0">
+                    <div className="grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-8 md:gap-12 lg:gap-16">
                         <div>
-                            <div className="relative flex items-end gap-5 mb-8">
+                            <div className="relative flex items-end gap-5 mb-4 md:mb-5 lg:mb-8">
                                 <motion.h2
-                                    className={`text-[45px] font-bold text-stroke-unbounded-black font-unbounded text-[#eee] leading-none`}
+                                    className={`text-[30px] md:text-[38px] lg:text-[45px] font-bold text-stroke-unbounded-black font-unbounded text-[#eee] leading-none`}
                                     initial={{ opacity: 0, x: -50 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true, amount: 0.4 }}
@@ -105,22 +104,18 @@ const HeroComponent = memo(() => {
                                 >
                                     01.
                                 </motion.h2>
-                                <p className="relative z-[1] font-unbounded font-bold text-[24px] capitalize">
+                                <p className="relative z-[1] font-unbounded font-bold text-[16px] md:text-[20px] lg:text-[24px] capitalize">
                                     About me
                                 </p>
                             </div>
-                            <p className="text-[16px] font-medium leading-[1.75] mb-6">
+                            <p className="text-[14px] lg:text-[16px] font-medium leading-snug md:leading-[1.75]">
                                 Full-stack web developer passionate about building clean, scalable, and user-friendly applications.
                             </p>
-                            {/* <button type="button" className="flex items-center gap-2 font-medium uppercase font-unbounded text-[12px] text-black py-1">
-                                Download CV
-                                <LuDownload className="text-[20px]" />
-                            </button> */}
                         </div>
                         <div>
-                            <div className="relative flex items-end gap-5 mb-8">
+                            <div className="relative flex items-end gap-5 mb-4 md:mb-5 lg:mb-8">
                                 <motion.h2
-                                    className={`text-[45px] font-bold text-stroke-unbounded-black font-unbounded text-[#eee] leading-none`}
+                                    className={`text-[30px] md:text-[38px] lg:text-[45px] font-bold text-stroke-unbounded-black font-unbounded text-[#eee] leading-none`}
                                     initial={{ opacity: 0, x: -50 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true, amount: 0.4 }}
@@ -129,18 +124,18 @@ const HeroComponent = memo(() => {
                                 >
                                     02.
                                 </motion.h2>
-                                <p className="relative z-[1] font-unbounded font-bold text-[24px] capitalize">
+                                <p className="relative z-[1] font-unbounded font-bold text-[16px] md:text-[20px] lg:text-[24px] capitalize">
                                     What I Do
                                 </p>
                             </div>
-                            <p className="text-[16px] font-medium leading-[1.75]">
+                            <p className="text-[14px] lg:text-[16px] font-medium leading-snug md:leading-[1.75]">
                                 I specialize in building full-stack web applications using .NET, Angular, React, and SQL. From API architecture to frontend UI, I turn ideas into functional software.
                             </p>
                         </div>
                         <div>
-                            <div className="relative flex items-end gap-5 mb-8">
+                            <div className="relative flex items-end gap-5 mb-4 md:mb-5 lg:mb-8">
                                 <motion.h2
-                                    className={`text-[45px] font-bold text-stroke-unbounded-black font-unbounded text-[#eee] leading-none`}
+                                    className={`text-[30px] md:text-[38px] lg:text-[45px] font-bold text-stroke-unbounded-black font-unbounded text-[#eee] leading-none`}
                                     initial={{ opacity: 0, x: -50 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true, amount: 0.4 }}
@@ -149,11 +144,11 @@ const HeroComponent = memo(() => {
                                 >
                                     03.
                                 </motion.h2>
-                                <p className="relative z-[1] font-unbounded font-bold text-[24px] capitalize">
+                                <p className="relative z-[1] font-unbounded font-bold text-[16px] md:text-[20px] lg:text-[24px] capitalize">
                                     My Work
                                 </p>
                             </div>
-                            <p className="text-[16px] font-medium leading-[1.75] mb-6">
+                            <p className="text-[14px] lg:text-[16px] font-medium leading-snug md:leading-[1.75] mb-6">
                                 I've developed admin dashboards, SaaS platforms, and internal tools that serve thousands of users. You can find my projects on GitHub.
                             </p>
                             <Link
@@ -168,9 +163,9 @@ const HeroComponent = memo(() => {
                             </Link>
                         </div>
                         <div>
-                            <div className="relative flex items-end gap-5 mb-8">
+                            <div className="relative flex items-end gap-5 mb-4 md:mb-5 lg:mb-8">
                                 <motion.h2
-                                    className={`text-[45px] font-bold text-stroke-unbounded-black font-unbounded text-[#eee] leading-none`}
+                                    className={`text-[30px] md:text-[38px] lg:text-[45px] font-bold text-stroke-unbounded-black font-unbounded text-[#eee] leading-none`}
                                     initial={{ opacity: 0, x: -50 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true, amount: 0.4 }}
@@ -179,24 +174,24 @@ const HeroComponent = memo(() => {
                                 >
                                     04.
                                 </motion.h2>
-                                <p className="relative z-[1] font-unbounded font-bold text-[24px] capitalize">
+                                <p className="relative z-[1] font-unbounded font-bold text-[16px] md:text-[20px] lg:text-[24px] capitalize">
                                     My Education
                                 </p>
                             </div>
-                            <p className="text-[16px] font-medium leading-[1.75]">
+                            <p className="text-[14px] lg:text-[16px] font-medium leading-snug md:leading-[1.75]">
                                 B.S. in Software Engineering, Nong Lam University - HCMC, Vietnam (Class of 2023).
                             </p>
                         </div>
                     </div>
                 </div>
                 <div className="container-fluid mt-[120px] pb-6">
-                    <div className="grid grid-cols-3 gap-[20px]">
-                        <div className="grid grid-cols-2 gap-[20px]">
+                    <div className="grid xl:grid-cols-3 gap-[20px]">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
                             <img className="rounded-[20px]" src="./images/contact-2.webp" alt="about-1" />
                             <img className="rounded-[20px]" src="./images/contact-1.webp" alt="about-1" />
                         </div>
-                        <div className="relative w-full h-full bg-black rounded-[20px]">
-                            <div className="absolute top-10 right-10 text-white font-bold flex gap-7 text-[16px] font-unbounded">
+                        <div className="relative w-full h-full bg-black rounded-[20px] min-h-[250px] lg:min-h-[280px] xl:min-h-min">
+                            <div className="absolute 2xl:top-10 2xl:right-10 xl:top-6 xl:right-6 top-5 right-5 text-white font-bold flex gap-7 text-[14px] md:text-[14px] lg:[16px] font-unbounded">
                                 <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer">
                                     fb.
                                 </a>
@@ -207,18 +202,18 @@ const HeroComponent = memo(() => {
                                     gh.
                                 </a>
                             </div>
-                            <div className="absolute bottom-10 left-10 ">
-                                <p className="text-white font-bold text-[25px] font-unbounded leading-8 mb-3.5">
+                            <div className="absolute 2xl:bottom-10 2xl:left-10 xl:bottom-6 xl:left-6 bottom-5 left-5">
+                                <p className="text-white font-bold lg:text-[19px] xl:text-[17px] 2xl:text-[25px] font-unbounded leading-snug mb-3.5">
                                     Join on My
                                     <br />
                                     Social Circle
                                 </p>
-                                <p className="text-[#ccc] font-medium text-[13px] font-unbounded">
-                                    <span className="text-[16px] leading-none">©</span> Built by Thanh Nhan
+                                <p className="text-[#ccc] font-medium text-[12px] xl:text-[12px] 2xl:text-[13px] font-unbounded">
+                                    <span className="text-[12px] xl:text-[12px] 2xl:text-[16px] leading-none">©</span> Built by Thanh Nhan
                                 </p>
                             </div>
                         </div>
-                        <div className="grid grid-cols-2 gap-[20px]">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
                             <img className="rounded-[20px]" src="./images/contact-4.webp" alt="about-1" />
                             <img className="rounded-[20px]" src="./images/contact-3.webp" alt="about-1" />
                         </div>
@@ -236,9 +231,17 @@ const SkillsSection = memo(() => {
     return (
         <section className="py-[120px] bg-darkBg text-darkText border-t border-gray-900">
             <div className="container">
-                <div className="grid grid-cols-12 gap-20">
+                <TitleSection
+                    className={'mb-6 md:mb-12'}
+                    title={'Technical'}
+                    title2={'Stack'}
+                    subTitle={'Full-Stack'}
+                    subTitle2={'Capabilities'}
+                    titleClassName='!text-darkBg'
+                ></TitleSection>
+                <div className="grid grid-cols-12 gap-0 lg:gap-20">
                     {/* Left Column - Categories */}
-                    <div className="col-span-4 flex flex-col">
+                    <div className="col-span-12 lg:col-span-5 xl:col-span-4 flex flex-col">
                         {skills.map((category, index) => (
                             <div
                                 key={index}
@@ -253,7 +256,7 @@ const SkillsSection = memo(() => {
                                     : 'bg-gray-950'
                                     }`}></div>
                                 <div className="flex items-center justify-between gap-3">
-                                    <h3 className="text-[21px] font-bold">
+                                    <h3 className="text-[16px] md:text-[21px] font-bold">
                                         {category.title}
                                     </h3>
                                     <motion.div
@@ -268,7 +271,7 @@ const SkillsSection = memo(() => {
                                         <MdArrowForward className="text-base" />
                                     </motion.div>
                                 </div>
-                                <p className="text-[16px] leading-relaxed font-medium text-gray-500 mt-2">
+                                <p className="hidden md:block text-[16px] leading-relaxed font-medium text-gray-500 mt-2">
                                     {category.description}
                                 </p>
                             </div>
@@ -276,7 +279,7 @@ const SkillsSection = memo(() => {
                     </div>
 
                     {/* Right Column - Technologies */}
-                    <div className="col-span-8 relative min-h-[400px]">
+                    <div className="col-span-12 lg:col-span-7 xl:col-span-8 relative min-h-[400px] mt-10 lg:mt-0">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeCategory}
@@ -285,10 +288,10 @@ const SkillsSection = memo(() => {
                                 exit={{ opacity: 0, y: -20 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <h4 className="text-[15px] font-bold mb-6">
+                                <h4 className="text-[12px] md:text-[15px] font-bold mb-6">
                                     {activeCategoryData.title}: {activeCategoryData.description}
                                 </h4>
-                                <div className="grid grid-cols-3 gap-5 relative">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-5 relative">
                                     {activeCategoryData?.technologies.map((tech, techIndex) => (
                                         <div
                                             key={techIndex}
@@ -341,7 +344,7 @@ const ExploreProjectsComponent = memo(() => {
     const navigate = useNavigate();
 
     return (
-        <section className='py-[120px] bg-darkBg border-t border-gray-900'>
+        <section className='hidden lg:block py-[120px] bg-darkBg border-t border-gray-900'>
             <div className="container">
                 <TitleSection
                     className={'mb-12'}
@@ -351,54 +354,54 @@ const ExploreProjectsComponent = memo(() => {
                     subTitle2={'projects'}
                 ></TitleSection>
                 <div className="flex gap-7">
-                    <div className="flex-1 h-[300px]">
+                    <div className="flex-1 lg:h-[200px] xl:h-[300px]">
                         <motion.div
-                            className="p-8 bg-[#1a1a1a] h-[300px] rounded-xl"
+                            className="p-5 xl:p-8 bg-[#1a1a1a] h-full rounded-xl"
                             {...slideDownWheelAnimation}
                             transition={{ duration: .8, ease: 'easeOut' }}
                         >
                             <div className='relative w-full h-full'>
                                 <div
-                                    className='absolute top-0 right-0 lg:text-[45px] text-stroke-unbounded font-extrabold font-unbounded text-[#1a1a1a]'
+                                    className='absolute top-0 right-0 lg:text-[30px] xl:text-[45px] text-stroke-unbounded font-extrabold font-unbounded text-[#1a1a1a]'
                                     style={{ WebkitTextStrokeWidth: '3px' }}
                                 >
                                     01
                                 </div>
-                                <div className="absolute bottom-0 left-0 font-bold text-[20px] font-unbounded leading-snug">
+                                <div className="absolute bottom-0 left-0 font-bold lg:text-[16px] xl:text-[20px] font-unbounded leading-snug">
                                     Creative <br /> Design
                                 </div>
                             </div>
                         </motion.div>
                     </div>
-                    <div className="flex-1 h-[300px]">
+                    <div className="flex-1 lg:h-[200px] xl:h-[300px]">
                         <motion.div
-                            className="p-8 bg-[#1a1a1a] h-[300px] rounded-xl"
+                            className="p-5 xl:p-8 bg-[#1a1a1a] h-full rounded-xl"
                             {...slideDownWheelAnimation}
                             transition={{ duration: .8, ease: 'easeOut' }}
                         >
                             <div className='relative w-full h-full'>
                                 <div
-                                    className='absolute top-0 right-0 lg:text-[45px] text-stroke-unbounded font-extrabold font-unbounded text-[#1a1a1a]'
+                                    className='absolute top-0 right-0 lg:text-[30px] xl:text-[45px] text-stroke-unbounded font-extrabold font-unbounded text-[#1a1a1a]'
                                     style={{ WebkitTextStrokeWidth: '3px' }}
                                 >
                                     02
                                 </div>
-                                <div className="absolute bottom-0 left-0 font-bold text-[20px] font-unbounded leading-snug">
+                                <div className="absolute bottom-0 left-0 font-bold lg:text-[16px] xl:text-[20px] font-unbounded leading-snug">
                                     System <br /> Scalability
                                 </div>
                             </div>
                         </motion.div>
                     </div>
-                    <div className="flex-1 relative h-[300px]">
-                        <div className='relative top-[-70%] bg-[#1a1a1a] h-[300px] p-8 rounded-xl'>
+                    <div className="flex-1 lg:h-[200px] xl:h-[300px] relative">
+                        <div className='relative top-[-70%] bg-[#1a1a1a] h-full lg:p-5 xl:p-8 rounded-xl'>
                             <div className='relative w-full h-full'>
                                 <div
-                                    className='absolute top-0 right-0 lg:text-[45px] text-stroke-unbounded font-extrabold font-unbounded text-[#1a1a1a]'
+                                    className='absolute top-0 right-0 lg:text-[30px] xl:text-[45px] text-stroke-unbounded font-extrabold font-unbounded text-[#1a1a1a]'
                                     style={{ WebkitTextStrokeWidth: '3px' }}
                                 >
                                     03
                                 </div>
-                                <div className="absolute bottom-0 left-0 font-bold text-[20px] font-unbounded leading-snug">
+                                <div className="absolute bottom-0 left-0 font-bold lg:text-[16px] xl:text-[20px] font-unbounded leading-snug">
                                     Tech <br /> Innovation
                                 </div>
                             </div>
@@ -419,25 +422,25 @@ const ExploreProjectsComponent = memo(() => {
                                     e.preventDefault();
                                     handleNavigationWithAnimation('/projects', navigate);
                                 }}
-                                className='hover:bg-black hover:text-white transition-all duration-700 font-unbounded w-[150px] h-[150px] flex items-center justify-center border-[3px] border-white rounded-full font-medium uppercase text-[17px]'>
+                                className='hover:bg-black hover:text-white transition-all duration-700 font-unbounded w-[120px] h-[120px] xl:w-[150px] xl:h-[150px] flex items-center justify-center border-[3px] border-white rounded-full font-medium uppercase lg:text-[15px] xl:text-[17px]'>
                                 Let's <br />start
                             </Link>
                         </motion.div>
                     </div>
-                    <div className="flex-1 h-[300px]">
+                    <div className="flex-1 lg:h-[200px] xl:h-[300px]">
                         <motion.div
-                            className="p-8 bg-[#1a1a1a] h-[300px] rounded-xl"
+                            className="p-5 xl:p-8 bg-[#1a1a1a] h-full rounded-xl"
                             {...slideDownWheelAnimation}
                             transition={{ duration: .8, ease: 'easeOut' }}
                         >
                             <div className='relative w-full h-full'>
                                 <div
-                                    className='absolute top-0 right-0 lg:text-[45px] text-stroke-unbounded font-extrabold font-unbounded text-[#1a1a1a]'
+                                    className='absolute top-0 right-0 lg:text-[30px] xl:text-[45px] text-stroke-unbounded font-extrabold font-unbounded text-[#1a1a1a]'
                                     style={{ WebkitTextStrokeWidth: '3px' }}
                                 >
                                     04
                                 </div>
-                                <div className="absolute bottom-0 left-0 font-bold text-[20px] font-unbounded leading-snug">
+                                <div className="absolute bottom-0 left-0 font-bold lg:text-[16px] xl:text-[20px] font-unbounded leading-snug">
                                     Optimal <br /> Performance
                                 </div>
                             </div>
@@ -462,7 +465,7 @@ const ResumeComponent = memo(() => {
             <div className="container">
                 {/* Header */}
                 <TitleSection
-                    className={'mb-12'}
+                    className={'mb-6 md:mb-12'}
                     title={'Build'}
                     title2={'History'}
                     subTitle={'Education'}
@@ -471,14 +474,13 @@ const ResumeComponent = memo(() => {
                 ></TitleSection>
 
                 {/* Education & Experience */}
-                <div className="flex flex-wrap gap-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                     {/* Education */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, ease: 'easeOut' }}
                         viewport={{ once: true, amount: 0.4 }}
-                        className="flex-1"
                     >
                         <h4 className="mb-5 font-bold text-[1.5rem] tracking-[1px]">Education</h4>
 
@@ -503,12 +505,12 @@ const ResumeComponent = memo(() => {
                             </div>
                         </motion.div>
 
-                        <div className="h-[330px] w-full flex items-center justify-center overflow-hidden rounded-[20px] relative">
+                        <div className="hidden md:h-[250px] lg:h-[330px] w-full md:flex items-center justify-center overflow-hidden rounded-[20px] relative">
                             <div className="absolute bottom-10 left-10 z-10">
                                 <a href="./pdf/Tran-Thanh-Nhan-TopCV.pdf" download className="block text-white font-bold text-[25px] font-unbounded leading-8 mb-3.5">
                                     Resume
                                     <br />
-                                    <span className="inline-flex justify-center items-center gap-3">Available Here <FiDownload className="text-[25px]"/></span>
+                                    <span className="inline-flex justify-center items-center gap-3">Available Here <FiDownload className="text-[25px]" /></span>
                                 </a>
                                 <p className="text-[#ccc] font-medium text-[13px] font-unbounded">
                                     <span className="text-[16px] leading-none">©</span> Built by Thanh Nhan
@@ -525,7 +527,6 @@ const ResumeComponent = memo(() => {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, ease: 'easeOut' }}
                         viewport={{ once: true, amount: 0.4 }}
-                        className="flex-1"
                     >
                         <h4 className="mb-5 font-bold text-[1.5rem] tracking-[1px]">Experience</h4>
 
