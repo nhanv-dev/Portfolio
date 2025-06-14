@@ -55,7 +55,7 @@ const HeroComponent = memo(() => {
                     <div className="pt-20">
                         <div className={`text-center w-full text-[1.25rem] md:text-5xl lg:text-[4rem] font-extrabold tracking-wider font-unbounded uppercase`}>
                             <motion.h2
-                                className={`mb-3 md:mb-4 lg:mb-6 text-stroke-unbounded-black leading-snug text-lightBg`}
+                                className={`mb-3 md:mb-4 lg:mb-4 text-stroke-unbounded-black leading-none text-lightBg`}
                                 initial={{ opacity: 0, x: -50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true, amount: 0.4 }}
@@ -69,7 +69,7 @@ const HeroComponent = memo(() => {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true, amount: 0.4 }}
                                 transition={{ duration: 1.2, ease: 'easeOut', delay: 0.4 }}
-                                className={`text-lightText leading-snug`}
+                                className={`text-lightText leading-none`}
                             >
                                 Full-stack Web Developer
                             </motion.h2>
@@ -191,7 +191,7 @@ const HeroComponent = memo(() => {
                             <img className="rounded-[20px]" src="./images/contact-1.webp" alt="about-1" />
                         </div>
                         <div className="relative w-full h-full bg-black rounded-[20px] min-h-[250px] lg:min-h-[280px] xl:min-h-min">
-                            <div className="absolute 2xl:top-10 2xl:right-10 xl:top-6 xl:right-6 top-5 right-5 text-white font-bold flex gap-7 text-[14px] md:text-[14px] lg:[16px] font-unbounded">
+                            <div className="absolute 2xl:top-10 2xl:right-10 xl:top-6 xl:right-6 top-5 right-5 text-white font-bold flex gap-7 text-[14px] md:text-[14px] lg:text-[16px] xl:text-[18px] font-unbounded">
                                 <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer">
                                     fb.
                                 </a>
@@ -203,7 +203,7 @@ const HeroComponent = memo(() => {
                                 </a>
                             </div>
                             <div className="absolute 2xl:bottom-10 2xl:left-10 xl:bottom-6 xl:left-6 bottom-5 left-5">
-                                <p className="text-white font-bold lg:text-[19px] xl:text-[17px] 2xl:text-[25px] font-unbounded leading-snug mb-3.5">
+                                <p className="text-white font-bold lg:text-[19px] xl:text-[17px] 2xl:text-[25px] 4xl:text-[30px] font-unbounded leading-snug mb-3.5">
                                     Join on My
                                     <br />
                                     Social Circle

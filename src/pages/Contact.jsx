@@ -77,14 +77,14 @@ export default function ContactPage() {
         <PageWithPreload texts={["Start a Conversation", "I'm Listening"]}>
             <motion.div>
                 <div className="flex gap-10 flex-col">
-                    <div className="relative h-[300px] lg:h-[400px] w-[100%] bg-cover bg-no-repeat" style={{
+                    <div className="relative h-[300px] lg:h-[400px] xl:h-[450px] 2xl:h-[500px] w-[100%] bg-cover bg-no-repeat" style={{
                         backgroundImage: `url(./images/home1-welcome.webp)`,
                         backgroundPosition: 'center',
                         backgroundSize: 'cover'
                     }}>
                         <div className="absolute left-0 top-0 w-full h-full z-10">
                             <div className="container-wide relative h-full">
-                                <div className="absolute top-10 right-4 text-white font-bold flex gap-7 text-[14px] md:text-[14px] lg:[16px] font-unbounded">
+                                <div className="absolute top-10 right-4 text-white font-bold flex gap-7 text-[14px] md:text-[14px] lg:text-[16px] xl:text-[18px] font-unbounded">
                                     <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer">
                                         fb.
                                     </a>
@@ -231,7 +231,7 @@ export default function ContactPage() {
                         <img className="rounded-[20px]" src="./images/contact-1.webp" alt="about-1" />
                     </div>
                     <div className="relative w-full h-full bg-white rounded-[20px] min-h-[250px] lg:min-h-[280px] xl:min-h-min">
-                        <div className="absolute 2xl:top-10 2xl:right-10 xl:top-6 xl:right-6 top-5 right-5 text-black font-bold flex gap-7 text-[14px] md:text-[14px] lg:[16px] font-unbounded">
+                        <div className="absolute 2xl:top-10 2xl:right-10 xl:top-6 xl:right-6 top-5 right-5 text-black font-bold flex gap-7 text-[14px] md:text-[14px] lg:text-[16px] xl:text-[18px] font-unbounded">
                             <a href={personalInfo.link.facebook} target="_blank" rel="noopener noreferrer">
                                 fb.
                             </a>
@@ -243,7 +243,7 @@ export default function ContactPage() {
                             </a>
                         </div>
                         <div className="absolute 2xl:bottom-10 2xl:left-10 xl:bottom-6 xl:left-6 bottom-5 left-5">
-                            <p className="text-black font-bold lg:text-[19px] xl:text-[17px] 2xl:text-[25px] font-unbounded leading-snug mb-3.5">
+                            <p className="text-black font-bold lg:text-[19px] xl:text-[17px] 2xl:text-[25px] 4xl:text-[30px] font-unbounded leading-snug mb-3.5">
                                 Join on My
                                 <br />
                                 Social Circle

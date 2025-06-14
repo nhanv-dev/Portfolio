@@ -121,7 +121,7 @@ export default function Header() {
                                     }}
                                     onMouseEnter={() => setActiveOverlay(index)}
                                     onMouseLeave={() => setActiveOverlay(null)}
-                                    className={`text-center transition-colors relative z-[99999] group w-full hover:cursor-none ${isActive ? colors[color].text : colors[color].text2}`}
+                                    className={`text-center transition-colors relative z-[99999] group w-full hover:cursor-pointer ${isActive ? colors[color].text : colors[color].text2}`}
                                 >
                                     <motion.span
                                         animate={{
